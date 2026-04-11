@@ -21,6 +21,8 @@
   <img src="https://i.postimg.cc/1zRgmHp3/5.webp" width="35" alt="Opera GX"> &nbsp;
   <img src="https://i.postimg.cc/5t9H43wt/6.webp" width="35" alt="Vivaldi"> &nbsp;
   <img src="https://i.postimg.cc/fbHVJ9Kn/7.webp" width="35" alt="Arc">
+
+  <p>...i ostali chromium pretraživači.</p>
 </div>
 
 <br><br>
