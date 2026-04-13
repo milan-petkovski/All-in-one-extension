@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Alat Produktivitas Terbaik"
+  },
+  "extDesc": {
+    "message": "Alat pamungkas yang menyatukan semua fungsi penting dalam satu antarmuka yang cepat, modern, dan gratis."
+  },
+  "markLapDesc": {
+    "message": "Rekam momen pada stopwatch"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Situs web ekstensi resmi"
+  },
+  "settingsTooltip": {
+    "message": "Pengaturan"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Didukung oleh ekstensi All In One"
+  },
+  "playBtn": {
+    "message": "Putar"
+  },
+  "soundTitle": {
+    "message": "Suara"
+  },
+  "resetBtn": {
+    "message": "Atur Ulang"
+  },
+  "colorPickerTitle": {
+    "message": "Pemilih Warna"
+  },
+  "darkModeTitle": {
+    "message": "Mode Gelap"
+  },
+  "rulerTitle": {
+    "message": "Penggaris Halaman"
+  },
+  "copyEnableTitle": {
+    "message": "Aktifkan Salin"
+  },
+  "markerTitle": {
+    "message": "Penanda Halaman"
+  },
+  "techTitle": {
+    "message": "Teknologi Situs"
+  },
+  "cacheTitle": {
+    "message": "Cookie dan Cache"
+  },
+  "fontTitle": {
+    "message": "Pencari Font"
+  },
+  "counterTitle": {
+    "message": "Penghitung Karakter"
+  },
+  "stopwatchTitle": {
+    "message": "Stopwatch"
+  },
+  "notesTitle": {
+    "message": "Catatan Cerdas"
+  },
+  "trackerTitle": {
+    "message": "Pelacak Waktu Web"
+  },
+  "ytDislikeTitle": {
+    "message": "Kembalikan Dislike YouTube"
+  },
+  "cacheModalTitle": {
+    "message": "COOKIE DAN CACHE"
+  },
+  "blockCookiesLabel": {
+    "message": "Blokir cookie secara otomatis"
+  },
+  "clearSiteDataBtn": {
+    "message": "Hapus semua data dari situs ini"
+  },
+  "cancelBtn": {
+    "message": "BATAL"
+  },
+  "counterModalTitle": {
+    "message": "PENGHITUNG KARAKTER"
+  },
+  "counterPlaceholder": {
+    "message": "Tempel teks di sini..."
+  },
+  "charsLabel": {
+    "message": "Karakter"
+  },
+  "wordsLabel": {
+    "message": "Kata"
+  },
+  "stopwatchReady": {
+    "message": "SIAP"
+  },
+  "startBtn": {
+    "message": "MULAI"
+  },
+  "lapBtn": {
+    "message": "PUTARAN"
+  },
+  "stopBtn": {
+    "message": "BERHENTI"
+  },
+  "currentRecordedLabel": {
+    "message": "SAAT INI TEREKAM"
+  },
+  "liveHistoryLabel": {
+    "message": "RIWAYAT LANGSUNG"
+  },
+  "clearAllBtn": {
+    "message": "HAPUS SEMUA"
+  },
+  "confirmClearHistory": {
+    "message": "Apakah Anda yakin ingin menghapus semua riwayat?"
+  },
+  "deleteBtn": {
+    "message": "HAPUS"
+  },
+  "notesModalTitle": {
+    "message": "CATATAN CERDAS"
+  },
+  "clearNotesTooltip": {
+    "message": "Hapus semua catatan"
+  },
+  "notesPlaceholder": {
+    "message": "Tulis catatan di sini..."
+  },
+  "grabTextTooltip": {
+    "message": "Ekstrak teks dari halaman"
+  },
+  "textLabel": {
+    "message": "Teks"
+  },
+  "addUrlTooltip": {
+    "message": "Tambahkan URL saat ini"
+  },
+  "linkLabel": {
+    "message": "Tautan"
+  },
+  "addDateTooltip": {
+    "message": "Tambahkan tanggal hari ini"
+  },
+  "dateLabel": {
+    "message": "Tanggal"
+  },
+  "exportNotesTooltip": {
+    "message": "Ekspor catatan"
+  },
+  "importNotesTooltip": {
+    "message": "Impor catatan"
+  },
+  "savedIndicator": {
+    "message": "Disimpan"
+  },
+  "confirmClearNotes": {
+    "message": "Apakah Anda yakin ingin menghapus semua catatan?"
+  },
+  "trackerModalTitle": {
+    "message": "PELACAK WAKTU WEB"
+  },
+  "exportTooltip": {
+    "message": "Ekspor data"
+  },
+  "importTooltip": {
+    "message": "Impor data"
+  },
+  "trackerModeDay": {
+    "message": "Tampilan harian"
+  },
+  "trackerModeMonth": {
+    "message": "Tampilan bulanan"
+  },
+  "trackerModeAll": {
+    "message": "Semua waktu"
+  },
+  "trackerTodayLabel": {
+    "message": "Hari ini"
+  },
+  "trackerMonthLabel": {
+    "message": "Bulan ini"
+  },
+  "trackerAvgLabel": {
+    "message": "Rata-rata"
+  },
+  "techModalTitle": {
+    "message": "TEKNOLOGI SITUS"
+  },
+  "techLoadingMsg": {
+    "message": "Pemindai sedang menganalisis situs..."
+  },
+  "uiSettings": {
+    "message": "PENGATURAN"
+  },
+  "supportTitle": {
+    "message": "Dukung ekstensi"
+  },
+  "supportDesc": {
+    "message": "All In One adalah alat yang sepenuhnya gratis. Dukungan Anda membantu menjaganya tetap gratis dan memungkinkan pengembangan fitur baru."
+  },
+  "donateBtn": {
+    "message": "Donasi dan dukung"
+  },
+  "websiteBtn": {
+    "message": "Situs web resmi"
+  },
+  "rateBtn": {
+    "message": "Beri peringkat ekstensi"
+  },
+  "versionLabel": {
+    "message": "Versi:"
+  },
+  "privacyLabel": {
+    "message": "Kebijakan Privasi"
+  },
+  "systemPageTitle": {
+    "message": "HALAMAN SISTEM"
+  },
+  "systemPageDesc": {
+    "message": "Alat modifikasi dinonaktifkan"
+  },
+  "radioPlay": {
+    "message": "Putar"
+  },
+  "radioPause": {
+    "message": "Jeda"
+  },
+  "colorPickerPicking": {
+    "message": "Memilih..."
+  },
+  "colorPickerCopied": {
+    "message": "Disalin: "
+  },
+  "cacheNotSupported": {
+    "message": "Tidak didukung"
+  },
+  "cacheClearConfirm": {
+    "message": "Hapus semua data dari situs ini"
+  },
+  "cacheError": {
+    "message": "Kesalahan"
+  },
+  "cacheClearing": {
+    "message": "Menghapus..."
+  },
+  "cacheCleared": {
+    "message": "Dihapus!"
+  },
+  "fontCopied": {
+    "message": "Disalin!"
+  },
+  "fontNotCopied": {
+    "message": "Tidak disalin"
+  },
+  "notesSaved": {
+    "message": "Disimpan"
+  },
+  "notesTooLarge": {
+    "message": "Catatan terlalu besar"
+  },
+  "notesLinkText": {
+    "message": "Tautan"
+  },
+  "trackerToday": {
+    "message": "Hari ini"
+  },
+  "trackerThatDay": {
+    "message": "Hari itu"
+  },
+  "trackerSelectedMonth": {
+    "message": "Bulan yang dipilih"
+  },
+  "trackerTotal": {
+    "message": "Total"
+  },
+  "trackerNoData": {
+    "message": "Tidak ada data untuk periode ini"
+  },
+  "trackerExportEmpty": {
+    "message": "Tidak ada data pelacak untuk diekspor."
+  },
+  "trackerExportTruncated": {
+    "message": "Ekspor dipotong menjadi 10MB untuk menjaga stabilitas pop-up."
+  },
+  "trackerImportEmpty": {
+    "message": "Tidak ada data yang valid untuk diimpor."
+  },
+  "trackerImportSuccess": {
+    "message": "Data berhasil diimpor!"
+  },
+  "trackerImportError": {
+    "message": "Kesalahan saat membaca file."
+  },
+  "swStatusLive": {
+    "message": "SIARAN LANGSUNG BERLANGSUNG"
+  },
+  "swStatusReady": {
+    "message": "SIAP"
+  },
+  "swUndoTitle": {
+    "message": "Hapus momen ini"
+  },
+  "swNoLaps": {
+    "message": "Tidak ada momen yang terekam"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Langsung #"
+  },
+  "swDurationLabel": {
+    "message": "Durasi: "
+  },
+  "swMomentLabel": {
+    "message": "Momen "
+  },
+  "swExportTxtBtn": {
+    "message": "EKSPOR SEBAGAI .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "TOTAL DURASI: "
+  },
+  "swCopyBtn": {
+    "message": "SALIN KE PAPAN KLIP"
+  },
+  "swCopiedBtn": {
+    "message": "✓ DISALIN"
+  },
+  "swNoHistory": {
+    "message": "Tidak ada riwayat langsung"
+  },
+  "techScannerUnavailable": {
+    "message": "Pemindai tidak tersedia di halaman ini."
+  },
+  "techFoundPrefix": {
+    "message": "Ditemukan: "
+  },
+  "techItemsSuffix": {
+    "message": "item"
+  },
+  "techNotFound": {
+    "message": "Tidak ditemukan."
+  },
+  "techScannerFailed": {
+    "message": "Pemindaian gagal di halaman ini."
+  },
+  "markerDrawTooltip": {
+    "message": "Gambar"
+  },
+  "markerLineTooltip": {
+    "message": "Garis"
+  },
+  "markerTextTooltip": {
+    "message": "Teks"
+  },
+  "markerMoveTooltip": {
+    "message": "Pindah"
+  },
+  "markerEraseTooltip": {
+    "message": "Hapus"
+  },
+  "markerClearAllTooltip": {
+    "message": "Hapus semua"
+  },
+  "markerThicknessTooltip": {
+    "message": "Ketebalan"
+  },
+  "markerCloseTooltip": {
+    "message": "Tutup"
+  },
+  "linesLabel": {
+    "message": "Baris"
+  },
+  "clearCounterTooltip": {
+    "message": "Hapus semua"
+  },
+  "confirmClearCounter": {
+    "message": "Apakah Anda yakin ingin menghapus semua?"
+  }
+}

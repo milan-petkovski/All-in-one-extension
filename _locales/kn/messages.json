@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - ಅತ್ಯುತ್ತಮ ಉತ್ಪಾದಕತೆ ಸಾಧನ"
+  },
+  "extDesc": {
+    "message": "ಎಲ್ಲಾ ಅಗತ್ಯ ಕಾರ್ಯಗಳನ್ನು ಒಂದು ವೇಗವಾದ, ಆಧುನಿಕ ಮತ್ತು ಉಚಿತ ಇಂಟರ್ಫೇಸ್‌ನಲ್ಲಿ ಸಂಯೋಜಿಸುವ ಅಂತಿಮ ಸಾಧನ."
+  },
+  "markLapDesc": {
+    "message": "ಸ್ಟಾಪ್‌ವಾಚ್‌ನಲ್ಲಿ ಕ್ಷಣವನ್ನು ದಾಖಲಿಸಿ"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "ವಿಸ್ತರಣೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್"
+  },
+  "settingsTooltip": {
+    "message": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
+  },
+  "radioTitle": {
+    "message": "ರೇಡಿ"
+  },
+  "radioArtist": {
+    "message": "All In One ವಿಸ್ತರಣೆಯಿಂದ ನಡೆಸಲ್ಪಡುತ್ತಿದೆ"
+  },
+  "playBtn": {
+    "message": "ಪ್ಲೇ"
+  },
+  "soundTitle": {
+    "message": "ಧ್ವನಿ"
+  },
+  "resetBtn": {
+    "message": "ರಿಸೆಟ್"
+  },
+  "colorPickerTitle": {
+    "message": "ಕಲರ್ ಪಿಕರ್"
+  },
+  "darkModeTitle": {
+    "message": "ಕತ್ತಲೆ"
+  },
+  "rulerTitle": {
+    "message": "ಪುಟದ ಅಳತೆಗೋಲು"
+  },
+  "copyEnableTitle": {
+    "message": "ನಕಲಿಸಿ"
+  },
+  "markerTitle": {
+    "message": "ಪುಟದ ಮಾರ್ಕರ್"
+  },
+  "techTitle": {
+    "message": "ಸೈಟ್ ತಂತ್ರಜ್ಞಾನ"
+  },
+  "cacheTitle": {
+    "message": "ಕುಕಿಗಳು ಮತ್ತು ಕ್ಯಾಶ್"
+  },
+  "fontTitle": {
+    "message": "ಫಾಂಟ್ ಫೈಂಡರ್"
+  },
+  "counterTitle": {
+    "message": "ಅಕ್ಷರಗಳ ಕೌಂಟರ್"
+  },
+  "stopwatchTitle": {
+    "message": "ಸ್ಟಾಪ್‌ವಾಚ್"
+  },
+  "notesTitle": {
+    "message": "ಸ್ಮಾರ್ಟ್ ಟಿಪ್ಪಣಿಗಳು"
+  },
+  "trackerTitle": {
+    "message": "ವೆಬ್‌ಟೈಮ್ ಟ್ರ್ಯಾಕರ್"
+  },
+  "ytDislikeTitle": {
+    "message": "Return YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "ಕುಕಿಗಳು ಮತ್ತು ಕ್ಯಾಶ್"
+  },
+  "blockCookiesLabel": {
+    "message": "ಕುಕಿಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನಿರ್ಬಂಧಿಸಿ"
+  },
+  "clearSiteDataBtn": {
+    "message": "ಈ ಸೈಟ್‌ನಿಂದ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಅಳಿಸಿ"
+  },
+  "cancelBtn": {
+    "message": "ರದ್ದುಮಾಡಿ"
+  },
+  "counterModalTitle": {
+    "message": "ಅಕ್ಷರಗಳ ಕೌಂಟರ್"
+  },
+  "counterPlaceholder": {
+    "message": "ಪಠ್ಯವನ್ನು ಇಲ್ಲಿ ಅಂಟಿಸಿ..."
+  },
+  "charsLabel": {
+    "message": "ಅಕ್ಷರಗಳು"
+  },
+  "wordsLabel": {
+    "message": "ಪದಗಳು"
+  },
+  "stopwatchReady": {
+    "message": "ಸಿದ್ಧವಾಗಿದೆ"
+  },
+  "startBtn": {
+    "message": "ಪ್ರಾರಂಭಿಸಿ"
+  },
+  "lapBtn": {
+    "message": "ಲ್ಯಾಪ್"
+  },
+  "stopBtn": {
+    "message": "ನಿಲ್ಲಿಸಿ"
+  },
+  "currentRecordedLabel": {
+    "message": "ಪ್ರಸ್ತುತ ದಾಖಲಾಗಿರುವುದು"
+  },
+  "liveHistoryLabel": {
+    "message": "ಲೈವ್ ಇತಿಹಾಸ"
+  },
+  "clearAllBtn": {
+    "message": "ಎಲ್ಲವನ್ನೂ ಅಳಿಸಿ"
+  },
+  "confirmClearHistory": {
+    "message": "ನೀವು ಖಂಡಿತವಾಗಿಯೂ ಎಲ್ಲಾ ಇತಿಹಾಸವನ್ನು ಅಳಿಸಲು ಬಯಸುವಿರಾ?"
+  },
+  "deleteBtn": {
+    "message": "ಅಳಿಸಿ"
+  },
+  "notesModalTitle": {
+    "message": "ಸ್ಮಾರ್ಟ್ ಟಿಪ್ಪಣಿಗಳು"
+  },
+  "clearNotesTooltip": {
+    "message": "ಎಲ್ಲಾ ಟಿಪ್ಪಣಿಗಳನ್ನು ಅಳಿಸಿ"
+  },
+  "notesPlaceholder": {
+    "message": "ಟಿಪ್ಪಣಿಗಳನ್ನು ಇಲ್ಲಿ ಬರೆಯಿರಿ..."
+  },
+  "grabTextTooltip": {
+    "message": "ಪುಟದಿಂದ ಪಠ್ಯವನ್ನು ಹೊರತೆಗೆಯಿರಿ"
+  },
+  "textLabel": {
+    "message": "ಪಠ್ಯ"
+  },
+  "addUrlTooltip": {
+    "message": "ಪ್ರಸ್ತುತ ಪುಟದ URL ಸೇರಿಸಿ"
+  },
+  "linkLabel": {
+    "message": "ಲಿಂಕ್"
+  },
+  "addDateTooltip": {
+    "message": "ಇಂದಿನ ದಿನಾಂಕವನ್ನು ಸೇರಿಸಿ"
+  },
+  "dateLabel": {
+    "message": "ದಿನಾಂಕ"
+  },
+  "exportNotesTooltip": {
+    "message": "ಟಿಪ್ಪಣಿಗಳನ್ನು ರಫ್ತು ಮಾಡಿ"
+  },
+  "importNotesTooltip": {
+    "message": "ಟಿಪ್ಪಣಿಗಳನ್ನು ಆಮದು ಮಾಡಿ"
+  },
+  "savedIndicator": {
+    "message": "ಉಳಿಸಲಾಗಿದೆ"
+  },
+  "confirmClearNotes": {
+    "message": "ನೀವು ಖಂಡಿತವಾಗಿಯೂ ಎಲ್ಲಾ ಟಿಪ್ಪಣಿಗಳನ್ನು ಅಳಿಸಲು ಬಯಸುವಿರಾ?"
+  },
+  "trackerModalTitle": {
+    "message": "ವೆಬ್‌ಟೈಮ್ ಟ್ರ್ಯಾಕರ್"
+  },
+  "exportTooltip": {
+    "message": "ಡೇಟಾವನ್ನು ರಫ್ತು ಮಾಡಿ"
+  },
+  "importTooltip": {
+    "message": "ಡೇಟಾವನ್ನು ಆಮದು ಮಾಡಿ"
+  },
+  "trackerModeDay": {
+    "message": "ದೈನಂದಿನ ನೋಟ"
+  },
+  "trackerModeMonth": {
+    "message": "ಮಾಸಿಕ ನೋಟ"
+  },
+  "trackerModeAll": {
+    "message": "ಎಲ್ಲಾ ಸಮಯ"
+  },
+  "trackerTodayLabel": {
+    "message": "ಇಂದು"
+  },
+  "trackerMonthLabel": {
+    "message": "ಈ ತಿಂಗಳು"
+  },
+  "trackerAvgLabel": {
+    "message": "ಸರಾಸರಿ"
+  },
+  "techModalTitle": {
+    "message": "ಸೈಟ್ ತಂತ್ರಜ್ಞಾನಗಳು"
+  },
+  "techLoadingMsg": {
+    "message": "ಸ್ಕ್ಯಾನರ್ ಸೈಟ್ ಅನ್ನು ವಿಶ್ಲೇಷಿಸುತ್ತಿದೆ..."
+  },
+  "uiSettings": {
+    "message": "ಸೆಟ್ಟಿಂಗ್‌ಗಳು"
+  },
+  "supportTitle": {
+    "message": "ವಿಸ್ತರಣೆಯನ್ನು ಬೆಂಬಲಿಸಿ"
+  },
+  "supportDesc": {
+    "message": "All In One ಸಂಪೂರ್ಣವಾಗಿ ಉಚಿತ ಸಾಧನವಾಗಿದೆ. ನಿಮ್ಮ ಬೆಂಬಲವು ಇದನ್ನು ಉಚಿತವಾಗಿ ಇರಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತದೆ ಮತ್ತು ಹೊಸ ಆಯ್ಕೆಗಳ ಅಭಿವೃದ್ಧಿಗೆ ಅನುವು ಮಾಡಿಕೊಡುತ್ತದೆ."
+  },
+  "donateBtn": {
+    "message": "ದೇಣಿಗೆ ನೀಡಿ ಮತ್ತು ಕೆಲಸವನ್ನು ಬೆಂಬಲಿಸಿ"
+  },
+  "websiteBtn": {
+    "message": "ವಿಸ್ತರಣೆಯ ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್"
+  },
+  "rateBtn": {
+    "message": "ವಿಸ್ತರಣೆಯನ್ನು ರೇಟ್ ಮಾಡಿ"
+  },
+  "versionLabel": {
+    "message": "ಆವೃತ್ತಿ:"
+  },
+  "privacyLabel": {
+    "message": "ಗೌಪ್ಯತಾ ನೀತಿ"
+  },
+  "systemPageTitle": {
+    "message": "ಸಿಸ್ಟಮ್ ಪುಟ"
+  },
+  "systemPageDesc": {
+    "message": "ಮಾರ್ಪಾಡು ಮಾಡುವ ಸಾಧನಗಳನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ"
+  },
+  "radioPlay": {
+    "message": "ಪ್ಲೇ"
+  },
+  "radioPause": {
+    "message": "ನಿಲ್ಲಿಸು"
+  },
+  "colorPickerPicking": {
+    "message": "ಆಯ್ಕೆ ಮಾಡಲಾಗುತ್ತಿದೆ..."
+  },
+  "colorPickerCopied": {
+    "message": "ನಕಲಿಸಲಾಗಿದೆ: "
+  },
+  "cacheNotSupported": {
+    "message": "ಬೆಂಬಲವಿಲ್ಲ"
+  },
+  "cacheClearConfirm": {
+    "message": "ಈ ಸೈಟ್‌ನಿಂದ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಅಳಿಸಿ"
+  },
+  "cacheError": {
+    "message": "ದೋಷ"
+  },
+  "cacheClearing": {
+    "message": "ಅಳಿಸಲಾಗುತ್ತಿದೆ..."
+  },
+  "cacheCleared": {
+    "message": "ಅಳಿಸಲಾಗಿದೆ!"
+  },
+  "fontCopied": {
+    "message": "ನಕಲಿಸಲಾಗಿದೆ!"
+  },
+  "fontNotCopied": {
+    "message": "ನಕಲಿಸಲಾಗಿಲ್ಲ"
+  },
+  "notesSaved": {
+    "message": "ಉಳಿಸಲಾಗಿದೆ"
+  },
+  "notesTooLarge": {
+    "message": "ಟಿಪ್ಪಣಿ ತುಂಬಾ ದೊಡ್ಡದಾಗಿದೆ"
+  },
+  "notesLinkText": {
+    "message": "ಲಿಂಕ್"
+  },
+  "trackerToday": {
+    "message": "ಇಂದು"
+  },
+  "trackerThatDay": {
+    "message": "ಆ ದಿನ"
+  },
+  "trackerSelectedMonth": {
+    "message": "ಆಯ್ಕೆ ಮಾಡಿದ ತಿಂಗಳು"
+  },
+  "trackerTotal": {
+    "message": "ಒಟ್ಟು"
+  },
+  "trackerNoData": {
+    "message": "ಈ ಅವಧಿಗೆ ಯಾವುದೇ ಡೇಟಾ ಇಲ್ಲ"
+  },
+  "trackerExportEmpty": {
+    "message": "ರಫ್ತು ಮಾಡಲು ಯಾವುದೇ ಟ್ರ್ಯಾಕರ್ ಡೇಟಾ ಇಲ್ಲ."
+  },
+  "trackerExportTruncated": {
+    "message": "ಸ್ಥಿರತೆಗಾಗಿ ರಫ್ತು 10MB ಗೆ ಸೀಮಿತಗೊಳಿಸಲಾಗಿದೆ."
+  },
+  "trackerImportEmpty": {
+    "message": "ಆಮದು ಮಾಡಲು ಯಾವುದೇ ಮಾನ್ಯ ಟ್ರ್ಯಾಕರ್ ಡೇಟಾ ಇಲ್ಲ."
+  },
+  "trackerImportSuccess": {
+    "message": "ಡೇಟಾವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಆಮದು ಮಾಡಲಾಗಿದೆ!"
+  },
+  "trackerImportError": {
+    "message": "ಫೈಲ್ ಓದುವಲ್ಲಿ ದೋಷ ಉಂಟಾಗಿದೆ."
+  },
+  "swStatusLive": {
+    "message": "ಲೈವ್ ನಡೆಯುತ್ತಿದೆ"
+  },
+  "swStatusReady": {
+    "message": "ಸಿದ್ಧವಾಗಿದೆ"
+  },
+  "swUndoTitle": {
+    "message": "ಈ ಕ್ಷಣವನ್ನು ಅಳಿಸಿ"
+  },
+  "swNoLaps": {
+    "message": "ಯಾವುದೇ ಕ್ಷಣಗಳು ದಾಖಲಾಗಿಲ್ಲ"
+  },
+  "swLiveTitlePrefix": {
+    "message": "ಲೈವ್ #"
+  },
+  "swDurationLabel": {
+    "message": "ಅವಧಿ: "
+  },
+  "swMomentLabel": {
+    "message": "ಕ್ಷಣ "
+  },
+  "swExportTxtBtn": {
+    "message": ".TXT ಆಗಿ ರಫ್ತು ಮಾಡಿ"
+  },
+  "swTotalDurationPrefix": {
+    "message": "ಒಟ್ಟು ಅವಧಿ: "
+  },
+  "swCopyBtn": {
+    "message": "ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಿ"
+  },
+  "swCopiedBtn": {
+    "message": "✓ ನಕಲಿಸಲಾಗಿದೆ"
+  },
+  "swNoHistory": {
+    "message": "ಯಾವುದೇ ಲೈವ್ ಇತಿಹಾಸವಿಲ್ಲ"
+  },
+  "techScannerUnavailable": {
+    "message": "ಈ ಪುಟದಲ್ಲಿ ಸ್ಕ್ಯಾನರ್ ಲಭ್ಯವಿಲ್ಲ."
+  },
+  "techFoundPrefix": {
+    "message": "ಕಂಡುಬಂದಿದೆ: "
+  },
+  "techItemsSuffix": {
+    "message": "ಐಟಂಗಳು"
+  },
+  "techNotFound": {
+    "message": "ಯಾವುದೂ ಕಂಡುಬಂದಿಲ್ಲ."
+  },
+  "techScannerFailed": {
+    "message": "ಈ ಪುಟದಲ್ಲಿ ಸ್ಕ್ಯಾನ್ ವಿಫಲವಾಗಿದೆ."
+  },
+  "markerDrawTooltip": {
+    "message": "ಡ್ರಾ"
+  },
+  "markerLineTooltip": {
+    "message": "ರೇಖೆ"
+  },
+  "markerTextTooltip": {
+    "message": "ಪಠ್ಯ"
+  },
+  "markerMoveTooltip": {
+    "message": "ಸರಿಸು"
+  },
+  "markerEraseTooltip": {
+    "message": "ಅಳಿಸು"
+  },
+  "markerClearAllTooltip": {
+    "message": "ಎಲ್ಲವನ್ನೂ ಅಳಿಸಿ"
+  },
+  "markerThicknessTooltip": {
+    "message": "ದಪ್ಪ"
+  },
+  "markerCloseTooltip": {
+    "message": "ಮುಚ್ಚು"
+  },
+  "linesLabel": {
+    "message": "ಸಾಲುಗಳು"
+  },
+  "clearCounterTooltip": {
+    "message": "ಎಲ್ಲವನ್ನು ತೆರವುಗೊಳಿಸಿ"
+  },
+  "confirmClearCounter": {
+    "message": "ನೀವು ನಿಜವಾಗಿಯೂ ಎಲ್ಲವನ್ನು ತೆರವುಗೊಳಿಸಲು ಬಯಸುವಿರಾ?"
+  }
+}

@@ -6,27 +6,39 @@ Copyright (c) 2026 Milan Petkovski (Milan Web Portal). All rights reserved.
 By downloading, installing, or using this software, you agree to be bound by the terms and conditions of this License Agreement.
 
 1. Grant of License
-The Author (Milan Petkovski / Milan Web Portal) grants you a non-exclusive, non-transferable, limited license to download, install, and use the Software solely for personal, non-commercial purposes.
+The Author (Milan Petkovski / Milan Web Portal) grants you a non exclusive, non transferable, limited license to download, install, and use the Software. This includes both personal and professional use as an end user.
 
 2. Restrictions
 You are strictly prohibited from, and you agree not to:
 
-Modify: Copy, change, edit, or create derivative works of the Software or any part of its source code.
+- Modify: Copy, change, or edit the Software for the purpose of creating a separate, competing product.
 
-Reverse Engineer: Decompile, disassemble, or attempt to derive the source code of the Software.
+- Reverse Engineer: Decompile or attempt to derive the source code for malicious purposes or unauthorized redistribution.
 
-Redistribute: Publish, sell, rent, lease, sublicense, or otherwise distribute the Software or any modified versions of it to third parties.
+- Redistribute: Sell, rent, or lease the Software or any modified versions of it to third parties without prior written consent.
 
-Rebrand: Remove or alter any copyright notices, logos, or proprietary markings of Milan Web Portal.
+- Rebrand: Remove or alter any copyright notices, logos, or proprietary markings of Milan Web Portal.
 
-3. Intellectual Property
-The Software and all its components, including but not limited to the source code, design, and assets, are and remain the exclusive property of Milan Petkovski and Milan Web Portal. This Agreement does not grant you any ownership rights.
+3. Privacy and Data
+The Software is designed with a privacy first approach. It does not collect or store any personal data on external servers. All productivity data is stored locally on the user device. Anonymous usage statistics may be collected via Google Analytics 4 solely to improve software performance.
 
-4. Disclaimer of Warranty
-The Software is provided "AS IS," without warranty of any kind. The Author shall not be liable for any damages, including but not limited to data loss or browser instability, arising out of the use or inability to use the Software.
+4. Community Contributions and Improvements
+We welcome and encourage users to help improve the Software. By submitting translations, bug fixes, or feature suggestions (via GitHub, email, or other channels), you agree that:
 
-5. Termination
-This license is effective until terminated. Your rights under this license will terminate automatically without notice if you fail to comply with any of its terms.
+- Your contribution is voluntary.
 
-6. Contact Information
+- You grant Milan Web Portal a perpetual, worldwide, royalty free license to use, modify, and include your contribution in the Software.
+
+- Milan Web Portal remains the sole owner of the Software and all integrated improvements.
+
+5. Intellectual Property
+The Software and all its components, including but not limited to the source code, design, and assets, remain the exclusive property of Milan Petkovski and Milan Web Portal.
+
+6. Disclaimer of Warranty
+The Software is provided "AS IS," without warranty of any kind. The Author shall not be liable for any damages arising out of the use or inability to use the Software.
+
+7. Termination
+This license is effective until terminated. Your rights will terminate automatically if you fail to comply with any of these terms.
+
+8. Contact Information
 For questions, licensing inquiries, or business opportunities, please contact the Author at: contact@milanwebportal.com

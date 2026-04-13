@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Najboljše orodje za produktivnost"
+  },
+  "extDesc": {
+    "message": "Vrhunsko orodje, ki združuje vse bistvene funkcije v enem hitrem, modernem in brezplačnem vmesniku."
+  },
+  "markLapDesc": {
+    "message": "Zabeleži trenutek na štoparici"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Uradna spletna stran razširitve"
+  },
+  "settingsTooltip": {
+    "message": "Nastavitve"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Poganja razširitev All In One"
+  },
+  "playBtn": {
+    "message": "Predvajaj"
+  },
+  "soundTitle": {
+    "message": "Zvok"
+  },
+  "resetBtn": {
+    "message": "Ponastavi"
+  },
+  "colorPickerTitle": {
+    "message": "Izbirnik barv"
+  },
+  "darkModeTitle": {
+    "message": "Temni način"
+  },
+  "rulerTitle": {
+    "message": "Ravnilo strani"
+  },
+  "copyEnableTitle": {
+    "message": "Kopiranje"
+  },
+  "markerTitle": {
+    "message": "Označevalec strani"
+  },
+  "techTitle": {
+    "message": "Tehnologije"
+  },
+  "cacheTitle": {
+    "message": "Piškotki"
+  },
+  "fontTitle": {
+    "message": "Iskalnik pisav"
+  },
+  "counterTitle": {
+    "message": "Števec znakov"
+  },
+  "stopwatchTitle": {
+    "message": "Štoparica"
+  },
+  "notesTitle": {
+    "message": "Pametni zapiski"
+  },
+  "trackerTitle": {
+    "message": "Sledilnik časa"
+  },
+  "ytDislikeTitle": {
+    "message": "Vrni YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "PIŠKOTKI IN PREDPOMNILNIK"
+  },
+  "blockCookiesLabel": {
+    "message": "Samodejno blokiraj piškotke"
+  },
+  "clearSiteDataBtn": {
+    "message": "Počisti vse podatke s tega mesta"
+  },
+  "cancelBtn": {
+    "message": "PREKLIČI"
+  },
+  "counterModalTitle": {
+    "message": "ŠTEVEC ZNAKOV"
+  },
+  "counterPlaceholder": {
+    "message": "Prilepite besedilo tukaj..."
+  },
+  "charsLabel": {
+    "message": "Znakov"
+  },
+  "wordsLabel": {
+    "message": "Besed"
+  },
+  "stopwatchReady": {
+    "message": "PRIPRAVLJENO"
+  },
+  "startBtn": {
+    "message": "ZAČNI"
+  },
+  "lapBtn": {
+    "message": "KROG"
+  },
+  "stopBtn": {
+    "message": "USTAVI"
+  },
+  "currentRecordedLabel": {
+    "message": "TRENUTNO ZABELEŽENO"
+  },
+  "liveHistoryLabel": {
+    "message": "ZGODOVINA V ŽIVO"
+  },
+  "clearAllBtn": {
+    "message": "POČISTI VSE"
+  },
+  "confirmClearHistory": {
+    "message": "Ste prepričani, da želite počistiti vso zgodovino?"
+  },
+  "deleteBtn": {
+    "message": "IZBRIŠI"
+  },
+  "notesModalTitle": {
+    "message": "PAMETNI ZAPISKI"
+  },
+  "clearNotesTooltip": {
+    "message": "Počisti vse zapiske"
+  },
+  "notesPlaceholder": {
+    "message": "Tukaj pišite zapiske..."
+  },
+  "grabTextTooltip": {
+    "message": "Izvleci besedilo s strani"
+  },
+  "textLabel": {
+    "message": "Besedilo"
+  },
+  "addUrlTooltip": {
+    "message": "Dodaj trenutni URL"
+  },
+  "linkLabel": {
+    "message": "Povezava"
+  },
+  "addDateTooltip": {
+    "message": "Dodaj današnji datum"
+  },
+  "dateLabel": {
+    "message": "Datum"
+  },
+  "exportNotesTooltip": {
+    "message": "Izvozi zapiske"
+  },
+  "importNotesTooltip": {
+    "message": "Uvozi zapiske"
+  },
+  "savedIndicator": {
+    "message": "Shranjeno"
+  },
+  "confirmClearNotes": {
+    "message": "Ste prepričani, da želite izbrisati vse zapiske?"
+  },
+  "trackerModalTitle": {
+    "message": "SLEDILNIK ČASA"
+  },
+  "exportTooltip": {
+    "message": "Izvozi podatke"
+  },
+  "importTooltip": {
+    "message": "Uvozi podatke"
+  },
+  "trackerModeDay": {
+    "message": "Dnevni pogled"
+  },
+  "trackerModeMonth": {
+    "message": "Mesečni pogled"
+  },
+  "trackerModeAll": {
+    "message": "Ves čas"
+  },
+  "trackerTodayLabel": {
+    "message": "Danes"
+  },
+  "trackerMonthLabel": {
+    "message": "Ta mesec"
+  },
+  "trackerAvgLabel": {
+    "message": "Povprečje"
+  },
+  "techModalTitle": {
+    "message": "TEHNOLOGIJE SPLETNEGA MESTA"
+  },
+  "techLoadingMsg": {
+    "message": "Skener analizira spletno mesto..."
+  },
+  "uiSettings": {
+    "message": "NASTAVITVE"
+  },
+  "supportTitle": {
+    "message": "Podprite razširitev"
+  },
+  "supportDesc": {
+    "message": "All In One je popolnoma brezplačno orodje. Vaša podpora pomaga ohraniti to stanje in omogoča razvoj novih funkcij."
+  },
+  "donateBtn": {
+    "message": "Donirajte in podprite"
+  },
+  "websiteBtn": {
+    "message": "Uradna spletna stran"
+  },
+  "rateBtn": {
+    "message": "Ocenite razširitev"
+  },
+  "versionLabel": {
+    "message": "Različica:"
+  },
+  "privacyLabel": {
+    "message": "Politika zasebnosti"
+  },
+  "systemPageTitle": {
+    "message": "SISTEMSKA STRAN"
+  },
+  "systemPageDesc": {
+    "message": "Orodja za spreminjanje so onemogočena"
+  },
+  "radioPlay": {
+    "message": "Play"
+  },
+  "radioPause": {
+    "message": "Pause"
+  },
+  "colorPickerPicking": {
+    "message": "Izbiranje..."
+  },
+  "colorPickerCopied": {
+    "message": "Kopirano: "
+  },
+  "cacheNotSupported": {
+    "message": "Ni podprto"
+  },
+  "cacheClearConfirm": {
+    "message": "Počisti vse podatke s tega mesta"
+  },
+  "cacheError": {
+    "message": "Napaka"
+  },
+  "cacheClearing": {
+    "message": "Brisanje..."
+  },
+  "cacheCleared": {
+    "message": "Izbrisano!"
+  },
+  "fontCopied": {
+    "message": "Kopirano!"
+  },
+  "fontNotCopied": {
+    "message": "Ni kopirano"
+  },
+  "notesSaved": {
+    "message": "Shranjeno"
+  },
+  "notesTooLarge": {
+    "message": "Zapisek je prevelik"
+  },
+  "notesLinkText": {
+    "message": "Povezava"
+  },
+  "trackerToday": {
+    "message": "Danes"
+  },
+  "trackerThatDay": {
+    "message": "Tisti dan"
+  },
+  "trackerSelectedMonth": {
+    "message": "Izbran mesec"
+  },
+  "trackerTotal": {
+    "message": "Skupaj"
+  },
+  "trackerNoData": {
+    "message": "Za to obdobje ni podatkov"
+  },
+  "trackerExportEmpty": {
+    "message": "Ni podatkov za izvoz."
+  },
+  "trackerExportTruncated": {
+    "message": "Izvoz je bil skrajšan na 10 MB zaradi stabilnosti."
+  },
+  "trackerImportEmpty": {
+    "message": "Ni veljavnih podatkov za uvoz."
+  },
+  "trackerImportSuccess": {
+    "message": "Podatki uspešno uvoženi!"
+  },
+  "trackerImportError": {
+    "message": "Napaka pri branju datoteke."
+  },
+  "swStatusLive": {
+    "message": "V ŽIVO POTEKA"
+  },
+  "swStatusReady": {
+    "message": "PRIPRAVLJENO"
+  },
+  "swUndoTitle": {
+    "message": "Izbriši ta trenutek"
+  },
+  "swNoLaps": {
+    "message": "Ni zabeleženih trenutkov"
+  },
+  "swLiveTitlePrefix": {
+    "message": "V živo #"
+  },
+  "swDurationLabel": {
+    "message": "Trajanje: "
+  },
+  "swMomentLabel": {
+    "message": "Trenutek "
+  },
+  "swExportTxtBtn": {
+    "message": "IZVOZI KOT .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "SKUPNO TRAJANJE: "
+  },
+  "swCopyBtn": {
+    "message": "KOPIRAJ V ODLAGIŠČE"
+  },
+  "swCopiedBtn": {
+    "message": "✓ KOPIRANO"
+  },
+  "swNoHistory": {
+    "message": "Ni zgodovine v živo"
+  },
+  "techScannerUnavailable": {
+    "message": "Skener ni na voljo na tej strani."
+  },
+  "techFoundPrefix": {
+    "message": "Najdeno: "
+  },
+  "techItemsSuffix": {
+    "message": "elementov"
+  },
+  "techNotFound": {
+    "message": "Ni najdeno."
+  },
+  "techScannerFailed": {
+    "message": "Skeniranje na tej strani ni uspelo."
+  },
+  "markerDrawTooltip": {
+    "message": "Risanje"
+  },
+  "markerLineTooltip": {
+    "message": "Črta"
+  },
+  "markerTextTooltip": {
+    "message": "Besedilo"
+  },
+  "markerMoveTooltip": {
+    "message": "Premakni"
+  },
+  "markerEraseTooltip": {
+    "message": "Izbriši"
+  },
+  "markerClearAllTooltip": {
+    "message": "Počisti vse"
+  },
+  "markerThicknessTooltip": {
+    "message": "Debelina"
+  },
+  "markerCloseTooltip": {
+    "message": "Zapri"
+  },
+  "linesLabel": {
+    "message": "Vrstice"
+  },
+  "clearCounterTooltip": {
+    "message": "Počisti vse"
+  },
+  "confirmClearCounter": {
+    "message": "Ali ste prepričani, da želite počistiti vse?"
+  }
+}

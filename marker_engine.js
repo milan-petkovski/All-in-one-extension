@@ -1,4 +1,4 @@
-function pokreniMarker() {
+async function pokreniMarker() {
     if (!document.head || !document.body) {
         setTimeout(pokreniMarker, 50);
         return;
@@ -7,6 +7,34 @@ function pokreniMarker() {
     if (!window.markerInjected) {
         window.markerInjected = true;
         window.markerCurrentColor = "#00ff88";
+
+        // Učitavanje izabranog jezika iz storage-a
+        const langData = await chrome.storage.local.get(['appLang']);
+        const currentLang = langData.appLang || 'sr';
+        let markerDict = {};
+
+        // Pokušaj učitavanja prevoda; ako ne uspe (npr. fali dozvola), koristi se fallback
+        try {
+            const response = await fetch(chrome.runtime.getURL(`_locales/${currentLang}/messages.json`));
+            if (response.ok) {
+                markerDict = await response.json();
+            }
+        } catch (e) {
+            console.warn("Marker manual translation fetch failed, using system i18n fallback.");
+        }
+
+        // Pomoćna funkcija koja prvo gleda ručno učitan rečnik, pa onda sistemski chrome.i18n
+        const getMsg = (key, fallback) => {
+            if (markerDict[key] && markerDict[key].message) {
+                return markerDict[key].message;
+            }
+            // Fallback na sistemski i18n (za tooltipe)
+            if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
+                const msg = chrome.i18n.getMessage(key);
+                if (msg) return msg;
+            }
+            return fallback;
+        };
 
         const style = document.createElement('style');
         style.id = 'marker-styles';
@@ -30,7 +58,6 @@ function pokreniMarker() {
             .close-btn:hover { background: #ff4444 !important; color: white !important; box-shadow: 0 4px 15px rgba(255, 68, 68, 0.4) !important; }
             .marker-text-input { position: fixed; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); border: 2px dashed #00ff88; color: #00ff88; outline: none; padding: 8px 12px; z-index: 2147483647; font-family: 'Segoe UI', sans-serif; font-weight: bold; border-radius: 8px; white-space: nowrap; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
             #markerCanvas { background: transparent !important; user-select: none !important; -webkit-user-select: none !important; }
-            #markerCanvas * { user-select: none !important; -webkit-user-select: none !important; }
         `;
         document.head.appendChild(style);
 
@@ -50,45 +77,44 @@ function pokreniMarker() {
                 <div class="marker-color-picker-wrapper" id="colorWrapper">
                     <input type="color" id="markerColorPicker" value="#00ff88">
                 </div>
-                <button id="m_brush" class="active" title="Crtaj">
+                <button id="m_brush" class="active" title="${getMsg("markerDrawTooltip", "Crtaj")}">
                     <svg viewBox="0 0 24 24"><path d="M13 21h8"/><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/></svg>
                 </button>
-                <button id="m_line" title="Linija">
+                <button id="m_line" title="${getMsg("markerLineTooltip", "Linija")}">
                     <svg viewBox="0 0 24 24"><line x1="5" y1="19" x2="19" y2="5"/></svg>
                 </button>
-                <button id="m_text" title="Tekst">
+                <button id="m_text" title="${getMsg("markerTextTooltip", "Tekst")}">
                     <svg viewBox="0 0 24 24"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
                 </button>
-                <button id="m_move" title="Pomeri">
+                <button id="m_move" title="${getMsg("markerMoveTooltip", "Pomeri")}">
                     <svg viewBox="0 0 24 24"><polyline points="5 9 2 12 5 15"/><polyline points="9 5 12 2 15 5"/><polyline points="19 9 22 12 19 15"/><polyline points="9 19 12 22 15 19"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="12" y1="2" x2="12" y2="22"/></svg>
                 </button>
-                <button id="m_eraser" title="Briši">
+                <button id="m_eraser" title="${getMsg("markerEraseTooltip", "Briši")}">
                     <svg viewBox="0 0 24 24"><path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/><path d="M22 21H7"/><path d="m5 11 9 9"/></svg>
                 </button>
-                <button id="m_clear" title="Obriši sve">
+                <button id="m_clear" title="${getMsg("markerClearAllTooltip", "Obriši sve")}">
                     <svg viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
                 </button>
             </div>
-            <input type="range" id="m_size" min="2" max="30" value="5" title="Debljina">
-            <button id="m_close" class="close-btn" title="Zatvori">
+            <input type="range" id="m_size" min="2" max="30" value="5" title="${getMsg("markerThicknessTooltip", "Debljina")}">
+            <button id="m_close" class="close-btn" title="${getMsg("markerCloseTooltip", "Zatvori")}">
                 <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
             </button>
         `;
         document.body.appendChild(menu);
 
+        // --- Logika Markera ---
         let mode = "brush";
         let drawing = false;
         let currentElement = null;
         let thickness = 5;
         let rAF = null;
         let pendingPoint = null;
+
         const handleGlobalMouseUp = () => { drawing = false; currentElement = null; };
 
         const removeMarker = () => {
-            if (rAF) {
-                cancelAnimationFrame(rAF);
-                rAF = null;
-            }
+            if (rAF) cancelAnimationFrame(rAF);
             document.querySelectorAll('.marker-text-input').forEach((el) => el.remove());
             svg.remove();
             menu.remove();
@@ -100,6 +126,7 @@ function pokreniMarker() {
 
         const picker = document.getElementById('markerColorPicker');
         const wrapper = document.getElementById('colorWrapper');
+        
         picker.oninput = (e) => {
             window.markerCurrentColor = e.target.value;
             wrapper.style.backgroundColor = window.markerCurrentColor;
@@ -107,65 +134,43 @@ function pokreniMarker() {
             chrome.storage.local.set({ selectedColor: window.markerCurrentColor });
         };
 
-        const updateCursor = () => {
-            const cursors = { brush: "crosshair", line: "crosshair", text: "text", move: "move", eraser: "crosshair" };
-            svg.style.cursor = cursors[mode] || "default";
-        };
-
         menu.onclick = (e) => {
             const btn = e.target.closest("button");
             if (!btn) return;
-            if (btn.id === "m_close") {
-                removeMarker();
-                return;
-            }
-            if (btn.id === "m_clear") {
-                svg.innerHTML = '';
-                return;
-            }
+            if (btn.id === "m_close") { removeMarker(); return; }
+            if (btn.id === "m_clear") { svg.innerHTML = ''; return; }
             document.querySelectorAll(".marker-menu button:not(.close-btn):not(#m_clear)").forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
             mode = btn.id.replace("m_", "");
-            updateCursor();
+            svg.style.cursor = (mode === "text") ? "text" : (mode === "move" ? "move" : "crosshair");
         };
 
         document.getElementById("m_size").oninput = (e) => thickness = parseInt(e.target.value, 10) || 5;
 
-        const saveText = (input, x, y) => {
-            if (input.value.trim()) {
-                const txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                txt.setAttribute("x", x);
-                txt.setAttribute("y", y + (thickness * 2.5));
-                txt.setAttribute("font-size", thickness * 3);
-                txt.setAttribute("fill", window.markerCurrentColor);
-                txt.setAttribute("font-family", "Arial");
-                txt.setAttribute("font-weight", "bold");
-                txt.textContent = input.value;
-                txt.style.userSelect = "none";
-                txt.style.webkitUserSelect = "none";
-                setupElement(txt);
-                svg.appendChild(txt);
-            }
-            input.remove();
-        };
-
         svg.onmousedown = (e) => {
             if (mode === "eraser" || mode === "move" || e.target.tagName === "input") return;
-
             drawing = true;
-            const x = e.clientX;
-            const y = e.clientY;
+            const x = e.clientX, y = e.clientY;
 
             if (mode === "text") {
                 drawing = false;
                 const input = document.createElement("input");
                 input.className = "marker-text-input";
                 input.style.color = window.markerCurrentColor;
-                input.style.borderColor = window.markerCurrentColor;
-                Object.assign(input.style, { left: `${x}px`, top: `${y}px`, fontSize: `${thickness * 3}px` });
+                Object.assign(input.style, { left: `${x}px`, top: `${y}px`, fontSize: `${thickness * 3}px`, borderColor: window.markerCurrentColor });
                 document.body.appendChild(input);
                 setTimeout(() => input.focus(), 10);
-                input.onblur = () => saveText(input, x, y);
+                input.onblur = () => {
+                    if (input.value.trim()) {
+                        const txt = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                        txt.setAttribute("x", x); txt.setAttribute("y", y + (thickness * 2.5));
+                        txt.setAttribute("font-size", thickness * 3); txt.setAttribute("fill", window.markerCurrentColor);
+                        txt.setAttribute("font-family", "Arial"); txt.setAttribute("font-weight", "bold");
+                        txt.textContent = input.value;
+                        setupElement(txt); svg.appendChild(txt);
+                    }
+                    input.remove();
+                };
                 input.onkeydown = (ee) => { if (ee.key === "Enter") input.blur(); };
                 return;
             }
@@ -184,30 +189,22 @@ function pokreniMarker() {
                 const p = svg.createSVGPoint(); p.x = x; p.y = y;
                 currentElement.points.appendItem(p);
             }
-
-            setupElement(currentElement);
-            svg.appendChild(currentElement);
+            setupElement(currentElement); svg.appendChild(currentElement);
         };
 
         svg.onmousemove = (e) => {
             if (!drawing || !currentElement) return;
-
             pendingPoint = { x: e.clientX, y: e.clientY };
-
             if (!rAF) {
                 rAF = requestAnimationFrame(() => {
-                    if (!drawing || !currentElement) {
-                        rAF = null;
-                        return;
-                    }
-                    if (mode === "line") {
-                        currentElement.setAttribute("x2", pendingPoint.x);
-                        currentElement.setAttribute("y2", pendingPoint.y);
-                    } else if (mode === "brush") {
-                        const p = svg.createSVGPoint();
-                        p.x = pendingPoint.x;
-                        p.y = pendingPoint.y;
-                        currentElement.points.appendItem(p);
+                    if (drawing && currentElement) {
+                        if (mode === "line") {
+                            currentElement.setAttribute("x2", pendingPoint.x);
+                            currentElement.setAttribute("y2", pendingPoint.y);
+                        } else {
+                            const p = svg.createSVGPoint(); p.x = pendingPoint.x; p.y = pendingPoint.y;
+                            currentElement.points.appendItem(p);
+                        }
                     }
                     rAF = null;
                 });
@@ -219,39 +216,24 @@ function pokreniMarker() {
         function setupElement(el) {
             el.style.pointerEvents = "auto";
             el.onmouseenter = () => { if (mode === "eraser") el.remove(); };
-
-            let isDragging = false;
             el.onmousedown = (e) => {
                 if (mode !== "move") return;
-                e.stopPropagation();
-                e.preventDefault();
-                isDragging = true;
-                let lastX = e.clientX;
-                let lastY = e.clientY;
-
+                e.stopPropagation(); e.preventDefault();
+                let lastX = e.clientX, lastY = e.clientY;
                 const move = (me) => {
-                    if (!isDragging) return;
-                    const dx = me.clientX - lastX;
-                    const dy = me.clientY - lastY;
-                    lastX = me.clientX;
-                    lastY = me.clientY;
-
+                    const dx = me.clientX - lastX, dy = me.clientY - lastY;
+                    lastX = me.clientX; lastY = me.clientY;
                     if (el.tagName === "polyline") {
-                        for (let i = 0; i < el.points.numberOfItems; i++) {
-                            el.points.getItem(i).x += dx; el.points.getItem(i).y += dy;
-                        }
+                        for (let i = 0; i < el.points.numberOfItems; i++) { el.points.getItem(i).x += dx; el.points.getItem(i).y += dy; }
                     } else if (el.tagName === "line") {
-                        el.setAttribute("x1", +el.getAttribute("x1") + dx);
-                        el.setAttribute("y1", +el.getAttribute("y1") + dy);
-                        el.setAttribute("x2", +el.getAttribute("x2") + dx);
-                        el.setAttribute("y2", +el.getAttribute("y2") + dy);
-                    } else if (el.tagName === "text") {
-                        el.setAttribute("x", +el.getAttribute("x") + dx);
-                        el.setAttribute("y", +el.getAttribute("y") + dy);
+                        el.setAttribute("x1", +el.getAttribute("x1") + dx); el.setAttribute("y1", +el.getAttribute("y1") + dy);
+                        el.setAttribute("x2", +el.getAttribute("x2") + dx); el.setAttribute("y2", +el.getAttribute("y2") + dy);
+                    } else {
+                        el.setAttribute("x", +el.getAttribute("x") + dx); el.setAttribute("y", +el.getAttribute("y") + dy);
                     }
                 };
                 window.addEventListener("mousemove", move);
-                window.addEventListener("mouseup", () => { isDragging = false; window.removeEventListener("mousemove", move); }, { once: true });
+                window.addEventListener("mouseup", () => window.removeEventListener("mousemove", move), { once: true });
             };
         }
     }

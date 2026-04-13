@@ -1,19 +1,19 @@
 <div align="center">
   <a href="https://allinone.milanwebportal.com/">
-    <img src="https://i.postimg.cc/Hnxwwv4V/6.png" alt="All In One Logo" width="300" />
+    <img src="https://i.postimg.cc/QCDdJcBM/home.png" alt="All In One Logo" width="300" />
   </a>
-  <h1>All In One Ekstenzija</h1>
-  <p>Ultimativni alat koji spaja sve bitne funkcije u jedan brz, moderan i besplatan interfejs.</p>
-  
+  <h1>All In One Extension</h1>
+  <p>The ultimate tool that combines all essential features into one fast, modern, and free interface.</p>
+
   <h2>
-    <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem">📥 Preuzmi ekstenziju</a>
+    <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem">📥 Download Extension</a>
     &nbsp; | &nbsp;
-    <a href="https://allinone.milanwebportal.com/">🌐 Poseti zvanični sajt</a>
+    <a href="https://allinone.milanwebportal.com/">🌐 Visit Official Website</a>
   </h2>
 
-  <br>
+  <p><b>🌍 Available Globally:</b> Supported in all 55 languages provided by the Chrome Web Store!</p>
 
-  <p><b>Podržani pretraživači:</b></p>
+  <p><b>Supported Browsers:</b></p>
   <img src="https://i.postimg.cc/hG4JDr9D/1.webp" width="35" alt="Chrome"> &nbsp;
   <img src="https://i.postimg.cc/3wry8BgK/2.webp" width="35" alt="Edge"> &nbsp;
   <img src="https://i.postimg.cc/yN6J1PF6/3.webp" width="35" alt="Brave"> &nbsp;
@@ -22,95 +22,131 @@
   <img src="https://i.postimg.cc/5t9H43wt/6.webp" width="35" alt="Vivaldi"> &nbsp;
   <img src="https://i.postimg.cc/fbHVJ9Kn/7.webp" width="35" alt="Arc">
 
-  <p>...i ostali chromium pretraživači.</p>
+  <p>...and all other Chromium based browsers.</p>
 </div>
 
-<br><br>
+<br>
 
-# 🚀 Instalacija ekstenzije
+# ☕ The Story & Support
+Hi! I am Milan, a 19 year old student and web developer from Serbia. I built the All In One extension to help people boost their productivity with a clean, fast, and completely free tool.
 
-**Opcija 1: Zvanična prodavnica (Preporučeno)**
+I am committed to keeping this extension 100% free forever, with zero ads and zero popups. If this tool saves you time and you want to support my late night coding sessions, you can buy me a coffee!
 
-*Najbrži način da uvek imate najnoviju verziju.*
+💖 <a href="https://paypal.me/milanpetkovski1">Support my work via PayPal</a>
 
-1. Posetite [Chrome Web Store stranicu](https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem)
-2. Kliknite na dugme **Dodaj u Browser** (Add to Browser)
-3. Potvrdite instalaciju u iskačućem prozoru
-4. Ekstenzija je odmah spremna za korišćenje
+Every donation means a lot and helps me maintain and improve the extension. Thank you!
 
 <br>
 
-**Opcija 2: Ručna instalacija (Developer mode)**
+# 🚀 Extension Installation
 
-*Za korisnike koji žele da instaliraju ekstenziju direktno preko koda.*
+**Option 1: Official Store (Recommended)**
 
-1. Idite na **Releases** sekciju ovog repozitorijuma
-2. Preuzmite poslednji objavljeni `All.In.One.zip` fajl
-3. Raspakujte arhivu u poseban folder na vašem računaru
-4. U pretraživaču otvorite adresu `chrome://extensions/`
-5. Uključite **Developer mode** u gornjem desnom uglu
-6. Kliknite na dugme **Load unpacked** (Učitaj otpakovano)
-7. Izaberite folder koji ste prethodno raspakovali
-8. Ekstenzija je odmah spremna za korišćenje
+*The fastest way to always have the latest version.*
+
+1. Visit the Chrome Web Store page
+2. Click the Add to Chrome button
+3. Confirm the installation in the popup window
+4. The extension is immediately ready to use
 
 <br>
 
-# 🛠️ Funkcionalnosti i alati
+**Option 2: Manual Installation (Developer mode)**
 
-* 📻 **Radio IN**: Slušaj radio direktno iz ekstenzije
-* 🔊 **Zvuk 1000%**: Pojačavanje tona do maksimuma na svakom tabu
-* 🎨 **Color Picker**: Pipeta za brzo uzimanje HEX koda boje
-* 🌙 **Dark Mode**: Forsiranje tamne teme na svim sajtovima
-* 📏 **Page Ruler**: Precizno merenje elemenata u pikselima
-* 🔓 **Enable Copy**: Otključavanje blokiranog desnog klika i selektovanje teksta
-* 🖍️ **Page Marker**: Crtanje i pisanje direktno po ekranu
-* ⚙️ **Tehnologije sajta**: Detaljan uvid u strukturu trenutnog sajta
-* 🍪 **Kolačići i keš**: Brzo čišćenje podataka trenutnog sajta
-* 🔠 **Font Finder**: Identifikacija fontova na stranici
-* 🔢 **Brojač karaktera**: Provera dužine teksta i SEO statistika
-* ⏱️ **Štoperica**: Beleženje tajmstempova za lakšu montažu
-* 📝 **Pametne Beleške**: Napredno hvatanje beleški sa matematikom
-* ⏳ **Webtime Tracker**: Analiza vremena provedenog na sajtovima
-* 👎 **Return YT Dislike**: Povratak brojača dislajkova na YouTube
+*For users who want to install the extension directly via source code.*
+
+1. Go to the Releases section of this repository
+2. Download the latest published All.In.One.zip file
+3. Extract the archive into a separate folder on your computer
+4. Open your browser and navigate to chrome://extensions/
+5. Enable Developer mode in the top right corner
+6. Click the Load unpacked button
+7. Select the folder you previously extracted
+8. The extension is immediately ready to use
 
 <br>
 
-# 📸 Galerija
+# 🛠️ Features and Tools
 
+* 📻 **Radio IN**: Listen to the radio directly from the extension
+* 🔊 **Volume 1000%**: Boost the volume up to maximum on any tab
+* 🎨 **Color Picker**: Eyedropper tool to quickly grab HEX color codes
+* 🌙 **Dark Mode**: Force dark theme on all websites
+* 📏 **Page Ruler**: Precisely measure elements in pixels
+* 🔓 **Enable Copy**: Unlock blocked right clicks and text selection
+* 🖍️ **Page Marker**: Draw and write directly on the screen
+* ⚙️ **Site Technologies**: Detailed insight into the structure of the current site
+* 🍪 **Cookies and Cache**: Quickly clear data for the current site
+* 🔠 **Font Finder**: Identify fonts used on the page
+* 🔢 **Character Counter**: Check text length and SEO statistics
+* ⏱️ **Stopwatch**: Record timestamps for easier video editing
+* 📝 **Smart Notes**: Advanced note taking with math support
+* ⏳ **Webtime Tracker**: Analyze time spent on websites
+* 👎 **Return YT Dislike**: Bring back the dislike counter on YouTube
+
+<br>
+
+# 🤝 Contributing & Translations
+We welcome contributions from the community to make this extension even better!
+
+Translations: Since the extension supports 55 languages, you can help by improving existing translations or adding better context in the _locales folder.
+
+Bug Fixes & Features: Feel free to fork the repository, make your changes, and submit a Pull Request.
+
+Your help keeps this tool free and accessible to everyone!
+
+<br>
+
+# 📸 Gallery
 <table align="center" width="100%">
-  <tr>
-    <td width="100%" align="center" colspan="2">
-      <img src="https://i.postimg.cc/D0ZrrpdZ/1.png" alt="Glavni meni" />
-      <br><b>Glavni meni ekstenzije</b>
-    </td>
-  </tr>
-  <tr>
-      <td width="50%" align="center">
-      <img src="https://i.postimg.cc/fyLccqjR/4.png" alt="Štoperica za klipovanje" />
-      <br><b>Brojač karaktera</b>
-    </td>
-    <td width="50%" align="center">
-      <img src="https://i.postimg.cc/fyLccqjb/2.png" alt="Štoperica za klipovanje" />
-      <br><b>Štoperica (Alat za klipovanje)</b>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <img src="https://i.postimg.cc/yxbFvhvB/5.png" alt="Pametne beleške" />
-      <br><b>Pametne beleške</b>
-    </td>    
-    <td width="50%" align="center">
-      <img src="https://i.postimg.cc/wMvXX4cM/3.png" alt="Webtime Tracker" />
-      <br><b>Webtime Tracker</b>
-    </td>
-  </tr>
+<tr>
+<td width="100%" align="center" colspan="2">
+<img src="https://i.postimg.cc/yxK8y0J1/mainmenu.png" alt="Main Menu" />
+
+
+<b>Main Extension Menu</b>
+</td>
+</tr>
+<tr>
+<td width="50%" align="center">
+<img src="https://i.postimg.cc/zvNGFTL8/charactercounter.png" alt="Character Counter" />
+
+
+<b>Character Counter</b>
+</td>
+<td width="50%" align="center">
+<img src="https://i.postimg.cc/Kjb8DtKZ/clippingtool.png" alt="Stopwatch for Clipping" />
+
+
+<b>Stopwatch (Clipping Tool)</b>
+</td>
+</tr>
+<tr>
+<td width="50%" align="center">
+<img src="https://i.postimg.cc/kGCgvWV4/smartnotes.png" alt="Smart Notes" />
+
+
+<b>Smart Notes</b>
+</td>
+
+<td width="50%" align="center">
+<img src="https://i.postimg.cc/yxK8y0J7/webtimetracker.png" alt="Webtime Tracker" />
+
+
+<b>Webtime Tracker</b>
+</td>
+</tr>
 </table>
 
 <br>
 
-# 📬 Kontakt
+# 📬 Contact
+Official Extension Website: allinone.milanwebportal.com
 
-* Zvanični sajt ekstenzije: [allinone.milanwebportal.com](https://allinone.milanwebportal.com/)
-* Autor projekta: Milan Petkovski (Milan Web Portal)
-* Website autora: [milanwebportal.com](https://milanwebportal.com/)
-* Email za kontakt: contact@milanwebportal.com
+Project Author: Milan Petkovski (Milan Web Portal)
+
+Author's Website: milanwebportal.com
+
+Contact Email: contact@milanwebportal.com
+
+💖 <a href="https://paypal.me/milanpetkovski1">Support my work via PayPal</a>

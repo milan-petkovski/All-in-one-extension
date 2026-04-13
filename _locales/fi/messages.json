@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Paras tuottavuustyökalu"
+  },
+  "extDesc": {
+    "message": "Ultimaattinen työkalu, joka yhdistää kaikki olennaiset toiminnot nopeaan, nykyaikaiseen ja ilmaiseen käyttöliittymään."
+  },
+  "markLapDesc": {
+    "message": "Tallenna hetki sekuntikellolla"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Virallinen sivusto"
+  },
+  "settingsTooltip": {
+    "message": "Asetukset"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "All In One tarjoaa"
+  },
+  "playBtn": {
+    "message": "Toista"
+  },
+  "soundTitle": {
+    "message": "Ääni"
+  },
+  "resetBtn": {
+    "message": "Nollaa"
+  },
+  "colorPickerTitle": {
+    "message": "Värit"
+  },
+  "darkModeTitle": {
+    "message": "Tumma tila"
+  },
+  "rulerTitle": {
+    "message": "Viivain"
+  },
+  "copyEnableTitle": {
+    "message": "Kopioi"
+  },
+  "markerTitle": {
+    "message": "Merkki"
+  },
+  "techTitle": {
+    "message": "Teknologiat"
+  },
+  "cacheTitle": {
+    "message": "Evästeet/välimuisti"
+  },
+  "fontTitle": {
+    "message": "Fontit"
+  },
+  "counterTitle": {
+    "message": "Laskuri"
+  },
+  "stopwatchTitle": {
+    "message": "Sekuntikello"
+  },
+  "notesTitle": {
+    "message": "Muistiinpanot"
+  },
+  "trackerTitle": {
+    "message": "Ajan seuranta"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "EVÄSTEET/VÄLIMUISTI"
+  },
+  "blockCookiesLabel": {
+    "message": "Estä evästeet"
+  },
+  "clearSiteDataBtn": {
+    "message": "Tyhjennä sivusto"
+  },
+  "cancelBtn": {
+    "message": "PERUUTA"
+  },
+  "counterModalTitle": {
+    "message": "MERKKILASKURI"
+  },
+  "counterPlaceholder": {
+    "message": "Liitä teksti tähän..."
+  },
+  "charsLabel": {
+    "message": "Merkkiä"
+  },
+  "wordsLabel": {
+    "message": "Sanaa"
+  },
+  "stopwatchReady": {
+    "message": "VALMIS"
+  },
+  "startBtn": {
+    "message": "ALOITA"
+  },
+  "lapBtn": {
+    "message": "KIERROS"
+  },
+  "stopBtn": {
+    "message": "PYSÄYTÄ"
+  },
+  "currentRecordedLabel": {
+    "message": "TALLENNETTU NYT"
+  },
+  "liveHistoryLabel": {
+    "message": "LIVE-HISTORIA"
+  },
+  "clearAllBtn": {
+    "message": "TYHJENNÄ KAIKKI"
+  },
+  "confirmClearHistory": {
+    "message": "Haluatko varmasti tyhjentää koko historian?"
+  },
+  "deleteBtn": {
+    "message": "POISTA"
+  },
+  "notesModalTitle": {
+    "message": "ÄLYKKÄÄT MUISTIINPANOT"
+  },
+  "clearNotesTooltip": {
+    "message": "Tyhjennä kaikki muistiinpanot"
+  },
+  "notesPlaceholder": {
+    "message": "Kirjoita muistiinpanot tähän..."
+  },
+  "grabTextTooltip": {
+    "message": "Pura teksti sivulta"
+  },
+  "textLabel": {
+    "message": "Teksti"
+  },
+  "addUrlTooltip": {
+    "message": "Lisää nykyinen URL-osoite"
+  },
+  "linkLabel": {
+    "message": "Linkki"
+  },
+  "addDateTooltip": {
+    "message": "Lisää tämän päivän päivämäärä"
+  },
+  "dateLabel": {
+    "message": "Päivämäärä"
+  },
+  "exportNotesTooltip": {
+    "message": "Vie muistiinpanot"
+  },
+  "importNotesTooltip": {
+    "message": "Tuo muistiinpanot"
+  },
+  "savedIndicator": {
+    "message": "Tallennettu"
+  },
+  "confirmClearNotes": {
+    "message": "Haluatko varmasti tyhjentää kaikki muistiinpanot?"
+  },
+  "trackerModalTitle": {
+    "message": "VERKKOAJAN SEURANTA"
+  },
+  "exportTooltip": {
+    "message": "Vie tiedot"
+  },
+  "importTooltip": {
+    "message": "Tuo tiedot"
+  },
+  "trackerModeDay": {
+    "message": "Päivänäkymä"
+  },
+  "trackerModeMonth": {
+    "message": "Kuukausinäkymä"
+  },
+  "trackerModeAll": {
+    "message": "Koko aika"
+  },
+  "trackerTodayLabel": {
+    "message": "Tänään"
+  },
+  "trackerMonthLabel": {
+    "message": "Tässä kuussa"
+  },
+  "trackerAvgLabel": {
+    "message": "Keskiarvo"
+  },
+  "techModalTitle": {
+    "message": "SIVUSTON TEKNOLOGIAT"
+  },
+  "techLoadingMsg": {
+    "message": "Skanneri analysoi sivustoa..."
+  },
+  "uiSettings": {
+    "message": "ASETUKSET"
+  },
+  "supportTitle": {
+    "message": "Tue laajennusta"
+  },
+  "supportDesc": {
+    "message": "All In One on täysin ilmainen työkalu. Tukesi auttaa pitämään sen sellaisena ja mahdollistaa uusien ominaisuuksien kehittämisen."
+  },
+  "donateBtn": {
+    "message": "Lahjoita ja tue"
+  },
+  "websiteBtn": {
+    "message": "Virallinen verkkosivusto"
+  },
+  "rateBtn": {
+    "message": "Arvostele laajennus"
+  },
+  "versionLabel": {
+    "message": "Versio:"
+  },
+  "privacyLabel": {
+    "message": "Tietosuojakäytäntö"
+  },
+  "systemPageTitle": {
+    "message": "JÄRJESTELMÄSIVU"
+  },
+  "systemPageDesc": {
+    "message": "Muokkaustyökalut on poistettu käytöstä"
+  },
+  "radioPlay": {
+    "message": "Toista"
+  },
+  "radioPause": {
+    "message": "Tauko"
+  },
+  "colorPickerPicking": {
+    "message": "Valitaan..."
+  },
+  "colorPickerCopied": {
+    "message": "Kopioitu: "
+  },
+  "cacheNotSupported": {
+    "message": "Ei tueta"
+  },
+  "cacheClearConfirm": {
+    "message": "Tyhjennä kaikki tiedot tältä sivustolta"
+  },
+  "cacheError": {
+    "message": "Virhe"
+  },
+  "cacheClearing": {
+    "message": "Tyhjennetään..."
+  },
+  "cacheCleared": {
+    "message": "Tyhjennetty!"
+  },
+  "fontCopied": {
+    "message": "Kopioitu!"
+  },
+  "fontNotCopied": {
+    "message": "Ei kopioitu"
+  },
+  "notesSaved": {
+    "message": "Tallennettu"
+  },
+  "notesTooLarge": {
+    "message": "Muistiinpano on liian suuri"
+  },
+  "notesLinkText": {
+    "message": "Linkki"
+  },
+  "trackerToday": {
+    "message": "Tänään"
+  },
+  "trackerThatDay": {
+    "message": "Tuona päivänä"
+  },
+  "trackerSelectedMonth": {
+    "message": "Valittu kuukausi"
+  },
+  "trackerTotal": {
+    "message": "Yhteensä"
+  },
+  "trackerNoData": {
+    "message": "Ei tietoja tältä ajanjaksolta"
+  },
+  "trackerExportEmpty": {
+    "message": "Ei vietäviä seurantatietoja."
+  },
+  "trackerExportTruncated": {
+    "message": "Vienti typistettiin 10 megatavuun vakauden säilyttämiseksi."
+  },
+  "trackerImportEmpty": {
+    "message": "Ei tuotavia kelvollisia tietoja."
+  },
+  "trackerImportSuccess": {
+    "message": "Tiedot tuotu onnistuneesti!"
+  },
+  "trackerImportError": {
+    "message": "Virhe luettaessa tiedostoa."
+  },
+  "swStatusLive": {
+    "message": "LIVE KÄYNNISSÄ"
+  },
+  "swStatusReady": {
+    "message": "VALMIS"
+  },
+  "swUndoTitle": {
+    "message": "Poista tämä hetki"
+  },
+  "swNoLaps": {
+    "message": "Ei tallennettuja hetkiä"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Live #"
+  },
+  "swDurationLabel": {
+    "message": "Kesto: "
+  },
+  "swMomentLabel": {
+    "message": "Hetki "
+  },
+  "swExportTxtBtn": {
+    "message": "VIE .TXT-MUODOSSA"
+  },
+  "swTotalDurationPrefix": {
+    "message": "KOKONAISKESTO: "
+  },
+  "swCopyBtn": {
+    "message": "KOPIOI LEIKEPÖYDÄLLE"
+  },
+  "swCopiedBtn": {
+    "message": "✓ KOPIOITU"
+  },
+  "swNoHistory": {
+    "message": "Ei live-historiaa"
+  },
+  "techScannerUnavailable": {
+    "message": "Skanneri ei ole käytettävissä tällä sivulla."
+  },
+  "techFoundPrefix": {
+    "message": "Löydetty: "
+  },
+  "techItemsSuffix": {
+    "message": "kohdetta"
+  },
+  "techNotFound": {
+    "message": "Ei löytynyt."
+  },
+  "techScannerFailed": {
+    "message": "Skannaus epäonnistui tällä sivulla."
+  },
+  "markerDrawTooltip": {
+    "message": "Piirrä"
+  },
+  "markerLineTooltip": {
+    "message": "Viiva"
+  },
+  "markerTextTooltip": {
+    "message": "Teksti"
+  },
+  "markerMoveTooltip": {
+    "message": "Siirrä"
+  },
+  "markerEraseTooltip": {
+    "message": "Pyyhi"
+  },
+  "markerClearAllTooltip": {
+    "message": "Tyhjennä kaikki"
+  },
+  "markerThicknessTooltip": {
+    "message": "Paksuus"
+  },
+  "markerCloseTooltip": {
+    "message": "Sulje"
+  },
+  "linesLabel": {
+    "message": "Rivejä"
+  },
+  "clearCounterTooltip": {
+    "message": "Tyhjennä kaikki"
+  },
+  "confirmClearCounter": {
+    "message": "Haluatko varmasti tyhjentää kaiken?"
+  }
+}

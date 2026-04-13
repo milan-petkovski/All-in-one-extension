@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One മികച്ച പ്രൊഡക്ടിവിറ്റി ടൂൾ"
+  },
+  "extDesc": {
+    "message": "വേഗതയേറിയതും ആധുനികവും സൗജന്യവുമായ ഇന്റർഫേസിൽ എല്ലാ അത്യാവശ്യ പ്രവർത്തനങ്ങളും സമന്വയിപ്പിക്കുന്ന ആത്യന്തിക ഉപകരണം."
+  },
+  "markLapDesc": {
+    "message": "സ്റ്റോപ്പ് വാച്ചിൽ സമയം രേഖപ്പെടുത്തുക"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "ഔദ്യോഗിക സൈറ്റ്"
+  },
+  "settingsTooltip": {
+    "message": "ക്രമീകരണങ്ങൾ"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "All In One നൽകുന്നത്"
+  },
+  "playBtn": {
+    "message": "പ്ലേ"
+  },
+  "soundTitle": {
+    "message": "ശബ്ദം"
+  },
+  "resetBtn": {
+    "message": "Reset"
+  },
+  "colorPickerTitle": {
+    "message": "കളർ പിക്കർ"
+  },
+  "darkModeTitle": {
+    "message": "ഇരുണ്ടത്"
+  },
+  "rulerTitle": {
+    "message": "റൂളർ"
+  },
+  "copyEnableTitle": {
+    "message": "കോപ്പി"
+  },
+  "markerTitle": {
+    "message": "മാർക്കർ"
+  },
+  "techTitle": {
+    "message": "ടെക്നോളജി"
+  },
+  "cacheTitle": {
+    "message": "കുക്കികൾ"
+  },
+  "fontTitle": {
+    "message": "ഫോണ്ട്"
+  },
+  "counterTitle": {
+    "message": "കൗണ്ടർ"
+  },
+  "stopwatchTitle": {
+    "message": "സ്റ്റോപ്പ് വാച്ച്"
+  },
+  "notesTitle": {
+    "message": "കുറിപ്പുകൾ"
+  },
+  "trackerTitle": {
+    "message": "ടൈം ട്രാക്കർ"
+  },
+  "ytDislikeTitle": {
+    "message": "Return YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "കുക്കികൾ"
+  },
+  "blockCookiesLabel": {
+    "message": "കുക്കികൾ തടയുക"
+  },
+  "clearSiteDataBtn": {
+    "message": "വിവരങ്ങൾ മായ്ക്കുക"
+  },
+  "cancelBtn": {
+    "message": "റദ്ദാക്കുക"
+  },
+  "counterModalTitle": {
+    "message": "കൗണ്ടർ"
+  },
+  "counterPlaceholder": {
+    "message": "ടെക്സ്റ്റ് നൽകുക"
+  },
+  "charsLabel": {
+    "message": "അക്ഷരങ്ങൾ"
+  },
+  "wordsLabel": {
+    "message": "വാക്കുകൾ"
+  },
+  "stopwatchReady": {
+    "message": "തയ്യാറാണ്"
+  },
+  "startBtn": {
+    "message": "തുടങ്ങുക"
+  },
+  "lapBtn": {
+    "message": "ലാപ്പ്"
+  },
+  "stopBtn": {
+    "message": "നിർത്തുക"
+  },
+  "currentRecordedLabel": {
+    "message": "രേഖപ്പെടുത്തിയത്"
+  },
+  "liveHistoryLabel": {
+    "message": "ചരിത്രം"
+  },
+  "clearAllBtn": {
+    "message": "മായ്ക്കുക"
+  },
+  "confirmClearHistory": {
+    "message": "ചരിത്രം മായ്ക്കണോ?"
+  },
+  "deleteBtn": {
+    "message": "നീക്കം ചെയ്യുക"
+  },
+  "notesModalTitle": {
+    "message": "കുറിപ്പുകൾ"
+  },
+  "clearNotesTooltip": {
+    "message": "കുറിപ്പുകൾ മായ്ക്കുക"
+  },
+  "notesPlaceholder": {
+    "message": "ഇവിടെ എഴുതുക"
+  },
+  "grabTextTooltip": {
+    "message": "ടെക്സ്റ്റ് എടുക്കുക"
+  },
+  "textLabel": {
+    "message": "ടെക്സ്റ്റ്"
+  },
+  "addUrlTooltip": {
+    "message": "ലിങ്ക് ചേർക്കുക"
+  },
+  "linkLabel": {
+    "message": "ലിങ്ക്"
+  },
+  "addDateTooltip": {
+    "message": "തീയതി ചേർക്കുക"
+  },
+  "dateLabel": {
+    "message": "തീയതി"
+  },
+  "exportNotesTooltip": {
+    "message": "എക്സ്പോർട്ട്"
+  },
+  "importNotesTooltip": {
+    "message": "ഇമ്പോർട്ട്"
+  },
+  "savedIndicator": {
+    "message": "സേവ് ചെയ്തു"
+  },
+  "confirmClearNotes": {
+    "message": "കുറിപ്പുകൾ മായ്ക്കണോ?"
+  },
+  "trackerModalTitle": {
+    "message": "ടൈം ട്രാക്കർ"
+  },
+  "exportTooltip": {
+    "message": "എക്സ്പോർട്ട്"
+  },
+  "importTooltip": {
+    "message": "ഇമ്പോർട്ട്"
+  },
+  "trackerModeDay": {
+    "message": "ദിവസം"
+  },
+  "trackerModeMonth": {
+    "message": "മാസം"
+  },
+  "trackerModeAll": {
+    "message": "എപ്പോഴും"
+  },
+  "trackerTodayLabel": {
+    "message": "ഇന്ന്"
+  },
+  "trackerMonthLabel": {
+    "message": "ഈ മാസം"
+  },
+  "trackerAvgLabel": {
+    "message": "ശരാശരി"
+  },
+  "techModalTitle": {
+    "message": "ടെക്നോളജി"
+  },
+  "techLoadingMsg": {
+    "message": "പരിശോധിക്കുന്നു"
+  },
+  "uiSettings": {
+    "message": "ക്രമീകരണങ്ങൾ"
+  },
+  "supportTitle": {
+    "message": "പിന്തുണയ്ക്കുക"
+  },
+  "supportDesc": {
+    "message": "സൗജന്യ സേവനത്തിന് പിന്തുണ നൽകുക."
+  },
+  "donateBtn": {
+    "message": "പിന്തുണ നൽകുക"
+  },
+  "websiteBtn": {
+    "message": "ഔദ്യോഗിക സൈറ്റ്"
+  },
+  "rateBtn": {
+    "message": "റേറ്റിംഗ് നൽകുക"
+  },
+  "versionLabel": {
+    "message": "പതിപ്പ്:"
+  },
+  "privacyLabel": {
+    "message": "സ്വകാര്യത"
+  },
+  "systemPageTitle": {
+    "message": "സിസ്റ്റം"
+  },
+  "systemPageDesc": {
+    "message": "പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു"
+  },
+  "radioPlay": {
+    "message": "Play"
+  },
+  "radioPause": {
+    "message": "Pause"
+  },
+  "colorPickerPicking": {
+    "message": "തിരഞ്ഞെടുക്കുന്നു"
+  },
+  "colorPickerCopied": {
+    "message": "കോപ്പി ചെയ്തു: "
+  },
+  "cacheNotSupported": {
+    "message": "ലഭ്യമല്ല"
+  },
+  "cacheClearConfirm": {
+    "message": "വിവരങ്ങൾ മായ്ക്കുക"
+  },
+  "cacheError": {
+    "message": "പിശക്"
+  },
+  "cacheClearing": {
+    "message": "മായ്ക്കുന്നു"
+  },
+  "cacheCleared": {
+    "message": "മായ്ച്ചു"
+  },
+  "fontCopied": {
+    "message": "കോപ്പി ചെയ്തു"
+  },
+  "fontNotCopied": {
+    "message": "പരാജയപ്പെട്ടു"
+  },
+  "notesSaved": {
+    "message": "സേവ് ചെയ്തു"
+  },
+  "notesTooLarge": {
+    "message": "വലുതാണ്"
+  },
+  "notesLinkText": {
+    "message": "ലിങ്ക്"
+  },
+  "trackerToday": {
+    "message": "ഇന്ന്"
+  },
+  "trackerThatDay": {
+    "message": "അന്നേ ദിവസം"
+  },
+  "trackerSelectedMonth": {
+    "message": "തിരഞ്ഞെടുത്ത മാസം"
+  },
+  "trackerTotal": {
+    "message": "ആകെ"
+  },
+  "trackerNoData": {
+    "message": "വിവരങ്ങളില്ല"
+  },
+  "trackerExportEmpty": {
+    "message": "വിവരങ്ങളില്ല."
+  },
+  "trackerExportTruncated": {
+    "message": "പരിമിതപ്പെടുത്തിയിരിക്കുന്നു."
+  },
+  "trackerImportEmpty": {
+    "message": "വിവരങ്ങളില്ല."
+  },
+  "trackerImportSuccess": {
+    "message": "വിജയിച്ചു"
+  },
+  "trackerImportError": {
+    "message": "പിശക്."
+  },
+  "swStatusLive": {
+    "message": "ലൈവ്"
+  },
+  "swStatusReady": {
+    "message": "തയ്യാറാണ്"
+  },
+  "swUndoTitle": {
+    "message": "മായ്ക്കുക"
+  },
+  "swNoLaps": {
+    "message": "വിവരങ്ങളില്ല"
+  },
+  "swLiveTitlePrefix": {
+    "message": "ലൈവ് #"
+  },
+  "swDurationLabel": {
+    "message": "സമയം: "
+  },
+  "swMomentLabel": {
+    "message": "നിമിഷം "
+  },
+  "swExportTxtBtn": {
+    "message": ".TXT എക്സ്പോർട്ട്"
+  },
+  "swTotalDurationPrefix": {
+    "message": "ആകെ സമയം: "
+  },
+  "swCopyBtn": {
+    "message": "കോപ്പി"
+  },
+  "swCopiedBtn": {
+    "message": "✓ കോപ്പി ചെയ്തു"
+  },
+  "swNoHistory": {
+    "message": "ചരിത്രമില്ല"
+  },
+  "techScannerUnavailable": {
+    "message": "ലഭ്യമല്ല."
+  },
+  "techFoundPrefix": {
+    "message": "കണ്ടെത്തി: "
+  },
+  "techItemsSuffix": {
+    "message": "എണ്ണം"
+  },
+  "techNotFound": {
+    "message": "ഒന്നുമില്ല."
+  },
+  "techScannerFailed": {
+    "message": "പരാജയപ്പെട്ടു."
+  },
+  "markerDrawTooltip": {
+    "message": "വരയ്ക്കുക"
+  },
+  "markerLineTooltip": {
+    "message": "ലൈൻ"
+  },
+  "markerTextTooltip": {
+    "message": "ടെക്സ്റ്റ്"
+  },
+  "markerMoveTooltip": {
+    "message": "നീക്കുക"
+  },
+  "markerEraseTooltip": {
+    "message": "മായ്ക്കുക"
+  },
+  "markerClearAllTooltip": {
+    "message": "എല്ലാം മായ്ക്കുക"
+  },
+  "markerThicknessTooltip": {
+    "message": "കനം"
+  },
+  "markerCloseTooltip": {
+    "message": "അടയ്ക്കുക"
+  },
+  "linesLabel": {
+    "message": "വരികൾ"
+  },
+  "clearCounterTooltip": {
+    "message": "എല്ലാം മായ്ക്കുക"
+  },
+  "confirmClearCounter": {
+    "message": "നിങ്ങൾക്ക് ഉറപ്പാണോ എല്ലാം മായ്ക്കാൻ?"
+  }
+}

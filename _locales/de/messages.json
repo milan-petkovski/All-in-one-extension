@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Das beste Produktivitäts-Tool"
+  },
+  "extDesc": {
+    "message": "Das ultimative Werkzeug, das alle wichtigen Funktionen in einer schnellen, modernen und kostenlosen Benutzeroberfläche vereint."
+  },
+  "markLapDesc": {
+    "message": "Einen Moment auf der Stoppuhr festhalten"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Website"
+  },
+  "settingsTooltip": {
+    "message": "Einstellungen"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Mit All In One"
+  },
+  "playBtn": {
+    "message": "Abspielen"
+  },
+  "soundTitle": {
+    "message": "Ton"
+  },
+  "resetBtn": {
+    "message": "Reset"
+  },
+  "colorPickerTitle": {
+    "message": "Farben"
+  },
+  "darkModeTitle": {
+    "message": "Dunkelmodus"
+  },
+  "rulerTitle": {
+    "message": "Lineal"
+  },
+  "copyEnableTitle": {
+    "message": "Kopie"
+  },
+  "markerTitle": {
+    "message": "Marker"
+  },
+  "techTitle": {
+    "message": "Technik"
+  },
+  "cacheTitle": {
+    "message": "Cache"
+  },
+  "fontTitle": {
+    "message": "Schrift"
+  },
+  "counterTitle": {
+    "message": "Zähler"
+  },
+  "stopwatchTitle": {
+    "message": "Stoppuhr"
+  },
+  "notesTitle": {
+    "message": "Notizen"
+  },
+  "trackerTitle": {
+    "message": "Zeit-Tracker"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "COOKIES/CACHE"
+  },
+  "blockCookiesLabel": {
+    "message": "Cookies blockieren"
+  },
+  "clearSiteDataBtn": {
+    "message": "Seite löschen"
+  },
+  "cancelBtn": {
+    "message": "ABBRECHEN"
+  },
+  "counterModalTitle": {
+    "message": "ZEICHENZÄHLER"
+  },
+  "counterPlaceholder": {
+    "message": "Text hier..."
+  },
+  "charsLabel": {
+    "message": "Zeichen"
+  },
+  "wordsLabel": {
+    "message": "Wörter"
+  },
+  "stopwatchReady": {
+    "message": "BEREIT"
+  },
+  "startBtn": {
+    "message": "START"
+  },
+  "lapBtn": {
+    "message": "RUNDE"
+  },
+  "stopBtn": {
+    "message": "STOPP"
+  },
+  "currentRecordedLabel": {
+    "message": "AKTUELL"
+  },
+  "liveHistoryLabel": {
+    "message": "LIVE-VERLAUF"
+  },
+  "clearAllBtn": {
+    "message": "ALLES LÖSCHEN"
+  },
+  "confirmClearHistory": {
+    "message": "Verlauf löschen?"
+  },
+  "deleteBtn": {
+    "message": "LÖSCHEN"
+  },
+  "notesModalTitle": {
+    "message": "NOTIZEN"
+  },
+  "clearNotesTooltip": {
+    "message": "Notizen löschen"
+  },
+  "notesPlaceholder": {
+    "message": "Notizen hier..."
+  },
+  "grabTextTooltip": {
+    "message": "Text von Seite holen"
+  },
+  "textLabel": {
+    "message": "Text"
+  },
+  "addUrlTooltip": {
+    "message": "URL hinzufügen"
+  },
+  "linkLabel": {
+    "message": "Link"
+  },
+  "addDateTooltip": {
+    "message": "Datum hinzufügen"
+  },
+  "dateLabel": {
+    "message": "Datum"
+  },
+  "exportNotesTooltip": {
+    "message": "Exportieren"
+  },
+  "importNotesTooltip": {
+    "message": "Importieren"
+  },
+  "savedIndicator": {
+    "message": "Gespeichert"
+  },
+  "confirmClearNotes": {
+    "message": "Alle Notizen löschen?"
+  },
+  "trackerModalTitle": {
+    "message": "ZEIT-TRACKER"
+  },
+  "exportTooltip": {
+    "message": "Daten exportieren"
+  },
+  "importTooltip": {
+    "message": "Daten importieren"
+  },
+  "trackerModeDay": {
+    "message": "Tagesansicht"
+  },
+  "trackerModeMonth": {
+    "message": "Monatsansicht"
+  },
+  "trackerModeAll": {
+    "message": "Alle Zeiten"
+  },
+  "trackerTodayLabel": {
+    "message": "Heute"
+  },
+  "trackerMonthLabel": {
+    "message": "Dieser Monat"
+  },
+  "trackerAvgLabel": {
+    "message": "Durchschnitt"
+  },
+  "techModalTitle": {
+    "message": "TECHNOLOGIEN"
+  },
+  "techLoadingMsg": {
+    "message": "Analyse läuft..."
+  },
+  "uiSettings": {
+    "message": "EINSTELLUNGEN"
+  },
+  "supportTitle": {
+    "message": "Erweiterung unterstützen"
+  },
+  "supportDesc": {
+    "message": "All In One ist kostenlos. Deine Hilfe bringt neue Funktionen."
+  },
+  "donateBtn": {
+    "message": "Spenden und unterstützen"
+  },
+  "websiteBtn": {
+    "message": "Offizielle Website"
+  },
+  "rateBtn": {
+    "message": "Erweiterung bewerten"
+  },
+  "versionLabel": {
+    "message": "Version:"
+  },
+  "privacyLabel": {
+    "message": "Datenschutz"
+  },
+  "systemPageTitle": {
+    "message": "SYSTEMSEITE"
+  },
+  "systemPageDesc": {
+    "message": "Änderungen deaktiviert"
+  },
+  "radioPlay": {
+    "message": "Play"
+  },
+  "radioPause": {
+    "message": "Pause"
+  },
+  "colorPickerPicking": {
+    "message": "Auswahl..."
+  },
+  "colorPickerCopied": {
+    "message": "Kopiert: "
+  },
+  "cacheNotSupported": {
+    "message": "Nicht unterstützt"
+  },
+  "cacheClearConfirm": {
+    "message": "Seite löschen"
+  },
+  "cacheError": {
+    "message": "Fehler"
+  },
+  "cacheClearing": {
+    "message": "Löschen..."
+  },
+  "cacheCleared": {
+    "message": "Gelöscht!"
+  },
+  "fontCopied": {
+    "message": "Kopiert!"
+  },
+  "fontNotCopied": {
+    "message": "Nicht kopiert"
+  },
+  "notesSaved": {
+    "message": "Gespeichert"
+  },
+  "notesTooLarge": {
+    "message": "Notiz zu groß"
+  },
+  "notesLinkText": {
+    "message": "Link"
+  },
+  "trackerToday": {
+    "message": "Heute"
+  },
+  "trackerThatDay": {
+    "message": "Dieser Tag"
+  },
+  "trackerSelectedMonth": {
+    "message": "Ausgewählter Monat"
+  },
+  "trackerTotal": {
+    "message": "Gesamt"
+  },
+  "trackerNoData": {
+    "message": "Keine Daten"
+  },
+  "trackerExportEmpty": {
+    "message": "Keine Daten zum Export."
+  },
+  "trackerExportTruncated": {
+    "message": "Export auf 10MB begrenzt."
+  },
+  "trackerImportEmpty": {
+    "message": "Keine gültigen Daten."
+  },
+  "trackerImportSuccess": {
+    "message": "Importiert!"
+  },
+  "trackerImportError": {
+    "message": "Fehler beim Lesen."
+  },
+  "swStatusLive": {
+    "message": "LIVE"
+  },
+  "swStatusReady": {
+    "message": "BEREIT"
+  },
+  "swUndoTitle": {
+    "message": "Moment löschen"
+  },
+  "swNoLaps": {
+    "message": "Keine Momente"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Live #"
+  },
+  "swDurationLabel": {
+    "message": "Dauer: "
+  },
+  "swMomentLabel": {
+    "message": "Moment "
+  },
+  "swExportTxtBtn": {
+    "message": "EXPORT .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "GESAMT: "
+  },
+  "swCopyBtn": {
+    "message": "KOPIEREN"
+  },
+  "swCopiedBtn": {
+    "message": "✓ KOPIERT"
+  },
+  "swNoHistory": {
+    "message": "Kein Verlauf"
+  },
+  "techScannerUnavailable": {
+    "message": "Kein Scanner hier."
+  },
+  "techFoundPrefix": {
+    "message": "Gefunden: "
+  },
+  "techItemsSuffix": {
+    "message": "Elemente"
+  },
+  "techNotFound": {
+    "message": "Nicht gefunden."
+  },
+  "techScannerFailed": {
+    "message": "Scan fehlgeschlagen."
+  },
+  "markerDrawTooltip": {
+    "message": "Zeichnen"
+  },
+  "markerLineTooltip": {
+    "message": "Linie"
+  },
+  "markerTextTooltip": {
+    "message": "Text"
+  },
+  "markerMoveTooltip": {
+    "message": "Bewegen"
+  },
+  "markerEraseTooltip": {
+    "message": "Radieren"
+  },
+  "markerClearAllTooltip": {
+    "message": "Alles löschen"
+  },
+  "markerThicknessTooltip": {
+    "message": "Dicke"
+  },
+  "markerCloseTooltip": {
+    "message": "Schließen"
+  },
+  "linesLabel": {
+    "message": "Zeilen"
+  },
+  "clearCounterTooltip": {
+    "message": "Alles löschen"
+  },
+  "confirmClearCounter": {
+    "message": "Möchten Sie wirklich alles löschen?"
+  }
+}

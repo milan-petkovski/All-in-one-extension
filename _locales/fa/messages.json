@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - بهترین ابزار بهره‌وری"
+  },
+  "extDesc": {
+    "message": "ابزاری نهایی که تمام عملکردهای ضروری را در یک رابط سریع، مدرن و رایگان ترکیب می‌کند."
+  },
+  "markLapDesc": {
+    "message": "ثبت یک لحظه در کرونومتر"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "وب‌سایت رسمی افزونه"
+  },
+  "settingsTooltip": {
+    "message": "تنظیمات"
+  },
+  "radioTitle": {
+    "message": "رادیو IN"
+  },
+  "radioArtist": {
+    "message": "پشتیبانی شده توسط افزونه All In One"
+  },
+  "playBtn": {
+    "message": "پخش"
+  },
+  "soundTitle": {
+    "message": "صدا"
+  },
+  "resetBtn": {
+    "message": "بازنشانی"
+  },
+  "colorPickerTitle": {
+    "message": "انتخابگر رنگ"
+  },
+  "darkModeTitle": {
+    "message": "حالت تاریک"
+  },
+  "rulerTitle": {
+    "message": "خط‌کش صفحه"
+  },
+  "copyEnableTitle": {
+    "message": "فعال‌سازی کپی"
+  },
+  "markerTitle": {
+    "message": "نشانگر صفحه"
+  },
+  "techTitle": {
+    "message": "فناوری‌های سایت"
+  },
+  "cacheTitle": {
+    "message": "کوکی‌ها و کش"
+  },
+  "fontTitle": {
+    "message": "یابنده فونت"
+  },
+  "counterTitle": {
+    "message": "شمارنده کاراکتر"
+  },
+  "stopwatchTitle": {
+    "message": "کرنومتر"
+  },
+  "notesTitle": {
+    "message": "یادداشت‌های هوشمند"
+  },
+  "trackerTitle": {
+    "message": "ردیاب زمان وب"
+  },
+  "ytDislikeTitle": {
+    "message": "بازگردانی دیسلایک یوتیوب"
+  },
+  "cacheModalTitle": {
+    "message": "کوکی‌ها و کش"
+  },
+  "blockCookiesLabel": {
+    "message": "مسدود کردن خودکار کوکی‌ها"
+  },
+  "clearSiteDataBtn": {
+    "message": "پاک کردن تمام داده‌های این سایت"
+  },
+  "cancelBtn": {
+    "message": "لغو"
+  },
+  "counterModalTitle": {
+    "message": "شمارنده کاراکتر"
+  },
+  "counterPlaceholder": {
+    "message": "متن را اینجا جای‌گذاری کنید..."
+  },
+  "charsLabel": {
+    "message": "کاراکترها"
+  },
+  "wordsLabel": {
+    "message": "کلمات"
+  },
+  "stopwatchReady": {
+    "message": "آماده"
+  },
+  "startBtn": {
+    "message": "شروع"
+  },
+  "lapBtn": {
+    "message": "دور"
+  },
+  "stopBtn": {
+    "message": "توقف"
+  },
+  "currentRecordedLabel": {
+    "message": "در حال حاضر ثبت شده"
+  },
+  "liveHistoryLabel": {
+    "message": "تاریخچه زنده"
+  },
+  "clearAllBtn": {
+    "message": "پاک کردن همه"
+  },
+  "confirmClearHistory": {
+    "message": "آیا مطمئن هستید که می‌خواهید تمام تاریخچه را پاک کنید؟"
+  },
+  "deleteBtn": {
+    "message": "حذف"
+  },
+  "notesModalTitle": {
+    "message": "یادداشت‌های هوشمند"
+  },
+  "clearNotesTooltip": {
+    "message": "پاک کردن تمام یادداشت‌ها"
+  },
+  "notesPlaceholder": {
+    "message": "یادداشت‌های خود را اینجا بنویسید..."
+  },
+  "grabTextTooltip": {
+    "message": "استخراج متن از صفحه"
+  },
+  "textLabel": {
+    "message": "متن"
+  },
+  "addUrlTooltip": {
+    "message": "افزودن URL فعلی"
+  },
+  "linkLabel": {
+    "message": "لینک"
+  },
+  "addDateTooltip": {
+    "message": "افزودن تاریخ امروز"
+  },
+  "dateLabel": {
+    "message": "تاریخ"
+  },
+  "exportNotesTooltip": {
+    "message": "صادرات یادداشت‌ها"
+  },
+  "importNotesTooltip": {
+    "message": "واردات یادداشت‌ها"
+  },
+  "savedIndicator": {
+    "message": "ذخیره شد"
+  },
+  "confirmClearNotes": {
+    "message": "آیا مطمئن هستید که می‌خواهید تمام یادداشت‌ها را پاک کنید؟"
+  },
+  "trackerModalTitle": {
+    "message": "ردیاب زمان وب"
+  },
+  "exportTooltip": {
+    "message": "صادرات داده‌ها"
+  },
+  "importTooltip": {
+    "message": "واردات داده‌ها"
+  },
+  "trackerModeDay": {
+    "message": "نمای روزانه"
+  },
+  "trackerModeMonth": {
+    "message": "نمای ماهانه"
+  },
+  "trackerModeAll": {
+    "message": "تمام زمان"
+  },
+  "trackerTodayLabel": {
+    "message": "امروز"
+  },
+  "trackerMonthLabel": {
+    "message": "این ماه"
+  },
+  "trackerAvgLabel": {
+    "message": "میانگین"
+  },
+  "techModalTitle": {
+    "message": "فناوری‌های سایت"
+  },
+  "techLoadingMsg": {
+    "message": "اسکنر در حال تحلیل سایت است..."
+  },
+  "uiSettings": {
+    "message": "تنظیمات"
+  },
+  "supportTitle": {
+    "message": "حمایت از افزونه"
+  },
+  "supportDesc": {
+    "message": "All In One یک ابزار کاملاً رایگان است. حمایت شما کمک می‌کند تا اینگونه بماند و امکان توسعه ویژگی‌های جدید را فراهم می‌کند."
+  },
+  "donateBtn": {
+    "message": "اهدا و حمایت"
+  },
+  "websiteBtn": {
+    "message": "وب‌سایت رسمی"
+  },
+  "rateBtn": {
+    "message": "رتبه‌دهی به افزونه"
+  },
+  "versionLabel": {
+    "message": "نسخه:"
+  },
+  "privacyLabel": {
+    "message": "سیاست حفظ حریم خصوصی"
+  },
+  "systemPageTitle": {
+    "message": "صفحه سیستم"
+  },
+  "systemPageDesc": {
+    "message": "ابزارهای اصلاح غیرفعال هستند"
+  },
+  "radioPlay": {
+    "message": "پخش"
+  },
+  "radioPause": {
+    "message": "توقف موقت"
+  },
+  "colorPickerPicking": {
+    "message": "در حال انتخاب..."
+  },
+  "colorPickerCopied": {
+    "message": "کپی شد: "
+  },
+  "cacheNotSupported": {
+    "message": "پشتیبانی نمی‌شود"
+  },
+  "cacheClearConfirm": {
+    "message": "پاک کردن تمام داده‌های این سایت"
+  },
+  "cacheError": {
+    "message": "خطا"
+  },
+  "cacheClearing": {
+    "message": "در حال پاک کردن..."
+  },
+  "cacheCleared": {
+    "message": "پاک شد!"
+  },
+  "fontCopied": {
+    "message": "کپی شد!"
+  },
+  "fontNotCopied": {
+    "message": "کپی نشد"
+  },
+  "notesSaved": {
+    "message": "ذخیره شد"
+  },
+  "notesTooLarge": {
+    "message": "یادداشت خیلی بزرگ است"
+  },
+  "notesLinkText": {
+    "message": "لینک"
+  },
+  "trackerToday": {
+    "message": "امروز"
+  },
+  "trackerThatDay": {
+    "message": "آن روز"
+  },
+  "trackerSelectedMonth": {
+    "message": "ماه انتخاب شده"
+  },
+  "trackerTotal": {
+    "message": "مجموع"
+  },
+  "trackerNoData": {
+    "message": "داده‌ای برای این دوره وجود ندارد"
+  },
+  "trackerExportEmpty": {
+    "message": "داده‌ای برای صادرات وجود ندارد."
+  },
+  "trackerExportTruncated": {
+    "message": "صادرات برای پایداری به 10 مگابایت محدود شد."
+  },
+  "trackerImportEmpty": {
+    "message": "داده معتبری برای واردات وجود ندارد."
+  },
+  "trackerImportSuccess": {
+    "message": "داده‌ها با موفقیت وارد شدند!"
+  },
+  "trackerImportError": {
+    "message": "خطا در خواندن فایل."
+  },
+  "swStatusLive": {
+    "message": "پخش زنده در جریان است"
+  },
+  "swStatusReady": {
+    "message": "آماده"
+  },
+  "swUndoTitle": {
+    "message": "حذف این لحظه"
+  },
+  "swNoLaps": {
+    "message": "هیچ لحظه ثبت شده‌ای وجود ندارد"
+  },
+  "swLiveTitlePrefix": {
+    "message": "زنده #"
+  },
+  "swDurationLabel": {
+    "message": "مدت زمان: "
+  },
+  "swMomentLabel": {
+    "message": "لحظه "
+  },
+  "swExportTxtBtn": {
+    "message": "صادرات به عنوان .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "مدت زمان کل: "
+  },
+  "swCopyBtn": {
+    "message": "کپی به کلیپ‌بورد"
+  },
+  "swCopiedBtn": {
+    "message": "✓ کپی شد"
+  },
+  "swNoHistory": {
+    "message": "هیچ تاریخچه زنده‌ای وجود ندارد"
+  },
+  "techScannerUnavailable": {
+    "message": "اسکنر در این صفحه در دسترس نیست."
+  },
+  "techFoundPrefix": {
+    "message": "یافت شد: "
+  },
+  "techItemsSuffix": {
+    "message": "مورد"
+  },
+  "techNotFound": {
+    "message": "یافت نشد."
+  },
+  "techScannerFailed": {
+    "message": "اسکن در این صفحه با شکست مواجه شد."
+  },
+  "markerDrawTooltip": {
+    "message": "رسم"
+  },
+  "markerLineTooltip": {
+    "message": "خط"
+  },
+  "markerTextTooltip": {
+    "message": "متن"
+  },
+  "markerMoveTooltip": {
+    "message": "حرکت"
+  },
+  "markerEraseTooltip": {
+    "message": "پاک کردن"
+  },
+  "markerClearAllTooltip": {
+    "message": "پاک کردن همه"
+  },
+  "markerThicknessTooltip": {
+    "message": "ضخامت"
+  },
+  "markerCloseTooltip": {
+    "message": "بستن"
+  },
+  "linesLabel": {
+    "message": "خطوط"
+  },
+  "clearCounterTooltip": {
+    "message": "پاک کردن همه"
+  },
+  "confirmClearCounter": {
+    "message": "آیا مطمئن هستید که می‌خواهید همه را پاک کنید؟"
+  }
+}

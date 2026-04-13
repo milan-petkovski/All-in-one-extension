@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - The Ultimate Productivity Tool"
+  },
+  "extDesc": {
+    "message": "The ultimate tool that integrates all essential functions into a fast, modern and free user interface."
+  },
+  "markLapDesc": {
+    "message": "Record a moment on the stopwatch"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Official extension website"
+  },
+  "settingsTooltip": {
+    "message": "Settings"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Powered by All In One extension"
+  },
+  "playBtn": {
+    "message": "Play"
+  },
+  "soundTitle": {
+    "message": "Sound"
+  },
+  "resetBtn": {
+    "message": "Reset"
+  },
+  "colorPickerTitle": {
+    "message": "Color Picker"
+  },
+  "darkModeTitle": {
+    "message": "Dark Mode"
+  },
+  "rulerTitle": {
+    "message": "Page Ruler"
+  },
+  "copyEnableTitle": {
+    "message": "Enable Copy"
+  },
+  "markerTitle": {
+    "message": "Page Marker"
+  },
+  "techTitle": {
+    "message": "Site Technologies"
+  },
+  "cacheTitle": {
+    "message": "Cookies and Cache"
+  },
+  "fontTitle": {
+    "message": "Font Finder"
+  },
+  "counterTitle": {
+    "message": "Character Counter"
+  },
+  "stopwatchTitle": {
+    "message": "Stopwatch"
+  },
+  "notesTitle": {
+    "message": "Smart Notes"
+  },
+  "trackerTitle": {
+    "message": "Webtime Tracker"
+  },
+  "ytDislikeTitle": {
+    "message": "Return YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "COOKIES AND CACHE"
+  },
+  "blockCookiesLabel": {
+    "message": "Automatically block cookies"
+  },
+  "clearSiteDataBtn": {
+    "message": "Clear all data from this site"
+  },
+  "cancelBtn": {
+    "message": "CANCEL"
+  },
+  "counterModalTitle": {
+    "message": "CHARACTER COUNTER"
+  },
+  "counterPlaceholder": {
+    "message": "Paste text here..."
+  },
+  "charsLabel": {
+    "message": "Characters"
+  },
+  "wordsLabel": {
+    "message": "Words"
+  },
+  "stopwatchReady": {
+    "message": "READY"
+  },
+  "startBtn": {
+    "message": "START"
+  },
+  "lapBtn": {
+    "message": "LAP"
+  },
+  "stopBtn": {
+    "message": "STOP"
+  },
+  "currentRecordedLabel": {
+    "message": "CURRENTLY RECORDED"
+  },
+  "liveHistoryLabel": {
+    "message": "LIVE HISTORY"
+  },
+  "clearAllBtn": {
+    "message": "CLEAR ALL"
+  },
+  "confirmClearHistory": {
+    "message": "Are you sure you want to clear all history?"
+  },
+  "deleteBtn": {
+    "message": "DELETE"
+  },
+  "notesModalTitle": {
+    "message": "SMART NOTES"
+  },
+  "clearNotesTooltip": {
+    "message": "Clear all notes"
+  },
+  "notesPlaceholder": {
+    "message": "Write notes here..."
+  },
+  "grabTextTooltip": {
+    "message": "Extract text from page"
+  },
+  "textLabel": {
+    "message": "Text"
+  },
+  "addUrlTooltip": {
+    "message": "Add current page URL"
+  },
+  "linkLabel": {
+    "message": "Link"
+  },
+  "addDateTooltip": {
+    "message": "Add today's date"
+  },
+  "dateLabel": {
+    "message": "Date"
+  },
+  "exportNotesTooltip": {
+    "message": "Export notes"
+  },
+  "importNotesTooltip": {
+    "message": "Import notes"
+  },
+  "savedIndicator": {
+    "message": "Saved"
+  },
+  "confirmClearNotes": {
+    "message": "Are you sure you want to clear all notes?"
+  },
+  "trackerModalTitle": {
+    "message": "WEBTIME TRACKER"
+  },
+  "exportTooltip": {
+    "message": "Export data"
+  },
+  "importTooltip": {
+    "message": "Import data"
+  },
+  "trackerModeDay": {
+    "message": "Daily view"
+  },
+  "trackerModeMonth": {
+    "message": "Monthly view"
+  },
+  "trackerModeAll": {
+    "message": "All time"
+  },
+  "trackerTodayLabel": {
+    "message": "Today"
+  },
+  "trackerMonthLabel": {
+    "message": "This month"
+  },
+  "trackerAvgLabel": {
+    "message": "Average"
+  },
+  "techModalTitle": {
+    "message": "SITE TECHNOLOGIES"
+  },
+  "techLoadingMsg": {
+    "message": "Scanner is analyzing the site..."
+  },
+  "uiSettings": {
+    "message": "SETTINGS"
+  },
+  "supportTitle": {
+    "message": "Support the extension"
+  },
+  "supportDesc": {
+    "message": "All In One is a completely free tool. Your support helps keep it that way and enables the regular development of new features."
+  },
+  "donateBtn": {
+    "message": "Donate and support"
+  },
+  "websiteBtn": {
+    "message": "Official extension website"
+  },
+  "rateBtn": {
+    "message": "Rate the extension"
+  },
+  "versionLabel": {
+    "message": "Version:"
+  },
+  "privacyLabel": {
+    "message": "Privacy Policy"
+  },
+  "systemPageTitle": {
+    "message": "SYSTEM PAGE"
+  },
+  "systemPageDesc": {
+    "message": "Modification tools are disabled"
+  },
+  "radioPlay": {
+    "message": "Play"
+  },
+  "radioPause": {
+    "message": "Pause"
+  },
+  "colorPickerPicking": {
+    "message": "Picking..."
+  },
+  "colorPickerCopied": {
+    "message": "Copied: "
+  },
+  "cacheNotSupported": {
+    "message": "Not supported"
+  },
+  "cacheClearConfirm": {
+    "message": "Clear all data from this site"
+  },
+  "cacheError": {
+    "message": "Error"
+  },
+  "cacheClearing": {
+    "message": "Clearing..."
+  },
+  "cacheCleared": {
+    "message": "Cleared!"
+  },
+  "fontCopied": {
+    "message": "Copied!"
+  },
+  "fontNotCopied": {
+    "message": "Not copied"
+  },
+  "notesSaved": {
+    "message": "Saved"
+  },
+  "notesTooLarge": {
+    "message": "Note too large"
+  },
+  "notesLinkText": {
+    "message": "Link"
+  },
+  "trackerToday": {
+    "message": "Today"
+  },
+  "trackerThatDay": {
+    "message": "That day"
+  },
+  "trackerSelectedMonth": {
+    "message": "Selected month"
+  },
+  "trackerTotal": {
+    "message": "Total"
+  },
+  "trackerNoData": {
+    "message": "No data for this period"
+  },
+  "trackerExportEmpty": {
+    "message": "No tracker data to export."
+  },
+  "trackerExportTruncated": {
+    "message": "Export truncated to 10MB to keep the popup stable."
+  },
+  "trackerImportEmpty": {
+    "message": "No valid tracker data to import."
+  },
+  "trackerImportSuccess": {
+    "message": "Data successfully imported!"
+  },
+  "trackerImportError": {
+    "message": "Error reading the file."
+  },
+  "swStatusLive": {
+    "message": "LIVE IN PROGRESS"
+  },
+  "swStatusReady": {
+    "message": "READY"
+  },
+  "swUndoTitle": {
+    "message": "Delete this moment"
+  },
+  "swNoLaps": {
+    "message": "No recorded moments"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Live #"
+  },
+  "swDurationLabel": {
+    "message": "Duration: "
+  },
+  "swMomentLabel": {
+    "message": "Moment "
+  },
+  "swExportTxtBtn": {
+    "message": "EXPORT AS .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "TOTAL DURATION: "
+  },
+  "swCopyBtn": {
+    "message": "COPY TO CLIPBOARD"
+  },
+  "swCopiedBtn": {
+    "message": "✓ COPIED"
+  },
+  "swNoHistory": {
+    "message": "No live history"
+  },
+  "techScannerUnavailable": {
+    "message": "Scanner is not available on this page."
+  },
+  "techFoundPrefix": {
+    "message": "Found: "
+  },
+  "techItemsSuffix": {
+    "message": "items"
+  },
+  "techNotFound": {
+    "message": "Not found."
+  },
+  "techScannerFailed": {
+    "message": "Scanning failed on this page."
+  },
+  "markerDrawTooltip": {
+    "message": "Draw"
+  },
+  "markerLineTooltip": {
+    "message": "Line"
+  },
+  "markerTextTooltip": {
+    "message": "Text"
+  },
+  "markerMoveTooltip": {
+    "message": "Move"
+  },
+  "markerEraseTooltip": {
+    "message": "Erase"
+  },
+  "markerClearAllTooltip": {
+    "message": "Clear all"
+  },
+  "markerThicknessTooltip": {
+    "message": "Thickness"
+  },
+  "markerCloseTooltip": {
+    "message": "Close"
+  },
+  "linesLabel": {
+    "message": "Lines"
+  },
+  "clearCounterTooltip": {
+    "message": "Clear all"
+  },
+  "confirmClearCounter": {
+    "message": "Are you sure you want to clear all?"
+  }
+}

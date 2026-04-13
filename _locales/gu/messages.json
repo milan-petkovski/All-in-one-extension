@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - כלי הפרודוקטיביות הטוב ביותר"
+  },
+  "extDesc": {
+    "message": "הכלי האולטימטיבי המשלב את כל הפונקציות החיוניות בממשק אחד מהיר, מודרני ובחינם."
+  },
+  "markLapDesc": {
+    "message": "רשום רגע בסטופר"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "સત્તાવાર એક્સ્ટેંશન વેબસાઇટ"
+  },
+  "settingsTooltip": {
+    "message": "સેટિંગ્સ"
+  },
+  "radioTitle": {
+    "message": "રેડિયો IN"
+  },
+  "radioArtist": {
+    "message": "All In One દ્વારા સંચાલિત"
+  },
+  "playBtn": {
+    "message": "પ્લે"
+  },
+  "soundTitle": {
+    "message": "અવાજ"
+  },
+  "resetBtn": {
+    "message": "રીસેટ"
+  },
+  "colorPickerTitle": {
+    "message": "કલર પીકર"
+  },
+  "darkModeTitle": {
+    "message": "ડાર્ક મોડ"
+  },
+  "rulerTitle": {
+    "message": "પેજ રૂલર"
+  },
+  "copyEnableTitle": {
+    "message": "કૉપિ સક્ષમ કરો"
+  },
+  "markerTitle": {
+    "message": "પેજ માર્કર"
+  },
+  "techTitle": {
+    "message": "સાઇટ ટેકનોલોજી"
+  },
+  "cacheTitle": {
+    "message": "કૂકીઝ અને કેશ"
+  },
+  "fontTitle": {
+    "message": "ફોન્ટ ફાઇન્ડર"
+  },
+  "counterTitle": {
+    "message": "કેરેક્ટર કાઉન્ટર"
+  },
+  "stopwatchTitle": {
+    "message": "સ્ટોપવોચ"
+  },
+  "notesTitle": {
+    "message": "સ્માર્ટ નોટ્સ"
+  },
+  "trackerTitle": {
+    "message": "વેબટાઇમ ટ્રેકર"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube ડિસલાઇક પાછા લાવો"
+  },
+  "cacheModalTitle": {
+    "message": "કૂકીઝ અને કેશ"
+  },
+  "blockCookiesLabel": {
+    "message": "આપમેળે કૂકીઝ બ્લૉક કરો"
+  },
+  "clearSiteDataBtn": {
+    "message": "આ સાઇટનો તમામ ડેટા સાફ કરો"
+  },
+  "cancelBtn": {
+    "message": "રદ કરો"
+  },
+  "counterModalTitle": {
+    "message": "કેરેક્ટર કાઉન્ટર"
+  },
+  "counterPlaceholder": {
+    "message": "અહીં લખાણ પેસ્ટ કરો..."
+  },
+  "charsLabel": {
+    "message": "અક્ષરો"
+  },
+  "wordsLabel": {
+    "message": "શબ્દો"
+  },
+  "stopwatchReady": {
+    "message": "તૈયાર"
+  },
+  "startBtn": {
+    "message": "શરૂ કરો"
+  },
+  "lapBtn": {
+    "message": "લેપ"
+  },
+  "stopBtn": {
+    "message": "રોકો"
+  },
+  "currentRecordedLabel": {
+    "message": "હાલમાં રેકોર્ડ કરેલ"
+  },
+  "liveHistoryLabel": {
+    "message": "લાઇવ ઇતિહાસ"
+  },
+  "clearAllBtn": {
+    "message": "બધું સાફ કરો"
+  },
+  "confirmClearHistory": {
+    "message": "શું તમે ખરેખર બધો ઇતિહાસ સાફ કરવા માંગો છો?"
+  },
+  "deleteBtn": {
+    "message": "કાઢી નાખો"
+  },
+  "notesModalTitle": {
+    "message": "સ્માર્ટ નોટ્સ"
+  },
+  "clearNotesTooltip": {
+    "message": "બધી નોટ્સ સાફ કરો"
+  },
+  "notesPlaceholder": {
+    "message": "અહીં નોટ્સ લખો..."
+  },
+  "grabTextTooltip": {
+    "message": "પૃષ્ઠ પરથી લખાણ કાઢો"
+  },
+  "textLabel": {
+    "message": "લખાણ"
+  },
+  "addUrlTooltip": {
+    "message": "વર્તમાન URL ઉમેરો"
+  },
+  "linkLabel": {
+    "message": "લિંક"
+  },
+  "addDateTooltip": {
+    "message": "આજની તારીખ ઉમેરો"
+  },
+  "dateLabel": {
+    "message": "તારીખ"
+  },
+  "exportNotesTooltip": {
+    "message": "નોટ્સ નિકાસ કરો"
+  },
+  "importNotesTooltip": {
+    "message": "નોટ્સ આયાત કરો"
+  },
+  "savedIndicator": {
+    "message": "સાચવ્યું"
+  },
+  "confirmClearNotes": {
+    "message": "શું તમે ખરેખર બધી નોટ્સ સાફ કરવા માંગો છો?"
+  },
+  "trackerModalTitle": {
+    "message": "વેબટાઇમ ટ્રેકર"
+  },
+  "exportTooltip": {
+    "message": "ડેટા નિકાસ કરો"
+  },
+  "importTooltip": {
+    "message": "ડેટા આયાત કરો"
+  },
+  "trackerModeDay": {
+    "message": "દૈનિક દૃશ્ય"
+  },
+  "trackerModeMonth": {
+    "message": "માસિક દૃશ્ય"
+  },
+  "trackerModeAll": {
+    "message": "તમામ સમય"
+  },
+  "trackerTodayLabel": {
+    "message": "આજે"
+  },
+  "trackerMonthLabel": {
+    "message": "આ મહિને"
+  },
+  "trackerAvgLabel": {
+    "message": "સરેરાશ"
+  },
+  "techModalTitle": {
+    "message": "સાઇટ ટેકનોલોજી"
+  },
+  "techLoadingMsg": {
+    "message": "સ્કેનર સાઇટનું વિશ્લેષણ કરી રહ્યું છે..."
+  },
+  "uiSettings": {
+    "message": "સેટિંગ્સ"
+  },
+  "supportTitle": {
+    "message": "એક્સ્ટેંશનને સપોર્ટ કરો"
+  },
+  "supportDesc": {
+    "message": "All In One સંપૂર્ણપણે મફત સાધન છે. તમારો સપોર્ટ તેને આ રીતે રાખવામાં મદદ કરે છે અને નવી સુવિધાઓનો વિકાસ શક્ય બનાવે છે."
+  },
+  "donateBtn": {
+    "message": "દાન કરો અને સપોર્ટ કરો"
+  },
+  "websiteBtn": {
+    "message": "સત્તાવાર વેબસાઇટ"
+  },
+  "rateBtn": {
+    "message": "એક્સ્ટેંશનને રેટ કરો"
+  },
+  "versionLabel": {
+    "message": "આવૃત્તિ:"
+  },
+  "privacyLabel": {
+    "message": "ગોપનીયતા નીતિ"
+  },
+  "systemPageTitle": {
+    "message": "સિસ્ટમ પેજ"
+  },
+  "systemPageDesc": {
+    "message": "ફેરફાર સાધનો અક્ષમ કરેલ છે"
+  },
+  "radioPlay": {
+    "message": "પ્લે"
+  },
+  "radioPause": {
+    "message": "થોભાવો"
+  },
+  "colorPickerPicking": {
+    "message": "પસંદ કરી રહ્યા છીએ..."
+  },
+  "colorPickerCopied": {
+    "message": "કૉપિ કર્યું: "
+  },
+  "cacheNotSupported": {
+    "message": "આધારભૂત નથી"
+  },
+  "cacheClearConfirm": {
+    "message": "આ સાઇટનો તમામ ડેટા સાફ કરો"
+  },
+  "cacheError": {
+    "message": "ભૂલ"
+  },
+  "cacheClearing": {
+    "message": "સાફ કરી રહ્યા છીએ..."
+  },
+  "cacheCleared": {
+    "message": "સાફ કર્યું!"
+  },
+  "fontCopied": {
+    "message": "કૉપિ કર્યું!"
+  },
+  "fontNotCopied": {
+    "message": "કૉપિ કર્યું નથી"
+  },
+  "notesSaved": {
+    "message": "સાચવ્યું"
+  },
+  "notesTooLarge": {
+    "message": "નોટ ખૂબ મોટી છે"
+  },
+  "notesLinkText": {
+    "message": "લિંક"
+  },
+  "trackerToday": {
+    "message": "આજે"
+  },
+  "trackerThatDay": {
+    "message": "તે દિવસ"
+  },
+  "trackerSelectedMonth": {
+    "message": "પસંદ કરેલ મહિનો"
+  },
+  "trackerTotal": {
+    "message": "કુલ"
+  },
+  "trackerNoData": {
+    "message": "આ સમયગાળા માટે કોઈ ડેટા નથી"
+  },
+  "trackerExportEmpty": {
+    "message": "નિકાસ કરવા માટે કોઈ ટ્રેકર ડેટા નથી."
+  },
+  "trackerExportTruncated": {
+    "message": "સ્થિરતા જાળવવા નિકાસ 10MB સુધી ઘટાડવામાં આવી."
+  },
+  "trackerImportEmpty": {
+    "message": "આયાત કરવા માટે કોઈ માન્ય ડેટા નથી."
+  },
+  "trackerImportSuccess": {
+    "message": "ડેટા સફળતાપૂર્વક આયાત થયો!"
+  },
+  "trackerImportError": {
+    "message": "ફાઇલ વાંચવામાં ભૂલ."
+  },
+  "swStatusLive": {
+    "message": "લાઇવ ચાલુ છે"
+  },
+  "swStatusReady": {
+    "message": "તૈયાર"
+  },
+  "swUndoTitle": {
+    "message": "આ ક્ષણ ભૂંસી નાખો"
+  },
+  "swNoLaps": {
+    "message": "કોઈ રેકોર્ડ કરેલી ક્ષણો નથી"
+  },
+  "swLiveTitlePrefix": {
+    "message": "લાઇવ #"
+  },
+  "swDurationLabel": {
+    "message": "સમયગાળો: "
+  },
+  "swMomentLabel": {
+    "message": "ક્ષણ "
+  },
+  "swExportTxtBtn": {
+    "message": ".TXT તરીકે નિકાસ કરો"
+  },
+  "swTotalDurationPrefix": {
+    "message": "કુલ સમયગાળો: "
+  },
+  "swCopyBtn": {
+    "message": "ક્લિપબોર્ડ પર કૉપિ કરો"
+  },
+  "swCopiedBtn": {
+    "message": "✓ કૉપિ કર્યું"
+  },
+  "swNoHistory": {
+    "message": "કોઈ લાઇવ ઇતિહાસ નથી"
+  },
+  "techScannerUnavailable": {
+    "message": "આ પૃષ્ઠ પર સ્કેનર ઉપલબ્ધ નથી."
+  },
+  "techFoundPrefix": {
+    "message": "મળ્યું: "
+  },
+  "techItemsSuffix": {
+    "message": "વસ્તુઓ"
+  },
+  "techNotFound": {
+    "message": "મળ્યું નથી."
+  },
+  "techScannerFailed": {
+    "message": "આ પૃષ્ઠ પર સ્કેનિંગ નિષ્ફળ ગયું."
+  },
+  "markerDrawTooltip": {
+    "message": "દોરો"
+  },
+  "markerLineTooltip": {
+    "message": "લાઇન"
+  },
+  "markerTextTooltip": {
+    "message": "લખાણ"
+  },
+  "markerMoveTooltip": {
+    "message": "ખસેડો"
+  },
+  "markerEraseTooltip": {
+    "message": "ભૂંસી નાખો"
+  },
+  "markerClearAllTooltip": {
+    "message": "બધું સાફ કરો"
+  },
+  "markerThicknessTooltip": {
+    "message": "જાડાઈ"
+  },
+  "markerCloseTooltip": {
+    "message": "બંધ કરો"
+  },
+  "linesLabel": {
+    "message": "લાઈનો"
+  },
+  "clearCounterTooltip": {
+    "message": "બધું સાફ કરો"
+  },
+  "confirmClearCounter": {
+    "message": "શું તમે ખરેખર બધું સાફ કરવા માંગો છો?"
+  }
+}

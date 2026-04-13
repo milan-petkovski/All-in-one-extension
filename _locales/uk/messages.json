@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Найкращий інструмент для продуктивності"
+  },
+  "extDesc": {
+    "message": "Найкращий інструмент, що об'єднує всі основні функції у швидкому, сучасному та безкоштовному інтерфейсі."
+  },
+  "markLapDesc": {
+    "message": "Зафіксувати момент на секундомірі"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Офіційний сайт"
+  },
+  "settingsTooltip": {
+    "message": "Налаштування"
+  },
+  "radioTitle": {
+    "message": "Радіо IN"
+  },
+  "radioArtist": {
+    "message": "За підтримки розширення All In One"
+  },
+  "playBtn": {
+    "message": "Відтворити"
+  },
+  "soundTitle": {
+    "message": "Звук"
+  },
+  "resetBtn": {
+    "message": "Скинути"
+  },
+  "colorPickerTitle": {
+    "message": "Вибір кольору"
+  },
+  "darkModeTitle": {
+    "message": "Темная тема"
+  },
+  "rulerTitle": {
+    "message": "Лінійка для сторінки"
+  },
+  "copyEnableTitle": {
+    "message": "Копіювати"
+  },
+  "markerTitle": {
+    "message": "Маркер"
+  },
+  "techTitle": {
+    "message": "Технології"
+  },
+  "cacheTitle": {
+    "message": "Кукі/кеш"
+  },
+  "fontTitle": {
+    "message": "Шрифти"
+  },
+  "counterTitle": {
+    "message": "Лічильник"
+  },
+  "stopwatchTitle": {
+    "message": "Секундомір"
+  },
+  "notesTitle": {
+    "message": "Нотатки"
+  },
+  "trackerTitle": {
+    "message": "Трекер Веб-час"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "ФАЙЛИ COOKIE ТА КЕШ"
+  },
+  "blockCookiesLabel": {
+    "message": "Автоматично блокувати файли cookie"
+  },
+  "clearSiteDataBtn": {
+    "message": "Очистити всі дані з цього сайту"
+  },
+  "cancelBtn": {
+    "message": "СКАСУВАТИ"
+  },
+  "counterModalTitle": {
+    "message": "ЛІЧИЛЬНИК СИМВОЛІВ"
+  },
+  "counterPlaceholder": {
+    "message": "Вставте текст сюди..."
+  },
+  "charsLabel": {
+    "message": "Символи"
+  },
+  "wordsLabel": {
+    "message": "Слова"
+  },
+  "stopwatchReady": {
+    "message": "ГОТОВО"
+  },
+  "startBtn": {
+    "message": "СТАРТ"
+  },
+  "lapBtn": {
+    "message": "КОЛО"
+  },
+  "stopBtn": {
+    "message": "СТОП"
+  },
+  "currentRecordedLabel": {
+    "message": "ПОТОЧНИЙ ЗАПИС"
+  },
+  "liveHistoryLabel": {
+    "message": "ІСТОРІЯ НАЖИВО"
+  },
+  "clearAllBtn": {
+    "message": "ОЧИСТИТИ ВСЕ"
+  },
+  "confirmClearHistory": {
+    "message": "Ви впевнені, що хочете очистити всю історію?"
+  },
+  "deleteBtn": {
+    "message": "ВИДАЛИТИ"
+  },
+  "notesModalTitle": {
+    "message": "РОЗУМНІ НОТАТКИ"
+  },
+  "clearNotesTooltip": {
+    "message": "Очистити всі нотатки"
+  },
+  "notesPlaceholder": {
+    "message": "Пишіть нотатки тут..."
+  },
+  "grabTextTooltip": {
+    "message": "Витягти текст зі сторінки"
+  },
+  "textLabel": {
+    "message": "Текст"
+  },
+  "addUrlTooltip": {
+    "message": "Додати поточну URL"
+  },
+  "linkLabel": {
+    "message": "Посилання"
+  },
+  "addDateTooltip": {
+    "message": "Додати сьогоднішню дату"
+  },
+  "dateLabel": {
+    "message": "Дата"
+  },
+  "exportNotesTooltip": {
+    "message": "Експорт нотаток"
+  },
+  "importNotesTooltip": {
+    "message": "Імпорт нотаток"
+  },
+  "savedIndicator": {
+    "message": "Збережено"
+  },
+  "confirmClearNotes": {
+    "message": "Ви впевнені, що хочете видалити всі нотатки?"
+  },
+  "trackerModalTitle": {
+    "message": "ТРЕКЕР ВЕБЧАСУ"
+  },
+  "exportTooltip": {
+    "message": "Експорт даних"
+  },
+  "importTooltip": {
+    "message": "Імпорт даних"
+  },
+  "trackerModeDay": {
+    "message": "Денний перегляд"
+  },
+  "trackerModeMonth": {
+    "message": "Місячний перегляд"
+  },
+  "trackerModeAll": {
+    "message": "Весь час"
+  },
+  "trackerTodayLabel": {
+    "message": "Сьогодні"
+  },
+  "trackerMonthLabel": {
+    "message": "Цей місяць"
+  },
+  "trackerAvgLabel": {
+    "message": "В середньому"
+  },
+  "techModalTitle": {
+    "message": "ТЕХНОЛОГІЇ САЙТУ"
+  },
+  "techLoadingMsg": {
+    "message": "Сканер аналізує сайт..."
+  },
+  "uiSettings": {
+    "message": "НАЛАШТУВАННЯ"
+  },
+  "supportTitle": {
+    "message": "Підтримати розширення"
+  },
+  "supportDesc": {
+    "message": "All In One — повністю безкоштовний інструмент. Ваша підтримка допомагає зберегти його таким і дозволяє розробляти нові функції."
+  },
+  "donateBtn": {
+    "message": "Пожертвувати та підтримати"
+  },
+  "websiteBtn": {
+    "message": "Офіційний сайт"
+  },
+  "rateBtn": {
+    "message": "Оцінити розширення"
+  },
+  "versionLabel": {
+    "message": "Версія:"
+  },
+  "privacyLabel": {
+    "message": "Політика конфіденційності"
+  },
+  "systemPageTitle": {
+    "message": "СИСТЕМНА СТОРІНКА"
+  },
+  "systemPageDesc": {
+    "message": "Інструменти зміни вимкнені"
+  },
+  "radioPlay": {
+    "message": "Играть"
+  },
+  "radioPause": {
+    "message": "Пауза"
+  },
+  "colorPickerPicking": {
+    "message": "Вибір..."
+  },
+  "colorPickerCopied": {
+    "message": "Скопійовано: "
+  },
+  "cacheNotSupported": {
+    "message": "Не підтримується"
+  },
+  "cacheClearConfirm": {
+    "message": "Очистити всі дані з цього сайту"
+  },
+  "cacheError": {
+    "message": "Помилка"
+  },
+  "cacheClearing": {
+    "message": "Очищення..."
+  },
+  "cacheCleared": {
+    "message": "Очищено!"
+  },
+  "fontCopied": {
+    "message": "Скопійовано!"
+  },
+  "fontNotCopied": {
+    "message": "Не скопійовано"
+  },
+  "notesSaved": {
+    "message": "Збережено"
+  },
+  "notesTooLarge": {
+    "message": "Нотатка занадто велика"
+  },
+  "notesLinkText": {
+    "message": "Посилання"
+  },
+  "trackerToday": {
+    "message": "Сьогодні"
+  },
+  "trackerThatDay": {
+    "message": "Той день"
+  },
+  "trackerSelectedMonth": {
+    "message": "Обраний місяць"
+  },
+  "trackerTotal": {
+    "message": "Всього"
+  },
+  "trackerNoData": {
+    "message": "Немає даних за цей період"
+  },
+  "trackerExportEmpty": {
+    "message": "Немає даних трекера для експорту."
+  },
+  "trackerExportTruncated": {
+    "message": "Експорт скорочено до 10 МБ задля стабільності."
+  },
+  "trackerImportEmpty": {
+    "message": "Немає коректних даних для імпорту."
+  },
+  "trackerImportSuccess": {
+    "message": "Дані успішно імпортовано!"
+  },
+  "trackerImportError": {
+    "message": "Помилка читання файлу."
+  },
+  "swStatusLive": {
+    "message": "ТРАНСЛЯЦІЯ ТРИВАЄ"
+  },
+  "swStatusReady": {
+    "message": "ГОТОВО"
+  },
+  "swUndoTitle": {
+    "message": "Видалити цей момент"
+  },
+  "swNoLaps": {
+    "message": "Немає записаних моментів"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Наживо #"
+  },
+  "swDurationLabel": {
+    "message": "Тривалість: "
+  },
+  "swMomentLabel": {
+    "message": "Момент "
+  },
+  "swExportTxtBtn": {
+    "message": "ЕКСПОРТ ЯК .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "ЗАГАЛЬНА ТРИВАЛІСТЬ: "
+  },
+  "swCopyBtn": {
+    "message": "КОПІЮВАТИ В БУФЕР ОБМІНУ"
+  },
+  "swCopiedBtn": {
+    "message": "✓ СКОПІЙОВАНО"
+  },
+  "swNoHistory": {
+    "message": "Немає історії трансляцій"
+  },
+  "techScannerUnavailable": {
+    "message": "Сканер недоступний на цій сторінці."
+  },
+  "techFoundPrefix": {
+    "message": "Знайдено: "
+  },
+  "techItemsSuffix": {
+    "message": "елементів"
+  },
+  "techNotFound": {
+    "message": "Не знайдено."
+  },
+  "techScannerFailed": {
+    "message": "Сканування не вдалося на цій сторінці."
+  },
+  "markerDrawTooltip": {
+    "message": "Малювати"
+  },
+  "markerLineTooltip": {
+    "message": "Лінія"
+  },
+  "markerTextTooltip": {
+    "message": "Текст"
+  },
+  "markerMoveTooltip": {
+    "message": "Перемістити"
+  },
+  "markerEraseTooltip": {
+    "message": "Стерти"
+  },
+  "markerClearAllTooltip": {
+    "message": "Очистити все"
+  },
+  "markerThicknessTooltip": {
+    "message": "Товщина"
+  },
+  "markerCloseTooltip": {
+    "message": "Закрити"
+  },
+  "linesLabel": {
+    "message": "Рядки"
+  },
+  "clearCounterTooltip": {
+    "message": "Очистити все"
+  },
+  "confirmClearCounter": {
+    "message": "Ви впевнені, що хочете очистити все?"
+  }
+}

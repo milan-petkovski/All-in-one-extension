@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Alat produktiviti terbaik"
+  },
+  "extDesc": {
+    "message": "Alat muktamad yang menggabungkan semua fungsi penting dalam antara muka yang pantas, moden dan percuma."
+  },
+  "markLapDesc": {
+    "message": "Rakam detik pada jam randuk"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Laman web rasmi sambungan"
+  },
+  "settingsTooltip": {
+    "message": "Tetapan"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Dikuasakan oleh sambungan All In One"
+  },
+  "playBtn": {
+    "message": "Main"
+  },
+  "soundTitle": {
+    "message": "Bunyi"
+  },
+  "resetBtn": {
+    "message": "Reset"
+  },
+  "colorPickerTitle": {
+    "message": "Pemilih Warna"
+  },
+  "darkModeTitle": {
+    "message": "Mod Gelap"
+  },
+  "rulerTitle": {
+    "message": "Pembaris Halaman"
+  },
+  "copyEnableTitle": {
+    "message": "Dayakan Salin"
+  },
+  "markerTitle": {
+    "message": "Penanda Halaman"
+  },
+  "techTitle": {
+    "message": "Teknologi Tapak"
+  },
+  "cacheTitle": {
+    "message": "Kuki dan Cache"
+  },
+  "fontTitle": {
+    "message": "Pencari Fon"
+  },
+  "counterTitle": {
+    "message": "Penyukat Aksara"
+  },
+  "stopwatchTitle": {
+    "message": "Jam Randik"
+  },
+  "notesTitle": {
+    "message": "Nota Pintar"
+  },
+  "trackerTitle": {
+    "message": "Penjejak Masa Web"
+  },
+  "ytDislikeTitle": {
+    "message": "Kembalikan Dislike YouTube"
+  },
+  "cacheModalTitle": {
+    "message": "KUKI DAN CACHE"
+  },
+  "blockCookiesLabel": {
+    "message": "Sekat kuki secara automatik"
+  },
+  "clearSiteDataBtn": {
+    "message": "Kosongkan semua data dari tapak ini"
+  },
+  "cancelBtn": {
+    "message": "BATAL"
+  },
+  "counterModalTitle": {
+    "message": "PENYUKAT AKSARA"
+  },
+  "counterPlaceholder": {
+    "message": "Tampal teks di sini..."
+  },
+  "charsLabel": {
+    "message": "Aksara"
+  },
+  "wordsLabel": {
+    "message": "Perkataan"
+  },
+  "stopwatchReady": {
+    "message": "SEDIA"
+  },
+  "startBtn": {
+    "message": "MULA"
+  },
+  "lapBtn": {
+    "message": "PUSINGAN"
+  },
+  "stopBtn": {
+    "message": "BERHENTI"
+  },
+  "currentRecordedLabel": {
+    "message": "SEDANG DIRAKAM"
+  },
+  "liveHistoryLabel": {
+    "message": "SEJARAH LANGSUNG"
+  },
+  "clearAllBtn": {
+    "message": "KOSONGKAN SEMUA"
+  },
+  "confirmClearHistory": {
+    "message": "Adakah anda pasti ingin mengosongkan semua sejarah?"
+  },
+  "deleteBtn": {
+    "message": "PADAM"
+  },
+  "notesModalTitle": {
+    "message": "NOTA PINTAR"
+  },
+  "clearNotesTooltip": {
+    "message": "Kosongkan semua nota"
+  },
+  "notesPlaceholder": {
+    "message": "Tulis nota di sini..."
+  },
+  "grabTextTooltip": {
+    "message": "Ekstrak teks dari halaman"
+  },
+  "textLabel": {
+    "message": "Teks"
+  },
+  "addUrlTooltip": {
+    "message": "Tambah URL semasa"
+  },
+  "linkLabel": {
+    "message": "Pautan"
+  },
+  "addDateTooltip": {
+    "message": "Tambah tarikh hari ini"
+  },
+  "dateLabel": {
+    "message": "Tarikh"
+  },
+  "exportNotesTooltip": {
+    "message": "Eksport nota"
+  },
+  "importNotesTooltip": {
+    "message": "Import nota"
+  },
+  "savedIndicator": {
+    "message": "Disimpan"
+  },
+  "confirmClearNotes": {
+    "message": "Adakah anda pasti ingin mengosongkan semua nota?"
+  },
+  "trackerModalTitle": {
+    "message": "PENJEJAK MASA WEB"
+  },
+  "exportTooltip": {
+    "message": "Eksport data"
+  },
+  "importTooltip": {
+    "message": "Import data"
+  },
+  "trackerModeDay": {
+    "message": "Paparan harian"
+  },
+  "trackerModeMonth": {
+    "message": "Paparan bulanan"
+  },
+  "trackerModeAll": {
+    "message": "Sepanjang masa"
+  },
+  "trackerTodayLabel": {
+    "message": "Hari ini"
+  },
+  "trackerMonthLabel": {
+    "message": "Bulan ini"
+  },
+  "trackerAvgLabel": {
+    "message": "Purata"
+  },
+  "techModalTitle": {
+    "message": "TEKNOLOGI TAPAK"
+  },
+  "techLoadingMsg": {
+    "message": "Pengimbas sedang menganalisis tapak..."
+  },
+  "uiSettings": {
+    "message": "TETAPAN"
+  },
+  "supportTitle": {
+    "message": "Sokong sambungan"
+  },
+  "supportDesc": {
+    "message": "All In One adalah alat percuma sepenuhnya. Sokongan anda membantu memastikannya percuma dan membolehkan pembangunan ciri baharu."
+  },
+  "donateBtn": {
+    "message": "Derma dan sokong"
+  },
+  "websiteBtn": {
+    "message": "Laman web rasmi"
+  },
+  "rateBtn": {
+    "message": "Nilaikan sambungan"
+  },
+  "versionLabel": {
+    "message": "Versi:"
+  },
+  "privacyLabel": {
+    "message": "Dasar Privasi"
+  },
+  "systemPageTitle": {
+    "message": "HALAMAN SISTEM"
+  },
+  "systemPageDesc": {
+    "message": "Alat pengubahsuaian dilumpuhkan"
+  },
+  "radioPlay": {
+    "message": "Main"
+  },
+  "radioPause": {
+    "message": "Jeda"
+  },
+  "colorPickerPicking": {
+    "message": "Memilih..."
+  },
+  "colorPickerCopied": {
+    "message": "Disalin: "
+  },
+  "cacheNotSupported": {
+    "message": "Tidak disokong"
+  },
+  "cacheClearConfirm": {
+    "message": "Kosongkan semua data dari tapak ini"
+  },
+  "cacheError": {
+    "message": "Ralat"
+  },
+  "cacheClearing": {
+    "message": "Mengosongkan..."
+  },
+  "cacheCleared": {
+    "message": "Dikosongkan!"
+  },
+  "fontCopied": {
+    "message": "Disalin!"
+  },
+  "fontNotCopied": {
+    "message": "Tidak disalin"
+  },
+  "notesSaved": {
+    "message": "Disimpan"
+  },
+  "notesTooLarge": {
+    "message": "Nota terlalu besar"
+  },
+  "notesLinkText": {
+    "message": "Pautan"
+  },
+  "trackerToday": {
+    "message": "Hari ini"
+  },
+  "trackerThatDay": {
+    "message": "Hari itu"
+  },
+  "trackerSelectedMonth": {
+    "message": "Bulan dipilih"
+  },
+  "trackerTotal": {
+    "message": "Jumlah"
+  },
+  "trackerNoData": {
+    "message": "Tiada data untuk tempoh ini"
+  },
+  "trackerExportEmpty": {
+    "message": "Tiada data penjejak untuk dieksport."
+  },
+  "trackerExportTruncated": {
+    "message": "Eksport dipotong kepada 10MB untuk kestabilan."
+  },
+  "trackerImportEmpty": {
+    "message": "Tiada data yang sah untuk diimport."
+  },
+  "trackerImportSuccess": {
+    "message": "Data berjaya diimport!"
+  },
+  "trackerImportError": {
+    "message": "Ralat semasa membaca fail."
+  },
+  "swStatusLive": {
+    "message": "SIARAN LANGSUNG BERLANGSUNG"
+  },
+  "swStatusReady": {
+    "message": "SEDIA"
+  },
+  "swUndoTitle": {
+    "message": "Padamkan saat ini"
+  },
+  "swNoLaps": {
+    "message": "Tiada saat yang dirakam"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Langsung #"
+  },
+  "swDurationLabel": {
+    "message": "Tempoh: "
+  },
+  "swMomentLabel": {
+    "message": "Saat "
+  },
+  "swExportTxtBtn": {
+    "message": "EKSPORT SEBAGAI .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "JUMLAH TEMPOH: "
+  },
+  "swCopyBtn": {
+    "message": "SALIN KE PAPAN KERAK"
+  },
+  "swCopiedBtn": {
+    "message": "✓ DISALIN"
+  },
+  "swNoHistory": {
+    "message": "Tiada sejarah langsung"
+  },
+  "techScannerUnavailable": {
+    "message": "Pengimbas tidak tersedia pada halaman ini."
+  },
+  "techFoundPrefix": {
+    "message": "Ditemui: "
+  },
+  "techItemsSuffix": {
+    "message": "item"
+  },
+  "techNotFound": {
+    "message": "Tidak ditemui."
+  },
+  "techScannerFailed": {
+    "message": "Pengimbasan gagal pada halaman ini."
+  },
+  "markerDrawTooltip": {
+    "message": "Lukis"
+  },
+  "markerLineTooltip": {
+    "message": "Garis"
+  },
+  "markerTextTooltip": {
+    "message": "Teks"
+  },
+  "markerMoveTooltip": {
+    "message": "Gerakkan"
+  },
+  "markerEraseTooltip": {
+    "message": "Padam"
+  },
+  "markerClearAllTooltip": {
+    "message": "Kosongkan semua"
+  },
+  "markerThicknessTooltip": {
+    "message": "Ketebalan"
+  },
+  "markerCloseTooltip": {
+    "message": "Tutup"
+  },
+  "linesLabel": {
+    "message": "Baris"
+  },
+  "clearCounterTooltip": {
+    "message": "Kosongkan semua"
+  },
+  "confirmClearCounter": {
+    "message": "Adakah anda pasti mahu kosongkan semua?"
+  }
+}

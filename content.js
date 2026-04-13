@@ -1,3 +1,42 @@
+// Universal event tracking function (local + Google Analytics)
+const GA_MEASUREMENT_ID = "G-F52S6J4TZV";
+const GA_API_SECRET = "j09W3gL-TImYVi2ZE7rHxA";
+const GA_ENDPOINT = `https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${GA_API_SECRET}`;
+
+function trackEvent(eventName, eventData = {}) {
+  // Local stats (for future UI)
+  try {
+    chrome.storage.local.get(["eventStats"], (res) => {
+      const stats = res.eventStats || {};
+      stats[eventName] = (stats[eventName] || 0) + 1;
+      chrome.storage.local.set({ eventStats: stats });
+    });
+  } catch { }
+
+  // Google Analytics event - šalji poruku background-u
+  try {
+    chrome.runtime.sendMessage({
+      action: "aio_track_event",
+      eventName,
+      eventData: {
+        ...eventData,
+        page_location: location.href,
+        page_title: document.title
+      }
+    });
+  } catch (err) {
+    // Ignore errors
+  }
+}
+// i18n prevod Helper funkcija
+function getI18nMsg(key, defaultText) {
+  if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
+    const msg = chrome.i18n.getMessage(key);
+    if (msg) return msg;
+  }
+  return defaultText;
+}
+
 const host = window.location.hostname;
 const copyEvents = ["contextmenu", "copy", "cut", "paste", "selectstart", "mousedown", "mouseup"];
 const stopBlockedEvent = (e) => e.stopImmediatePropagation();
@@ -138,6 +177,7 @@ const applyMasterVolume = (rawValue) => {
 
 const syncVolumeFromStorage = () => {
   chrome.storage.local.get(["ytToggle", "global_vol", host + "_vol"], (res) => {
+    trackEvent("sinhronizacija zvuka");
     if (!res.ytToggle) {
       applyMasterVolume(100);
       return;
@@ -149,6 +189,7 @@ const syncVolumeFromStorage = () => {
 
 // Funkcija za Dark Mode preko CSS injekcije (najbrži i najčistiji način)
 const applyDark = (on) => {
+  trackEvent(on ? "tamni režim uključen" : "tamni režim isključen");
   let style = document.getElementById("aio-dark-style");
   let transitionStyle = document.getElementById("aio-dark-transition");
   const isDarkAlreadyActive = !!style;
@@ -225,6 +266,7 @@ const applyDark = (on) => {
 // Funkcija za Enable Copy
 const enableCopy = () => {
   if (window.aioCopyEnabled) return;
+  trackEvent("kopiranje omogućeno");
   window.aioCopyEnabled = true;
 
   copyEvents.forEach(type => {
@@ -241,6 +283,7 @@ const enableCopy = () => {
 
 const disableCopy = () => {
   if (!window.aioCopyEnabled) return;
+  trackEvent("kopiranje onemogućeno");
   window.aioCopyEnabled = false;
 
   copyEvents.forEach(type => {
@@ -347,6 +390,7 @@ const killCookies = () => {
 };
 
 const enableCookieBlock = () => {
+  trackEvent("kolačići blokirani");
   killCookies();
 
   if (!document.getElementById("aio-cookie-hide-style")) {
@@ -384,6 +428,7 @@ const enableCookieBlock = () => {
 };
 
 const disableCookieBlock = () => {
+  trackEvent("kolačići dozvoljeni");
   if (cookieScanTimer) {
     clearTimeout(cookieScanTimer);
     cookieScanTimer = null;

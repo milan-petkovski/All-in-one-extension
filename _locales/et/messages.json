@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Parim produktiivsustööriist"
+  },
+  "extDesc": {
+    "message": "Ülim tööriist, mis ühendab kõik olulised funktsioonid ühte kiiresse, kaasaegsesse ja tasuta liidesesse."
+  },
+  "markLapDesc": {
+    "message": "Salvesta hetk stopperil"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Ametlik veebisait"
+  },
+  "settingsTooltip": {
+    "message": "Seaded"
+  },
+  "radioTitle": {
+    "message": "Raadio IN"
+  },
+  "radioArtist": {
+    "message": "Toetab All In One laiendus"
+  },
+  "playBtn": {
+    "message": "Mängi"
+  },
+  "soundTitle": {
+    "message": "Heli"
+  },
+  "resetBtn": {
+    "message": "Lähtesta"
+  },
+  "colorPickerTitle": {
+    "message": "Värvivalija"
+  },
+  "darkModeTitle": {
+    "message": "Tume režiim"
+  },
+  "rulerTitle": {
+    "message": "Lehe joonlaud"
+  },
+  "copyEnableTitle": {
+    "message": "Kopeerimine"
+  },
+  "markerTitle": {
+    "message": "Lehe marker"
+  },
+  "techTitle": {
+    "message": "Saidi tehnoloogiad"
+  },
+  "cacheTitle": {
+    "message": "Küpsised ja vahemälu"
+  },
+  "fontTitle": {
+    "message": "Fondi leidja"
+  },
+  "counterTitle": {
+    "message": "Tähemärkide loendur"
+  },
+  "stopwatchTitle": {
+    "message": "Stopper"
+  },
+  "notesTitle": {
+    "message": "Nutikad märkmed"
+  },
+  "trackerTitle": {
+    "message": "Veebiaja jälgija"
+  },
+  "ytDislikeTitle": {
+    "message": "Tagasta YouTube'i dislaigid"
+  },
+  "cacheModalTitle": {
+    "message": "KÜPSISED JA VAHEMÄLU"
+  },
+  "blockCookiesLabel": {
+    "message": "Blokeeri küpsised automaatselt"
+  },
+  "clearSiteDataBtn": {
+    "message": "Kustuta kõik andmed sellelt saidilt"
+  },
+  "cancelBtn": {
+    "message": "TÜHISTA"
+  },
+  "counterModalTitle": {
+    "message": "TÄHEMÄRKIDE LOENDUR"
+  },
+  "counterPlaceholder": {
+    "message": "Kleebi tekst siia..."
+  },
+  "charsLabel": {
+    "message": "Tähemärke"
+  },
+  "wordsLabel": {
+    "message": "Sõnu"
+  },
+  "stopwatchReady": {
+    "message": "VALMIS"
+  },
+  "startBtn": {
+    "message": "ALUSTA"
+  },
+  "lapBtn": {
+    "message": "RING"
+  },
+  "stopBtn": {
+    "message": "PEATA"
+  },
+  "currentRecordedLabel": {
+    "message": "PRAEGU SALVESTATUD"
+  },
+  "liveHistoryLabel": {
+    "message": "OTSESAADETE AJALUGU"
+  },
+  "clearAllBtn": {
+    "message": "KUSTUTA KÕIK"
+  },
+  "confirmClearHistory": {
+    "message": "Kas soovite kindlasti kogu ajaloo kustutada?"
+  },
+  "deleteBtn": {
+    "message": "KUSTUTA"
+  },
+  "notesModalTitle": {
+    "message": "NUTIKAD MÄRKMED"
+  },
+  "clearNotesTooltip": {
+    "message": "Kustuta kõik märkmed"
+  },
+  "notesPlaceholder": {
+    "message": "Kirjuta märkmed siia..."
+  },
+  "grabTextTooltip": {
+    "message": "Eralda tekst lehelt"
+  },
+  "textLabel": {
+    "message": "Tekst"
+  },
+  "addUrlTooltip": {
+    "message": "Lisa praeguse lehe URL"
+  },
+  "linkLabel": {
+    "message": "Link"
+  },
+  "addDateTooltip": {
+    "message": "Lisa tänane kuupäev"
+  },
+  "dateLabel": {
+    "message": "Kuupäev"
+  },
+  "exportNotesTooltip": {
+    "message": "Ekspordi märkmed"
+  },
+  "importNotesTooltip": {
+    "message": "Impordi märkmed"
+  },
+  "savedIndicator": {
+    "message": "Salvestatud"
+  },
+  "confirmClearNotes": {
+    "message": "Kas soovite kindlasti kõik märkmed kustutada?"
+  },
+  "trackerModalTitle": {
+    "message": "VEEBIAJA JÄLGIJA"
+  },
+  "exportTooltip": {
+    "message": "Ekspordi andmed"
+  },
+  "importTooltip": {
+    "message": "Impordi andmed"
+  },
+  "trackerModeDay": {
+    "message": "Päevavaade"
+  },
+  "trackerModeMonth": {
+    "message": "Kuvaade"
+  },
+  "trackerModeAll": {
+    "message": "Kogu aeg"
+  },
+  "trackerTodayLabel": {
+    "message": "Täna"
+  },
+  "trackerMonthLabel": {
+    "message": "Sel kuul"
+  },
+  "trackerAvgLabel": {
+    "message": "Keskmine"
+  },
+  "techModalTitle": {
+    "message": "SAIDI TEHNOLOOGIAD"
+  },
+  "techLoadingMsg": {
+    "message": "Skänner analüüsib saiti..."
+  },
+  "uiSettings": {
+    "message": "SEADED"
+  },
+  "supportTitle": {
+    "message": "Toeta laiendust"
+  },
+  "supportDesc": {
+    "message": "All In One on täiesti tasuta tööriist. Sinu toetus aitab seda sellisena hoida ja võimaldab uute funktsioonide regulaarset arendamist."
+  },
+  "donateBtn": {
+    "message": "Anneta ja toeta"
+  },
+  "websiteBtn": {
+    "message": "Ametlik veebisait"
+  },
+  "rateBtn": {
+    "message": "Hinda laiendust"
+  },
+  "versionLabel": {
+    "message": "Versioon:"
+  },
+  "privacyLabel": {
+    "message": "Privaatsuspoliitika"
+  },
+  "systemPageTitle": {
+    "message": "SÜSTEEMILEHT"
+  },
+  "systemPageDesc": {
+    "message": "Muutmistööriistad on keelatud"
+  },
+  "radioPlay": {
+    "message": "Mängi"
+  },
+  "radioPause": {
+    "message": "Paus"
+  },
+  "colorPickerPicking": {
+    "message": "Valimine..."
+  },
+  "colorPickerCopied": {
+    "message": "Kopeeritud: "
+  },
+  "cacheNotSupported": {
+    "message": "Ei toetata"
+  },
+  "cacheClearConfirm": {
+    "message": "Kustuta kõik andmed sellelt saidilt"
+  },
+  "cacheError": {
+    "message": "Viga"
+  },
+  "cacheClearing": {
+    "message": "Kustutamine..."
+  },
+  "cacheCleared": {
+    "message": "Kustutatud!"
+  },
+  "fontCopied": {
+    "message": "Kopeeritud!"
+  },
+  "fontNotCopied": {
+    "message": "Ei kopeeritud"
+  },
+  "notesSaved": {
+    "message": "Salvestatud"
+  },
+  "notesTooLarge": {
+    "message": "Märge on liiga suur"
+  },
+  "notesLinkText": {
+    "message": "Link"
+  },
+  "trackerToday": {
+    "message": "Täna"
+  },
+  "trackerThatDay": {
+    "message": "Sellel päeval"
+  },
+  "trackerSelectedMonth": {
+    "message": "Valitud kuu"
+  },
+  "trackerTotal": {
+    "message": "Kokku"
+  },
+  "trackerNoData": {
+    "message": "Sellel perioodil andmed puuduvad"
+  },
+  "trackerExportEmpty": {
+    "message": "Eksporditavad andmed puuduvad."
+  },
+  "trackerExportTruncated": {
+    "message": "Eksport lühendati 10 MB-ni, et hüpikaken püsiks stabiilsena."
+  },
+  "trackerImportEmpty": {
+    "message": "Imporditavad kehtivad andmed puuduvad."
+  },
+  "trackerImportSuccess": {
+    "message": "Andmed imporditi edukalt!"
+  },
+  "trackerImportError": {
+    "message": "Viga faili lugemisel."
+  },
+  "swStatusLive": {
+    "message": "OTSEÜLEKANNE KÄIMAS"
+  },
+  "swStatusReady": {
+    "message": "VALMIS"
+  },
+  "swUndoTitle": {
+    "message": "Kustuta see hetk"
+  },
+  "swNoLaps": {
+    "message": "Salvestatud hetki pole"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Otse #"
+  },
+  "swDurationLabel": {
+    "message": "Kestus: "
+  },
+  "swMomentLabel": {
+    "message": "Hetk "
+  },
+  "swExportTxtBtn": {
+    "message": "EKSPORDI .TXT FORMAADIS"
+  },
+  "swTotalDurationPrefix": {
+    "message": "KOGUKESTUS: "
+  },
+  "swCopyBtn": {
+    "message": "KOPEERI LÕIKELAUALE"
+  },
+  "swCopiedBtn": {
+    "message": "✓ KOPEERITUD"
+  },
+  "swNoHistory": {
+    "message": "Otseülekannete ajalugu puudub"
+  },
+  "techScannerUnavailable": {
+    "message": "Skänner ei ole sellel lehel saadaval."
+  },
+  "techFoundPrefix": {
+    "message": "Leitud: "
+  },
+  "techItemsSuffix": {
+    "message": "üksust"
+  },
+  "techNotFound": {
+    "message": "Ei leitud."
+  },
+  "techScannerFailed": {
+    "message": "Skannimine sellel lehel ebaõnnestus."
+  },
+  "markerDrawTooltip": {
+    "message": "Joonista"
+  },
+  "markerLineTooltip": {
+    "message": "Joon"
+  },
+  "markerTextTooltip": {
+    "message": "Tekst"
+  },
+  "markerMoveTooltip": {
+    "message": "Liiguta"
+  },
+  "markerEraseTooltip": {
+    "message": "Kustuta"
+  },
+  "markerClearAllTooltip": {
+    "message": "Kustuta kõik"
+  },
+  "markerThicknessTooltip": {
+    "message": "Paksus"
+  },
+  "markerCloseTooltip": {
+    "message": "Sulge"
+  },
+  "linesLabel": {
+    "message": "Ridu"
+  },
+  "clearCounterTooltip": {
+    "message": "Kustuta kõik"
+  },
+  "confirmClearCounter": {
+    "message": "Kas olete kindel, et soovite kõik kustutada?"
+  }
+}

@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Ang pinakamahusay na tool sa pagiging produktibo"
+  },
+  "extDesc": {
+    "message": "Ang ultimate tool na pinagsasama ang lahat ng mahahalagang function sa isang mabilis, moderno, at libreng interface."
+  },
+  "markLapDesc": {
+    "message": "Itala ang sandali sa stopwatch"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Opisyal na website ng extension"
+  },
+  "settingsTooltip": {
+    "message": "Mga Setting"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Pinapagana ng All In One"
+  },
+  "playBtn": {
+    "message": "I-play"
+  },
+  "soundTitle": {
+    "message": "Tunog"
+  },
+  "resetBtn": {
+    "message": "I-reset"
+  },
+  "colorPickerTitle": {
+    "message": "Color Picker"
+  },
+  "darkModeTitle": {
+    "message": "Dark Mode"
+  },
+  "rulerTitle": {
+    "message": "Page Ruler"
+  },
+  "copyEnableTitle": {
+    "message": "Bakit"
+  },
+  "markerTitle": {
+    "message": "Page Marker"
+  },
+  "techTitle": {
+    "message": "Tech ng Site"
+  },
+  "cacheTitle": {
+    "message": "Cookies at Cache"
+  },
+  "fontTitle": {
+    "message": "Font Finder"
+  },
+  "counterTitle": {
+    "message": "Character Counter"
+  },
+  "stopwatchTitle": {
+    "message": "Stopwatch"
+  },
+  "notesTitle": {
+    "message": "Mga Smart na Tala"
+  },
+  "trackerTitle": {
+    "message": "Webtime Tracker"
+  },
+  "ytDislikeTitle": {
+    "message": "Ibalik ang YouTube Dislikes"
+  },
+  "cacheModalTitle": {
+    "message": "COOKIES AT CACHE"
+  },
+  "blockCookiesLabel": {
+    "message": "Awtomatikong i-block ang cookies"
+  },
+  "clearSiteDataBtn": {
+    "message": "I-clear lahat ng data sa site na ito"
+  },
+  "cancelBtn": {
+    "message": "KANSELAHIN"
+  },
+  "counterModalTitle": {
+    "message": "CHARACTER COUNTER"
+  },
+  "counterPlaceholder": {
+    "message": "I-paste ang teksto dito..."
+  },
+  "charsLabel": {
+    "message": "Mga Karakter"
+  },
+  "wordsLabel": {
+    "message": "Mga Salita"
+  },
+  "stopwatchReady": {
+    "message": "HANDA NA"
+  },
+  "startBtn": {
+    "message": "SIMULAN"
+  },
+  "lapBtn": {
+    "message": "LAP"
+  },
+  "stopBtn": {
+    "message": "ITIGIL"
+  },
+  "currentRecordedLabel": {
+    "message": "KASALUKUYANG NAKA-RECORD"
+  },
+  "liveHistoryLabel": {
+    "message": "LIVE HISTORY"
+  },
+  "clearAllBtn": {
+    "message": "I-CLEAR LAHAT"
+  },
+  "confirmClearHistory": {
+    "message": "Sigurado ka bang gusto mong i-clear ang buong history?"
+  },
+  "deleteBtn": {
+    "message": "BURAHIN"
+  },
+  "notesModalTitle": {
+    "message": "MGA SMART NA TALA"
+  },
+  "clearNotesTooltip": {
+    "message": "I-clear lahat ng tala"
+  },
+  "notesPlaceholder": {
+    "message": "Isulat ang mga tala dito..."
+  },
+  "grabTextTooltip": {
+    "message": "Kunin ang teksto mula sa pahina"
+  },
+  "textLabel": {
+    "message": "Teksto"
+  },
+  "addUrlTooltip": {
+    "message": "Idagdag ang kasalukuyang URL"
+  },
+  "linkLabel": {
+    "message": "Link"
+  },
+  "addDateTooltip": {
+    "message": "Idagdag ang petsa ngayon"
+  },
+  "dateLabel": {
+    "message": "Petsa"
+  },
+  "exportNotesTooltip": {
+    "message": "I-export ang mga tala"
+  },
+  "importNotesTooltip": {
+    "message": "I-import ang mga tala"
+  },
+  "savedIndicator": {
+    "message": "Naka-save na"
+  },
+  "confirmClearNotes": {
+    "message": "Sigurado ka bang gusto mong i-clear lahat ng tala?"
+  },
+  "trackerModalTitle": {
+    "message": "WEBTIME TRACKER"
+  },
+  "exportTooltip": {
+    "message": "I-export ang data"
+  },
+  "importTooltip": {
+    "message": "I-import ang data"
+  },
+  "trackerModeDay": {
+    "message": "Araw-araw na view"
+  },
+  "trackerModeMonth": {
+    "message": "Buwanang view"
+  },
+  "trackerModeAll": {
+    "message": "Lahat ng oras"
+  },
+  "trackerTodayLabel": {
+    "message": "Ngayon"
+  },
+  "trackerMonthLabel": {
+    "message": "Ngayong buwan"
+  },
+  "trackerAvgLabel": {
+    "message": "Average"
+  },
+  "techModalTitle": {
+    "message": "MGA TEKNOLOHIYA NG SITE"
+  },
+  "techLoadingMsg": {
+    "message": "Sinusuri ng scanner ang site..."
+  },
+  "uiSettings": {
+    "message": "MGA SETTING"
+  },
+  "supportTitle": {
+    "message": "Suportahan ang extension"
+  },
+  "supportDesc": {
+    "message": "Ang All In One ay isang libreng tool. Ang iyong suporta ay tumutulong upang mapanatili itong libre at nagbibigay-daan sa pagbuo ng mga bagong feature."
+  },
+  "donateBtn": {
+    "message": "Mag-donate at sumuporta"
+  },
+  "websiteBtn": {
+    "message": "Opisyal na website"
+  },
+  "rateBtn": {
+    "message": "I-rate ang extension"
+  },
+  "versionLabel": {
+    "message": "Bersyon:"
+  },
+  "privacyLabel": {
+    "message": "Patakaran sa Privacy"
+  },
+  "systemPageTitle": {
+    "message": "SYSTEM PAGE"
+  },
+  "systemPageDesc": {
+    "message": "Naka-disable ang mga modification tool"
+  },
+  "radioPlay": {
+    "message": "I-play"
+  },
+  "radioPause": {
+    "message": "I-pause"
+  },
+  "colorPickerPicking": {
+    "message": "Pumipili..."
+  },
+  "colorPickerCopied": {
+    "message": "Nakopya: "
+  },
+  "cacheNotSupported": {
+    "message": "Hindi suportado"
+  },
+  "cacheClearConfirm": {
+    "message": "I-clear lahat ng data mula sa site na ito"
+  },
+  "cacheError": {
+    "message": "Error"
+  },
+  "cacheClearing": {
+    "message": "Kini-clear..."
+  },
+  "cacheCleared": {
+    "message": "Na-clear na!"
+  },
+  "fontCopied": {
+    "message": "Nakopya na!"
+  },
+  "fontNotCopied": {
+    "message": "Hindi nakopya"
+  },
+  "notesSaved": {
+    "message": "Naka-save na"
+  },
+  "notesTooLarge": {
+    "message": "Masyadong malaki ang tala"
+  },
+  "notesLinkText": {
+    "message": "Link"
+  },
+  "trackerToday": {
+    "message": "Ngayon"
+  },
+  "trackerThatDay": {
+    "message": "Noong araw na iyon"
+  },
+  "trackerSelectedMonth": {
+    "message": "Napiling buwan"
+  },
+  "trackerTotal": {
+    "message": "Kabuuan"
+  },
+  "trackerNoData": {
+    "message": "Walang data para sa panahong ito"
+  },
+  "trackerExportEmpty": {
+    "message": "Walang tracker data na i-e-export."
+  },
+  "trackerExportTruncated": {
+    "message": "Pinaikli ang pag-export sa 10MB para sa katatagan."
+  },
+  "trackerImportEmpty": {
+    "message": "Walang balidong data na i-i-import."
+  },
+  "trackerImportSuccess": {
+    "message": "Matagumpay na na-import ang data!"
+  },
+  "trackerImportError": {
+    "message": "Error sa pagbasa ng file."
+  },
+  "swStatusLive": {
+    "message": "LIVE NA NAGAGANAP"
+  },
+  "swStatusReady": {
+    "message": "HANDA NA"
+  },
+  "swUndoTitle": {
+    "message": "Burahin ang sandaling ito"
+  },
+  "swNoLaps": {
+    "message": "Walang na-record na sandali"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Live #"
+  },
+  "swDurationLabel": {
+    "message": "Tagal: "
+  },
+  "swMomentLabel": {
+    "message": "Sandali "
+  },
+  "swExportTxtBtn": {
+    "message": "I-EXPORT BILANG .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "KABUUANG TAGAL: "
+  },
+  "swCopyBtn": {
+    "message": "KOPYAHIN SA CLIPBOARD"
+  },
+  "swCopiedBtn": {
+    "message": "✓ NAKOPYA NA"
+  },
+  "swNoHistory": {
+    "message": "Walang live history"
+  },
+  "techScannerUnavailable": {
+    "message": "Hindi available ang scanner sa pahinang ito."
+  },
+  "techFoundPrefix": {
+    "message": "Natagpuan: "
+  },
+  "techItemsSuffix": {
+    "message": "mga item"
+  },
+  "techNotFound": {
+    "message": "Hindi natagpuan."
+  },
+  "techScannerFailed": {
+    "message": "Bigo ang pag-scan sa pahinang ito."
+  },
+  "markerDrawTooltip": {
+    "message": "Gumuhit"
+  },
+  "markerLineTooltip": {
+    "message": "Linya"
+  },
+  "markerTextTooltip": {
+    "message": "Teksto"
+  },
+  "markerMoveTooltip": {
+    "message": "Ilipat"
+  },
+  "markerEraseTooltip": {
+    "message": "Burahin"
+  },
+  "markerClearAllTooltip": {
+    "message": "I-clear lahat"
+  },
+  "markerThicknessTooltip": {
+    "message": "Kapal"
+  },
+  "markerCloseTooltip": {
+    "message": "Isara"
+  },
+  "linesLabel": {
+    "message": "Mga Linya"
+  },
+  "clearCounterTooltip": {
+    "message": "I-clear lahat"
+  },
+  "confirmClearCounter": {
+    "message": "Sigurado ka bang gusto mong i-clear lahat?"
+  }
+}

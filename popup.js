@@ -1,4 +1,80 @@
 document.addEventListener("DOMContentLoaded", async () => {
+    // --- INICIJALIZACIJA PREVODA ---
+
+    // Universal event tracking function (local + Google Analytics)
+    const GA_MEASUREMENT_ID = "G-F52S6J4TZV";
+    const GA_API_SECRET = "j09W3gL-TImYVi2ZE7rHxA";
+    const GA_ENDPOINT = `https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${GA_API_SECRET}`;
+
+    function trackEvent(eventName, eventData = {}) {
+        // Local stats (for future UI)
+        chrome.storage.local.get(["eventStats"], (res) => {
+            const stats = res.eventStats || {};
+            stats[eventName] = (stats[eventName] || 0) + 1;
+            chrome.storage.local.set({ eventStats: stats });
+        });
+
+        // Google Analytics event - šalji poruku background-u
+        try {
+            chrome.runtime.sendMessage({
+                action: "aio_track_event",
+                eventName,
+                eventData: {
+                    ...eventData,
+                    page_location: location.href,
+                    page_title: document.title
+                }
+            });
+        } catch (err) {
+            // Ignore errors
+        }
+    }
+    const appLangData = await chrome.storage.local.get(['appLang']);
+    const currentLang = appLangData.appLang || 'sr';
+
+    const langSelect = document.getElementById('langSelect');
+    if (langSelect) {
+        langSelect.value = currentLang;
+        langSelect.addEventListener('change', async (e) => {
+            await chrome.storage.local.set({ appLang: e.target.value });
+            window.location.reload();
+        });
+    }
+
+    try {
+        const res = await fetch(chrome.runtime.getURL(`_locales/${currentLang}/messages.json`));
+        window.i18nDict = await res.json();
+    } catch (e) {
+        console.warn("Prevod nije učitan", e);
+    }
+
+    if (window.i18nDict) {
+        // 1. Prevod običnog teksta (data-i18n)
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (window.i18nDict[key]) {
+                el.textContent = window.i18nDict[key].message;
+            }
+        });
+
+        // 2. Prevod placeholder-a (data-i18n-placeholder)
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            if (window.i18nDict[key]) {
+                el.setAttribute('placeholder', window.i18nDict[key].message);
+            }
+        });
+
+        // 3. Prevod tooltips-a / hover teksta (data-i18n-title)
+        document.querySelectorAll('[data-i18n-title]').forEach(el => {
+            const key = el.getAttribute('data-i18n-title');
+            if (window.i18nDict[key]) {
+                el.setAttribute('title', window.i18nDict[key].message);
+            }
+        });
+    }
+    // -------------------------------
+
     let tab = null;
     let host = null;
     try {
@@ -34,8 +110,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                     </svg>
                 </div>
-                <p>SISTEMSKA STRANICA</p>
-                <span>Alati za modifikaciju su onemogućeni</span>
+                <p>${getI18nMsg("systemPageTitle", "SISTEMSKA STRANICA")}</p>
+                <span>${getI18nMsg("systemPageDesc", "Alati za modifikaciju su onemogućeni")}</span>
             </div>
         `;
         mainView.appendChild(overlay);
@@ -108,6 +184,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     elements.copyToggle?.addEventListener("change", () => {
+        trackEvent(elements.copyToggle.checked ? "kopiranje omogućeno" : "kopiranje onemogućeno");
         if (host) {
             chrome.storage.local.set({ [host]: elements.copyToggle.checked });
         }
@@ -115,6 +192,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     elements.ytToggle?.addEventListener("change", (e) => {
         const isYtEnabled = e.target.checked;
+        trackEvent(isYtEnabled ? "youtube omogućeno" : "youtube onemogućeno");
         chrome.storage.local.set({ ytToggle: isYtEnabled });
 
         // Auto-apply only for boost mode to avoid overriding site/player volume at 100%.
@@ -130,7 +208,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     //#region RADIO
     chrome.runtime.sendMessage({ action: "getRadioStatus" }, (response) => {
         if (response && elements.radioBtn) {
-            elements.radioBtn.innerText = response.playing ? "Pause" : "Play";
+            elements.radioBtn.innerText = response.playing ? getI18nMsg("radioPause", "Pause") : getI18nMsg("radioPlay", "Play");
             if (elements.radioVol) elements.radioVol.value = response.volume;
         }
     });
@@ -138,7 +216,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     chrome.storage.onChanged.addListener((changes) => {
         if (changes.playing && elements.radioBtn) {
             const isPlaying = changes.playing.newValue;
-            elements.radioBtn.textContent = isPlaying ? "Pause" : "Play";
+            elements.radioBtn.textContent = isPlaying ? getI18nMsg("radioPause", "Pause") : getI18nMsg("radioPlay", "Play");
 
             if (!isPlaying && elements.radioVol) {
                 elements.radioVol.value = 12;
@@ -148,20 +226,23 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     elements.radioVol?.addEventListener("input", () => {
         const val = parseInt(elements.radioVol.value);
-        if (elements.radioBtn.textContent === "Pause") {
+        trackEvent("radio pojačan", { vrednost: val });
+        if (elements.radioBtn.textContent === getI18nMsg("radioPause", "Pause")) {
             chrome.runtime.sendMessage({ action: "setRadioVolume", value: val });
         }
     });
 
     elements.radioVol?.addEventListener("change", () => {
         const val = parseInt(elements.radioVol.value);
+        trackEvent("radio utišan", { vrednost: val });
         chrome.storage.local.set({ volume: val });
     });
 
     elements.radioBtn?.addEventListener("click", () => {
+        trackEvent(elements.radioBtn.textContent === getI18nMsg("radioPause", "Pause") ? "radio zatvoren" : "radio otvoren");
         chrome.runtime.sendMessage({ action: "toggleRadio" }, (res) => {
             if (res) {
-                elements.radioBtn.textContent = res.playing ? "Pause" : "Play";
+                elements.radioBtn.textContent = res.playing ? getI18nMsg("radioPause", "Pause") : getI18nMsg("radioPlay", "Play");
                 if (!res.playing) elements.radioVol.value = 12;
             }
         });
@@ -361,21 +442,26 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     elements.masterVol?.addEventListener("input", (e) => {
         const val = e.target.value;
+        trackEvent("zvuk pojačan", { vrednost: val });
         if (elements.volText) elements.volText.textContent = val + "%";
         applyVolume(val);
     });
 
     elements.masterVol?.addEventListener("change", (e) => {
         const val = e.target.value;
+        trackEvent("zvuk utišan", { vrednost: val });
         if (host) chrome.storage.local.set({ [host + "_vol"]: val, global_vol: val });
     });
 
     elements.resetVolBtn?.addEventListener("click", () => {
+        trackEvent("zvuk resetovan");
         const vol = 100;
         if (elements.masterVol) {
             elements.masterVol.value = vol;
             if (elements.volText) elements.volText.textContent = vol + "%";
+
             if (host) chrome.storage.local.set({ [host + "_vol"]: vol, global_vol: vol });
+
             applyVolume(vol);
         }
     });
@@ -384,19 +470,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //#region COLOR PICKER, NIGHT MODE, RULLER, MARKER
     elements.colorBtn?.addEventListener("click", async () => {
+        trackEvent("boja izabrana");
         const textSpan = elements.colorBtn.querySelector("span");
         const iconSpan = elements.colorBtn.querySelector(".icon");
-        const originalText = "Color Picker";
+        const originalText = getI18nMsg("colorPickerBtn", "Color Picker");
 
         try {
-            textSpan.textContent = "Biranje...";
+            textSpan.textContent = getI18nMsg("colorPickerPicking", "Biranje...");
             const ed = new EyeDropper();
             const res = await ed.open();
 
             const hexColor = res.sRGBHex;
             await navigator.clipboard.writeText(hexColor);
 
-            textSpan.textContent = `Kopirano: ${hexColor}`;
+            textSpan.textContent = getI18nMsg("colorPickerCopied", "Kopirano: ") + hexColor;
 
             const originalIconColor = iconSpan.style.color;
             const originalBorder = elements.colorBtn.style.borderColor;
@@ -419,6 +506,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     elements.nightToggle?.addEventListener("change", (e) => {
         const isNight = e.target.checked;
+        trackEvent(isNight ? "tamni režim uključen" : "tamni režim isključen");
         chrome.storage.local.set({ nightToggle: isNight });
 
         chrome.scripting.executeScript({
@@ -503,6 +591,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     elements.rulerBtn?.addEventListener("click", () => {
+        trackEvent("lenjir otvoren");
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
             func: () => {
@@ -572,6 +661,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     elements.markerBtn?.addEventListener("click", () => {
+        trackEvent("marker otvoren");
         chrome.storage.local.get(['selectedColor'], (data) => {
             const color = data.selectedColor || "#00ff88";
             chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ["marker_engine.js"] }, () => {
@@ -590,37 +680,40 @@ document.addEventListener("DOMContentLoaded", async () => {
     const cookieToggle = document.getElementById("cookieToggle");
 
     elements.clearCacheBtn?.addEventListener("click", (e) => {
+        trackEvent("brisanje keša otvoreno");
         e.preventDefault();
         cookieModal.style.display = "flex";
     });
 
     closeCookieModal?.addEventListener("click", () => {
+        trackEvent("brisanje keša zatvoreno");
         cookieModal.style.display = "none";
     });
 
     realClearBtn?.addEventListener("click", async () => {
+        trackEvent("keš obrisan");
         let tab = null;
         try {
             const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
             tab = tabs?.[0];
             if (!tab || !tab.url || !tab.url.startsWith("http")) {
-                realClearBtn.innerText = "Nije podržano";
-                setTimeout(() => realClearBtn.innerText = "Obriši sve podatke sa ovog sajta", 1500);
+                realClearBtn.innerText = getI18nMsg("cacheNotSupported", "Nije podržano");
+                setTimeout(() => realClearBtn.innerText = getI18nMsg("cacheClearConfirm", "Obriši sve podatke sa ovog sajta"), 1500);
                 return;
             }
         } catch (err) {
             console.error("Tab query error:", err);
-            realClearBtn.innerText = "Greška";
-            setTimeout(() => realClearBtn.innerText = "Obriši sve podatke sa ovog sajta", 1500);
+            realClearBtn.innerText = getI18nMsg("cacheError", "Greška");
+            setTimeout(() => realClearBtn.innerText = getI18nMsg("cacheClearConfirm", "Obriši sve podatke sa ovog sajta"), 1500);
             return;
         }
 
         const originalText = realClearBtn.innerText;
-        realClearBtn.innerText = "Brisanje...";
+        realClearBtn.innerText = getI18nMsg("cacheClearing", "Brisanje...");
 
         chrome.runtime.sendMessage({ action: "clearSiteData", url: tab.url }, (response) => {
             if (chrome.runtime.lastError || !response?.ok) {
-                realClearBtn.innerText = "Greška";
+                realClearBtn.innerText = getI18nMsg("cacheError", "Greška");
                 setTimeout(() => {
                     realClearBtn.innerText = originalText;
                 }, 1200);
@@ -666,7 +759,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }
             }).catch(() => { });
 
-            realClearBtn.innerText = "Obrisano!";
+            realClearBtn.innerText = getI18nMsg("cacheCleared", "Obrisano!");
             setTimeout(() => {
                 realClearBtn.innerText = originalText;
                 if (cookieModal) cookieModal.style.display = "none";
@@ -680,6 +773,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     cookieToggle?.addEventListener("change", async (e) => {
+        trackEvent(e.target.checked ? "kolačići blokirani" : "kolačići dozvoljeni");
         try {
             const isChecked = e.target.checked;
             await chrome.storage.local.set({ cookieBlock: isChecked });
@@ -698,6 +792,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     //#region FONT PICKER
     if (elements.fontBtn) {
         elements.fontBtn.addEventListener("click", async () => {
+            trackEvent("font izabran");
             try {
                 const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
                 const tab = tabs?.[0];
@@ -708,7 +803,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 await chrome.scripting.executeScript({
                     target: { tabId: tab.id },
-                    func: () => {
+                    func: (copiedText, notCopiedText) => {
                         if (window.aioFontFinderActive) {
                             return;
                         }
@@ -817,7 +912,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                             const toast = document.createElement("div");
                             toast.className = "aio-font-toast";
-                            toast.innerHTML = `<span style='color: #a0a0a8; font-size: 12px; display: block; margin-bottom: 4px;'>${copied ? "Kopirano!" : "Nije kopirano"}</span>${cistFont}`;
+                            toast.innerHTML = `<span style='color: #a0a0a8; font-size: 12px; display: block; margin-bottom: 4px;'>${copied ? copiedText : notCopiedText}</span>${cistFont}`;
                             document.body.appendChild(toast);
 
                             requestAnimationFrame(() => {
@@ -843,7 +938,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                         document.addEventListener("click", clickHandler, true);
                         document.addEventListener("keydown", escHandler, true);
                         window.addEventListener("beforeunload", unloadHandler, true);
-                    }
+                    },
+                    args: [getI18nMsg("fontCopied", "Kopirano!"), getI18nMsg("fontNotCopied", "Nije kopirano")]
                 });
 
                 // Match previous behavior: close popup while selecting font on page.
@@ -950,7 +1046,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 
-    function showSaveIndicator(text = "Sačuvano", isError = false) {
+    function showSaveIndicator(text = getI18nMsg("notesSaved", "Sačuvano"), isError = false) {
         if (!saveIndicator) return;
         saveIndicator.textContent = text;
         saveIndicator.style.color = isError ? "#ff7a7a" : "var(--accent)";
@@ -958,7 +1054,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         setTimeout(() => {
             saveIndicator.style.opacity = "0";
             if (isError) {
-                saveIndicator.textContent = "Sačuvano";
+                saveIndicator.textContent = getI18nMsg("notesSaved", "Sačuvano");
                 saveIndicator.style.color = "var(--accent)";
             }
         }, 1200);
@@ -973,7 +1069,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const payloadBytes = getUtf8ByteLength(safeHtml);
             if (payloadBytes > MAX_NOTES_BYTES) {
-                showSaveIndicator("Prevelika beleška", true);
+                showSaveIndicator(getI18nMsg("notesTooLarge", "Prevelika beleška"), true);
                 return;
             }
 
@@ -1013,12 +1109,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Navigacija
     document.getElementById("notesBtn")?.addEventListener("click", () => {
+        trackEvent("beleške otvorene");
         document.getElementById("mainView").style.display = "none";
         document.getElementById("notesView").style.display = "flex";
         noteArea.focus();
     });
 
     document.getElementById("backBtn")?.addEventListener("click", () => {
+        trackEvent("beleške nazad");
         saveNotes(true);
         document.getElementById("notesView").style.display = "none";
         document.getElementById("mainView").style.display = "block";
@@ -1026,14 +1124,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Modal logika za brisanje
     document.getElementById("notesClearBtn")?.addEventListener("click", () => {
+        trackEvent("brisanje beleški otvoreno");
         clearModal.style.display = "flex";
     });
 
     document.getElementById("cancelClearNotes")?.addEventListener("click", () => {
+        trackEvent("brisanje beleški otkazano");
         clearModal.style.display = "none";
     });
 
     document.getElementById("confirmClearNotes")?.addEventListener("click", () => {
+        trackEvent("beleške obrisane");
         noteArea.innerHTML = "";
         chrome.storage.local.set({ "mojeBeleske": "" });
         clearModal.style.display = "none";
@@ -1082,7 +1183,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const currentHtmlBytes = getUtf8ByteLength(noteArea.innerHTML || "");
         const incomingBytes = getUtf8ByteLength(text);
         if (currentHtmlBytes + incomingBytes > MAX_NOTES_BYTES) {
-            showSaveIndicator("Prevelika beleška", true);
+            showSaveIndicator(getI18nMsg("notesTooLarge", "Prevelika beleška"), true);
             return;
         }
         document.execCommand("insertText", false, text);
@@ -1099,6 +1200,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Akciona dugmad (Grab Text, URL, Date)
     document.getElementById("grabTextBtn")?.addEventListener("click", async () => {
+        trackEvent("notes_grab_text");
         try {
             const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
             const tab = tabs?.[0];
@@ -1118,12 +1220,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     document.getElementById("addUrlBtn")?.addEventListener("click", async () => {
+        trackEvent("notes_add_url");
         try {
             const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
             const tab = tabs?.[0];
             if (tab) {
                 const safeHref = getSafeHttpUrl(tab.url || "");
-                const safeTitle = escapeHtml(tab.title || safeHref || "Link");
+                const safeTitle = escapeHtml(tab.title || safeHref || getI18nMsg("notesLinkText", "Link"));
                 if (safeHref) appendToNotes(`<a href="${safeHref}">${safeTitle}</a>`, true);
             }
         } catch (err) {
@@ -1132,6 +1235,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     document.getElementById("addDateBtn")?.addEventListener("click", () => {
+        trackEvent("notes_add_date");
         const now = new Date();
         const str = `${now.toLocaleDateString("sr-RS")} ${now.toLocaleTimeString("sr-RS", { hour: '2-digit', minute: '2-digit' })}`;
         appendToNotes(`<b>${str}</b>`, true);
@@ -1139,6 +1243,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // EXPORT i IMPORT
     document.getElementById("exportNotesBtn")?.addEventListener("click", () => {
+        trackEvent("notes_export");
         const blob = new Blob([noteArea.innerHTML], { type: "text/html" });
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
@@ -1149,10 +1254,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     document.getElementById("importNotesBtn")?.addEventListener("click", () => {
+        trackEvent("notes_import_open");
         document.getElementById("importFileInput")?.click();
     });
 
     document.getElementById("importFileInput")?.addEventListener("change", (e) => {
+        trackEvent("notes_import_confirm");
         const file = e.target.files[0];
         if (!file) return;
         const reader = new FileReader();
@@ -1281,13 +1388,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Labela za glavni box
             const label = document.getElementById("statTotalLabel");
             const isToday = selDate.toDateString() === today.toDateString();
-            if (mode === "day") label.textContent = isToday ? "Danas" : "Taj dan";
-            else if (mode === "month") label.textContent = "Izabrani mesec";
-            else label.textContent = "Ukupno";
+            if (mode === "day") label.textContent = isToday ? getI18nMsg("trackerToday", "Danas") : getI18nMsg("trackerThatDay", "Taj dan");
+            else if (mode === "month") label.textContent = getI18nMsg("trackerSelectedMonth", "Izabrani mesec");
+            else label.textContent = getI18nMsg("trackerTotal", "Ukupno");
 
             // Render liste sa progres barovima
             const sorted = Object.entries(listTotals).sort((a, b) => b[1] - a[1]);
-            trackerList.innerHTML = sorted.length ? "" : "<div class='empty-msg'>Nema podataka za ovaj period</div>";
+            trackerList.innerHTML = sorted.length ? "" : `<div class='empty-msg'>${getI18nMsg("trackerNoData", "Nema podataka za ovaj period")}</div>`;
 
             sorted.forEach(([domain, sec]) => {
                 const percent = ((sec / listTotalSec) * 100).toFixed(1);
@@ -1307,6 +1414,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Otvaranje trackera
     elements.trackerBtn?.addEventListener("click", () => {
+        trackEvent("tracker_open");
         if (!trackerView) return;
         mainView.style.display = "none";
         trackerView.style.display = "flex";
@@ -1323,18 +1431,25 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Eventi za kontrole
     trackerDate?.addEventListener("change", (e) => {
+        trackEvent("tracker_date_change", { value: e.target.value });
         const parts = e.target.value.split("-");
         trackerDatePrikaz.value = `${parts[2]}.${parts[1]}.${parts[0]}.`;
         debouncedRenderStats();
     });
 
     trackerMode?.addEventListener("change", debouncedRenderStats);
+    trackerMode?.addEventListener("change", (e) => {
+        trackEvent("tracker_mode_change", { value: e.target.value });
+        debouncedRenderStats();
+    });
     trackerDatePrikaz?.addEventListener("click", () => {
+        trackEvent("tracker_date_picker_open");
         if (trackerDate?.showPicker) trackerDate.showPicker();
         else trackerDate?.click();
     });
 
     document.getElementById("trackerRefreshBtn")?.addEventListener("click", async () => {
+        trackEvent("tracker_refresh");
         try {
             await forceTrackerTickAndRender();
             const icon = document.getElementById("trackerRefreshBtn");
@@ -1346,6 +1461,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     document.getElementById("trackerBackBtn")?.addEventListener("click", () => {
+        trackEvent("tracker_back");
         if (!trackerView) return;
         trackerView.style.display = "none";
         mainView.style.display = "block";
@@ -1353,6 +1469,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // EXPORT: Čuvanje svih tracker podataka u JSON
     document.getElementById("exportTrackerBtn")?.addEventListener("click", () => {
+        trackEvent("tracker_export");
         chrome.storage.local.get(null, (items) => {
             const trackerData = {};
             const MAX_TRACKER_EXPORT_BYTES = 10 * 1024 * 1024;
@@ -1374,7 +1491,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
             if (Object.keys(trackerData).length === 0) {
-                alert("Nema tracker podataka za izvoz.");
+                alert(getI18nMsg("trackerExportEmpty", "Nema tracker podataka za izvoz."));
                 return;
             }
 
@@ -1387,7 +1504,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             URL.revokeObjectURL(url);
 
             if (wasTruncated) {
-                alert("Izvoz je skraćen na 10MB da popup ostane stabilan.");
+                alert(getI18nMsg("trackerExportTruncated", "Izvoz je skraćen na 10MB da popup ostane stabilan."));
             }
         });
     });
@@ -1395,8 +1512,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     // IMPORT: Učitavanje podataka iz fajla
     const trackerFileInput = document.getElementById("importTrackerFile");
     document.getElementById("importTrackerBtn")?.addEventListener("click", () => trackerFileInput.click());
+    document.getElementById("importTrackerBtn")?.addEventListener("click", () => {
+        trackEvent("tracker_import_open");
+        trackerFileInput.click();
+    });
 
     trackerFileInput?.addEventListener("change", (e) => {
+        trackEvent("tracker_import_confirm");
         const file = e.target.files[0];
         if (!file) return;
 
@@ -1425,89 +1547,100 @@ document.addEventListener("DOMContentLoaded", async () => {
                 });
 
                 if (Object.keys(data).length === 0) {
-                    alert("Nema validnih tracker podataka za uvoz.");
+                    alert(getI18nMsg("trackerImportEmpty", "Nema validnih tracker podataka za uvoz."));
                     return;
                 }
 
                 chrome.storage.local.set(data, () => {
                     renderStats();
-                    alert("Podaci su uspešno uvezeni!");
+                    alert(getI18nMsg("trackerImportSuccess", "Podaci su uspešno uvezeni!"));
                 });
             } catch (err) {
-                alert("Greška pri čitanju fajla.");
+                alert(getI18nMsg("trackerImportError", "Greška pri čitanju fajla."));
             }
         };
         reader.readAsText(file);
     });
     //#endregion
 
-    //#region BROJAC KARAKTERA
+    //#region BROJAČ KARAKTERA
     const counterView = document.getElementById("counterView");
     const counterBackBtn = document.getElementById("counterBackBtn");
     const counterArea = document.getElementById("counterArea");
     const charCount = document.getElementById("charCount");
     const wordCount = document.getElementById("wordCount");
+    const lineCount = document.getElementById("lineCount");
+    const clearCounterModal = document.getElementById("clearCounterModal"); // Ključna promenljiva!
 
-    const getSavedCounterText = () => {
-        try {
-            return localStorage.getItem("aio_counter_text") || "";
-        } catch {
-            return "";
-        }
-    };
-
-    const setSavedCounterText = (text) => {
-        try {
-            localStorage.setItem("aio_counter_text", text);
-        } catch {
-            // Ignoriši storage greške bez prekida rada brojača.
-        }
-    };
-
-    const clearSavedCounterText = () => {
-        try {
-            localStorage.removeItem("aio_counter_text");
-        } catch {
-            // Ignoriši storage greške bez prekida rada brojača.
-        }
-    };
-
+    // Funkcija za ažuriranje brojki
     const updateCounts = (text = "") => {
-        if (!charCount || !wordCount) return;
+        if (!charCount || !wordCount || !lineCount) return;
         const normalized = String(text);
+
         charCount.textContent = String(normalized.length);
         wordCount.textContent = normalized.trim() === "" ? "0" : String(normalized.trim().split(/\s+/).length);
+
+        // Brojanje redova
+        const lines = normalized === "" ? 0 : normalized.split(/\r\n|\r|\n/).length;
+        lineCount.textContent = String(lines);
     };
 
-    // Učitavanje sačuvanog teksta pri pokretanju
+    // Storage funkcije
+    const getSavedCounterText = () => localStorage.getItem("aio_counter_text") || "";
+    const setSavedCounterText = (text) => localStorage.setItem("aio_counter_text", text);
+    const clearSavedCounterText = () => localStorage.removeItem("aio_counter_text");
+
+    // Inicijalizacija pri učitavanju
     if (counterArea) {
-        const saved = getSavedCounterText();
-        counterArea.value = saved;
-        updateCounts(saved);
+        const savedText = getSavedCounterText();
+        counterArea.value = savedText;
+        updateCounts(savedText);
     }
 
-    elements.counterBtn?.addEventListener("click", () => {
-        if (!counterView || !counterArea) return;
-        mainView.style.display = "none";
+    // Dugme na glavnom meniju koje otvara brojač
+    // Napomena: Proveri da li se dugme zove counterBtn ili openCounter u tvom HTML-u
+    document.getElementById("counterBtn")?.addEventListener("click", () => {
+        trackEvent("counter_open");
+        if (!counterView) return;
+        document.getElementById("mainView").style.display = "none";
         counterView.style.display = "flex";
-        counterArea.focus();
+        counterArea?.focus();
     });
 
+    // Nazad na glavno
     counterBackBtn?.addEventListener("click", () => {
-        if (!counterView || !counterArea) return;
+        trackEvent("counter_back");
         counterView.style.display = "none";
-        mainView.style.display = "block";
-
-        // Resetovanje memorije i polja
-        counterArea.value = "";
-        updateCounts("");
-        clearSavedCounterText();
+        document.getElementById("mainView").style.display = "block";
     });
 
+    // Kucanje teksta
     counterArea?.addEventListener("input", (e) => {
-        const text = typeof e.target?.value === "string" ? e.target.value : "";
-        updateCounts(text);
-        setSavedCounterText(text);
+        trackEvent("counter_input");
+        const val = e.target.value;
+        updateCounts(val);
+        setSavedCounterText(val);
+    });
+
+    // Modal Logika (Brisanje)
+    document.getElementById("counterClearBtn")?.addEventListener("click", () => {
+        trackEvent("counter_clear_modal_open");
+        if (clearCounterModal) clearCounterModal.style.display = "flex";
+    });
+
+    document.getElementById("cancelClearCounter")?.addEventListener("click", () => {
+        trackEvent("counter_clear_modal_cancel");
+        if (clearCounterModal) clearCounterModal.style.display = "none";
+    });
+
+    document.getElementById("confirmClearCounter")?.addEventListener("click", () => {
+        trackEvent("counter_clear_confirm");
+        if (counterArea) {
+            counterArea.value = "";
+            updateCounts("");
+            clearSavedCounterText();
+        }
+        if (clearCounterModal) clearCounterModal.style.display = "none";
     });
     //#endregion
 
@@ -1537,11 +1670,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             if (isRunning) {
                 timerEl.innerText = swFormat(Date.now() - startTime);
-                statusEl.innerText = "LAJV U TOKU";
+                statusEl.innerText = getI18nMsg("swStatusLive", "LAJV U TOKU");
                 statusEl.style.color = "red";
             } else {
                 timerEl.innerText = "00:00:00";
-                statusEl.innerText = "SPREMAN";
+                statusEl.innerText = getI18nMsg("swStatusReady", "SPREMAN");
                 statusEl.style.color = "var(--text-dim)";
             }
 
@@ -1566,7 +1699,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const undoBtn = document.createElement("button");
                     undoBtn.innerText = "✕";
                     undoBtn.className = "secondary icon-btn lap-undo-btn";
-                    undoBtn.title = "Obriši ovaj momenat";
+                    undoBtn.title = getI18nMsg("swUndoTitle", "Obriši ovaj momenat");
                     undoBtn.onclick = () => {
                         const newLaps = currentLaps.filter((_, i) => i !== originalIndex);
                         chrome.storage.local.set({ currentLaps: newLaps }, () => {
@@ -1580,7 +1713,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     lapsList.appendChild(li);
                 });
             } else {
-                lapsList.innerHTML = `<div class="empty-msg">Nema zabeleženih momenata</div>`;
+                lapsList.innerHTML = `<div class="empty-msg">${getI18nMsg("swNoLaps", "Nema zabeleženih momenata")}</div>`;
             }
         });
     };
@@ -1606,7 +1739,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const sessionDateStr = sessionTime.toLocaleDateString('sr-RS');
                     const startTimeStr = sessionTime.toLocaleTimeString('sr-RS', { hour: '2-digit', minute: '2-digit' });
                     const endTimeStr = endTime.toLocaleTimeString('sr-RS', { hour: '2-digit', minute: '2-digit' });
-                    summary.innerHTML = `<span>Lajv #${realIdx}</span> <small style="color:var(--text-dim); font-weight:normal;">${sessionDateStr} ${startTimeStr} - ${endTimeStr} | Trajanje: ${swFormat(sessionDurationMs)}</small>`;
+                    summary.innerHTML = `<span>${getI18nMsg("swLiveTitlePrefix", "Lajv #")}${realIdx}</span> <small style="color:var(--text-dim); font-weight:normal;">${sessionDateStr} ${startTimeStr} - ${endTimeStr} | ${getI18nMsg("swDurationLabel", "Trajanje: ")}${swFormat(sessionDurationMs)}</small>`;
 
                     details.addEventListener("click", function () {
                         if (!this.open) {
@@ -1630,19 +1763,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                         li.style.padding = "4px 0";
                         li.style.borderBottom = "1px solid rgba(255,255,255,0.03)";
                         const lapTime = Number.isFinite(lap) ? lap : 0;
-                        li.innerHTML = `<span style="color:var(--text-dim)">Momenat ${i + 1}</span> <b>${swFormat(lapTime)}</b>`;
+                        li.innerHTML = `<span style="color:var(--text-dim)">${getI18nMsg("swMomentLabel", "Momenat ")}${i + 1}</span> <b>${swFormat(lapTime)}</b>`;
                         ul.appendChild(li);
                     });
 
                     const downloadBtn = document.createElement("button");
-                    downloadBtn.innerText = "EKSPORTUJ KAO .TXT";
+                    downloadBtn.innerText = getI18nMsg("swExportTxtBtn", "EKSPORTUJ KAO .TXT");
                     downloadBtn.className = "export-btn-mini";
                     downloadBtn.onclick = () => {
                         try {
                             const sessionDateFull = Number.isFinite(session.sessionStart) ? new Date(session.sessionStart).toLocaleString('sr-RS') : new Date().toLocaleString('sr-RS');
-                            let txt = `LAJV #${realIdx} | ${sessionDateFull}\n--------------------------\n`;
+                            let txt = `${getI18nMsg("swLiveTitlePrefix", "LAJV #").toUpperCase()}${realIdx} | ${sessionDateFull}\n--------------------------\n`;
                             const exportLaps = Array.isArray(session.laps) ? session.laps : [];
-                            txt += `UKUPNO TRAJANJE: ${swFormat(exportLaps.length > 0 ? exportLaps[exportLaps.length - 1] : 0)}\n\n`;
+                            txt += `${getI18nMsg("swTotalDurationPrefix", "UKUPNO TRAJANJE: ")}${swFormat(exportLaps.length > 0 ? exportLaps[exportLaps.length - 1] : 0)}\n\n`;
                             exportLaps.forEach((l, i) => {
                                 const lapTime = Number.isFinite(l) ? l : 0;
                                 txt += `${i + 1}. ${swFormat(lapTime)}\n`;
@@ -1660,23 +1793,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                     };
 
                     const copyBtn = document.createElement("button");
-                    copyBtn.innerText = "KOPIRAJ U KLIPBORD";
+                    copyBtn.innerText = getI18nMsg("swCopyBtn", "KOPIRAJ U KLIPBORD");
                     copyBtn.className = "export-btn-mini";
                     copyBtn.style.backgroundColor = "var(--accent)";
                     copyBtn.style.color = "#000";
                     copyBtn.onclick = () => {
                         try {
                             const sessionDateFull = Number.isFinite(session.sessionStart) ? new Date(session.sessionStart).toLocaleString('sr-RS') : new Date().toLocaleString('sr-RS');
-                            let txt = `LAJV #${realIdx} | ${sessionDateFull}\n`;
+                            let txt = `${getI18nMsg("swLiveTitlePrefix", "LAJV #").toUpperCase()}${realIdx} | ${sessionDateFull}\n`;
                             const exportLaps = Array.isArray(session.laps) ? session.laps : [];
-                            txt += `UKUPNO TRAJANJE: ${swFormat(exportLaps.length > 0 ? exportLaps[exportLaps.length - 1] : 0)}\n\n`;
+                            txt += `${getI18nMsg("swTotalDurationPrefix", "UKUPNO TRAJANJE: ")}${swFormat(exportLaps.length > 0 ? exportLaps[exportLaps.length - 1] : 0)}\n\n`;
                             exportLaps.forEach((l, i) => {
                                 const lapTime = Number.isFinite(l) ? l : 0;
                                 txt += `${i + 1}. ${swFormat(lapTime)}\n`;
                             });
                             navigator.clipboard.writeText(txt).then(() => {
-                                copyBtn.innerText = "✓ KOPIRANO";
-                                setTimeout(() => { copyBtn.innerText = "KOPIRAJ U KLIPBORD"; }, 2000);
+                                copyBtn.innerText = getI18nMsg("swCopiedBtn", "✓ KOPIRANO");
+                                setTimeout(() => { copyBtn.innerText = getI18nMsg("swCopyBtn", "KOPIRAJ U KLIPBORD"); }, 2000);
                             }).catch(() => {
                                 console.error("Clipboard error");
                             });
@@ -1696,12 +1829,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                     historyList.appendChild(details);
                 });
             } else {
-                historyList.innerHTML = "<div class='no-history'>Nema istorije lajvova</div>";
+                historyList.innerHTML = `<div class='no-history'>${getI18nMsg("swNoHistory", "Nema istorije lajvova")}</div>`;
             }
         });
     };
 
     elements.stopwatchBtn?.addEventListener("click", () => {
+        trackEvent("stopwatch_open");
         const mainView = document.getElementById("mainView");
         const stopwatchView = document.getElementById("stopwatchView");
         if (!mainView || !stopwatchView) return;
@@ -1714,6 +1848,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     document.getElementById("swBackBtn")?.addEventListener("click", () => {
+        trackEvent("stopwatch_back");
         const stopwatchView = document.getElementById("stopwatchView");
         const mainView = document.getElementById("mainView");
         if (!stopwatchView || !mainView) return;
@@ -1727,6 +1862,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     document.getElementById("start")?.addEventListener("click", () => {
+        trackEvent("stopwatch_start");
         chrome.storage.local.get(["isRunning"], (data) => {
             if (data.isRunning === true) {
                 // Sesija je već pokrenuta, ignoriši
@@ -1740,10 +1876,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     document.getElementById("lap")?.addEventListener("click", () => {
+        trackEvent("stopwatch_lap");
         chrome.runtime.sendMessage({ action: "manual_lap" });
     });
 
     document.getElementById("stop")?.addEventListener("click", () => {
+        trackEvent("stopwatch_stop");
         chrome.storage.local.get(["isRunning", "startTime", "currentLaps", "history"], (data) => {
             if (data.isRunning !== true) return;
             const startTime = Number.isFinite(data.startTime) ? data.startTime : Date.now();
@@ -1767,6 +1905,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     // Alt+Shift+L shortcut - samo dok je stopwatch view vidljiv
     document.addEventListener("keydown", (e) => {
+        if (e.altKey && e.shiftKey && (e.key.toLowerCase() === "l")) {
+            trackEvent("stopwatch_shortcut_lap");
+        }
         const stopwatchView = document.getElementById("stopwatchView");
         const isStopwatchVisible = stopwatchView && stopwatchView.style.display !== "none";
         if (isStopwatchVisible && e.altKey && e.shiftKey && (e.key.toLowerCase() === "l")) {
@@ -1775,16 +1916,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     const swModal = document.getElementById("customModal");
     document.getElementById("clear-history")?.addEventListener("click", () => {
+        trackEvent("stopwatch_clear_history_modal_open");
         if (!swModal) return;
         swModal.style.display = "flex";
     });
 
     document.getElementById("cancelClear")?.addEventListener("click", () => {
+        trackEvent("stopwatch_clear_history_modal_cancel");
         if (!swModal) return;
         swModal.style.display = "none";
     });
 
     document.getElementById("confirmClear")?.addEventListener("click", () => {
+        trackEvent("stopwatch_clear_history_confirm");
         if (!swModal) return;
         swHistoryWriteQueue = swHistoryWriteQueue.then(async () => {
             await chrome.storage.local.set({ history: [] });
@@ -1804,18 +1948,20 @@ document.addEventListener("DOMContentLoaded", async () => {
             swRefreshUI();
             swRenderHistory();
         } else if (msg.playing !== undefined && elements.radioBtn) {
-            elements.radioBtn.innerText = msg.playing ? "Pause" : "Play";
+            elements.radioBtn.innerText = msg.playing ? getI18nMsg("radioPause", "Pause") : getI18nMsg("radioPlay", "Play");
         }
     });
     //#endregion
 
     //#region SETTINGS
     document.getElementById("settingsBtn")?.addEventListener("click", () => {
+        trackEvent("settings_open");
         document.getElementById("mainView").style.display = "none";
         document.getElementById("settingsView").style.display = "flex";
     });
 
     document.getElementById("settingsBackBtn")?.addEventListener("click", () => {
+        trackEvent("settings_back");
         document.getElementById("settingsView").style.display = "none";
         document.getElementById("mainView").style.display = "block";
     });
@@ -1825,26 +1971,36 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     document.getElementById("donateBtn")?.addEventListener("click", () => {
+        trackEvent("donate_click");
         chrome.tabs.create({ url: "https://paypal.me/milanpetkovski1" });
     });
 
     document.getElementById("webBtn")?.addEventListener("click", () => {
+        trackEvent("web_click");
         chrome.tabs.create({ url: "https://allinone.milanwebportal.com" });
     });
 
     document.getElementById("portalBtn")?.addEventListener("click", () => {
+        trackEvent("portal_click");
         chrome.tabs.create({ url: "https://milanwebportal.com" });
     });
 
     document.getElementById("rateBtn")?.addEventListener("click", () => {
+        trackEvent("rate_click");
         chrome.tabs.create({ url: "https://chromewebstore.google.com/detail/all-in-one/hmkcbieabcldlndhjeemggokhlebjoem/reviews" });
     });
 
     document.getElementById("privacyLink")?.addEventListener("click", (e) => {
+        trackEvent("privacy_click");
         e.preventDefault();
         chrome.tabs.create({ url: "https://allinone.milanwebportal.com/privacy" });
     });
 
+    document.getElementById("emailBtn")?.addEventListener("click", (e) => {
+        trackEvent("email_click");
+        e.preventDefault();
+        chrome.tabs.create({ url: "mailto:contact@milanwebportal.com" });
+    });
     //#endregion
 
     //#region TEHNOLOGIJE SAJTA
@@ -1864,7 +2020,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             const tab = tabs?.[0];
             if (!tab?.id || !tab.url || !tab.url.startsWith("http")) {
                 loading.style.display = "none";
-                listContainer.innerHTML = '<div style="color: var(--text-dim); text-align: center;">Skener nije dostupan na ovoj stranici.</div>';
+                listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techScannerUnavailable", "Skener nije dostupan na ovoj stranici.")}</div>`;
                 return;
             }
 
@@ -1881,7 +2037,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     chrome.scripting.executeScript({
                         target: { tabId: tabId },
                         world: "MAIN",
-                        func: async () => {
+                        func: async (foundLabel, noneFoundLabel) => {
                             const results = [];
                             const add = (category, name, detail = "") => {
                                 if (!category || !name) return;
@@ -2085,7 +2241,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                             });
 
                             return unique;
-                        }
+                        },
+                        args: [getI18nMsg("techFoundPrefix", "Pronađeno: "), getI18nMsg("techNotFound", "Nije pronađeno.")]
                     }, (res) => {
                         if (!isResolved) {
                             isResolved = true;
@@ -2093,7 +2250,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                             loading.style.display = "none";
                             if (chrome.runtime.lastError) {
-                                listContainer.innerHTML = '<div style="color: var(--text-dim); text-align: center;">Skeniranje nije uspelo na ovoj stranici.</div>';
+                                listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techScannerFailed", "Skeniranje nije uspelo na ovoj stranici.")}</div>`;
                                 resolve();
                                 return;
                             }
@@ -2106,7 +2263,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                                     summary.style.fontSize = "11px";
                                     summary.style.marginBottom = "8px";
                                     summary.style.textAlign = "center";
-                                    summary.textContent = `Pronađeno: ${resultCount} stavki`;
+                                    // It uses the passed arg `foundLabel` indirectly through dynamic logic if needed, but here's direct string interpolation
+                                    summary.textContent = `${getI18nMsg("techFoundPrefix", "Pronađeno: ")} ${resultCount} ${getI18nMsg("techItemsSuffix", "stavki")}`;
                                     listContainer.appendChild(summary);
                                 }
 
@@ -2138,10 +2296,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 });
 
                                 if (res[0].result.length === 0) {
-                                    listContainer.innerHTML = '<div style="color: var(--text-dim); text-align: center;">Nije pronađeno.</div>';
+                                    listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techNotFound", "Nije pronađeno.")}</div>`;
                                 }
                             } else {
-                                listContainer.innerHTML = '<div style="color: var(--text-dim); text-align: center;">Nije pronađeno.</div>';
+                                listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techNotFound", "Nije pronađeno.")}</div>`;
                             }
 
                             resolve();
@@ -2155,7 +2313,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             } catch (err) {
                 loading.style.display = "none";
                 console.error("Tech scanner error:", err);
-                listContainer.innerHTML = '<div style="color: var(--text-dim); text-align: center;">Skeniranje nije uspelo - ' + (err.message || "greška") + '</div>';
+                listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techScannerFailed", "Skeniranje nije uspelo na ovoj stranici.")} - ${err.message || "greška"}</div>`;
             }
         } catch (err) {
             console.error("Tech scanner outer error:", err);
@@ -2171,3 +2329,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     //#endregion
 });
+
+// i18n prevod Helper funkcija
+function getI18nMsg(key, defaultText) {
+    if (window.i18nDict && window.i18nDict[key] && window.i18nDict[key].message) {
+        return window.i18nDict[key].message;
+    }
+    if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
+        const msg = chrome.i18n.getMessage(key);
+        if (msg) return msg;
+    }
+    return defaultText;
+}

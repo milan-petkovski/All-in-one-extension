@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - A legjobb produktivitási eszköz"
+  },
+  "extDesc": {
+    "message": "A végső eszköz, amely minden alapvető funkciót egyetlen gyors, modern és ingyenes felületen egyesít."
+  },
+  "markLapDesc": {
+    "message": "Pillanat rögzítése a stopperen"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Hivatalos oldal"
+  },
+  "settingsTooltip": {
+    "message": "Beállítások"
+  },
+  "radioTitle": {
+    "message": "Rádió IN"
+  },
+  "radioArtist": {
+    "message": "Az All In One bővítmény működteti"
+  },
+  "playBtn": {
+    "message": "Lejátszás"
+  },
+  "soundTitle": {
+    "message": "Hang"
+  },
+  "resetBtn": {
+    "message": "Reset"
+  },
+  "colorPickerTitle": {
+    "message": "Színválasztó"
+  },
+  "darkModeTitle": {
+    "message": "Sötét mód"
+  },
+  "rulerTitle": {
+    "message": "Oldalvonalzó"
+  },
+  "copyEnableTitle": {
+    "message": "Másolás"
+  },
+  "markerTitle": {
+    "message": "Jelző"
+  },
+  "techTitle": {
+    "message": "Technológiák"
+  },
+  "cacheTitle": {
+    "message": "Sütik/gyorsítótár"
+  },
+  "fontTitle": {
+    "message": "Betűtípusok"
+  },
+  "counterTitle": {
+    "message": "Számláló"
+  },
+  "stopwatchTitle": {
+    "message": "Stopper"
+  },
+  "notesTitle": {
+    "message": "Jegyzetek"
+  },
+  "trackerTitle": {
+    "message": "Webidő"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "SÜTIK ÉS GYORSÍTÓTÁR"
+  },
+  "blockCookiesLabel": {
+    "message": "Sütik automatikus blokkolása"
+  },
+  "clearSiteDataBtn": {
+    "message": "Minden adat törlése erről a webhelyről"
+  },
+  "cancelBtn": {
+    "message": "MÉGSE"
+  },
+  "counterModalTitle": {
+    "message": "KARAKTERSZÁMLÁLO"
+  },
+  "counterPlaceholder": {
+    "message": "Illessze be a szöveget ide..."
+  },
+  "charsLabel": {
+    "message": "Karakterek"
+  },
+  "wordsLabel": {
+    "message": "Szavak"
+  },
+  "stopwatchReady": {
+    "message": "KÉSZ"
+  },
+  "startBtn": {
+    "message": "INDÍTÁS"
+  },
+  "lapBtn": {
+    "message": "KÖR"
+  },
+  "stopBtn": {
+    "message": "LEÁLLÍTÁS"
+  },
+  "currentRecordedLabel": {
+    "message": "JELENLEG RÖGZÍTVE"
+  },
+  "liveHistoryLabel": {
+    "message": "ÉLŐ ELŐZMÉNYEK"
+  },
+  "clearAllBtn": {
+    "message": "MINDENT TÖRLÉS"
+  },
+  "confirmClearHistory": {
+    "message": "Biztosan törölni szeretné az összes előzményt?"
+  },
+  "deleteBtn": {
+    "message": "TÖRLÉS"
+  },
+  "notesModalTitle": {
+    "message": "INTELLIGENS JEGYZETEK"
+  },
+  "clearNotesTooltip": {
+    "message": "Minden jegyzet törlése"
+  },
+  "notesPlaceholder": {
+    "message": "Írja ide a jegyzeteket..."
+  },
+  "grabTextTooltip": {
+    "message": "Szöveg kinyerése az oldalról"
+  },
+  "textLabel": {
+    "message": "Szöveg"
+  },
+  "addUrlTooltip": {
+    "message": "Jelenlegi URL hozzáadása"
+  },
+  "linkLabel": {
+    "message": "Link"
+  },
+  "addDateTooltip": {
+    "message": "Mai dátum hozzáadása"
+  },
+  "dateLabel": {
+    "message": "Dátum"
+  },
+  "exportNotesTooltip": {
+    "message": "Jegyzetek exportálása"
+  },
+  "importNotesTooltip": {
+    "message": "Jegyzetek importálása"
+  },
+  "savedIndicator": {
+    "message": "Mentve"
+  },
+  "confirmClearNotes": {
+    "message": "Biztosan törölni szeretné az összes jegyzetet?"
+  },
+  "trackerModalTitle": {
+    "message": "WEBIDŐ KÖVETŐ"
+  },
+  "exportTooltip": {
+    "message": "Adatok exportálása"
+  },
+  "importTooltip": {
+    "message": "Adatok importálása"
+  },
+  "trackerModeDay": {
+    "message": "Napi nézet"
+  },
+  "trackerModeMonth": {
+    "message": "Havi nézet"
+  },
+  "trackerModeAll": {
+    "message": "Minden idő"
+  },
+  "trackerTodayLabel": {
+    "message": "Ma"
+  },
+  "trackerMonthLabel": {
+    "message": "Ebben a hónapban"
+  },
+  "trackerAvgLabel": {
+    "message": "Átlagos"
+  },
+  "techModalTitle": {
+    "message": "WEBHELY TECHNOLÓGIÁK"
+  },
+  "techLoadingMsg": {
+    "message": "A szkenner elemzi a webhelyet..."
+  },
+  "uiSettings": {
+    "message": "BEÁLLÍTÁSOK"
+  },
+  "supportTitle": {
+    "message": "Támogassa a bővítményt"
+  },
+  "supportDesc": {
+    "message": "Az All In One egy teljesen ingyenes eszköz. Támogatása segít, hogy ez így is maradjon, és lehetővé teszi új funkciók rendszeres fejlesztését."
+  },
+  "donateBtn": {
+    "message": "Adományozzon és támogasson"
+  },
+  "websiteBtn": {
+    "message": "Hivatalos weboldal"
+  },
+  "rateBtn": {
+    "message": "Értékelje a bővítményt"
+  },
+  "versionLabel": {
+    "message": "Verzió:"
+  },
+  "privacyLabel": {
+    "message": "Adatvédelmi irányelvek"
+  },
+  "systemPageTitle": {
+    "message": "RENDSZEROLDAL"
+  },
+  "systemPageDesc": {
+    "message": "A módosító eszközök le vannak tiltva"
+  },
+  "radioPlay": {
+    "message": "Play"
+  },
+  "radioPause": {
+    "message": "Szünet"
+  },
+  "colorPickerPicking": {
+    "message": "Kiválasztás..."
+  },
+  "colorPickerCopied": {
+    "message": "Másolva: "
+  },
+  "cacheNotSupported": {
+    "message": "Nem támogatott"
+  },
+  "cacheClearConfirm": {
+    "message": "Minden adat törlése erről a webhelyről"
+  },
+  "cacheError": {
+    "message": "Hiba"
+  },
+  "cacheClearing": {
+    "message": "Törlés..."
+  },
+  "cacheCleared": {
+    "message": "Törölve!"
+  },
+  "fontCopied": {
+    "message": "Másolva!"
+  },
+  "fontNotCopied": {
+    "message": "Nincs másolva"
+  },
+  "notesSaved": {
+    "message": "Mentve"
+  },
+  "notesTooLarge": {
+    "message": "Túl nagy jegyzet"
+  },
+  "notesLinkText": {
+    "message": "Link"
+  },
+  "trackerToday": {
+    "message": "Ma"
+  },
+  "trackerThatDay": {
+    "message": "Azon a napon"
+  },
+  "trackerSelectedMonth": {
+    "message": "Kiválasztott hónap"
+  },
+  "trackerTotal": {
+    "message": "Összesen"
+  },
+  "trackerNoData": {
+    "message": "Nincs adat ehhez az időszakhoz"
+  },
+  "trackerExportEmpty": {
+    "message": "Nincs exportálható követési adat."
+  },
+  "trackerExportTruncated": {
+    "message": "A stabilitás érdekében az exportálás 10 MB-ra lett csonkítva."
+  },
+  "trackerImportEmpty": {
+    "message": "Nincs importálható érvényes adat."
+  },
+  "trackerImportSuccess": {
+    "message": "Adatok sikeresen importálva!"
+  },
+  "trackerImportError": {
+    "message": "Hiba a fájl olvasásakor."
+  },
+  "swStatusLive": {
+    "message": "ÉLŐ KÖZVETÍTÉS FOLYAMATBAN"
+  },
+  "swStatusReady": {
+    "message": "KÉSZ"
+  },
+  "swUndoTitle": {
+    "message": "Törölje ezt a pillanatot"
+  },
+  "swNoLaps": {
+    "message": "Nincsenek rögzített pillanatok"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Élő #"
+  },
+  "swDurationLabel": {
+    "message": "Időtartam: "
+  },
+  "swMomentLabel": {
+    "message": "Pillanat "
+  },
+  "swExportTxtBtn": {
+    "message": "EXPORTÁLÁS .TXT FORMÁTUMBAN"
+  },
+  "swTotalDurationPrefix": {
+    "message": "TELJES IDŐTARTAM: "
+  },
+  "swCopyBtn": {
+    "message": "MÁSOLÁS VÁGÓLAPRA"
+  },
+  "swCopiedBtn": {
+    "message": "✓ MÁSOLVA"
+  },
+  "swNoHistory": {
+    "message": "Nincs élő előzmény"
+  },
+  "techScannerUnavailable": {
+    "message": "A szkenner nem érhető el ezen az oldalon."
+  },
+  "techFoundPrefix": {
+    "message": "Találat: "
+  },
+  "techItemsSuffix": {
+    "message": "elem"
+  },
+  "techNotFound": {
+    "message": "Nem található."
+  },
+  "techScannerFailed": {
+    "message": "A szkennelés sikertelen ezen az oldalon."
+  },
+  "markerDrawTooltip": {
+    "message": "Rajzolás"
+  },
+  "markerLineTooltip": {
+    "message": "Vonal"
+  },
+  "markerTextTooltip": {
+    "message": "Szöveg"
+  },
+  "markerMoveTooltip": {
+    "message": "Mozgatás"
+  },
+  "markerEraseTooltip": {
+    "message": "Törlés"
+  },
+  "markerClearAllTooltip": {
+    "message": "Mindent törlés"
+  },
+  "markerThicknessTooltip": {
+    "message": "Vastagság"
+  },
+  "markerCloseTooltip": {
+    "message": "Bezárás"
+  },
+  "linesLabel": {
+    "message": "Sorok"
+  },
+  "clearCounterTooltip": {
+    "message": "Mindent töröl"
+  },
+  "confirmClearCounter": {
+    "message": "Biztosan törölni szeretnél mindent?"
+  }
+}

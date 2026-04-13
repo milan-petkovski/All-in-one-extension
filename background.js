@@ -1,4 +1,66 @@
+// Universal event tracking function (local + Google Analytics)
+const GA_MEASUREMENT_ID = "G-F52S6J4TZV";
+const GA_API_SECRET = "j09W3gL-TImYVi2ZE7rHxA";
+const GA_ENDPOINT = `https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${GA_API_SECRET}`;
+
+function trackEvent(eventName, eventData = {}) {
+    // Local stats (for future UI)
+    chrome.storage.local.get(["eventStats"], (res) => {
+        const stats = res.eventStats || {};
+        stats[eventName] = (stats[eventName] || 0) + 1;
+        chrome.storage.local.set({ eventStats: stats });
+    });
+
+    // Google Analytics Measurement Protocol
+    try {
+        const clientId = (typeof localStorage !== 'undefined' && localStorage.getItem("aio_ga_cid")) || (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2));
+        if (typeof localStorage !== 'undefined') localStorage.setItem("aio_ga_cid", clientId);
+        const body = {
+            client_id: clientId,
+            events: [
+                {
+                    name: eventName,
+                    params: {
+                        ...eventData
+                    }
+                }
+            ]
+        };
+        fetch(GA_ENDPOINT, {
+            method: "POST",
+            body: JSON.stringify(body),
+            keepalive: true,
+            headers: { "Content-Type": "application/json" }
+        });
+    } catch (err) {
+        // Ignore GA errors
+    }
+}
 let offscreenInitPromise = null;
+let bgI18nDict = null;
+
+chrome.storage.onChanged.addListener((changes) => {
+    if (changes.appLang) {
+        loadBgTranslations(changes.appLang.newValue);
+    }
+});
+
+async function loadBgTranslations(lang) {
+    try {
+        const res = await fetch(chrome.runtime.getURL(`_locales/${lang}/messages.json`));
+        bgI18nDict = await res.json();
+    } catch (e) { }
+}
+chrome.storage.local.get(['appLang'], (data) => {
+    loadBgTranslations(data.appLang || 'sr');
+});
+function getI18nMsg(key, defaultText) {
+    if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
+        const msg = chrome.i18n.getMessage(key);
+        if (msg) return msg;
+    }
+    return defaultText;
+}
 
 function safeSendRuntimeMessage(payload) {
     if (!chrome?.runtime?.id) return;
@@ -22,7 +84,7 @@ async function setupOffscreen() {
             await chrome.offscreen.createDocument({
                 url: 'offscreen.html',
                 reasons: ['AUDIO_PLAYBACK'],
-                justification: 'Radio streaming and system sounds'
+                justification: getI18nMsg("offscreenJustification", "Radio streaming and system sounds")
             });
         } catch (err) {
             const msg = String(err?.message || err || "").toLowerCase();
@@ -107,12 +169,24 @@ async function clearSiteDataEverywhere(urlString) {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     const action = request?.action;
 
+    if (action === "aio_track_event") {
+        // Event iz popup.js za GA
+        try {
+            const eventName = request.eventName;
+            const eventData = request.eventData || {};
+            trackEvent(eventName, eventData);
+        } catch (err) { }
+        return true;
+    }
+
     if (action === "toggleRadio") {
+        trackEvent("radio otvoren/zatvoren");
         handleToggle(sendResponse);
         return true;
     }
 
     if (action === "setRadioVolume") {
+        trackEvent("radio pojačan/utišan", { vrednost: request.value });
         safeSendRuntimeMessage({ action: "setVolume", value: request.value });
         return true;
     }
@@ -127,7 +201,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                     volume: data.volume !== undefined ? data.volume : 12
                 });
             } catch (err) {
-                sendResponse({ playing: false, volume: 12 });
+                try { sendResponse({ playing: false, volume: 12, error: err?.message || "error" }); } catch { }
             }
         })();
         return true;
@@ -138,10 +212,21 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             try {
                 const data = await chrome.storage.local.get(['volume']);
                 const currentVol = data.volume !== undefined ? data.volume : 12;
-                safeSendRuntimeMessage({ action: "play", volume: currentVol });
+
+                // Dodaj prevode i ovde
+                const radioTitle = bgI18nDict?.radioTitle?.message || "Radio IN";
+                const radioArtist = bgI18nDict?.radioArtist?.message || "Pokreće All In One ekstenzija";
+
+                safeSendRuntimeMessage({
+                    action: "play",
+                    volume: currentVol,
+                    title: radioTitle,
+                    artist: radioArtist
+                });
                 await chrome.storage.local.set({ playing: true });
+                sendResponse({ ok: true });
             } catch (err) {
-                console.error("hardwarePlay error:", err);
+                try { sendResponse({ ok: false, error: err?.message || "error" }); } catch { }
             }
         })();
         return true;
@@ -154,11 +239,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 
     if (action === "manual_lap") {
+        trackEvent("krug stoperice");
         handleLapLogic();
         return true;
     }
 
     if (action === "tracker_force_tick") {
+        trackEvent("tracker osvežen", { domen: request?.domain || "" });
         const forcedDomain = normalizeDomain(request?.domain || "") || "";
         const run = runTrackerMutation(async () => {
             trackerState.domain = forcedDomain || trackerState.domain;
@@ -186,8 +273,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 await trackerHeartbeat(domain, seconds);
                 sendResponse({ ok: true });
             } catch (err) {
-                console.error("tracker_heartbeat error:", err);
-                sendResponse({ ok: false });
+                try { sendResponse({ ok: false, error: err?.message || "error" }); } catch { }
             }
         })();
         return true;
@@ -213,7 +299,16 @@ async function handleToggle(sendResponse) {
         const currentVol = data.volume !== undefined ? data.volume : 12;
 
         if (newState) {
-            safeSendRuntimeMessage({ action: "play", volume: currentVol });
+            // Izvlačenje prevoda iz tvog rečnika
+            const radioTitle = bgI18nDict?.radioTitle?.message || "Radio IN";
+            const radioArtist = bgI18nDict?.radioArtist?.message || "Pokreće All In One ekstenzija";
+
+            safeSendRuntimeMessage({
+                action: "play",
+                volume: currentVol,
+                title: radioTitle,
+                artist: radioArtist
+            });
         } else {
             safeSendRuntimeMessage({ action: "pause" });
             await chrome.storage.local.set({ volume: 12 });
@@ -434,39 +529,41 @@ initTracker();
 chrome.runtime.onStartup.addListener(initTracker);
 
 // STOPERICA KOMANDA
-let lastLapTime = 0;
 let swLapWriteQueue = Promise.resolve();
 
 // Glavna logika za krug (Lap)
 async function handleLapLogic() {
     const now = Date.now();
-    const data = await chrome.storage.local.get(["isRunning", "startTime", "currentLaps"]);
+    const store = await chrome.storage.local.get(["isRunning", "startTime", "currentLaps", "lastLapTime"]);
 
-    if (data.isRunning !== true) {
+    const lastLap = store.lastLapTime || 0;
+    if (store.isRunning !== true) {
         playSystemSound("error");
         return;
     }
 
-    // Cooldown 5s - bez ikakvog zvuka
-    if (now - lastLapTime < 5000) return;
+    // Provera cooldown-a od 5 sekundi
+    if (now - lastLap < 5000) return;
 
-    const startTime = Number.isFinite(data.startTime) ? data.startTime : now;
+    const startTime = Number.isFinite(store.startTime) ? store.startTime : now;
     const diff = now - startTime;
     if (diff <= 0) return;
 
     swLapWriteQueue = swLapWriteQueue.then(async () => {
-        // Read latest storage state inside queue to avoid stale overwrite under concurrent LAP triggers.
         const latest = await chrome.storage.local.get(["isRunning", "currentLaps"]);
         if (latest.isRunning !== true) return;
 
         const currentLaps = Array.isArray(latest.currentLaps) ? latest.currentLaps : [];
-        await chrome.storage.local.set({ currentLaps: [...currentLaps, diff] });
+
+        await chrome.storage.local.set({
+            currentLaps: [...currentLaps, diff],
+            lastLapTime: now
+        });
     }).catch((err) => {
         console.error("Lap write error:", err);
     });
 
     await swLapWriteQueue;
-    lastLapTime = now;
 
     playSystemSound("success");
     safeSendRuntimeMessage({ action: "update_ui" });
@@ -482,13 +579,32 @@ chrome.commands.onCommand.addListener((command) => {
 // Reset cooldown na START komande
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request?.action === "sw_start_session") {
-        lastLapTime = 0;  // Reset cooldown da bi prvi LAP bio odmah dostupan
+        // Resetujemo cooldown u storage-u umesto u lokalnoj promenljivoj
+        chrome.storage.local.set({ lastLapTime: 0 });
         sendResponse({ ok: true });
         return true;
     }
 });
 
 chrome.runtime.onInstalled.addListener((details) => {
+    trackEvent("ekstenzija instalirana/azurirana", { razlog: details.reason });
+    function ensureKeepAliveAlarm() {
+        chrome.alarms.get('keepAlive', (alarm) => {
+            if (!alarm) {
+                chrome.alarms.create('keepAlive', { periodInMinutes: 0.5 });
+            }
+        });
+    }
+
+    chrome.alarms.onAlarm.addListener((alarm) => {
+        if (alarm.name === 'keepAlive') {
+            trackerTick(); // OVO DODAJ: Da bi upisao vreme svakih 30 sekundi
+            checkRealRadioStatus().catch(() => { });
+        }
+    });
+
+    // Pozovi odmah pri učitavanju skripte
+    ensureKeepAliveAlarm();
     initTracker();
 
     if (details.reason === "install") {
@@ -498,4 +614,4 @@ chrome.runtime.onInstalled.addListener((details) => {
     }
 });
 
-chrome.runtime.setUninstallURL("https://milanwebportal.com/obrisano");
+chrome.runtime.setUninstallURL("https://allinone.milanwebportal.com/obrisano");

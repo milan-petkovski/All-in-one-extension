@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - மிகச்சிறந்த செயல்திறன் கருவி"
+  },
+  "extDesc": {
+    "message": "ஒரு வேகமான, நவீன மற்றும் இலவச இடைமுகத்தில் அனைத்து அத்தியாவசிய செயல்பாடுகளையும் இணைக்கும் இறுதி கருவி."
+  },
+  "markLapDesc": {
+    "message": "ஸ்டாப்வாட்சில் ஒரு தருணத்தைப் பதிவுசெய்க"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "நீட்டிப்பின் அதிகாரப்பூர்வ இணையதளம்"
+  },
+  "settingsTooltip": {
+    "message": "அமைப்புகள்"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "All In One நீட்டிப்பால் இயக்கப்படுகிறது"
+  },
+  "playBtn": {
+    "message": "பிளே"
+  },
+  "soundTitle": {
+    "message": "ஒலி"
+  },
+  "resetBtn": {
+    "message": "மீளமை"
+  },
+  "colorPickerTitle": {
+    "message": "நிறம் தேர்வி"
+  },
+  "darkModeTitle": {
+    "message": "இருள்"
+  },
+  "rulerTitle": {
+    "message": "அளவுகோல்"
+  },
+  "copyEnableTitle": {
+    "message": "நகல்"
+  },
+  "markerTitle": {
+    "message": "குறிப்பான்"
+  },
+  "techTitle": {
+    "message": "தொழில்நுட்பம்"
+  },
+  "cacheTitle": {
+    "message": "குக்கீகள்"
+  },
+  "fontTitle": {
+    "message": "எழுத்துரு"
+  },
+  "counterTitle": {
+    "message": "கவுண்டர்"
+  },
+  "stopwatchTitle": {
+    "message": "ஸ்டாப்வாட்ச்"
+  },
+  "notesTitle": {
+    "message": "குறிப்புகள்"
+  },
+  "trackerTitle": {
+    "message": "நேரமானி"
+  },
+  "ytDislikeTitle": {
+    "message": "Return YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "குக்கீகள்"
+  },
+  "blockCookiesLabel": {
+    "message": "தடு"
+  },
+  "clearSiteDataBtn": {
+    "message": "தரவை அழி"
+  },
+  "cancelBtn": {
+    "message": "ரத்து"
+  },
+  "counterModalTitle": {
+    "message": "கவுண்டர்"
+  },
+  "counterPlaceholder": {
+    "message": "ஒட்டவும்"
+  },
+  "charsLabel": {
+    "message": "எழுத்துக்கள்"
+  },
+  "wordsLabel": {
+    "message": "சொற்கள்"
+  },
+  "stopwatchReady": {
+    "message": "தயார்"
+  },
+  "startBtn": {
+    "message": "தொடங்கு"
+  },
+  "lapBtn": {
+    "message": "லேப்"
+  },
+  "stopBtn": {
+    "message": "நிறுத்து"
+  },
+  "currentRecordedLabel": {
+    "message": "பதிவானது"
+  },
+  "liveHistoryLabel": {
+    "message": "வரலாறு"
+  },
+  "clearAllBtn": {
+    "message": "அனைத்தையும் அழி"
+  },
+  "confirmClearHistory": {
+    "message": "அழிக்கவா?"
+  },
+  "deleteBtn": {
+    "message": "அழி"
+  },
+  "notesModalTitle": {
+    "message": "குறிப்புகள்"
+  },
+  "clearNotesTooltip": {
+    "message": "அழி"
+  },
+  "notesPlaceholder": {
+    "message": "எழுதுக"
+  },
+  "grabTextTooltip": {
+    "message": "எடு"
+  },
+  "textLabel": {
+    "message": "உரை"
+  },
+  "addUrlTooltip": {
+    "message": "லிங்க்"
+  },
+  "linkLabel": {
+    "message": "லிங்க்"
+  },
+  "addDateTooltip": {
+    "message": "தேதி"
+  },
+  "dateLabel": {
+    "message": "தேதி"
+  },
+  "exportNotesTooltip": {
+    "message": "ஏற்றுமதி"
+  },
+  "importNotesTooltip": {
+    "message": "இறக்குமதி"
+  },
+  "savedIndicator": {
+    "message": "சேமிக்கப்பட்டது"
+  },
+  "confirmClearNotes": {
+    "message": "அழிக்கவா?"
+  },
+  "trackerModalTitle": {
+    "message": "நேரக் கண்காணிப்பு"
+  },
+  "exportTooltip": {
+    "message": "ஏற்றுமதி"
+  },
+  "importTooltip": {
+    "message": "இறக்குமதி"
+  },
+  "trackerModeDay": {
+    "message": "நாள்"
+  },
+  "trackerModeMonth": {
+    "message": "மாதம்"
+  },
+  "trackerModeAll": {
+    "message": "எப்போதும்"
+  },
+  "trackerTodayLabel": {
+    "message": "இன்று"
+  },
+  "trackerMonthLabel": {
+    "message": "மாதம்"
+  },
+  "trackerAvgLabel": {
+    "message": "சராசரி"
+  },
+  "techModalTitle": {
+    "message": "தொழில்நுட்பம்"
+  },
+  "techLoadingMsg": {
+    "message": "ஆய்வு செய்கிறது"
+  },
+  "uiSettings": {
+    "message": "அமைப்புகள்"
+  },
+  "supportTitle": {
+    "message": "ஆதரிக்கவும்"
+  },
+  "supportDesc": {
+    "message": "இலவச சேவை."
+  },
+  "donateBtn": {
+    "message": "ஆதரவு தருக"
+  },
+  "websiteBtn": {
+    "message": "தளம்"
+  },
+  "rateBtn": {
+    "message": "மதிப்பிடுக"
+  },
+  "versionLabel": {
+    "message": "பதிப்பு:"
+  },
+  "privacyLabel": {
+    "message": "தனியுரிமை"
+  },
+  "systemPageTitle": {
+    "message": "சிஸ்டம்"
+  },
+  "systemPageDesc": {
+    "message": "முடக்கப்பட்டது"
+  },
+  "radioPlay": {
+    "message": "பிளே"
+  },
+  "radioPause": {
+    "message": "பாஸ்"
+  },
+  "colorPickerPicking": {
+    "message": "தேர்வு"
+  },
+  "colorPickerCopied": {
+    "message": "நகலானது: "
+  },
+  "cacheNotSupported": {
+    "message": "இல்லை"
+  },
+  "cacheClearConfirm": {
+    "message": "அழி"
+  },
+  "cacheError": {
+    "message": "பிழை"
+  },
+  "cacheClearing": {
+    "message": "அழிக்கப்படுகிறது"
+  },
+  "cacheCleared": {
+    "message": "அழிக்கப்பட்டது"
+  },
+  "fontCopied": {
+    "message": "நகலானது"
+  },
+  "fontNotCopied": {
+    "message": "பிழை"
+  },
+  "notesSaved": {
+    "message": "சேமிக்கப்பட்டது"
+  },
+  "notesTooLarge": {
+    "message": "பெரியது"
+  },
+  "notesLinkText": {
+    "message": "லிங்க்"
+  },
+  "trackerToday": {
+    "message": "இன்று"
+  },
+  "trackerThatDay": {
+    "message": "அன்று"
+  },
+  "trackerSelectedMonth": {
+    "message": "மாதம்"
+  },
+  "trackerTotal": {
+    "message": "மொத்தம்"
+  },
+  "trackerNoData": {
+    "message": "தகவல் இல்லை"
+  },
+  "trackerExportEmpty": {
+    "message": "இல்லை"
+  },
+  "trackerExportTruncated": {
+    "message": "கட்டுப்படுத்தப்பட்டது"
+  },
+  "trackerImportEmpty": {
+    "message": "இல்லை"
+  },
+  "trackerImportSuccess": {
+    "message": "வெற்றி"
+  },
+  "trackerImportError": {
+    "message": "பிழை"
+  },
+  "swStatusLive": {
+    "message": "நடப்பில்"
+  },
+  "swStatusReady": {
+    "message": "தயார்"
+  },
+  "swUndoTitle": {
+    "message": "நீக்கு"
+  },
+  "swNoLaps": {
+    "message": "இல்லை"
+  },
+  "swLiveTitlePrefix": {
+    "message": "லைவ் #"
+  },
+  "swDurationLabel": {
+    "message": "நேரம்: "
+  },
+  "swMomentLabel": {
+    "message": "தருணம் "
+  },
+  "swExportTxtBtn": {
+    "message": ".TXT ஏற்றுமதி"
+  },
+  "swTotalDurationPrefix": {
+    "message": "மொத்த நேரம்: "
+  },
+  "swCopyBtn": {
+    "message": "நகல்"
+  },
+  "swCopiedBtn": {
+    "message": "✓ நகலானது"
+  },
+  "swNoHistory": {
+    "message": "வரலாறு இல்லை"
+  },
+  "techScannerUnavailable": {
+    "message": "கிடைக்கவில்லை"
+  },
+  "techFoundPrefix": {
+    "message": "உள்ளது: "
+  },
+  "techItemsSuffix": {
+    "message": "எண்ணிக்கை"
+  },
+  "techNotFound": {
+    "message": "இல்லை"
+  },
+  "techScannerFailed": {
+    "message": "தோல்வி"
+  },
+  "markerDrawTooltip": {
+    "message": "வரை"
+  },
+  "markerLineTooltip": {
+    "message": "கோடு"
+  },
+  "markerTextTooltip": {
+    "message": "உரை"
+  },
+  "markerMoveTooltip": {
+    "message": "நகர்த்து"
+  },
+  "markerEraseTooltip": {
+    "message": "அழி"
+  },
+  "markerClearAllTooltip": {
+    "message": "அனைத்தையும் அழி"
+  },
+  "markerThicknessTooltip": {
+    "message": "தடிமன்"
+  },
+  "markerCloseTooltip": {
+    "message": "மூடு"
+  },
+  "linesLabel": {
+    "message": "வரி"
+  },
+  "clearCounterTooltip": {
+    "message": "அனைத்தையும் அழி"
+  },
+  "confirmClearCounter": {
+    "message": "நீங்கள் நிச்சயமாக அனைத்தையும் அழிக்க விரும்புகிறீர்களா?"
+  }
+}

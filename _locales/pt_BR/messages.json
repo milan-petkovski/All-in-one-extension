@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - A melhor ferramenta de produtividade"
+  },
+  "extDesc": {
+    "message": "A ferramenta definitiva que integra todas as funções essenciais em uma interface rápida, moderna e gratuita."
+  },
+  "markLapDesc": {
+    "message": "Registrar uma volta no cronômetro"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Site oficial"
+  },
+  "settingsTooltip": {
+    "message": "Configurações"
+  },
+  "radioTitle": {
+    "message": "Rádio IN"
+  },
+  "radioArtist": {
+    "message": "Desenvolvido por All In One"
+  },
+  "playBtn": {
+    "message": "Tocar"
+  },
+  "soundTitle": {
+    "message": "Som"
+  },
+  "resetBtn": {
+    "message": "Redefinir"
+  },
+  "colorPickerTitle": {
+    "message": "Seletor de Cores"
+  },
+  "darkModeTitle": {
+    "message": "Modo Escuro"
+  },
+  "rulerTitle": {
+    "message": "Régua de Página"
+  },
+  "copyEnableTitle": {
+    "message": "Cópia"
+  },
+  "markerTitle": {
+    "message": "Marcador"
+  },
+  "techTitle": {
+    "message": "Tecnologias"
+  },
+  "cacheTitle": {
+    "message": "Cookies/Cache"
+  },
+  "fontTitle": {
+    "message": "Fontes"
+  },
+  "counterTitle": {
+    "message": "Contador"
+  },
+  "stopwatchTitle": {
+    "message": "Cronômetro"
+  },
+  "notesTitle": {
+    "message": "Notas"
+  },
+  "trackerTitle": {
+    "message": "Tempo na web"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "COOKIES E CACHE"
+  },
+  "blockCookiesLabel": {
+    "message": "Bloquear cookies automaticamente"
+  },
+  "clearSiteDataBtn": {
+    "message": "Limpar todos os dados deste site"
+  },
+  "cancelBtn": {
+    "message": "CANCELAR"
+  },
+  "counterModalTitle": {
+    "message": "CONTADOR DE CARACTERES"
+  },
+  "counterPlaceholder": {
+    "message": "Cole o texto aqui..."
+  },
+  "charsLabel": {
+    "message": "Caracteres"
+  },
+  "wordsLabel": {
+    "message": "Palavras"
+  },
+  "stopwatchReady": {
+    "message": "PRONTO"
+  },
+  "startBtn": {
+    "message": "INICIAR"
+  },
+  "lapBtn": {
+    "message": "VOLTA"
+  },
+  "stopBtn": {
+    "message": "PARAR"
+  },
+  "currentRecordedLabel": {
+    "message": "GRAVADO ATUALMENTE"
+  },
+  "liveHistoryLabel": {
+    "message": "HISTÓRICO AO VIVO"
+  },
+  "clearAllBtn": {
+    "message": "LIMPAR TUDO"
+  },
+  "confirmClearHistory": {
+    "message": "Tem certeza de que deseja limpar todo o histórico?"
+  },
+  "deleteBtn": {
+    "message": "EXCLUIR"
+  },
+  "notesModalTitle": {
+    "message": "NOTAS INTELIGENTES"
+  },
+  "clearNotesTooltip": {
+    "message": "Limpar todas as notas"
+  },
+  "notesPlaceholder": {
+    "message": "Escreva suas notas aqui..."
+  },
+  "grabTextTooltip": {
+    "message": "Extrair texto da página"
+  },
+  "textLabel": {
+    "message": "Texto"
+  },
+  "addUrlTooltip": {
+    "message": "Adicionar URL atual"
+  },
+  "linkLabel": {
+    "message": "Link"
+  },
+  "addDateTooltip": {
+    "message": "Adicionar data de hoje"
+  },
+  "dateLabel": {
+    "message": "Data"
+  },
+  "exportNotesTooltip": {
+    "message": "Exportar notas"
+  },
+  "importNotesTooltip": {
+    "message": "Importar notas"
+  },
+  "savedIndicator": {
+    "message": "Salvo"
+  },
+  "confirmClearNotes": {
+    "message": "Tem certeza de que deseja limpar todas as notas?"
+  },
+  "trackerModalTitle": {
+    "message": "RASTREADOR DE TEMPO"
+  },
+  "exportTooltip": {
+    "message": "Exportar dados"
+  },
+  "importTooltip": {
+    "message": "Importar dados"
+  },
+  "trackerModeDay": {
+    "message": "Visualização diária"
+  },
+  "trackerModeMonth": {
+    "message": "Visualização mensal"
+  },
+  "trackerModeAll": {
+    "message": "Todo o tempo"
+  },
+  "trackerTodayLabel": {
+    "message": "Hoje"
+  },
+  "trackerMonthLabel": {
+    "message": "Este mês"
+  },
+  "trackerAvgLabel": {
+    "message": "Média"
+  },
+  "techModalTitle": {
+    "message": "TECNOLOGIAS DO SITE"
+  },
+  "techLoadingMsg": {
+    "message": "O scanner está analisando o site..."
+  },
+  "uiSettings": {
+    "message": "CONFIGURAÇÕES"
+  },
+  "supportTitle": {
+    "message": "Apoie a extensão"
+  },
+  "supportDesc": {
+    "message": "All In One é uma ferramenta totalmente gratuita. Seu apoio ajuda a mantê-la assim e permite o desenvolvimento de novos recursos."
+  },
+  "donateBtn": {
+    "message": "Doar e apoiar"
+  },
+  "websiteBtn": {
+    "message": "Site oficial"
+  },
+  "rateBtn": {
+    "message": "Avaliar extensão"
+  },
+  "versionLabel": {
+    "message": "Versão:"
+  },
+  "privacyLabel": {
+    "message": "Política de Privacidade"
+  },
+  "systemPageTitle": {
+    "message": "PÁGINA DO SISTEMA"
+  },
+  "systemPageDesc": {
+    "message": "As ferramentas de modificação estão desativadas"
+  },
+  "radioPlay": {
+    "message": "Tocar"
+  },
+  "radioPause": {
+    "message": "Pausar"
+  },
+  "colorPickerPicking": {
+    "message": "Escolhendo..."
+  },
+  "colorPickerCopied": {
+    "message": "Copiado: "
+  },
+  "cacheNotSupported": {
+    "message": "Não suportado"
+  },
+  "cacheClearConfirm": {
+    "message": "Limpar todos os dados deste site"
+  },
+  "cacheError": {
+    "message": "Erro"
+  },
+  "cacheClearing": {
+    "message": "Limpando..."
+  },
+  "cacheCleared": {
+    "message": "Limpo!"
+  },
+  "fontCopied": {
+    "message": "Copiado!"
+  },
+  "fontNotCopied": {
+    "message": "Não copiado"
+  },
+  "notesSaved": {
+    "message": "Salvo"
+  },
+  "notesTooLarge": {
+    "message": "Nota muito grande"
+  },
+  "notesLinkText": {
+    "message": "Link"
+  },
+  "trackerToday": {
+    "message": "Hoje"
+  },
+  "trackerThatDay": {
+    "message": "Aquele dia"
+  },
+  "trackerSelectedMonth": {
+    "message": "Mês selecionado"
+  },
+  "trackerTotal": {
+    "message": "Total"
+  },
+  "trackerNoData": {
+    "message": "Sem dados para este período"
+  },
+  "trackerExportEmpty": {
+    "message": "Não há dados do rastreador para exportar."
+  },
+  "trackerExportTruncated": {
+    "message": "Exportação truncada em 10 MB para manter a estabilidade."
+  },
+  "trackerImportEmpty": {
+    "message": "Nenhum dado válido para importar."
+  },
+  "trackerImportSuccess": {
+    "message": "Dados importados com sucesso!"
+  },
+  "trackerImportError": {
+    "message": "Erro ao ler o arquivo."
+  },
+  "swStatusLive": {
+    "message": "AO VIVO EM ANDAMENTO"
+  },
+  "swStatusReady": {
+    "message": "PRONTO"
+  },
+  "swUndoTitle": {
+    "message": "Excluir este momento"
+  },
+  "swNoLaps": {
+    "message": "Nenhum momento gravado"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Ao vivo #"
+  },
+  "swDurationLabel": {
+    "message": "Duração: "
+  },
+  "swMomentLabel": {
+    "message": "Momento "
+  },
+  "swExportTxtBtn": {
+    "message": "EXPORTAR COMO .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "DURAÇÃO TOTAL: "
+  },
+  "swCopyBtn": {
+    "message": "COPIAR PARA A ÁREA DE TRANSFERÊNCIA"
+  },
+  "swCopiedBtn": {
+    "message": "✓ COPIADO"
+  },
+  "swNoHistory": {
+    "message": "Sem histórico ao vivo"
+  },
+  "techScannerUnavailable": {
+    "message": "O scanner não está disponível nesta página."
+  },
+  "techFoundPrefix": {
+    "message": "Encontrado: "
+  },
+  "techItemsSuffix": {
+    "message": "itens"
+  },
+  "techNotFound": {
+    "message": "Não encontrado."
+  },
+  "techScannerFailed": {
+    "message": "A verificação falhou nesta página."
+  },
+  "markerDrawTooltip": {
+    "message": "Desenhar"
+  },
+  "markerLineTooltip": {
+    "message": "Linha"
+  },
+  "markerTextTooltip": {
+    "message": "Texto"
+  },
+  "markerMoveTooltip": {
+    "message": "Mover"
+  },
+  "markerEraseTooltip": {
+    "message": "Apagar"
+  },
+  "markerClearAllTooltip": {
+    "message": "Limpar tudo"
+  },
+  "markerThicknessTooltip": {
+    "message": "Espessura"
+  },
+  "markerCloseTooltip": {
+    "message": "Fechar"
+  },
+  "linesLabel": {
+    "message": "Linhas"
+  },
+  "clearCounterTooltip": {
+    "message": "Limpar tudo"
+  },
+  "confirmClearCounter": {
+    "message": "Tem certeza de que deseja limpar tudo?"
+  }
+}

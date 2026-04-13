@@ -1,3 +1,6 @@
+/* =========================================
+   1. PROMENLJIVE (VARIABLES)
+   ========================================= */
 :root {
   --bg-main: #0a0a0c;
   --bg-card: #16161e;
@@ -13,6 +16,9 @@
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
+/* =========================================
+   2. OSNOVNI STILOVI (BASE)
+   ========================================= */
 body {
   width: 340px;
   margin: 0;
@@ -36,6 +42,58 @@ h1 {
   margin: 0;
 }
 
+.spacer {
+  width: 35px;
+}
+
+/* =========================================
+   3. SKROL TRAKE (SCROLLBARS)
+   ========================================= */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+#counterArea::-webkit-scrollbar {
+  width: 4px;
+}
+
+#counterArea::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 10px;
+}
+
+/* Uklanjanje skrola za specifične liste */
+.current-laps-list.compact::-webkit-scrollbar,
+#history-list::-webkit-scrollbar,
+.session-content ul::-webkit-scrollbar {
+  display: none;
+}
+
+.current-laps-list.compact,
+#history-list,
+.session-content ul {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =========================================
+   4. LAYOUT I KARTICE (GRID & CARDS)
+   ========================================= */
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -54,13 +112,6 @@ h1 {
   transition: all 0.2s ease;
   border: 1px solid var(--border-light);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.clickable:hover {
-  background: var(--bg-hover);
-  cursor: pointer;
-  transform: translateY(-2px);
-  border-color: var(--border-color);
 }
 
 .col-card {
@@ -82,6 +133,16 @@ h1 {
   border: 1px solid var(--accent-glow);
 }
 
+.clickable:hover {
+  background: var(--bg-hover);
+  cursor: pointer;
+  transform: translateY(-2px);
+  border-color: var(--border-color);
+}
+
+/* =========================================
+   5. DUGMIĆI I KONTROLE (BUTTONS & INPUTS)
+   ========================================= */
 button {
   background: var(--accent);
   color: #000;
@@ -101,15 +162,23 @@ button:hover {
 }
 
 button.secondary {
-  background: var(--bg-input);
-  color: #fff;
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
 }
 
 button.secondary:hover {
-  background: #3a3a45;
-  box-shadow: 0 0 10px rgba(42, 42, 53, 0.5);
+  background: var(--bg-hover) !important;
+  border-color: var(--accent) !important;
 }
 
+#resetVolBtn {
+  background: var(--bg-input) !important;
+}
+#resetVolBtn:hover {
+  background: var(--bg-hover) !important;
+  border-color: var(--bg-hover) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 .icon-btn {
   margin: 0;
   padding: 5px 10px;
@@ -119,7 +188,49 @@ button.secondary:hover {
   font-weight: bold;
   font-size: 14px;
 }
+#radioBtn, #resetVolBtn {
+  height: 24px;
+  padding: 0 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+.modern-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
+.modern-input {
+  background: var(--bg-input);
+  color: #fff;
+  border: 1px solid #3a3a45;
+  height: 100% !important;
+  padding: 0 12px !important;
+  border-radius: 8px;
+  flex: 1;
+  outline: none;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  color-scheme: dark;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.modern-input:focus,
+.modern-input:hover {
+  border-color: var(--accent-glow);
+}
+
+/* Prekidač (Switch) */
 .switch {
   position: relative;
   width: 32px;
@@ -153,14 +264,15 @@ button.secondary:hover {
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: var(--accent);
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   transform: translateX(14px);
 }
 
+/* Range Slider */
 .range-slider {
   width: 100%;
   height: 4px;
@@ -185,11 +297,138 @@ input:checked+.slider:before {
   transform: scale(1.2);
 }
 
+.sliderTooltip {
+  position: absolute;
+  background: var(--accent);
+  color: #000;
+  padding: 3px 6px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  transform: translateX(-50%);
+}
+
+.sliderTooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px 5px 0;
+  border-style: solid;
+  border-color: var(--accent) transparent transparent transparent;
+}
+
+.sliderTooltip.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-8px);
+}
+
+/* =========================================
+   6. NAVIGACIJA I ZAGLAVLJE (HEADER & ICONS)
+   ========================================= */
 .icon {
   display: flex;
   font-size: 16px;
 }
 
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.settings-trigger {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 31px;
+  height: 31px;
+  background: none !important;
+  border: none;
+  box-shadow: none !important;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  transition: color 0.3s, transform 0.3s ease;
+}
+
+.settings-trigger svg {
+  width: 25px;
+  height: 25px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.settings-trigger:hover {
+  color: var(--accent);
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.settings-trigger:active {
+  transform: translateY(-50%) rotate(180deg) scale(0.9);
+}
+
+.logo-link {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 10;
+  transition: opacity 0.2s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.8;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 11px);
+  gap: 3px;
+}
+
+.logo-grid .dot {
+  width: 11px;
+  height: 11px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.logo-grid .dot.accent {
+  border-radius: 2px 8px 2px 2px;
+}
+
+.logo-link:hover .dot {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+/* =========================================
+   7. PODPRIKAZI (SUB-VIEWS)
+   ========================================= */
 .sub-view {
   flex-direction: column;
   height: 535px !important;
@@ -202,7 +441,6 @@ input:checked+.slider:before {
     opacity: 0;
     transform: translateY(5px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -221,10 +459,9 @@ input:checked+.slider:before {
   border-bottom: none !important;
 }
 
-.spacer {
-  width: 35px;
-}
-
+/* =========================================
+   8. NOTE I COUNTER SEKCIJE (TEXT AREAS)
+   ========================================= */
 #noteArea,
 #counterArea {
   flex: 1;
@@ -251,6 +488,104 @@ input:checked+.slider:before {
   border-color: rgba(0, 255, 136, 0.5);
 }
 
+.smart-notes {
+  width: 100%;
+  min-height: 415px;
+  background: var(--bg-input);
+  color: var(--text-main);
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  outline: none;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.smart-notes:focus {
+  border-color: var(--accent);
+}
+
+.smart-notes:empty:before {
+  content: attr(data-placeholder);
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+.smart-notes a {
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.smart-notes b {
+  color: #fff;
+}
+
+.smart-notes i {
+  color: var(--text-dim);
+  border-left: 2px solid var(--accent);
+  padding-left: 8px;
+  margin: 4px 0;
+  display: block;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 0 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.note-actions {
+  display: flex;
+  gap: 4px;
+  background: var(--bg-card);
+  padding: 3px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.note-btn {
+  background: transparent;
+  color: var(--text-dim);
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.note-btn:hover {
+  background: var(--bg-hover);
+  color: var(--accent);
+  box-shadow: none;
+}
+
+.note-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .save-status {
   text-align: right;
   height: 15px;
@@ -264,6 +599,15 @@ input:checked+.slider:before {
   font-weight: 800;
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+/* =========================================
+   9. TRACKER (PRAĆENJE)
+   ========================================= */
+#trackerView {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .tracker-controls {
@@ -300,34 +644,135 @@ input:checked+.slider:before {
   flex-shrink: 0;
 }
 
-.modern-input {
-  background: var(--bg-input);
-  color: #fff;
-  border: 1px solid #3a3a45;
-  height: 100% !important;
-  padding: 0 12px !important;
-  border-radius: 8px;
+.tracker-controls .icon-btn svg {
+  display: block;
+}
+
+#trackerDate {
+  position: relative;
+}
+
+#trackerDate::-webkit-datetime-edit {
+  color: transparent;
+}
+
+#trackerDate::before {
+  content: attr(data-date);
+  position: absolute;
+  color: white;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.tracker-list-wrapper {
   flex: 1;
-  outline: none;
-  font-family: inherit;
-  font-size: 11px;
-  cursor: pointer;
-  transition: border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tracker-list-wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(10, 10, 12, 0.05) 15%,
+    rgba(10, 10, 12, 0.3) 35%,
+    rgba(10, 10, 12, 0.6) 60%,
+    rgba(10, 10, 12, 0.9) 85%,
+    var(--bg-main) 100%
+  );
+  pointer-events: none;
+  z-index: 5;
+}
+
+#trackerList {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 12px;
+  padding-right: 5px;
+  padding-bottom: 60px;
+  color: #fff;
+  font-size: 12px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 10px;
+}
+
+.tracker-item {
+  background: var(--bg-card);
+  margin-bottom: 8px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.tracker-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+#trackerDate, #trackerMode {
   color-scheme: dark;
+}
+#trackerMode option {
+  background-color: #000000;
+  color: #ffffff;
+}
+#trackerDatePrikaz,
+#trackerMode {
+  width: 100% !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0 10px !important;
+  box-sizing: border-box;
+  font-size: 11px !important;
+  font-weight: 700 !important;
   appearance: none;
   -webkit-appearance: none;
+  text-align: center;
+  outline: none;
 }
 
-.modern-input:focus,
-.modern-input:hover {
-  border-color: var(--accent-glow);
+#trackerDatePrikaz:hover,
+#trackerMode:hover {
+  background: var(--bg-hover) !important;
+  border-color: var(--accent) !important;
 }
 
+#trackerMode option {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+}
+
+#trackerMode {
+  text-align-last: center;
+}
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  margin-top: 12px;
+  margin-top: 6px;
 }
 
 .stat-box {
@@ -358,54 +803,9 @@ input:checked+.slider:before {
   color: var(--accent);
 }
 
-#trackerList {
-  flex: 1;
-  overflow-y: auto;
-  margin-top: 12px;
-  padding-right: 5px;
-  padding-bottom: 60px;
-  color: #fff;
-  font-size: 12px;
-  border-top: 1px solid var(--border-color);
-  padding-top: 10px;
-}
-
-.sliderTooltip {
-  position: absolute;
-  background: var(--accent);
-  color: #000;
-  padding: 3px 6px;
-  border-radius: 6px;
-  font-size: 10px;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.15s ease;
-  /* Brži prelaz */
-  pointer-events: none;
-  white-space: nowrap;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  z-index: 9999;
-  transform: translateX(-50%);
-  /* Samo centriranje, bez translateY */
-}
-
-.sliderTooltip::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-width: 5px 5px 0;
-  border-style: solid;
-  border-color: var(--accent) transparent transparent transparent;
-}
-
-/* Klasa koju JS pali */
-.sliderTooltip.active {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-8px);
-}
-
+/* =========================================
+   10. BROJAČ (COUNTER) I STATISTIKA
+   ========================================= */
 .counter-container {
   flex: 1;
   display: flex;
@@ -414,36 +814,8 @@ input:checked+.slider:before {
 .counter-stats {
   margin-top: 15px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 12px;
-}
-
-#counterArea::-webkit-scrollbar {
-  width: 4px;
-}
-
-#counterArea::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-main);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 4px;
-  transition: 0.2s;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
 }
 
 .prvi {
@@ -473,23 +845,9 @@ input:checked+.slider:before {
   box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
 }
 
-.empty-msg,
-.no-history {
-  text-align: center;
-  padding: 20px;
-  font-size: 11px;
-  color: var(--text-dim);
-  font-style: italic;
-}
-
-.no-history {
-  max-height: 80px;
-  overflow-y: auto;
-  background: var(--bg-input);
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-}
-
+/* =========================================
+   11. ŠTOPERICA (STOPWATCH)
+   ========================================= */
 #timer {
   font-size: 54px;
   text-align: center;
@@ -568,6 +926,43 @@ input:checked+.slider:before {
 .current-laps-list li b {
   color: var(--accent);
   font-family: monospace;
+}
+
+.lap-undo-btn {
+  font-size: 10px;
+  padding: 2px 4px;
+  min-width: 20px;
+  margin-left: 8px;
+  flex-shrink: 0;
+  transform: none !important;
+  transition: opacity 0.15s ease !important;
+}
+
+.lap-undo-btn:hover,
+.lap-undo-btn:active {
+  opacity: 0.75;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* =========================================
+   12. ISTORIJA I AKORDIONI (HISTORY & ACCORDION)
+   ========================================= */
+.empty-msg,
+.no-history {
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: var(--text-dim);
+  font-style: italic;
+}
+
+.no-history {
+  max-height: 80px;
+  overflow-y: auto;
+  background: var(--bg-input);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
 }
 
 .history-section {
@@ -668,13 +1063,6 @@ input:checked+.slider:before {
   flex-direction: column;
 }
 
-.session-actions {
-  display: flex;
-  flex-direction: row;
-  gap: 6px;
-  margin-top: 8px;
-}
-
 .session-content ul {
   list-style: none;
   padding: 0;
@@ -691,6 +1079,13 @@ input:checked+.slider:before {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.session-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .export-btn-mini {
@@ -717,23 +1112,254 @@ input:checked+.slider:before {
   color: #000;
 }
 
-.lap-undo-btn {
-  font-size: 10px;
-  padding: 2px 4px;
-  min-width: 20px;
-  margin-left: 8px;
+/* =========================================
+   13. PODEŠAVANJA (SETTINGS)
+   ========================================= */
+.settings-content {
+  padding: 15px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.settings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-input);
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  border: 1px solid var(--border-light);
+}
+
+.settings-row.modal-setting-row {
+  margin-bottom: 0;
+}
+
+.support-card {
+  flex-direction: column;
+  text-align: center;
+  gap: 10px;
+  padding: 18px 15px;
+  margin-top: 0;
+}
+
+.support-title {
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.support-desc {
+  color: var(--text-dim);
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.support-amount {
+  color: var(--accent);
+  font-size: 22px;
+  font-weight: 900;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.support-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.settings-link-btn {
+  background: var(--bg-input);
+  color: var(--text-main);
+  width: 100%;
+  padding: 10px;
+  font-size: 13px;
+  border: 1px solid var(--border-light);
+}
+
+.settings-link-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(0.99);
+}
+
+.settings-outline-btn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  width: 100%;
+  padding: 12px;
+  font-size: 13px;
+}
+
+.settings-outline-btn:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: scale(0.99);
+}
+
+.tech-item {
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.tech-item:hover {
+  transform: translateX(4px);
+  border-color: var(--accent-glow);
+}
+
+.tech-icon {
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  transform: none !important;
-  transition: opacity 0.15s ease !important;
 }
 
-.lap-undo-btn:hover,
-.lap-undo-btn:active {
-  opacity: 0.75;
-  transform: none !important;
-  box-shadow: none !important;
+.tech-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
+.tech-cat {
+  font-size: 9px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+
+.tech-name {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--text-main);
+}
+
+.settings-footer {
+  margin-top: auto;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 11px;
+  padding: 0;
+}
+
+.settings-footer p {
+  margin: 5px 0;
+}
+
+.settings-footer a {
+  color: var(--text-dim);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.settings-footer a:hover {
+  color: var(--text-main);
+}
+
+.footer-email {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+/* =========================================
+   14. JEZIK I ZAJEDNIČKI DUGMIĆI (LANG & BTNS)
+   ========================================= */
+.lang-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; 
+  height: 28px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.lang-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--text-dim);
+  pointer-events: none;
+}
+
+.lang-select option {
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-size: 12px;
+}
+
+.lang-select {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.secondary.icon-btn, 
+.lang-container {
+  width: 28px !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+.secondary.icon-btn svg,
+.lang-icon {
+  width: 14px !important;
+  height: 14px !important;
+  color: var(--text-dim);
+  stroke-width: 2.5px;
+}
+
+.secondary.icon-btn:hover,
+.lang-container:hover {
+  border-color: var(--accent);
+  background: rgba(0, 255, 136, 0.05);
+}
+
+.secondary.icon-btn:hover svg,
+.lang-container:hover .lang-icon {
+  color: var(--accent);
+}
+
+/* =========================================
+   15. MODALI I OVERLAY (MODALS & OVERLAYS)
+   ========================================= */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -765,10 +1391,7 @@ input:checked+.slider:before {
   overflow: hidden;
 }
 
-.action-modal::before {
-  content: none;
-}
-
+.action-modal::before,
 .action-modal::after {
   content: none;
 }
@@ -824,20 +1447,6 @@ input:checked+.slider:before {
   filter: brightness(1.05);
 }
 
-.cookie-action-group {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.cookie-action-group #realClearBtn {
-  width: 100%;
-  padding: 12px;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: 0.5px;
-}
-
 .modal-primary-row {
   margin-top: 0;
 }
@@ -852,28 +1461,18 @@ input:checked+.slider:before {
   font-size: 10px;
 }
 
-.current-laps-list.compact::-webkit-scrollbar,
-#history-list::-webkit-scrollbar,
-.session-content ul::-webkit-scrollbar {
-  display: none;
+.cookie-action-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
-.current-laps-list.compact,
-#history-list,
-.session-content ul {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.modern-btn {
+.cookie-action-group #realClearBtn {
   width: 100%;
   padding: 12px;
-  border-radius: 12px;
-  border: none;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
 }
 
 #realClearBtn {
@@ -892,431 +1491,7 @@ input:checked+.slider:before {
   box-shadow: none !important;
 }
 
-.settings-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--bg-input);
-  padding: 14px;
-  border-radius: 14px;
-  margin-bottom: 10px;
-  border: 1px solid var(--border-light);
-}
-
-.settings-row.modal-setting-row {
-  margin-bottom: 0;
-}
-
-.smart-notes {
-  width: 100%;
-  min-height: 415px;
-  background: var(--bg-input);
-  color: var(--text-main);
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  outline: none;
-  overflow-y: auto;
-  white-space: pre-wrap;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-size: 13px;
-  line-height: 1.6;
-  box-sizing: border-box;
-  transition: border-color 0.2s;
-}
-
-.smart-notes:focus {
-  border-color: var(--accent);
-}
-
-.smart-notes:empty:before {
-  content: attr(data-placeholder);
-  color: var(--text-dim);
-  pointer-events: none;
-}
-
-.smart-notes a {
-  color: var(--accent);
-  text-decoration: underline;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.smart-notes b {
-  color: #fff;
-}
-
-.smart-notes i {
-  color: var(--text-dim);
-  border-left: 2px solid var(--accent);
-  padding-left: 8px;
-  margin: 4px 0;
-  display: block;
-}
-
-.note-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-  padding: 0 4px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.note-actions {
-  display: flex;
-  gap: 4px;
-  background: var(--bg-card);
-  padding: 3px;
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
-}
-
-.note-btn {
-  background: transparent;
-  color: var(--text-dim);
-  border: none;
-  padding: 6px 8px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  white-space: nowrap;
-}
-
-.note-btn:hover {
-  background: var(--bg-hover);
-  color: var(--accent);
-  box-shadow: none;
-}
-
-#trackerDate {
-  position: relative;
-}
-
-#trackerDate::-webkit-datetime-edit {
-  color: transparent;
-}
-
-#trackerDate::before {
-  content: attr(data-date);
-  position: absolute;
-  color: white;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-.note-btn svg {
-  width: 14px;
-  height: 14px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.tracker-list-wrapper {
-  flex: 1;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.tracker-list-wrapper::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background: linear-gradient(to bottom,
-      transparent 0%,
-      rgba(10, 10, 12, 0.05) 15%,
-      rgba(10, 10, 12, 0.3) 35%,
-      rgba(10, 10, 12, 0.6) 60%,
-      rgba(10, 10, 12, 0.9) 85%,
-      var(--bg-main) 100%);
-  pointer-events: none;
-  z-index: 5;
-}
-
-.tracker-controls .icon-btn svg {
-  display: block;
-}
-
-#trackerView {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.tracker-item {
-  background: var(--bg-card);
-  margin-bottom: 8px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
-  position: relative;
-  overflow: hidden;
-}
-
-.tracker-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  background: var(--accent);
-  opacity: 0.5;
-  transition: width 0.3s ease;
-}
-
-.app-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-}
-
-.settings-trigger {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 31px;
-  height: 31px;
-  background: none !important;
-  border: none;
-  box-shadow: none !important;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-dim);
-  transition: color 0.3s, transform 0.3s ease;
-}
-
-.settings-trigger svg {
-  width: 25px;
-  height: 25px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.settings-trigger:hover {
-  color: var(--accent);
-  transform: translateY(-50%) rotate(180deg);
-}
-
-.settings-trigger:active {
-  transform: translateY(-50%) rotate(180deg) scale(0.9);
-}
-
-.logo-link {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  z-index: 10;
-  transition: opacity 0.2s ease;
-}
-
-.logo-link:hover {
-  opacity: 0.8;
-}
-
-.logo-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 11px);
-  gap: 3px;
-}
-
-.logo-grid .dot {
-  width: 11px;
-  height: 11px;
-  background: var(--accent);
-  border-radius: 2px;
-}
-
-.logo-grid .dot.accent {
-  border-radius: 2px 8px 2px 2px;
-}
-
-.logo-link:hover .dot {
-  transform: scale(1.1);
-  transition: transform 0.2s ease;
-}
-
-/* --- EKRAN PODEŠAVANJA --- */
-.settings-content {
-  padding: 15px 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-  overflow-y: auto;
-}
-
-/* Kartica za donacije */
-.support-card {
-  flex-direction: column;
-  text-align: center;
-  gap: 10px;
-  padding: 18px 15px;
-  margin-top: 0;
-}
-
-.support-title {
-  color: var(--accent);
-  font-size: 18px;
-  font-weight: 800;
-}
-
-.support-desc {
-  color: var(--text-dim);
-  font-size: 13px;
-  margin: 0;
-  line-height: 1.5;
-}
-
-.support-amount {
-  color: var(--accent);
-  font-size: 22px;
-  font-weight: 900;
-  text-shadow: 0 0 10px var(--accent-glow);
-}
-
-.support-btn {
-  width: 100%;
-  padding: 10px;
-  font-size: 13px;
-  margin-top: 5px;
-}
-
-/* Dugmići za linkove */
-.settings-link-btn {
-  background: var(--bg-input);
-  color: var(--text-main);
-  width: 100%;
-  padding: 10px;
-  font-size: 13px;
-  border: 1px solid var(--border-light);
-}
-
-.settings-link-btn:hover {
-  background: var(--bg-hover);
-  border-color: var(--border-color);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transform: scale(0.99);
-}
-
-.settings-outline-btn {
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  width: 100%;
-  padding: 12px;
-  font-size: 13px;
-}
-
-.settings-outline-btn:hover {
-  background: var(--accent);
-  color: #000;
-  box-shadow: 0 0 15px var(--accent-glow);
-  transform: scale(0.99);
-}
-
-/* Footer podešavanja */
-.settings-footer {
-  margin-top: auto;
-  text-align: center;
-  color: var(--text-dim);
-  font-size: 11px;
-  padding: 0;
-}
-
-.settings-footer p {
-  margin: 5px 0;
-}
-
-.settings-footer a {
-  color: var(--text-dim);
-  text-decoration: underline;
-  transition: color 0.2s ease;
-}
-
-.settings-footer a:hover {
-  color: var(--text-main);
-}
-
-.tech-item {
-  background: var(--bg-input);
-  border: 1px solid var(--border-color);
-  padding: 10px 12px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  box-sizing: border-box;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.tech-item:hover {
-  transform: translateX(4px);
-  border-color: var(--accent-glow);
-}
-
-.tech-icon {
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.tech-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.tech-cat {
-  font-size: 9px;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 700;
-}
-
-.tech-name {
-  font-size: 13px;
-  font-weight: 900;
-  color: var(--text-main);
-}
-
-/* Overlay fix */
+/* Ograničen pristup (Restricted Session Overlay) */
 .restricted-overlay {
   position: absolute;
   inset: 0;
@@ -1331,7 +1506,6 @@ input:checked+.slider:before {
   pointer-events: none;
 }
 
-/* Katanac stil */
 .lock-glow {
   width: 60px;
   height: 60px;
@@ -1345,53 +1519,50 @@ input:checked+.slider:before {
   color: #ff3b3b;
   box-shadow: 0 0 25px rgba(255, 59, 59, 0.2);
 }
-  .lock-glow svg {
-    width: 30px;
-    height: 30px;
-    filter: drop-shadow(0 0 8px #ff3b3b);
-  }
 
-  .overlay-content p {
-    color: #fff;
-    font-weight: 800;
-    font-size: 20px;
-    margin: 0;
-    letter-spacing: 1px;
-    text-align: center;
-  }
+.lock-glow svg {
+  width: 30px;
+  height: 30px;
+  filter: drop-shadow(0 0 8px #ff3b3b);
+}
 
-  .overlay-content span {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 13px;
-    display: block;
-    margin-top: 4px;
-    text-align: center;
-  }
+.overlay-content p {
+  color: #fff;
+  font-weight: 800;
+  font-size: 20px;
+  margin: 0;
+  letter-spacing: 1px;
+  text-align: center;
+}
 
-  /* DOZVOLJENI ELEMENTI (OVO MOŽE DA SE KLIKNE) */
-  .restricted-session .app-header,
-  .restricted-session #settingsView {
-    position: relative;
-    z-index: 1001 !important;
-    pointer-events: auto !important;
-    opacity: 1 !important;
-    filter: none !important;
-  }
+.overlay-content span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  display: block;
+  margin-top: 4px;
+  text-align: center;
+}
 
-  /* ZABRANJENE KARTICE */
-  .restricted-session .grid-container {
-    pointer-events: none !important;
-    opacity: 0 !important;
-  }
+/* Dozvoljeni elementi za klik kad je ograničeno */
+.restricted-session .app-header,
+.restricted-session #settingsView {
+  position: relative;
+  z-index: 1001 !important;
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
 
-  .restricted-session footer {
-    pointer-events: none !important;
-    opacity: 0 !important;
-  }
+/* Zabranjene kartice kad je ograničeno */
+.restricted-session .grid-container,
+.restricted-session footer {
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
 
-  .restricted-session #mainView {
-    position: relative;
-    background: #0a0a0c;
-    display: flex;
-    flex-direction: column;
-  }
+.restricted-session #mainView {
+  position: relative;
+  background: #0a0a0c;
+  display: flex;
+  flex-direction: column;
+}

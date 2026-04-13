@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - En İyi Verimlilik Aracı"
+  },
+  "extDesc": {
+    "message": "Tüm temel işlevleri hızlı, modern ve ücretsiz bir arayüzde birleştiren nihai araç."
+  },
+  "markLapDesc": {
+    "message": "Kronometrede bir anı kaydet"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Resmi site"
+  },
+  "settingsTooltip": {
+    "message": "Ayarlar"
+  },
+  "radioTitle": {
+    "message": "Radyo IN"
+  },
+  "radioArtist": {
+    "message": "All In One ile"
+  },
+  "playBtn": {
+    "message": "Oynat"
+  },
+  "soundTitle": {
+    "message": "Ses"
+  },
+  "resetBtn": {
+    "message": "Sıfırla"
+  },
+  "colorPickerTitle": {
+    "message": "Renkler"
+  },
+  "darkModeTitle": {
+    "message": "Karanlık Mod"
+  },
+  "rulerTitle": {
+    "message": "Cetvel"
+  },
+  "copyEnableTitle": {
+    "message": "Kopyala"
+  },
+  "markerTitle": {
+    "message": "İşaretleyici"
+  },
+  "techTitle": {
+    "message": "Teknolojiler"
+  },
+  "cacheTitle": {
+    "message": "Çerezler & Önbellek"
+  },
+  "fontTitle": {
+    "message": "Yazı Tipi"
+  },
+  "counterTitle": {
+    "message": "Sayaç"
+  },
+  "stopwatchTitle": {
+    "message": "Kronometre"
+  },
+  "notesTitle": {
+    "message": "Notlar"
+  },
+  "trackerTitle": {
+    "message": "Zaman İzleyici"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "ÇEREZLER/ÖNBELLEK"
+  },
+  "blockCookiesLabel": {
+    "message": "Çerezleri engelle"
+  },
+  "clearSiteDataBtn": {
+    "message": "Siteyi temizle"
+  },
+  "cancelBtn": {
+    "message": "İPTAL"
+  },
+  "counterModalTitle": {
+    "message": "SAYAÇ"
+  },
+  "counterPlaceholder": {
+    "message": "Metin buraya..."
+  },
+  "charsLabel": {
+    "message": "Karakter"
+  },
+  "wordsLabel": {
+    "message": "Kelime"
+  },
+  "stopwatchReady": {
+    "message": "HAZIR"
+  },
+  "startBtn": {
+    "message": "BAŞLA"
+  },
+  "lapBtn": {
+    "message": "TUR"
+  },
+  "stopBtn": {
+    "message": "DURDUR"
+  },
+  "currentRecordedLabel": {
+    "message": "KAYITLI"
+  },
+  "liveHistoryLabel": {
+    "message": "GEÇMİŞ"
+  },
+  "clearAllBtn": {
+    "message": "TÜMÜNÜ TEMİZLE"
+  },
+  "confirmClearHistory": {
+    "message": "Geçmişi temizle?"
+  },
+  "deleteBtn": {
+    "message": "SİL"
+  },
+  "notesModalTitle": {
+    "message": "NOTLAR"
+  },
+  "clearNotesTooltip": {
+    "message": "Notları temizle"
+  },
+  "notesPlaceholder": {
+    "message": "Notlar buraya..."
+  },
+  "grabTextTooltip": {
+    "message": "Metin çıkar"
+  },
+  "textLabel": {
+    "message": "Metin"
+  },
+  "addUrlTooltip": {
+    "message": "URL ekle"
+  },
+  "linkLabel": {
+    "message": "Bağlantı"
+  },
+  "addDateTooltip": {
+    "message": "Tarih ekle"
+  },
+  "dateLabel": {
+    "message": "Tarih"
+  },
+  "exportNotesTooltip": {
+    "message": "Dışa aktar"
+  },
+  "importNotesTooltip": {
+    "message": "İçe aktar"
+  },
+  "savedIndicator": {
+    "message": "Kaydedildi"
+  },
+  "confirmClearNotes": {
+    "message": "Tüm notları temizle?"
+  },
+  "trackerModalTitle": {
+    "message": "ZAMAN İZLEYİCİ"
+  },
+  "exportTooltip": {
+    "message": "Verileri dışa aktar"
+  },
+  "importTooltip": {
+    "message": "Verileri içe aktar"
+  },
+  "trackerModeDay": {
+    "message": "Günlük"
+  },
+  "trackerModeMonth": {
+    "message": "Aylık"
+  },
+  "trackerModeAll": {
+    "message": "Her zaman"
+  },
+  "trackerTodayLabel": {
+    "message": "Bugün"
+  },
+  "trackerMonthLabel": {
+    "message": "Bu ay"
+  },
+  "trackerAvgLabel": {
+    "message": "Ortalama"
+  },
+  "techModalTitle": {
+    "message": "TEKNOLOJİLER"
+  },
+  "techLoadingMsg": {
+    "message": "Site analiz ediliyor..."
+  },
+  "uiSettings": {
+    "message": "AYARLAR"
+  },
+  "supportTitle": {
+    "message": "Eklentiyi destekle"
+  },
+  "supportDesc": {
+    "message": "All In One ücretsizdir. Desteğiniz yeni özellikler getirir."
+  },
+  "donateBtn": {
+    "message": "Bağış yap ve destekle"
+  },
+  "websiteBtn": {
+    "message": "Resmi site"
+  },
+  "rateBtn": {
+    "message": "Eklentiyi değerlendir"
+  },
+  "versionLabel": {
+    "message": "Sürüm:"
+  },
+  "privacyLabel": {
+    "message": "Gizlilik"
+  },
+  "systemPageTitle": {
+    "message": "SİSTEM"
+  },
+  "systemPageDesc": {
+    "message": "Araçlar devre dışı"
+  },
+  "radioPlay": {
+    "message": "Oynat"
+  },
+  "radioPause": {
+    "message": "Durak"
+  },
+  "colorPickerPicking": {
+    "message": "Seçiliyor..."
+  },
+  "colorPickerCopied": {
+    "message": "Kopyalandı: "
+  },
+  "cacheNotSupported": {
+    "message": "Desteklenmiyor"
+  },
+  "cacheClearConfirm": {
+    "message": "Siteyi temizle"
+  },
+  "cacheError": {
+    "message": "Hata"
+  },
+  "cacheClearing": {
+    "message": "Temizleniyor..."
+  },
+  "cacheCleared": {
+    "message": "Temizlendi!"
+  },
+  "fontCopied": {
+    "message": "Kopyalandı!"
+  },
+  "fontNotCopied": {
+    "message": "Kopyalanmadı"
+  },
+  "notesSaved": {
+    "message": "Kaydedildi"
+  },
+  "notesTooLarge": {
+    "message": "Not çok büyük"
+  },
+  "notesLinkText": {
+    "message": "Bağlantı"
+  },
+  "trackerToday": {
+    "message": "Bugün"
+  },
+  "trackerThatDay": {
+    "message": "O gün"
+  },
+  "trackerSelectedMonth": {
+    "message": "Seçilen ay"
+  },
+  "trackerTotal": {
+    "message": "Toplam"
+  },
+  "trackerNoData": {
+    "message": "Veri yok"
+  },
+  "trackerExportEmpty": {
+    "message": "Dışa aktarılacak veri yok."
+  },
+  "trackerExportTruncated": {
+    "message": "Dışa aktarma 10MB ile sınırlı."
+  },
+  "trackerImportEmpty": {
+    "message": "Geçerli veri yok."
+  },
+  "trackerImportSuccess": {
+    "message": "İçe aktarıldı!"
+  },
+  "trackerImportError": {
+    "message": "Okuma hatası."
+  },
+  "swStatusLive": {
+    "message": "CANLI"
+  },
+  "swStatusReady": {
+    "message": "HAZIR"
+  },
+  "swUndoTitle": {
+    "message": "Anı sil"
+  },
+  "swNoLaps": {
+    "message": "An yok"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Canlı #"
+  },
+  "swDurationLabel": {
+    "message": "Süre: "
+  },
+  "swMomentLabel": {
+    "message": "An "
+  },
+  "swExportTxtBtn": {
+    "message": "DIŞA AKTAR .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "TOPLAM: "
+  },
+  "swCopyBtn": {
+    "message": "KOPYALA"
+  },
+  "swCopiedBtn": {
+    "message": "✓ KOPYALANDI"
+  },
+  "swNoHistory": {
+    "message": "Geçmiş yok"
+  },
+  "techScannerUnavailable": {
+    "message": "Tarayıcı yok."
+  },
+  "techFoundPrefix": {
+    "message": "Bulundu: "
+  },
+  "techItemsSuffix": {
+    "message": "öğe"
+  },
+  "techNotFound": {
+    "message": "Bulunamadı."
+  },
+  "techScannerFailed": {
+    "message": "Tarama hatası."
+  },
+  "markerDrawTooltip": {
+    "message": "Çiz"
+  },
+  "markerLineTooltip": {
+    "message": "Çizgi"
+  },
+  "markerTextTooltip": {
+    "message": "Metin"
+  },
+  "markerMoveTooltip": {
+    "message": "Taşı"
+  },
+  "markerEraseTooltip": {
+    "message": "Sil"
+  },
+  "markerClearAllTooltip": {
+    "message": "Tümünü temizle"
+  },
+  "markerThicknessTooltip": {
+    "message": "Kalınlık"
+  },
+  "markerCloseTooltip": {
+    "message": "Kapat"
+  },
+  "linesLabel": {
+    "message": "Satırlar"
+  },
+  "clearCounterTooltip": {
+    "message": "Hepsini temizle"
+  },
+  "confirmClearCounter": {
+    "message": "Tümünü temizlemek istediğinizden emin misiniz?"
+  }
+}

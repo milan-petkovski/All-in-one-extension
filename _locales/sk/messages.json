@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Najlepší nástroj na produktivitu"
+  },
+  "extDesc": {
+    "message": "Ultimátny nástroj, ktorý spája všetky podstatné funkcie do jedného rýchleho, moderného a bezplatného rozhrania."
+  },
+  "markLapDesc": {
+    "message": "Zaznamenať moment na stopkách"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Oficiálna webová stránka rozšírenia"
+  },
+  "settingsTooltip": {
+    "message": "Nastavenia"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Poháňané rozšírením All In One"
+  },
+  "playBtn": {
+    "message": "Prehrať"
+  },
+  "soundTitle": {
+    "message": "Zvuk"
+  },
+  "resetBtn": {
+    "message": "Resetovať"
+  },
+  "colorPickerTitle": {
+    "message": "Color Picker"
+  },
+  "darkModeTitle": {
+    "message": "Tmavý režim"
+  },
+  "rulerTitle": {
+    "message": "Pravítko stránky"
+  },
+  "copyEnableTitle": {
+    "message": "Kopírovanie"
+  },
+  "markerTitle": {
+    "message": "Zvýrazňovač stránky"
+  },
+  "techTitle": {
+    "message": "Technológie webu"
+  },
+  "cacheTitle": {
+    "message": "Cache a cookies"
+  },
+  "fontTitle": {
+    "message": "Hľadač písma"
+  },
+  "counterTitle": {
+    "message": "Počítadlo znakov"
+  },
+  "stopwatchTitle": {
+    "message": "Stopky"
+  },
+  "notesTitle": {
+    "message": "Poznámky"
+  },
+  "trackerTitle": {
+    "message": "Webtime Tracker"
+  },
+  "ytDislikeTitle": {
+    "message": "Return YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "COOKIES A VYROVNÁVACIA PAMÄŤ"
+  },
+  "blockCookiesLabel": {
+    "message": "Automaticky blokovať cookies"
+  },
+  "clearSiteDataBtn": {
+    "message": "Vymazať všetky dáta z tohto webu"
+  },
+  "cancelBtn": {
+    "message": "ZRUŠIŤ"
+  },
+  "counterModalTitle": {
+    "message": "POČÍTADLO ZNAKOV"
+  },
+  "counterPlaceholder": {
+    "message": "Sem vložte text..."
+  },
+  "charsLabel": {
+    "message": "Znakov"
+  },
+  "wordsLabel": {
+    "message": "Slov"
+  },
+  "stopwatchReady": {
+    "message": "PRIPRAVENÉ"
+  },
+  "startBtn": {
+    "message": "ŠTART"
+  },
+  "lapBtn": {
+    "message": "KOLO"
+  },
+  "stopBtn": {
+    "message": "STOP"
+  },
+  "currentRecordedLabel": {
+    "message": "AKTUÁLNE ZAZNAMENANÉ"
+  },
+  "liveHistoryLabel": {
+    "message": "HISTÓRIA LIVE"
+  },
+  "clearAllBtn": {
+    "message": "VYMAZAŤ VŠETKO"
+  },
+  "confirmClearHistory": {
+    "message": "Naozaj chcete vymazať celú históriu?"
+  },
+  "deleteBtn": {
+    "message": "VYMAZAŤ"
+  },
+  "notesModalTitle": {
+    "message": "INTELIGENTNÉ POZNÁMKY"
+  },
+  "clearNotesTooltip": {
+    "message": "Vymazať všetky poznámky"
+  },
+  "notesPlaceholder": {
+    "message": "Sem píšte poznámky..."
+  },
+  "grabTextTooltip": {
+    "message": "Extrahovať text zo stránky"
+  },
+  "textLabel": {
+    "message": "Text"
+  },
+  "addUrlTooltip": {
+    "message": "Pridat URL aktuálnej stránky"
+  },
+  "linkLabel": {
+    "message": "Odkaz"
+  },
+  "addDateTooltip": {
+    "message": "Pridať dnešný dátum"
+  },
+  "dateLabel": {
+    "message": "Dátum"
+  },
+  "exportNotesTooltip": {
+    "message": "Exportovať poznámky"
+  },
+  "importNotesTooltip": {
+    "message": "Importovať poznámky"
+  },
+  "savedIndicator": {
+    "message": "Uložené"
+  },
+  "confirmClearNotes": {
+    "message": "Naozaj chcete vymazať všetky poznámky?"
+  },
+  "trackerModalTitle": {
+    "message": "WEBTIME TRACKER"
+  },
+  "exportTooltip": {
+    "message": "Exportovať dáta"
+  },
+  "importTooltip": {
+    "message": "Importovať dáta"
+  },
+  "trackerModeDay": {
+    "message": "Denné zobrazenie"
+  },
+  "trackerModeMonth": {
+    "message": "Mesačné zobrazenie"
+  },
+  "trackerModeAll": {
+    "message": "Celý čas"
+  },
+  "trackerTodayLabel": {
+    "message": "Dnes"
+  },
+  "trackerMonthLabel": {
+    "message": "Tento mesiac"
+  },
+  "trackerAvgLabel": {
+    "message": "Priemer"
+  },
+  "techModalTitle": {
+    "message": "TECHNOLÓGIE WEBU"
+  },
+  "techLoadingMsg": {
+    "message": "Skener analyzuje web..."
+  },
+  "uiSettings": {
+    "message": "NASTAVENIA"
+  },
+  "supportTitle": {
+    "message": "Podporte rozšírenie"
+  },
+  "supportDesc": {
+    "message": "All In One je úplne bezplatný nástroj. Vaša podpora pomáha udržať ho zdarma a umožňuje pravidelný vývoj nových funkcií."
+  },
+  "donateBtn": {
+    "message": "Darujte a podporte prácu"
+  },
+  "websiteBtn": {
+    "message": "Oficiálna webová stránka rozšírenia"
+  },
+  "rateBtn": {
+    "message": "Ohodnoťte rozšírenie"
+  },
+  "versionLabel": {
+    "message": "Verzia:"
+  },
+  "privacyLabel": {
+    "message": "Zásady ochrany osobných údajov"
+  },
+  "systemPageTitle": {
+    "message": "SYSTÉMOVÁ STRÁNKA"
+  },
+  "systemPageDesc": {
+    "message": "Nástroje na úpravu sú deaktivované"
+  },
+  "radioPlay": {
+    "message": "Pustiť"
+  },
+  "radioPause": {
+    "message": "Pauza"
+  },
+  "colorPickerPicking": {
+    "message": "Vyberanie..."
+  },
+  "colorPickerCopied": {
+    "message": "Skopírované: "
+  },
+  "cacheNotSupported": {
+    "message": "Nepodporované"
+  },
+  "cacheClearConfirm": {
+    "message": "Vymazať všetky dáta z tohto webu"
+  },
+  "cacheError": {
+    "message": "Chyba"
+  },
+  "cacheClearing": {
+    "message": "Mazanie..."
+  },
+  "cacheCleared": {
+    "message": "Vymazané!"
+  },
+  "fontCopied": {
+    "message": "Skopírované!"
+  },
+  "fontNotCopied": {
+    "message": "Neskopírované"
+  },
+  "notesSaved": {
+    "message": "Uložené"
+  },
+  "notesTooLarge": {
+    "message": "Poznámka je príliš veľká"
+  },
+  "notesLinkText": {
+    "message": "Odkaz"
+  },
+  "trackerToday": {
+    "message": "Dnes"
+  },
+  "trackerThatDay": {
+    "message": "Ten deň"
+  },
+  "trackerSelectedMonth": {
+    "message": "Vybraný mesiac"
+  },
+  "trackerTotal": {
+    "message": "Celkovo"
+  },
+  "trackerNoData": {
+    "message": "Pre toto obdobie nie sú žiadne dáta"
+  },
+  "trackerExportEmpty": {
+    "message": "Nie sú žiadne dáta na export."
+  },
+  "trackerExportTruncated": {
+    "message": "Export bol skrátený na 10 MB pre stabilitu vyskakovacieho okna."
+  },
+  "trackerImportEmpty": {
+    "message": "Nie sú žiadne platné dáta na import."
+  },
+  "trackerImportSuccess": {
+    "message": "Dáta boli úspešne importované!"
+  },
+  "trackerImportError": {
+    "message": "Chyba pri čítaní súboru."
+  },
+  "swStatusLive": {
+    "message": "PRÁVE PREBIEHA"
+  },
+  "swStatusReady": {
+    "message": "PRIPRAVENÉ"
+  },
+  "swUndoTitle": {
+    "message": "Vymazať tento moment"
+  },
+  "swNoLaps": {
+    "message": "Žiadne zaznamenané momenty"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Live #"
+  },
+  "swDurationLabel": {
+    "message": "Trvanie: "
+  },
+  "swMomentLabel": {
+    "message": "Moment "
+  },
+  "swExportTxtBtn": {
+    "message": "EXPORTOVAŤ AKO .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "CELKOVÉ TRVANIE: "
+  },
+  "swCopyBtn": {
+    "message": "SKOPÍROVAŤ DO SCHRÁNKY"
+  },
+  "swCopiedBtn": {
+    "message": "✓ SKOPÍROVANÉ"
+  },
+  "swNoHistory": {
+    "message": "Žiadna história live vysielania"
+  },
+  "techScannerUnavailable": {
+    "message": "Skener nie je na tejto stránke dostupný."
+  },
+  "techFoundPrefix": {
+    "message": "Nájdené: "
+  },
+  "techItemsSuffix": {
+    "message": "položiek"
+  },
+  "techNotFound": {
+    "message": "Nenájdené."
+  },
+  "techScannerFailed": {
+    "message": "Skenovanie na tejto stránke zlyhalo."
+  },
+  "markerDrawTooltip": {
+    "message": "Kresliť"
+  },
+  "markerLineTooltip": {
+    "message": "Linka"
+  },
+  "markerTextTooltip": {
+    "message": "Text"
+  },
+  "markerMoveTooltip": {
+    "message": "Posunúť"
+  },
+  "markerEraseTooltip": {
+    "message": "Mazať"
+  },
+  "markerClearAllTooltip": {
+    "message": "Vymazať všetko"
+  },
+  "markerThicknessTooltip": {
+    "message": "Hrúbka"
+  },
+  "markerCloseTooltip": {
+    "message": "Zavrieť"
+  },
+  "linesLabel": {
+    "message": "Riadkov"
+  },
+  "clearCounterTooltip": {
+    "message": "Vymazať všetko"
+  },
+  "confirmClearCounter": {
+    "message": "Naozaj chcete všetko vymazať?"
+  }
+}

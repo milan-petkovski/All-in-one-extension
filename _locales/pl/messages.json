@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Najlepsze narzędzie zwiększające produktywność"
+  },
+  "extDesc": {
+    "message": "Doskonałe narzędzie łączące wszystkie niezbędne funkcje w szybkim, nowoczesnym i bezpłatnym interfejsie."
+  },
+  "markLapDesc": {
+    "message": "Zapisz okrążenie na stoperze"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Oficjalna strona"
+  },
+  "settingsTooltip": {
+    "message": "Ustawienia"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Zasilane przez All In One"
+  },
+  "playBtn": {
+    "message": "Odtwórz"
+  },
+  "soundTitle": {
+    "message": "Dźwięk"
+  },
+  "resetBtn": {
+    "message": "Resetuj"
+  },
+  "colorPickerTitle": {
+    "message": "Próbnik kolorów"
+  },
+  "darkModeTitle": {
+    "message": "Tryb ciemny"
+  },
+  "rulerTitle": {
+    "message": "Linijka strony"
+  },
+  "copyEnableTitle": {
+    "message": "Kopiuj"
+  },
+  "markerTitle": {
+    "message": "Marker"
+  },
+  "techTitle": {
+    "message": "Technologie"
+  },
+  "cacheTitle": {
+    "message": "Cookie/pamięć"
+  },
+  "fontTitle": {
+    "message": "Czcionki"
+  },
+  "counterTitle": {
+    "message": "Licznik"
+  },
+  "stopwatchTitle": {
+    "message": "Stoper"
+  },
+  "notesTitle": {
+    "message": "Notatki"
+  },
+  "trackerTitle": {
+    "message": "Czas w sieci"
+  },
+  "ytDislikeTitle": {
+    "message": "Return YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "PLIKI COOKIE I PAMIĘĆ PODRĘCZNA"
+  },
+  "blockCookiesLabel": {
+    "message": "Automatycznie blokuj pliki cookie"
+  },
+  "clearSiteDataBtn": {
+    "message": "Wyczyść wszystkie dane z tej witryny"
+  },
+  "cancelBtn": {
+    "message": "ANULUJ"
+  },
+  "counterModalTitle": {
+    "message": "LICZNIK ZNAKÓW"
+  },
+  "counterPlaceholder": {
+    "message": "Wklej tekst tutaj..."
+  },
+  "charsLabel": {
+    "message": "Znaki"
+  },
+  "wordsLabel": {
+    "message": "Słowa"
+  },
+  "stopwatchReady": {
+    "message": "GOTOWE"
+  },
+  "startBtn": {
+    "message": "START"
+  },
+  "lapBtn": {
+    "message": "OKRĄŻENIE"
+  },
+  "stopBtn": {
+    "message": "STOP"
+  },
+  "currentRecordedLabel": {
+    "message": "OBECNIE ZAPISANE"
+  },
+  "liveHistoryLabel": {
+    "message": "HISTORIA NA ŻYWO"
+  },
+  "clearAllBtn": {
+    "message": "WYCZYŚĆ WSZYSTKO"
+  },
+  "confirmClearHistory": {
+    "message": "Czy na pewno chcesz wyczyścić całą historię?"
+  },
+  "deleteBtn": {
+    "message": "USUŃ"
+  },
+  "notesModalTitle": {
+    "message": "INTELIGENTNE NOTATKI"
+  },
+  "clearNotesTooltip": {
+    "message": "Wyczyść wszystkie notatki"
+  },
+  "notesPlaceholder": {
+    "message": "Napisz notatki tutaj..."
+  },
+  "grabTextTooltip": {
+    "message": "Wyodrębnij tekst ze strony"
+  },
+  "textLabel": {
+    "message": "Tekst"
+  },
+  "addUrlTooltip": {
+    "message": "Dodaj bieżący adres URL"
+  },
+  "linkLabel": {
+    "message": "Link"
+  },
+  "addDateTooltip": {
+    "message": "Dodaj dzisiejszą datę"
+  },
+  "dateLabel": {
+    "message": "Data"
+  },
+  "exportNotesTooltip": {
+    "message": "Eksportuj notatki"
+  },
+  "importNotesTooltip": {
+    "message": "Importuj notatki"
+  },
+  "savedIndicator": {
+    "message": "Zapisano"
+  },
+  "confirmClearNotes": {
+    "message": "Czy na pewno chcesz usunąć wszystkie notatki?"
+  },
+  "trackerModalTitle": {
+    "message": "MONITOR CZASU W SIECI"
+  },
+  "exportTooltip": {
+    "message": "Eksportuj dane"
+  },
+  "importTooltip": {
+    "message": "Importuj dane"
+  },
+  "trackerModeDay": {
+    "message": "Widok dzienny"
+  },
+  "trackerModeMonth": {
+    "message": "Widok miesięczny"
+  },
+  "trackerModeAll": {
+    "message": "Cały czas"
+  },
+  "trackerTodayLabel": {
+    "message": "Dzisiaj"
+  },
+  "trackerMonthLabel": {
+    "message": "W tym miesiącu"
+  },
+  "trackerAvgLabel": {
+    "message": "Średnia"
+  },
+  "techModalTitle": {
+    "message": "TECHNOLOGIE STRONY"
+  },
+  "techLoadingMsg": {
+    "message": "Skaner analizuje stronę..."
+  },
+  "uiSettings": {
+    "message": "USTAWIENIA"
+  },
+  "supportTitle": {
+    "message": "Wesprzyj rozszerzenie"
+  },
+  "supportDesc": {
+    "message": "All In One to całkowicie darmowe narzędzie. Twoje wsparcie pomaga utrzymać ten stan i umożliwia rozwój nowych funkcji."
+  },
+  "donateBtn": {
+    "message": "Przekaż darowiznę"
+  },
+  "websiteBtn": {
+    "message": "Oficjalna strona internetowa"
+  },
+  "rateBtn": {
+    "message": "Oceń rozszerzenie"
+  },
+  "versionLabel": {
+    "message": "Wersja:"
+  },
+  "privacyLabel": {
+    "message": "Polityka prywatności"
+  },
+  "systemPageTitle": {
+    "message": "STRONA SYSTEMOWA"
+  },
+  "systemPageDesc": {
+    "message": "Narzędzia modyfikacji są wyłączone"
+  },
+  "radioPlay": {
+    "message": "Start"
+  },
+  "radioPause": {
+    "message": "Pauza"
+  },
+  "colorPickerPicking": {
+    "message": "Wybieranie..."
+  },
+  "colorPickerCopied": {
+    "message": "Skopiowano: "
+  },
+  "cacheNotSupported": {
+    "message": "Nieobsługiwane"
+  },
+  "cacheClearConfirm": {
+    "message": "Wyczyść wszystkie dane z tej witryny"
+  },
+  "cacheError": {
+    "message": "Błąd"
+  },
+  "cacheClearing": {
+    "message": "Czyszczenie..."
+  },
+  "cacheCleared": {
+    "message": "Wyczyszczono!"
+  },
+  "fontCopied": {
+    "message": "Skopiowano!"
+  },
+  "fontNotCopied": {
+    "message": "Nie skopiowano"
+  },
+  "notesSaved": {
+    "message": "Zapisano"
+  },
+  "notesTooLarge": {
+    "message": "Notatka zbyt długa"
+  },
+  "notesLinkText": {
+    "message": "Link"
+  },
+  "trackerToday": {
+    "message": "Dzisiaj"
+  },
+  "trackerThatDay": {
+    "message": "Tego dnia"
+  },
+  "trackerSelectedMonth": {
+    "message": "Wybrany miesiąc"
+  },
+  "trackerTotal": {
+    "message": "Łącznie"
+  },
+  "trackerNoData": {
+    "message": "Brak danych za ten okres"
+  },
+  "trackerExportEmpty": {
+    "message": "Brak danych do wyeksportowania."
+  },
+  "trackerExportTruncated": {
+    "message": "Eksport skrócono do 10 MB w celu zachowania stabilności."
+  },
+  "trackerImportEmpty": {
+    "message": "Brak prawidłowych danych do zaimportowania."
+  },
+  "trackerImportSuccess": {
+    "message": "Dane zaimportowano pomyślnie!"
+  },
+  "trackerImportError": {
+    "message": "Błąd odczytu pliku."
+  },
+  "swStatusLive": {
+    "message": "NA ŻYWO W TOKU"
+  },
+  "swStatusReady": {
+    "message": "GOTOWE"
+  },
+  "swUndoTitle": {
+    "message": "Usuń ten moment"
+  },
+  "swNoLaps": {
+    "message": "Brak zapisanych momentów"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Na żywo #"
+  },
+  "swDurationLabel": {
+    "message": "Czas trwania: "
+  },
+  "swMomentLabel": {
+    "message": "Moment "
+  },
+  "swExportTxtBtn": {
+    "message": "EKSPORTUJ JAKO .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "CAŁKOWITY CZAS TRWANIA: "
+  },
+  "swCopyBtn": {
+    "message": "SKOPIUJ DO SCHOWKA"
+  },
+  "swCopiedBtn": {
+    "message": "✓ SKOPIOWANO"
+  },
+  "swNoHistory": {
+    "message": "Brak historii na żywo"
+  },
+  "techScannerUnavailable": {
+    "message": "Skaner nie jest dostępny na tej stronie."
+  },
+  "techFoundPrefix": {
+    "message": "Znaleziono: "
+  },
+  "techItemsSuffix": {
+    "message": "elementów"
+  },
+  "techNotFound": {
+    "message": "Nie znaleziono."
+  },
+  "techScannerFailed": {
+    "message": "Skanowanie nie powiodło się na tej stronie."
+  },
+  "markerDrawTooltip": {
+    "message": "Rysuj"
+  },
+  "markerLineTooltip": {
+    "message": "Linia"
+  },
+  "markerTextTooltip": {
+    "message": "Tekst"
+  },
+  "markerMoveTooltip": {
+    "message": "Przesuń"
+  },
+  "markerEraseTooltip": {
+    "message": "Wymaż"
+  },
+  "markerClearAllTooltip": {
+    "message": "Wyczyść wszystko"
+  },
+  "markerThicknessTooltip": {
+    "message": "Grubość"
+  },
+  "markerCloseTooltip": {
+    "message": "Zamknij"
+  },
+  "linesLabel": {
+    "message": "Wiersze"
+  },
+  "clearCounterTooltip": {
+    "message": "Wyczyść wszystko"
+  },
+  "confirmClearCounter": {
+    "message": "Czy na pewno chcesz wyczyścić wszystko?"
+  }
+}

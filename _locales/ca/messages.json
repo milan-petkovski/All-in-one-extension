@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One – La millor eina de productivitat"
+  },
+  "extDesc": {
+    "message": "L'eina definitiva que combina totes les funcions essencials en una interfície ràpida, moderna i gratuïta."
+  },
+  "markLapDesc": {
+    "message": "Registra un moment al cronòmetre"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Lloc web oficial de l'extensió"
+  },
+  "settingsTooltip": {
+    "message": "Configuració"
+  },
+  "radioTitle": {
+    "message": "Ràdio IN"
+  },
+  "radioArtist": {
+    "message": "Impulsat per All In One"
+  },
+  "playBtn": {
+    "message": "Reprodueix"
+  },
+  "soundTitle": {
+    "message": "So"
+  },
+  "resetBtn": {
+    "message": "Restableix"
+  },
+  "colorPickerTitle": {
+    "message": "Selector de color"
+  },
+  "darkModeTitle": {
+    "message": "Mode fosc"
+  },
+  "rulerTitle": {
+    "message": "Regle de pàgina"
+  },
+  "copyEnableTitle": {
+    "message": "Activa la còpia"
+  },
+  "markerTitle": {
+    "message": "Marcador de pàgina"
+  },
+  "techTitle": {
+    "message": "Tecnologies del lloc"
+  },
+  "cacheTitle": {
+    "message": "Galetes i cau"
+  },
+  "fontTitle": {
+    "message": "Cerca fonts"
+  },
+  "counterTitle": {
+    "message": "Compta caràcters"
+  },
+  "stopwatchTitle": {
+    "message": "Cronòmetre"
+  },
+  "notesTitle": {
+    "message": "Notes intel·ligents"
+  },
+  "trackerTitle": {
+    "message": "Temps web"
+  },
+  "ytDislikeTitle": {
+    "message": "Mostra els Dislikes de YouTube"
+  },
+  "cacheModalTitle": {
+    "message": "GALETES I MEMÒRIA CAU"
+  },
+  "blockCookiesLabel": {
+    "message": "Bloqueja galetes automàticament"
+  },
+  "clearSiteDataBtn": {
+    "message": "Esborra totes les dades d'aquest lloc"
+  },
+  "cancelBtn": {
+    "message": "CANCEL·LA"
+  },
+  "counterModalTitle": {
+    "message": "COMPTA CARÀCTERS"
+  },
+  "counterPlaceholder": {
+    "message": "Enganxa el text aquí..."
+  },
+  "charsLabel": {
+    "message": "Caràcters"
+  },
+  "wordsLabel": {
+    "message": "Paraules"
+  },
+  "stopwatchReady": {
+    "message": "PREPARAT"
+  },
+  "startBtn": {
+    "message": "INICIA"
+  },
+  "lapBtn": {
+    "message": "VOLTA"
+  },
+  "stopBtn": {
+    "message": "ATURA"
+  },
+  "currentRecordedLabel": {
+    "message": "ACTUALMENT REGISTRAT"
+  },
+  "liveHistoryLabel": {
+    "message": "HISTORIAL EN DIRECTE"
+  },
+  "clearAllBtn": {
+    "message": "ESBORRA-HO TOT"
+  },
+  "confirmClearHistory": {
+    "message": "Segur que vols esborrar tot l'historial?"
+  },
+  "deleteBtn": {
+    "message": "ESBORRA"
+  },
+  "notesModalTitle": {
+    "message": "NOTES INTEL·LIGENTS"
+  },
+  "clearNotesTooltip": {
+    "message": "Esborra totes les notes"
+  },
+  "notesPlaceholder": {
+    "message": "Escriu les teves notes aquí..."
+  },
+  "grabTextTooltip": {
+    "message": "Extreu text de la pàgina"
+  },
+  "textLabel": {
+    "message": "Text"
+  },
+  "addUrlTooltip": {
+    "message": "Afegeix l'URL actual"
+  },
+  "linkLabel": {
+    "message": "Enllaç"
+  },
+  "addDateTooltip": {
+    "message": "Afegeix la data d'avui"
+  },
+  "dateLabel": {
+    "message": "Data"
+  },
+  "exportNotesTooltip": {
+    "message": "Exporta notes"
+  },
+  "importNotesTooltip": {
+    "message": "Importa notes"
+  },
+  "savedIndicator": {
+    "message": "Desat"
+  },
+  "confirmClearNotes": {
+    "message": "Segur que vols esborrar totes les notes?"
+  },
+  "trackerModalTitle": {
+    "message": "TEMPS WEB"
+  },
+  "exportTooltip": {
+    "message": "Exporta dades"
+  },
+  "importTooltip": {
+    "message": "Importa dades"
+  },
+  "trackerModeDay": {
+    "message": "Vista diària"
+  },
+  "trackerModeMonth": {
+    "message": "Vista mensual"
+  },
+  "trackerModeAll": {
+    "message": "Tot el temps"
+  },
+  "trackerTodayLabel": {
+    "message": "Avui"
+  },
+  "trackerMonthLabel": {
+    "message": "Aquest mes"
+  },
+  "trackerAvgLabel": {
+    "message": "Mitjana"
+  },
+  "techModalTitle": {
+    "message": "TECNOLOGIES DEL LLOC"
+  },
+  "techLoadingMsg": {
+    "message": "L'escàner està analitzant el lloc..."
+  },
+  "uiSettings": {
+    "message": "CONFIGURACIÓ"
+  },
+  "supportTitle": {
+    "message": "Dona suport a l'extensió"
+  },
+  "supportDesc": {
+    "message": "All In One és una eina totalment gratuïta. El teu suport ajuda a mantenir-la així i permet el desenvolupament de noves funcions."
+  },
+  "donateBtn": {
+    "message": "Fes una donació i dona suport"
+  },
+  "websiteBtn": {
+    "message": "Lloc web oficial"
+  },
+  "rateBtn": {
+    "message": "Valora l'extensió"
+  },
+  "versionLabel": {
+    "message": "Versió:"
+  },
+  "privacyLabel": {
+    "message": "Política de privadesa"
+  },
+  "systemPageTitle": {
+    "message": "PÀGINA DEL SISTEMA"
+  },
+  "systemPageDesc": {
+    "message": "Les eines de modificació estan desactivades"
+  },
+  "radioPlay": {
+    "message": "Sona"
+  },
+  "radioPause": {
+    "message": "Pausa"
+  },
+  "colorPickerPicking": {
+    "message": "Triant..."
+  },
+  "colorPickerCopied": {
+    "message": "Copiat: "
+  },
+  "cacheNotSupported": {
+    "message": "No compatible"
+  },
+  "cacheClearConfirm": {
+    "message": "Esborra totes les dades d'aquest lloc"
+  },
+  "cacheError": {
+    "message": "Error"
+  },
+  "cacheClearing": {
+    "message": "Esborrant..."
+  },
+  "cacheCleared": {
+    "message": "Esborrat!"
+  },
+  "fontCopied": {
+    "message": "Copiat!"
+  },
+  "fontNotCopied": {
+    "message": "No copiat"
+  },
+  "notesSaved": {
+    "message": "Desat"
+  },
+  "notesTooLarge": {
+    "message": "Nota massa gran"
+  },
+  "notesLinkText": {
+    "message": "Enllaç"
+  },
+  "trackerToday": {
+    "message": "Avui"
+  },
+  "trackerThatDay": {
+    "message": "Aquell dia"
+  },
+  "trackerSelectedMonth": {
+    "message": "Mes seleccionat"
+  },
+  "trackerTotal": {
+    "message": "Total"
+  },
+  "trackerNoData": {
+    "message": "No hi ha dades per a aquest període"
+  },
+  "trackerExportEmpty": {
+    "message": "No hi ha dades del rastrejador per exportar."
+  },
+  "trackerExportTruncated": {
+    "message": "L'exportació s'ha truncat a 10 MB per mantenir l'estabilitat."
+  },
+  "trackerImportEmpty": {
+    "message": "No hi ha dades vàlides per importar."
+  },
+  "trackerImportSuccess": {
+    "message": "Dades importades correctament!"
+  },
+  "trackerImportError": {
+    "message": "Error en llegir el fitxer."
+  },
+  "swStatusLive": {
+    "message": "EN DIRECTE"
+  },
+  "swStatusReady": {
+    "message": "PREPARAT"
+  },
+  "swUndoTitle": {
+    "message": "Suprimeix aquest moment"
+  },
+  "swNoLaps": {
+    "message": "No hi ha moments registrats"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Directe #"
+  },
+  "swDurationLabel": {
+    "message": "Durada: "
+  },
+  "swMomentLabel": {
+    "message": "Moment "
+  },
+  "swExportTxtBtn": {
+    "message": "EXPORTA COM A .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "DURADA TOTAL: "
+  },
+  "swCopyBtn": {
+    "message": "COPIA AL PORTA-RETALLS"
+  },
+  "swCopiedBtn": {
+    "message": "✓ COPIAT"
+  },
+  "swNoHistory": {
+    "message": "No hi ha historial en directe"
+  },
+  "techScannerUnavailable": {
+    "message": "L'escàner no està disponible en aquesta pàgina."
+  },
+  "techFoundPrefix": {
+    "message": "Trobat: "
+  },
+  "techItemsSuffix": {
+    "message": "elements"
+  },
+  "techNotFound": {
+    "message": "No trobat."
+  },
+  "techScannerFailed": {
+    "message": "L'escaneig ha fallat en aquesta pàgina."
+  },
+  "markerDrawTooltip": {
+    "message": "Dibuixa"
+  },
+  "markerLineTooltip": {
+    "message": "Línia"
+  },
+  "markerTextTooltip": {
+    "message": "Text"
+  },
+  "markerMoveTooltip": {
+    "message": "Mou"
+  },
+  "markerEraseTooltip": {
+    "message": "Esborra"
+  },
+  "markerClearAllTooltip": {
+    "message": "Esborra-ho tot"
+  },
+  "markerThicknessTooltip": {
+    "message": "Gruix"
+  },
+  "markerCloseTooltip": {
+    "message": "Tanca"
+  },
+  "linesLabel": {
+    "message": "Files"
+  },
+  "clearCounterTooltip": {
+    "message": "Esborra-ho tot"
+  },
+  "confirmClearCounter": {
+    "message": "Segur que vols esborrar-ho tot?"
+  }
+}

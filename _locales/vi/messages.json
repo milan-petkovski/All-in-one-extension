@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - Công cụ năng suất đỉnh cao"
+  },
+  "extDesc": {
+    "message": "Công cụ tối ưu kết hợp mọi tính năng thiết yếu trong một giao diện nhanh, hiện đại và miễn phí."
+  },
+  "markLapDesc": {
+    "message": "Ghi lại một vòng trên đồng hồ bấm giờ"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Trang web chính thức của tiện ích"
+  },
+  "settingsTooltip": {
+    "message": "Cài đặt"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Cung cấp bởi tiện ích All In One"
+  },
+  "playBtn": {
+    "message": "Phát"
+  },
+  "soundTitle": {
+    "message": "Âm thanh"
+  },
+  "resetBtn": {
+    "message": "Đặt lại"
+  },
+  "colorPickerTitle": {
+    "message": "Bộ chọn màu"
+  },
+  "darkModeTitle": {
+    "message": "Chế độ tối"
+  },
+  "rulerTitle": {
+    "message": "Thước kẻ trang"
+  },
+  "copyEnableTitle": {
+    "message": "Bật sao chép"
+  },
+  "markerTitle": {
+    "message": "Bút đánh dấu trang"
+  },
+  "techTitle": {
+    "message": "Công nghệ"
+  },
+  "cacheTitle": {
+    "message": "Bộ nhớ đệm"
+  },
+  "fontTitle": {
+    "message": "Tìm phông chữ"
+  },
+  "counterTitle": {
+    "message": "Bộ đếm ký tự"
+  },
+  "stopwatchTitle": {
+    "message": "Đồng hồ bấm giờ"
+  },
+  "notesTitle": {
+    "message": "Ghi chú thông minh"
+  },
+  "trackerTitle": {
+    "message": "Bộ đếm giờ"
+  },
+  "ytDislikeTitle": {
+    "message": "Hiện lại lượt không thích YouTube"
+  },
+  "cacheModalTitle": {
+    "message": "COOKIE VÀ BỘ NHỚ ĐỆM"
+  },
+  "blockCookiesLabel": {
+    "message": "Tự động chặn cookie"
+  },
+  "clearSiteDataBtn": {
+    "message": "Xóa tất cả dữ liệu từ trang này"
+  },
+  "cancelBtn": {
+    "message": "HỦY"
+  },
+  "counterModalTitle": {
+    "message": "BỘ ĐẾM KÝ TỰ"
+  },
+  "counterPlaceholder": {
+    "message": "Dán văn bản vào đây..."
+  },
+  "charsLabel": {
+    "message": "Ký tự"
+  },
+  "wordsLabel": {
+    "message": "Từ"
+  },
+  "stopwatchReady": {
+    "message": "SẴN SÀNG"
+  },
+  "startBtn": {
+    "message": "BẮT ĐẦU"
+  },
+  "lapBtn": {
+    "message": "VÒNG"
+  },
+  "stopBtn": {
+    "message": "DỪNG"
+  },
+  "currentRecordedLabel": {
+    "message": "ĐANG GHI LẠI"
+  },
+  "liveHistoryLabel": {
+    "message": "LỊCH SỬ TRỰC TIẾP"
+  },
+  "clearAllBtn": {
+    "message": "XÓA TẤT CẢ"
+  },
+  "confirmClearHistory": {
+    "message": "Bạn có chắc chắn muốn xóa toàn bộ lịch sử không?"
+  },
+  "deleteBtn": {
+    "message": "XÓA"
+  },
+  "notesModalTitle": {
+    "message": "GHI CHÚ THÔNG MINH"
+  },
+  "clearNotesTooltip": {
+    "message": "Xóa tất cả ghi chú"
+  },
+  "notesPlaceholder": {
+    "message": "Viết ghi chú tại đây..."
+  },
+  "grabTextTooltip": {
+    "message": "Trích xuất văn bản từ trang"
+  },
+  "textLabel": {
+    "message": "Văn bản"
+  },
+  "addUrlTooltip": {
+    "message": "Thêm URL của trang hiện tại"
+  },
+  "linkLabel": {
+    "message": "Liên kết"
+  },
+  "addDateTooltip": {
+    "message": "Thêm ngày hôm nay"
+  },
+  "dateLabel": {
+    "message": "Ngày"
+  },
+  "exportNotesTooltip": {
+    "message": "Xuất ghi chú"
+  },
+  "importNotesTooltip": {
+    "message": "Nhập ghi chú"
+  },
+  "savedIndicator": {
+    "message": "Đã lưu"
+  },
+  "confirmClearNotes": {
+    "message": "Bạn có chắc chắn muốn xóa tất cả ghi chú không?"
+  },
+  "trackerModalTitle": {
+    "message": "THEO DÕI THỜI GIAN WEB"
+  },
+  "exportTooltip": {
+    "message": "Xuất dữ liệu"
+  },
+  "importTooltip": {
+    "message": "Nhập dữ liệu"
+  },
+  "trackerModeDay": {
+    "message": "Xem theo ngày"
+  },
+  "trackerModeMonth": {
+    "message": "Xem theo tháng"
+  },
+  "trackerModeAll": {
+    "message": "Toàn bộ thời gian"
+  },
+  "trackerTodayLabel": {
+    "message": "Hôm nay"
+  },
+  "trackerMonthLabel": {
+    "message": "Tháng này"
+  },
+  "trackerAvgLabel": {
+    "message": "Trung bình"
+  },
+  "techModalTitle": {
+    "message": "CÔNG NGHỆ TRANG WEB"
+  },
+  "techLoadingMsg": {
+    "message": "Công cụ đang phân tích trang web..."
+  },
+  "uiSettings": {
+    "message": "CÀI ĐẶT"
+  },
+  "supportTitle": {
+    "message": "Hỗ trợ tiện ích"
+  },
+  "supportDesc": {
+    "message": "All In One là một công cụ hoàn toàn miễn phí. Sự hỗ trợ của bạn giúp duy trì điều này và cho phép phát triển thường xuyên các tùy chọn mới."
+  },
+  "donateBtn": {
+    "message": "Quyên góp và hỗ trợ công việc"
+  },
+  "websiteBtn": {
+    "message": "Trang web chính thức của tiện ích"
+  },
+  "rateBtn": {
+    "message": "Đánh giá tiện ích"
+  },
+  "versionLabel": {
+    "message": "Phiên bản:"
+  },
+  "privacyLabel": {
+    "message": "Chính sách bảo mật"
+  },
+  "systemPageTitle": {
+    "message": "TRANG HỆ THỐNG"
+  },
+  "systemPageDesc": {
+    "message": "Các công cụ sửa đổi đã bị vô hiệu hóa"
+  },
+  "radioPlay": {
+    "message": "Phát"
+  },
+  "radioPause": {
+    "message": "Dừng"
+  },
+  "colorPickerPicking": {
+    "message": "Đang chọn..."
+  },
+  "colorPickerCopied": {
+    "message": "Đã sao chép: "
+  },
+  "cacheNotSupported": {
+    "message": "Không hỗ trợ"
+  },
+  "cacheClearConfirm": {
+    "message": "Xóa tất cả dữ liệu từ trang này"
+  },
+  "cacheError": {
+    "message": "Lỗi"
+  },
+  "cacheClearing": {
+    "message": "Đang xóa..."
+  },
+  "cacheCleared": {
+    "message": "Đã xóa!"
+  },
+  "fontCopied": {
+    "message": "Đã sao chép!"
+  },
+  "fontNotCopied": {
+    "message": "Không thể sao chép"
+  },
+  "notesSaved": {
+    "message": "Đã lưu"
+  },
+  "notesTooLarge": {
+    "message": "Ghi chú quá lớn"
+  },
+  "notesLinkText": {
+    "message": "Liên kết"
+  },
+  "trackerToday": {
+    "message": "Hôm nay"
+  },
+  "trackerThatDay": {
+    "message": "Ngày đó"
+  },
+  "trackerSelectedMonth": {
+    "message": "Tháng đã chọn"
+  },
+  "trackerTotal": {
+    "message": "Tổng cộng"
+  },
+  "trackerNoData": {
+    "message": "Không có dữ liệu cho khoảng thời gian này"
+  },
+  "trackerExportEmpty": {
+    "message": "Không có dữ liệu theo dõi để xuất."
+  },
+  "trackerExportTruncated": {
+    "message": "Dữ liệu xuất được giới hạn ở mức 10MB để đảm bảo ổn định."
+  },
+  "trackerImportEmpty": {
+    "message": "Không có dữ liệu theo dõi hợp lệ để nhập."
+  },
+  "trackerImportSuccess": {
+    "message": "Đã nhập dữ liệu thành công!"
+  },
+  "trackerImportError": {
+    "message": "Lỗi khi đọc tệp."
+  },
+  "swStatusLive": {
+    "message": "ĐANG CHẠY TRỰC TIẾP"
+  },
+  "swStatusReady": {
+    "message": "SẴN SÀNG"
+  },
+  "swUndoTitle": {
+    "message": "Xóa khoảnh khắc này"
+  },
+  "swNoLaps": {
+    "message": "Không có khoảnh khắc nào được ghi lại"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Trực tiếp #"
+  },
+  "swDurationLabel": {
+    "message": "Thời lượng: "
+  },
+  "swMomentLabel": {
+    "message": "Khoảnh khắc "
+  },
+  "swExportTxtBtn": {
+    "message": "XUẤT DƯỚI DẠNG .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "TỔNG THỜI LƯỢNG: "
+  },
+  "swCopyBtn": {
+    "message": "SAO CHÉP VÀO BỘ NHỚ TẠM"
+  },
+  "swCopiedBtn": {
+    "message": "✓ ĐÃ SAO CHÉP"
+  },
+  "swNoHistory": {
+    "message": "Không có lịch sử trực tiếp"
+  },
+  "techScannerUnavailable": {
+    "message": "Công cụ không khả dụng trên trang này."
+  },
+  "techFoundPrefix": {
+    "message": "Đã tìm thấy: "
+  },
+  "techItemsSuffix": {
+    "message": "mục"
+  },
+  "techNotFound": {
+    "message": "Không tìm thấy gì."
+  },
+  "techScannerFailed": {
+    "message": "Quá trình phân tích trên trang này thất bại."
+  },
+  "markerDrawTooltip": {
+    "message": "Vẽ"
+  },
+  "markerLineTooltip": {
+    "message": "Đường thẳng"
+  },
+  "markerTextTooltip": {
+    "message": "Văn bản"
+  },
+  "markerMoveTooltip": {
+    "message": "Di chuyển"
+  },
+  "markerEraseTooltip": {
+    "message": "Tẩy"
+  },
+  "markerClearAllTooltip": {
+    "message": "Xóa tất cả"
+  },
+  "markerThicknessTooltip": {
+    "message": "Độ dày"
+  },
+  "markerCloseTooltip": {
+    "message": "Đóng"
+  },
+  "linesLabel": {
+    "message": "Dòng"
+  },
+  "clearCounterTooltip": {
+    "message": "Xóa tất cả"
+  },
+  "confirmClearCounter": {
+    "message": "Bạn có chắc chắn muốn xóa tất cả không?"
+  }
+}

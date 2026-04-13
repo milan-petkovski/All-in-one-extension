@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - geriausias produktyvumo įrankis"
+  },
+  "extDesc": {
+    "message": "Aukščiausios klasės įrankis, jungiantis visas svarbias funkcijas į vieną greitą, modernią ir nemokamą sąsają."
+  },
+  "markLapDesc": {
+    "message": "Užfiksuokite akimirką chronometru"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Oficiali plėtinio svetainė"
+  },
+  "settingsTooltip": {
+    "message": "Nustatymai"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Palaiko All In One plėtinys"
+  },
+  "playBtn": {
+    "message": "Paleisti"
+  },
+  "soundTitle": {
+    "message": "Garsas"
+  },
+  "resetBtn": {
+    "message": "Atstatyti"
+  },
+  "colorPickerTitle": {
+    "message": "Spalvų parinkiklis"
+  },
+  "darkModeTitle": {
+    "message": "Tamsus"
+  },
+  "rulerTitle": {
+    "message": "Puslapio liniuotė"
+  },
+  "copyEnableTitle": {
+    "message": "Kopijavimas"
+  },
+  "markerTitle": {
+    "message": "Puslapio žymeklis"
+  },
+  "techTitle": {
+    "message": "Svetainės tech"
+  },
+  "cacheTitle": {
+    "message": "Slapukai ir talpykla"
+  },
+  "fontTitle": {
+    "message": "Šriftų ieškiklis"
+  },
+  "counterTitle": {
+    "message": "Simbolių skaičiuoklė"
+  },
+  "stopwatchTitle": {
+    "message": "Chronometras"
+  },
+  "notesTitle": {
+    "message": "Išmanieji užrašai"
+  },
+  "trackerTitle": {
+    "message": "Webtime Tracker"
+  },
+  "ytDislikeTitle": {
+    "message": "Return YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "SLAPUKAI IR TALPYKLA"
+  },
+  "blockCookiesLabel": {
+    "message": "Automatiškai blokuoti slapukus"
+  },
+  "clearSiteDataBtn": {
+    "message": "Ištrinti visus šios svetainės duomenis"
+  },
+  "cancelBtn": {
+    "message": "ATŠAUKTI"
+  },
+  "counterModalTitle": {
+    "message": "SIMBOLIŲ SKAIČIUOKLĖ"
+  },
+  "counterPlaceholder": {
+    "message": "Įklijuokite tekstą čia..."
+  },
+  "charsLabel": {
+    "message": "Simbolių"
+  },
+  "wordsLabel": {
+    "message": "Žodžių"
+  },
+  "stopwatchReady": {
+    "message": "PARUOŠTA"
+  },
+  "startBtn": {
+    "message": "PRADĖTI"
+  },
+  "lapBtn": {
+    "message": "RATAS"
+  },
+  "stopBtn": {
+    "message": "STABDYTI"
+  },
+  "currentRecordedLabel": {
+    "message": "ŠIUO METU ĮRAŠYTA"
+  },
+  "liveHistoryLabel": {
+    "message": "TIESIOGINIŲ TRANSLIACIJŲ ISTORIJA"
+  },
+  "clearAllBtn": {
+    "message": "IŠTRINTI VISKĄ"
+  },
+  "confirmClearHistory": {
+    "message": "Ar tikrai norite ištrinti visą istoriją?"
+  },
+  "deleteBtn": {
+    "message": "IŠTRINTI"
+  },
+  "notesModalTitle": {
+    "message": "IŠMANIEJI UŽRAŠAI"
+  },
+  "clearNotesTooltip": {
+    "message": "Ištrinti visus užrašus"
+  },
+  "notesPlaceholder": {
+    "message": "Rašykite užrašus čia..."
+  },
+  "grabTextTooltip": {
+    "message": "Ištraukti tekstą iš puslapio"
+  },
+  "textLabel": {
+    "message": "Tekstas"
+  },
+  "addUrlTooltip": {
+    "message": "Pridėti dabartinio puslapio URL"
+  },
+  "linkLabel": {
+    "message": "Nuoroda"
+  },
+  "addDateTooltip": {
+    "message": "Pridėti šiandienos datą"
+  },
+  "dateLabel": {
+    "message": "Data"
+  },
+  "exportNotesTooltip": {
+    "message": "Eksportuoti užrašus"
+  },
+  "importNotesTooltip": {
+    "message": "Importuoti užrašus"
+  },
+  "savedIndicator": {
+    "message": "Išsaugota"
+  },
+  "confirmClearNotes": {
+    "message": "Ar tikrai norite ištrinti visus užrašus?"
+  },
+  "trackerModalTitle": {
+    "message": "WEBTIME TRACKER"
+  },
+  "exportTooltip": {
+    "message": "Eksportuoti duomenis"
+  },
+  "importTooltip": {
+    "message": "Importuoti duomenis"
+  },
+  "trackerModeDay": {
+    "message": "Dienos vaizdas"
+  },
+  "trackerModeMonth": {
+    "message": "Mėnesio vaizdas"
+  },
+  "trackerModeAll": {
+    "message": "Visas laikas"
+  },
+  "trackerTodayLabel": {
+    "message": "Šiandien"
+  },
+  "trackerMonthLabel": {
+    "message": "Šis mėnuo"
+  },
+  "trackerAvgLabel": {
+    "message": "Vidurkis"
+  },
+  "techModalTitle": {
+    "message": "SVETAINĖS TECHNOLOGIJOS"
+  },
+  "techLoadingMsg": {
+    "message": "Skeneryje analizuojama svetainė..."
+  },
+  "uiSettings": {
+    "message": "NUSTATYMAI"
+  },
+  "supportTitle": {
+    "message": "Palaikykite plėtinį"
+  },
+  "supportDesc": {
+    "message": "„All In One“ yra visiškai nemokamas įrankis. Jūsų parama padeda jam tokiam išlikti ir leidžia reguliariai kurti naujas parinktis."
+  },
+  "donateBtn": {
+    "message": "Paaukokite ir paremkite darbą"
+  },
+  "websiteBtn": {
+    "message": "Oficiali plėtinio svetainė"
+  },
+  "rateBtn": {
+    "message": "Įvertinkite plėtinį"
+  },
+  "versionLabel": {
+    "message": "Versija:"
+  },
+  "privacyLabel": {
+    "message": "Privatumo politika"
+  },
+  "systemPageTitle": {
+    "message": "SISTEMINIS PUSLAPIS"
+  },
+  "systemPageDesc": {
+    "message": "Modifikavimo įrankiai išjungti"
+  },
+  "radioPlay": {
+    "message": "Groti"
+  },
+  "radioPause": {
+    "message": "Pauzė"
+  },
+  "colorPickerPicking": {
+    "message": "Renkama..."
+  },
+  "colorPickerCopied": {
+    "message": "Nukopijuota: "
+  },
+  "cacheNotSupported": {
+    "message": "Nepalaikoma"
+  },
+  "cacheClearConfirm": {
+    "message": "Ištrinti visus šios svetainės duomenis"
+  },
+  "cacheError": {
+    "message": "Klaida"
+  },
+  "cacheClearing": {
+    "message": "Trinama..."
+  },
+  "cacheCleared": {
+    "message": "Ištrinta!"
+  },
+  "fontCopied": {
+    "message": "Nukopijuota!"
+  },
+  "fontNotCopied": {
+    "message": "Nenukopijuota"
+  },
+  "notesSaved": {
+    "message": "Išsaugota"
+  },
+  "notesTooLarge": {
+    "message": "Užrašas per didelis"
+  },
+  "notesLinkText": {
+    "message": "Nuoroda"
+  },
+  "trackerToday": {
+    "message": "Šiandien"
+  },
+  "trackerThatDay": {
+    "message": "Ta diena"
+  },
+  "trackerSelectedMonth": {
+    "message": "Pasirinktas mėnuo"
+  },
+  "trackerTotal": {
+    "message": "Iš viso"
+  },
+  "trackerNoData": {
+    "message": "Nėra duomenų šiam laikotarpiui"
+  },
+  "trackerExportEmpty": {
+    "message": "Nėra eksportuotinų duomenų."
+  },
+  "trackerExportTruncated": {
+    "message": "Eksportas sutrumpintas iki 10 MB stabilumui užtikrinti."
+  },
+  "trackerImportEmpty": {
+    "message": "Nėra galiojančių duomenų importavimui."
+  },
+  "trackerImportSuccess": {
+    "message": "Duomenys sėkmingai importuoti!"
+  },
+  "trackerImportError": {
+    "message": "Klaida skaitant failą."
+  },
+  "swStatusLive": {
+    "message": "TIESIOGIAI"
+  },
+  "swStatusReady": {
+    "message": "PARUOŠTA"
+  },
+  "swUndoTitle": {
+    "message": "Ištrinti šią akimirką"
+  },
+  "swNoLaps": {
+    "message": "Nėra užfiksuotų akimirkų"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Tiesiogiai #"
+  },
+  "swDurationLabel": {
+    "message": "Trukmė: "
+  },
+  "swMomentLabel": {
+    "message": "Akimirka "
+  },
+  "swExportTxtBtn": {
+    "message": "EKSPORTUOTI KAIP .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "BENDRA TRUKMĖ: "
+  },
+  "swCopyBtn": {
+    "message": "KOPIJUOTI Į IŠKARPINĘ"
+  },
+  "swCopiedBtn": {
+    "message": "✓ NUKOPIJUOTA"
+  },
+  "swNoHistory": {
+    "message": "Nėra tiesioginių transliacijų istorijos"
+  },
+  "techScannerUnavailable": {
+    "message": "Skeneryje šis puslapis neprieinamas."
+  },
+  "techFoundPrefix": {
+    "message": "Rasta: "
+  },
+  "techItemsSuffix": {
+    "message": "elementai"
+  },
+  "techNotFound": {
+    "message": "Nieko nerasta."
+  },
+  "techScannerFailed": {
+    "message": "Skenavimas nepavyko."
+  },
+  "markerDrawTooltip": {
+    "message": "Piešti"
+  },
+  "markerLineTooltip": {
+    "message": "Linija"
+  },
+  "markerTextTooltip": {
+    "message": "Tekstas"
+  },
+  "markerMoveTooltip": {
+    "message": "Perkelti"
+  },
+  "markerEraseTooltip": {
+    "message": "Trinti"
+  },
+  "markerClearAllTooltip": {
+    "message": "Ištrinti viską"
+  },
+  "markerThicknessTooltip": {
+    "message": "Storis"
+  },
+  "markerCloseTooltip": {
+    "message": "Uždaryti"
+  },
+  "linesLabel": {
+    "message": "Eilučių"
+  },
+  "clearCounterTooltip": {
+    "message": "Ištrinti viską"
+  },
+  "confirmClearCounter": {
+    "message": "Ar tikrai norite ištrinti viską?"
+  }
+}

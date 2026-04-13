@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - అత్యుత్తమ ఉత్పాదకత సాధనం"
+  },
+  "extDesc": {
+    "message": "వేగవంతమైన, ఆధునిక మరియు ఉచిత ఇంటర్‌ఫేస్‌లో అన్ని ముఖ్యమైన విధులను కలిపే అంతిమ సాధనం."
+  },
+  "markLapDesc": {
+    "message": "స్టాప్‌వాచ్‌లో ఒక క్షణాన్ని రికార్డ్ చేయండి"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "అధికారిక పొడిగింపు వెబ్‌సైట్"
+  },
+  "settingsTooltip": {
+    "message": "సెట్టింగ్‌లు"
+  },
+  "radioTitle": {
+    "message": "రేడియో IN"
+  },
+  "radioArtist": {
+    "message": "All In One పొడిగింపు ద్వారా అందించబడింది"
+  },
+  "playBtn": {
+    "message": "ప్లే"
+  },
+  "soundTitle": {
+    "message": "శబ్దం"
+  },
+  "resetBtn": {
+    "message": "రీసెట్"
+  },
+  "colorPickerTitle": {
+    "message": "రంగు పికర్"
+  },
+  "darkModeTitle": {
+    "message": "డార్క్ మోడ్"
+  },
+  "rulerTitle": {
+    "message": "పేజీ రూలర్"
+  },
+  "copyEnableTitle": {
+    "message": "కాపీ"
+  },
+  "markerTitle": {
+    "message": "పేజీ మార్కర్"
+  },
+  "techTitle": {
+    "message": "సైట్ టెక్నాలజీలు"
+  },
+  "cacheTitle": {
+    "message": "కుక్కీలు మరియు కాష్"
+  },
+  "fontTitle": {
+    "message": "ఫాంట్ ఫైండర్"
+  },
+  "counterTitle": {
+    "message": "అక్షరాల కౌంటర్"
+  },
+  "stopwatchTitle": {
+    "message": "స్టాప్‌వాచ్"
+  },
+  "notesTitle": {
+    "message": "స్మార్ట్ నోట్స్"
+  },
+  "trackerTitle": {
+    "message": "వెబ్‌టైమ్ ట్రాకర్"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube డిస్‌లైక్‌ను తిరిగి తీసుకురండి"
+  },
+  "cacheModalTitle": {
+    "message": "కుక్కీలు మరియు కాష్"
+  },
+  "blockCookiesLabel": {
+    "message": "కుక్కీలను స్వయంచాలకంగా బ్లాక్ చేయండి"
+  },
+  "clearSiteDataBtn": {
+    "message": "ఈ సైట్ నుండి మొత్తం డేటాను క్లియర్ చేయండి"
+  },
+  "cancelBtn": {
+    "message": "రద్దు చేయండి"
+  },
+  "counterModalTitle": {
+    "message": "అక్షరాల కౌంటర్"
+  },
+  "counterPlaceholder": {
+    "message": "వచనాన్ని ఇక్కడ అతికించండి..."
+  },
+  "charsLabel": {
+    "message": "అక్షరాలు"
+  },
+  "wordsLabel": {
+    "message": "పదాలు"
+  },
+  "stopwatchReady": {
+    "message": "సిద్ధంగా ఉంది"
+  },
+  "startBtn": {
+    "message": "ప్రారంభించండి"
+  },
+  "lapBtn": {
+    "message": "ల్యాప్"
+  },
+  "stopBtn": {
+    "message": "ఆపండి"
+  },
+  "currentRecordedLabel": {
+    "message": "ప్రస్తుతం రికార్డ్ చేయబడింది"
+  },
+  "liveHistoryLabel": {
+    "message": "లైవ్ చరిత్ర"
+  },
+  "clearAllBtn": {
+    "message": "అన్నీ క్లియర్ చేయండి"
+  },
+  "confirmClearHistory": {
+    "message": "మీరు ఖచ్చితంగా మొత్తం చరిత్రను క్లియర్ చేయాలనుకుంటున్నారా?"
+  },
+  "deleteBtn": {
+    "message": "తొలగించండి"
+  },
+  "notesModalTitle": {
+    "message": "స్మార్ట్ నోట్స్"
+  },
+  "clearNotesTooltip": {
+    "message": "అన్ని నోట్స్‌ను క్లియర్ చేయండి"
+  },
+  "notesPlaceholder": {
+    "message": "నోట్స్ ఇక్కడ రాయండి..."
+  },
+  "grabTextTooltip": {
+    "message": "పేజీ నుండి వచనాన్ని సంగ్రహించండి"
+  },
+  "textLabel": {
+    "message": "వచనం"
+  },
+  "addUrlTooltip": {
+    "message": "ప్రస్తుత URLను జోడించండి"
+  },
+  "linkLabel": {
+    "message": "లింక్"
+  },
+  "addDateTooltip": {
+    "message": "నేటి తేదీని జోడించండి"
+  },
+  "dateLabel": {
+    "message": "తేదీ"
+  },
+  "exportNotesTooltip": {
+    "message": "నోట్స్‌ను ఎగుమతి చేయండి"
+  },
+  "importNotesTooltip": {
+    "message": "నోట్స్‌ను దిగుమతి చేయండి"
+  },
+  "savedIndicator": {
+    "message": "సేవ్ చేయబడింది"
+  },
+  "confirmClearNotes": {
+    "message": "మీరు ఖచ్చితంగా అన్ని నోట్స్‌ను క్లియర్ చేయాలనుకుంటున్నారా?"
+  },
+  "trackerModalTitle": {
+    "message": "వెబ్‌టైమ్ ట్రాకర్"
+  },
+  "exportTooltip": {
+    "message": "డేటాను ఎగుమతి చేయండి"
+  },
+  "importTooltip": {
+    "message": "డేటాను దిగుమతి చేయండి"
+  },
+  "trackerModeDay": {
+    "message": "రోజువారీ వీక్షణ"
+  },
+  "trackerModeMonth": {
+    "message": "నెలవారీ వీక్షణ"
+  },
+  "trackerModeAll": {
+    "message": "అన్ని సమయాలు"
+  },
+  "trackerTodayLabel": {
+    "message": "ఈరోజు"
+  },
+  "trackerMonthLabel": {
+    "message": "ఈ నెల"
+  },
+  "trackerAvgLabel": {
+    "message": "సగటు"
+  },
+  "techModalTitle": {
+    "message": "సైట్ టెక్నాలజీలు"
+  },
+  "techLoadingMsg": {
+    "message": "స్కానర్ సైట్‌ను విశ్లేషిస్తోంది..."
+  },
+  "uiSettings": {
+    "message": "సెట్టింగ్‌లు"
+  },
+  "supportTitle": {
+    "message": "పొడిగింపుకు మద్దతు ఇవ్వండి"
+  },
+  "supportDesc": {
+    "message": "All In One పూర్తిగా ఉచిత సాధనం. మీ మద్దతు దీన్ని అలాగే ఉంచడానికి సహాయపడుతుంది."
+  },
+  "donateBtn": {
+    "message": "విరాళం ఇవ్వండి మరియు మద్దతు ఇవ్వండి"
+  },
+  "websiteBtn": {
+    "message": "అధికారిక వెబ్‌సైట్"
+  },
+  "rateBtn": {
+    "message": "పొడిగింపును రేట్ చేయండి"
+  },
+  "versionLabel": {
+    "message": "వెర్షన్:"
+  },
+  "privacyLabel": {
+    "message": "గోప్యతా విధానం"
+  },
+  "systemPageTitle": {
+    "message": "సిస్టమ్ పేజీ"
+  },
+  "systemPageDesc": {
+    "message": "సవరణ సాధనాలు నిలిపివేయబడ్డాయి"
+  },
+  "radioPlay": {
+    "message": "ప్లే"
+  },
+  "radioPause": {
+    "message": "పాజ్"
+  },
+  "colorPickerPicking": {
+    "message": "ఎంచుకుంటోంది..."
+  },
+  "colorPickerCopied": {
+    "message": "కాపీ చేయబడింది: "
+  },
+  "cacheNotSupported": {
+    "message": "మద్దతు లేదు"
+  },
+  "cacheClearConfirm": {
+    "message": "ఈ సైట్ నుండి మొత్తం డేటాను క్లియర్ చేయండి"
+  },
+  "cacheError": {
+    "message": "లోపం"
+  },
+  "cacheClearing": {
+    "message": "క్లియర్ చేస్తోంది..."
+  },
+  "cacheCleared": {
+    "message": "క్లియర్ చేయబడింది!"
+  },
+  "fontCopied": {
+    "message": "కాపీ చేయబడింది!"
+  },
+  "fontNotCopied": {
+    "message": "కాపీ చేయబడలేదు"
+  },
+  "notesSaved": {
+    "message": "సేవ్ చేయబడింది"
+  },
+  "notesTooLarge": {
+    "message": "నోట్ చాలా పెద్దదిగా ఉంది"
+  },
+  "notesLinkText": {
+    "message": "లింక్"
+  },
+  "trackerToday": {
+    "message": "ఈరోజు"
+  },
+  "trackerThatDay": {
+    "message": "ఆ రోజు"
+  },
+  "trackerSelectedMonth": {
+    "message": "ఎంచుకున్న నెల"
+  },
+  "trackerTotal": {
+    "message": "మొత్తం"
+  },
+  "trackerNoData": {
+    "message": "ఈ కాలానికి డేటా లేదు"
+  },
+  "trackerExportEmpty": {
+    "message": "ఎగుమతి చేయడానికి ట్రాకర్ డేటా లేదు."
+  },
+  "trackerExportTruncated": {
+    "message": "స్థిరత్వం కోసం ఎగుమతి 10MBకి కుదించబడింది."
+  },
+  "trackerImportEmpty": {
+    "message": "దిగుమతి చేయడానికి చెల్లుబాటు అయ్యే డేటా లేదు."
+  },
+  "trackerImportSuccess": {
+    "message": "డేటా విజయవంతంగా దిగుమతి చేయబడింది!"
+  },
+  "trackerImportError": {
+    "message": "ఫైల్ చదవడంలో లోపం."
+  },
+  "swStatusLive": {
+    "message": "లైవ్ పురోగతిలో ఉంది"
+  },
+  "swStatusReady": {
+    "message": "సిద్ధంగా ఉంది"
+  },
+  "swUndoTitle": {
+    "message": "ఈ క్షణాన్ని తొలగించండి"
+  },
+  "swNoLaps": {
+    "message": "రికార్డ్ చేయబడిన క్షణాలు లేవు"
+  },
+  "swLiveTitlePrefix": {
+    "message": "లైవ్ #"
+  },
+  "swDurationLabel": {
+    "message": "వ్యవధి: "
+  },
+  "swMomentLabel": {
+    "message": "క్షణం "
+  },
+  "swExportTxtBtn": {
+    "message": ".TXT గా ఎగుమతి చేయండి"
+  },
+  "swTotalDurationPrefix": {
+    "message": "మొత్తం వ్యవధి: "
+  },
+  "swCopyBtn": {
+    "message": "క్లిప్‌బోర్డ్‌కు కాపీ చేయండి"
+  },
+  "swCopiedBtn": {
+    "message": "✓ కాపీ చేయబడింది"
+  },
+  "swNoHistory": {
+    "message": "లైవ్ చరిత్ర లేదు"
+  },
+  "techScannerUnavailable": {
+    "message": "ఈ పేజీలో స్కానర్ అందుబాటులో లేదు."
+  },
+  "techFoundPrefix": {
+    "message": "కనుగొనబడింది: "
+  },
+  "techItemsSuffix": {
+    "message": "అంశాలు"
+  },
+  "techNotFound": {
+    "message": "కనుగొనబడలేదు."
+  },
+  "techScannerFailed": {
+    "message": "ఈ పేజీలో స్కానింగ్ విఫలమైంది."
+  },
+  "markerDrawTooltip": {
+    "message": "గీయండి"
+  },
+  "markerLineTooltip": {
+    "message": "గీత"
+  },
+  "markerTextTooltip": {
+    "message": "వచనం"
+  },
+  "markerMoveTooltip": {
+    "message": "కదల్చండి"
+  },
+  "markerEraseTooltip": {
+    "message": "చెరిపివేయండి"
+  },
+  "markerClearAllTooltip": {
+    "message": "అన్నీ క్లియర్ చేయండి"
+  },
+  "markerThicknessTooltip": {
+    "message": "మందం"
+  },
+  "markerCloseTooltip": {
+    "message": "మూసివేయండి"
+  },
+  "linesLabel": {
+    "message": "వరుసలు"
+  },
+  "clearCounterTooltip": {
+    "message": "అన్నీ క్లియర్ చేయండి"
+  },
+  "confirmClearCounter": {
+    "message": "మీరు నిజంగా అన్నింటినీ క్లియర్ చేయాలనుకుంటున్నారా?"
+  }
+}

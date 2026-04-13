@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - เครื่องมือเพิ่มประสิทธิภาพที่ดีที่สุด"
+  },
+  "extDesc": {
+    "message": "เครื่องมือขั้นสูงสุดที่รวมฟังก์ชันที่จำเป็นทั้งหมดไว้ในอินเทอร์เฟซที่รวดเร็ว ทันสมัย และฟรี"
+  },
+  "markLapDesc": {
+    "message": "บันทึกช่วงเวลาในนาฬิกาจับเวลา"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "เว็บไซต์ส่วนขยายอย่างเป็นทางการ"
+  },
+  "settingsTooltip": {
+    "message": "การตั้งค่า"
+  },
+  "radioTitle": {
+    "message": "วิทยุ IN"
+  },
+  "radioArtist": {
+    "message": "ขับเคลื่อนโดยส่วนขยาย All In One"
+  },
+  "playBtn": {
+    "message": "เล่น"
+  },
+  "soundTitle": {
+    "message": "เสียง"
+  },
+  "resetBtn": {
+    "message": "รีเซ็ต"
+  },
+  "colorPickerTitle": {
+    "message": "เครื่องมือเลือกสี"
+  },
+  "darkModeTitle": {
+    "message": "โหมดมืด"
+  },
+  "rulerTitle": {
+    "message": "ไม้บรรทัดหน้าเว็บ"
+  },
+  "copyEnableTitle": {
+    "message": "คัดลอก"
+  },
+  "markerTitle": {
+    "message": "เครื่องหมายหน้าเว็บ"
+  },
+  "techTitle": {
+    "message": "เทคโนโลยีเว็บไซต์"
+  },
+  "cacheTitle": {
+    "message": "คุกกี้และแคช"
+  },
+  "fontTitle": {
+    "message": "เครื่องมือค้นหาฟอนต์"
+  },
+  "counterTitle": {
+    "message": "ตัวนับตัวอักษร"
+  },
+  "stopwatchTitle": {
+    "message": "นาฬิกาจับเวลา"
+  },
+  "notesTitle": {
+    "message": "บันทึกอัจฉริยะ"
+  },
+  "trackerTitle": {
+    "message": "ตัวติดตามเวลาเว็บ"
+  },
+  "ytDislikeTitle": {
+    "message": "กู้คืน YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "คุกกี้และแคช"
+  },
+  "blockCookiesLabel": {
+    "message": "บล็อกคุกกี้อัตโนมัติ"
+  },
+  "clearSiteDataBtn": {
+    "message": "ล้างข้อมูลทั้งหมดจากไซต์นี้"
+  },
+  "cancelBtn": {
+    "message": "ยกเลิก"
+  },
+  "counterModalTitle": {
+    "message": "ตัวนับตัวอักษร"
+  },
+  "counterPlaceholder": {
+    "message": "วางข้อความที่นี่..."
+  },
+  "charsLabel": {
+    "message": "ตัวอักษร"
+  },
+  "wordsLabel": {
+    "message": "คำ"
+  },
+  "stopwatchReady": {
+    "message": "พร้อม"
+  },
+  "startBtn": {
+    "message": "เริ่ม"
+  },
+  "lapBtn": {
+    "message": "รอบ"
+  },
+  "stopBtn": {
+    "message": "หยุด"
+  },
+  "currentRecordedLabel": {
+    "message": "บันทึกในปัจจุบัน"
+  },
+  "liveHistoryLabel": {
+    "message": "ประวัติสด"
+  },
+  "clearAllBtn": {
+    "message": "ล้างทั้งหมด"
+  },
+  "confirmClearHistory": {
+    "message": "คุณแน่ใจหรือไม่ว่าต้องการล้างประวัติทั้งหมด?"
+  },
+  "deleteBtn": {
+    "message": "ลบ"
+  },
+  "notesModalTitle": {
+    "message": "บันทึกอัจฉริยะ"
+  },
+  "clearNotesTooltip": {
+    "message": "ล้างบันทึกทั้งหมด"
+  },
+  "notesPlaceholder": {
+    "message": "เขียนบันทึกที่นี่..."
+  },
+  "grabTextTooltip": {
+    "message": "ดึงข้อความจากหน้าเว็บ"
+  },
+  "textLabel": {
+    "message": "ข้อความ"
+  },
+  "addUrlTooltip": {
+    "message": "เพิ่ม URL ปัจจุบัน"
+  },
+  "linkLabel": {
+    "message": "ลิงก์"
+  },
+  "addDateTooltip": {
+    "message": "เพิ่มวันที่ของวันนี้"
+  },
+  "dateLabel": {
+    "message": "วันที่"
+  },
+  "exportNotesTooltip": {
+    "message": "ส่งออกบันทึก"
+  },
+  "importNotesTooltip": {
+    "message": "นำเข้าบันทึก"
+  },
+  "savedIndicator": {
+    "message": "บันทึกแล้ว"
+  },
+  "confirmClearNotes": {
+    "message": "คุณแน่ใจหรือไม่ว่าต้องการล้างบันทึกทั้งหมด?"
+  },
+  "trackerModalTitle": {
+    "message": "ตัวติดตามเวลาเว็บ"
+  },
+  "exportTooltip": {
+    "message": "ส่งออกข้อมูล"
+  },
+  "importTooltip": {
+    "message": "นำเข้าข้อมูล"
+  },
+  "trackerModeDay": {
+    "message": "มุมมองรายวัน"
+  },
+  "trackerModeMonth": {
+    "message": "มุมมองรายเดือน"
+  },
+  "trackerModeAll": {
+    "message": "ตลอดเวลา"
+  },
+  "trackerTodayLabel": {
+    "message": "วันนี้"
+  },
+  "trackerMonthLabel": {
+    "message": "เดือนนี้"
+  },
+  "trackerAvgLabel": {
+    "message": "เฉลี่ย"
+  },
+  "techModalTitle": {
+    "message": "เทคโนโลยีเว็บไซต์"
+  },
+  "techLoadingMsg": {
+    "message": "สแกนเนอร์กำลังวิเคราะห์ไซต์..."
+  },
+  "uiSettings": {
+    "message": "การตั้งค่า"
+  },
+  "supportTitle": {
+    "message": "สนับสนุนส่วนขยาย"
+  },
+  "supportDesc": {
+    "message": "All In One เป็นเครื่องมือฟรีโดยสมบูรณ์ การสนับสนุนของคุณช่วยให้ฟรีต่อไปและเปิดใช้งานการพัฒนาคุณสมบัติใหม่ๆ"
+  },
+  "donateBtn": {
+    "message": "บริจาคและสนับสนุน"
+  },
+  "websiteBtn": {
+    "message": "เว็บไซต์อย่างเป็นทางการ"
+  },
+  "rateBtn": {
+    "message": "ให้คะแนนส่วนขยาย"
+  },
+  "versionLabel": {
+    "message": "เวอร์ชัน:"
+  },
+  "privacyLabel": {
+    "message": "นโยบายความเป็นส่วนตัว"
+  },
+  "systemPageTitle": {
+    "message": "หน้าเว็บระบบ"
+  },
+  "systemPageDesc": {
+    "message": "เครื่องมือแก้ไขถูกปิดใช้งาน"
+  },
+  "radioPlay": {
+    "message": "เล่น"
+  },
+  "radioPause": {
+    "message": "หยุด"
+  },
+  "colorPickerPicking": {
+    "message": "กำลังเลือก..."
+  },
+  "colorPickerCopied": {
+    "message": "คัดลอกแล้ว: "
+  },
+  "cacheNotSupported": {
+    "message": "ไม่รองรับ"
+  },
+  "cacheClearConfirm": {
+    "message": "ล้างข้อมูลทั้งหมดจากไซต์นี้"
+  },
+  "cacheError": {
+    "message": "ข้อผิดพลาด"
+  },
+  "cacheClearing": {
+    "message": "กำลังล้าง..."
+  },
+  "cacheCleared": {
+    "message": "ล้างแล้ว!"
+  },
+  "fontCopied": {
+    "message": "คัดลอกแล้ว!"
+  },
+  "fontNotCopied": {
+    "message": "ไม่ได้คัดลอก"
+  },
+  "notesSaved": {
+    "message": "บันทึกแล้ว"
+  },
+  "notesTooLarge": {
+    "message": "บันทึกใหญ่เกินไป"
+  },
+  "notesLinkText": {
+    "message": "ลิงก์"
+  },
+  "trackerToday": {
+    "message": "วันนี้"
+  },
+  "trackerThatDay": {
+    "message": "วันนั้น"
+  },
+  "trackerSelectedMonth": {
+    "message": "เดือนที่เลือก"
+  },
+  "trackerTotal": {
+    "message": "รวม"
+  },
+  "trackerNoData": {
+    "message": "ไม่มีข้อมูลสำหรับช่วงเวลานี้"
+  },
+  "trackerExportEmpty": {
+    "message": "ไม่มีข้อมูลตัวติดตามให้ส่งออก"
+  },
+  "trackerExportTruncated": {
+    "message": "การส่งออกถูกตัดทอนเหลือ 10MB เพื่อรักษาความเสถียร"
+  },
+  "trackerImportEmpty": {
+    "message": "ไม่มีข้อมูลที่ถูกต้องในการนำเข้า"
+  },
+  "trackerImportSuccess": {
+    "message": "นำเข้าข้อมูลสำเร็จแล้ว!"
+  },
+  "trackerImportError": {
+    "message": "เกิดข้อผิดพลาดในการอ่านไฟล์"
+  },
+  "swStatusLive": {
+    "message": "กำลังดำเนินการสด"
+  },
+  "swStatusReady": {
+    "message": "พร้อม"
+  },
+  "swUndoTitle": {
+    "message": "ลบช่วงเวลานี้"
+  },
+  "swNoLaps": {
+    "message": "ไม่มีช่วงเวลาที่บันทึกไว้"
+  },
+  "swLiveTitlePrefix": {
+    "message": "สด #"
+  },
+  "swDurationLabel": {
+    "message": "ระยะเวลา: "
+  },
+  "swMomentLabel": {
+    "message": "ช่วงเวลา "
+  },
+  "swExportTxtBtn": {
+    "message": "ส่งออกเป็น .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "ระยะเวลารวม: "
+  },
+  "swCopyBtn": {
+    "message": "คัดลอกไปยังคลิปบอร์ด"
+  },
+  "swCopiedBtn": {
+    "message": "✓ คัดลอกแล้ว"
+  },
+  "swNoHistory": {
+    "message": "ไม่มีประวัติสด"
+  },
+  "techScannerUnavailable": {
+    "message": "สแกนเนอร์ไม่สามารถใช้ได้ในหน้านี้"
+  },
+  "techFoundPrefix": {
+    "message": "พบ: "
+  },
+  "techItemsSuffix": {
+    "message": "รายการ"
+  },
+  "techNotFound": {
+    "message": "ไม่พบ"
+  },
+  "techScannerFailed": {
+    "message": "การสแกนล้มเหลวในหน้านี้"
+  },
+  "markerDrawTooltip": {
+    "message": "วาด"
+  },
+  "markerLineTooltip": {
+    "message": "เส้น"
+  },
+  "markerTextTooltip": {
+    "message": "ข้อความ"
+  },
+  "markerMoveTooltip": {
+    "message": "ย้าย"
+  },
+  "markerEraseTooltip": {
+    "message": "ลบ"
+  },
+  "markerClearAllTooltip": {
+    "message": "ล้างทั้งหมด"
+  },
+  "markerThicknessTooltip": {
+    "message": "ความหนา"
+  },
+  "markerCloseTooltip": {
+    "message": "ปิด"
+  },
+  "linesLabel": {
+    "message": "บรรทัด"
+  },
+  "clearCounterTooltip": {
+    "message": "ล้างทั้งหมด"
+  },
+  "confirmClearCounter": {
+    "message": "คุณแน่ใจหรือว่าต้องการล้างทั้งหมด?"
+  }
+}

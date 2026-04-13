@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - 顶级生产力工具"
+  },
+  "extDesc": {
+    "message": "终极工具，在快速、现代且免费的界面中集成了所有基本功能。"
+  },
+  "markLapDesc": {
+    "message": "在秒表上记录一个时刻"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "扩展程序的官方网站"
+  },
+  "settingsTooltip": {
+    "message": "设置"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "由 All In One 扩展程序提供支持"
+  },
+  "playBtn": {
+    "message": "播放"
+  },
+  "soundTitle": {
+    "message": "声音"
+  },
+  "resetBtn": {
+    "message": "重置"
+  },
+  "colorPickerTitle": {
+    "message": "取色器"
+  },
+  "darkModeTitle": {
+    "message": "深色模式"
+  },
+  "rulerTitle": {
+    "message": "标尺"
+  },
+  "copyEnableTitle": {
+    "message": "开启复制"
+  },
+  "markerTitle": {
+    "message": "标记"
+  },
+  "techTitle": {
+    "message": "技术"
+  },
+  "cacheTitle": {
+    "message": "缓存"
+  },
+  "fontTitle": {
+    "message": "字体"
+  },
+  "counterTitle": {
+    "message": "计数器"
+  },
+  "stopwatchTitle": {
+    "message": "秒表"
+  },
+  "notesTitle": {
+    "message": "笔记"
+  },
+  "trackerTitle": {
+    "message": "追踪器"
+  },
+  "ytDislikeTitle": {
+    "message": "Return YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "缓存"
+  },
+  "blockCookiesLabel": {
+    "message": "自动拦截"
+  },
+  "clearSiteDataBtn": {
+    "message": "清除数据"
+  },
+  "cancelBtn": {
+    "message": "取消"
+  },
+  "counterModalTitle": {
+    "message": "计数器"
+  },
+  "counterPlaceholder": {
+    "message": "粘贴此处"
+  },
+  "charsLabel": {
+    "message": "字符"
+  },
+  "wordsLabel": {
+    "message": "字数"
+  },
+  "stopwatchReady": {
+    "message": "就绪"
+  },
+  "startBtn": {
+    "message": "开始"
+  },
+  "lapBtn": {
+    "message": "计圈"
+  },
+  "stopBtn": {
+    "message": "停止"
+  },
+  "currentRecordedLabel": {
+    "message": "当前记录"
+  },
+  "liveHistoryLabel": {
+    "message": "历史"
+  },
+  "clearAllBtn": {
+    "message": "清空"
+  },
+  "confirmClearHistory": {
+    "message": "删除历史？"
+  },
+  "deleteBtn": {
+    "message": "删除"
+  },
+  "notesModalTitle": {
+    "message": "笔记"
+  },
+  "clearNotesTooltip": {
+    "message": "清除笔记"
+  },
+  "notesPlaceholder": {
+    "message": "在此写作"
+  },
+  "grabTextTooltip": {
+    "message": "提取文本"
+  },
+  "textLabel": {
+    "message": "文本"
+  },
+  "addUrlTooltip": {
+    "message": "添加链接"
+  },
+  "linkLabel": {
+    "message": "链接"
+  },
+  "addDateTooltip": {
+    "message": "添加日期"
+  },
+  "dateLabel": {
+    "message": "日期"
+  },
+  "exportNotesTooltip": {
+    "message": "导出"
+  },
+  "importNotesTooltip": {
+    "message": "导入"
+  },
+  "savedIndicator": {
+    "message": "已保存"
+  },
+  "confirmClearNotes": {
+    "message": "删除所有？"
+  },
+  "trackerModalTitle": {
+    "message": "追踪器"
+  },
+  "exportTooltip": {
+    "message": "导出"
+  },
+  "importTooltip": {
+    "message": "导入"
+  },
+  "trackerModeDay": {
+    "message": "日视图"
+  },
+  "trackerModeMonth": {
+    "message": "月视图"
+  },
+  "trackerModeAll": {
+    "message": "总览"
+  },
+  "trackerTodayLabel": {
+    "message": "今天"
+  },
+  "trackerMonthLabel": {
+    "message": "本月"
+  },
+  "trackerAvgLabel": {
+    "message": "平均"
+  },
+  "techModalTitle": {
+    "message": "技术"
+  },
+  "techLoadingMsg": {
+    "message": "正在扫描"
+  },
+  "uiSettings": {
+    "message": "设置"
+  },
+  "supportTitle": {
+    "message": "支持"
+  },
+  "supportDesc": {
+    "message": "免费服务。"
+  },
+  "donateBtn": {
+    "message": "赞助支持"
+  },
+  "websiteBtn": {
+    "message": "官网"
+  },
+  "rateBtn": {
+    "message": "评分"
+  },
+  "versionLabel": {
+    "message": "版本："
+  },
+  "privacyLabel": {
+    "message": "隐私"
+  },
+  "systemPageTitle": {
+    "message": "系统"
+  },
+  "systemPageDesc": {
+    "message": "已禁用"
+  },
+  "radioPlay": {
+    "message": "播放"
+  },
+  "radioPause": {
+    "message": "暂停"
+  },
+  "colorPickerPicking": {
+    "message": "选取中"
+  },
+  "colorPickerCopied": {
+    "message": "已复制："
+  },
+  "cacheNotSupported": {
+    "message": "不支持"
+  },
+  "cacheClearConfirm": {
+    "message": "删除数据"
+  },
+  "cacheError": {
+    "message": "错误"
+  },
+  "cacheClearing": {
+    "message": "清理中"
+  },
+  "cacheCleared": {
+    "message": "已清理"
+  },
+  "fontCopied": {
+    "message": "已复制"
+  },
+  "fontNotCopied": {
+    "message": "失败"
+  },
+  "notesSaved": {
+    "message": "保存成功"
+  },
+  "notesTooLarge": {
+    "message": "容量超限"
+  },
+  "notesLinkText": {
+    "message": "链接"
+  },
+  "trackerToday": {
+    "message": "今天"
+  },
+  "trackerThatDay": {
+    "message": "当日"
+  },
+  "trackerSelectedMonth": {
+    "message": "选中月"
+  },
+  "trackerTotal": {
+    "message": "共计"
+  },
+  "trackerNoData": {
+    "message": "暂无数据"
+  },
+  "trackerExportEmpty": {
+    "message": "无数据"
+  },
+  "trackerExportTruncated": {
+    "message": "限额10MB"
+  },
+  "trackerImportEmpty": {
+    "message": "无效数据"
+  },
+  "trackerImportSuccess": {
+    "message": "导入成功"
+  },
+  "trackerImportError": {
+    "message": "读取失败"
+  },
+  "swStatusLive": {
+    "message": "运行中"
+  },
+  "swStatusReady": {
+    "message": "就绪"
+  },
+  "swUndoTitle": {
+    "message": "撤销"
+  },
+  "swNoLaps": {
+    "message": "无记录"
+  },
+  "swLiveTitlePrefix": {
+    "message": "实时 #"
+  },
+  "swDurationLabel": {
+    "message": "耗时："
+  },
+  "swMomentLabel": {
+    "message": "时刻"
+  },
+  "swExportTxtBtn": {
+    "message": "导出TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "累计："
+  },
+  "swCopyBtn": {
+    "message": "复制"
+  },
+  "swCopiedBtn": {
+    "message": "✓ 已复制"
+  },
+  "swNoHistory": {
+    "message": "无历史"
+  },
+  "techScannerUnavailable": {
+    "message": "不可用"
+  },
+  "techFoundPrefix": {
+    "message": "检出："
+  },
+  "techItemsSuffix": {
+    "message": "项"
+  },
+  "techNotFound": {
+    "message": "未发现"
+  },
+  "techScannerFailed": {
+    "message": "扫描失败"
+  },
+  "markerDrawTooltip": {
+    "message": "画笔"
+  },
+  "markerLineTooltip": {
+    "message": "直线"
+  },
+  "markerTextTooltip": {
+    "message": "文字"
+  },
+  "markerMoveTooltip": {
+    "message": "移动"
+  },
+  "markerEraseTooltip": {
+    "message": "擦除"
+  },
+  "markerClearAllTooltip": {
+    "message": "全清"
+  },
+  "markerThicknessTooltip": {
+    "message": "粗细"
+  },
+  "markerCloseTooltip": {
+    "message": "关闭"
+  },
+  "linesLabel": {
+    "message": "行数"
+  },
+  "clearCounterTooltip": {
+    "message": "清除全部"
+  },
+  "confirmClearCounter": {
+    "message": "您确定要清除全部吗？"
+  }
+}

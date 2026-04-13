@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - أفضل أداة للإنتاجية"
+  },
+  "extDesc": {
+    "message": "الأداة النهائية التي تجمع كل الوظائف الأساسية في واجهة واحدة سريعة، حديثة ومجانية."
+  },
+  "markLapDesc": {
+    "message": "سجل لحظة على ساعة الإيقاف"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "الموقع الرسمي"
+  },
+  "settingsTooltip": {
+    "message": "الإعدادات"
+  },
+  "radioTitle": {
+    "message": "راديو IN"
+  },
+  "radioArtist": {
+    "message": "بدعم All In One"
+  },
+  "playBtn": {
+    "message": "تشغيل"
+  },
+  "soundTitle": {
+    "message": "الصوت"
+  },
+  "resetBtn": {
+    "message": "إعادة تعيين"
+  },
+  "colorPickerTitle": {
+    "message": "الألوان"
+  },
+  "darkModeTitle": {
+    "message": "الوضع الداكن"
+  },
+  "rulerTitle": {
+    "message": "مسطرة"
+  },
+  "copyEnableTitle": {
+    "message": "نسخ"
+  },
+  "markerTitle": {
+    "message": "علامة"
+  },
+  "techTitle": {
+    "message": "تقنيات"
+  },
+  "cacheTitle": {
+    "message": "كوكيز/كاش"
+  },
+  "fontTitle": {
+    "message": "الخطوط"
+  },
+  "counterTitle": {
+    "message": "عداد"
+  },
+  "stopwatchTitle": {
+    "message": "ساعة الإيقاف"
+  },
+  "notesTitle": {
+    "message": "ملاحظات"
+  },
+  "trackerTitle": {
+    "message": "وقت الويب"
+  },
+  "ytDislikeTitle": {
+    "message": "يوتيوب Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "كوكيز/كاش"
+  },
+  "blockCookiesLabel": {
+    "message": "حظر الكوكيز"
+  },
+  "clearSiteDataBtn": {
+    "message": "مسح الموقع"
+  },
+  "cancelBtn": {
+    "message": "إلغاء"
+  },
+  "counterModalTitle": {
+    "message": "عداد"
+  },
+  "counterPlaceholder": {
+    "message": "النص..."
+  },
+  "charsLabel": {
+    "message": "حروف"
+  },
+  "wordsLabel": {
+    "message": "كلمات"
+  },
+  "stopwatchReady": {
+    "message": "جاهز"
+  },
+  "startBtn": {
+    "message": "بدء"
+  },
+  "lapBtn": {
+    "message": "لفة"
+  },
+  "stopBtn": {
+    "message": "إيقاف"
+  },
+  "currentRecordedLabel": {
+    "message": "الحالي"
+  },
+  "liveHistoryLabel": {
+    "message": "التاريخ"
+  },
+  "clearAllBtn": {
+    "message": "مسح الكل"
+  },
+  "confirmClearHistory": {
+    "message": "مسح كل السجل؟"
+  },
+  "deleteBtn": {
+    "message": "حذف"
+  },
+  "notesModalTitle": {
+    "message": "ملاحظات"
+  },
+  "clearNotesTooltip": {
+    "message": "مسح الملاحظات"
+  },
+  "notesPlaceholder": {
+    "message": "ملاحظات..."
+  },
+  "grabTextTooltip": {
+    "message": "استخراج النص"
+  },
+  "textLabel": {
+    "message": "نص"
+  },
+  "addUrlTooltip": {
+    "message": "إضافة رابط"
+  },
+  "linkLabel": {
+    "message": "رابط"
+  },
+  "addDateTooltip": {
+    "message": "إضافة تاريخ"
+  },
+  "dateLabel": {
+    "message": "تاريخ"
+  },
+  "exportNotesTooltip": {
+    "message": "تصدير"
+  },
+  "importNotesTooltip": {
+    "message": "استيراد"
+  },
+  "savedIndicator": {
+    "message": "تم الحفظ"
+  },
+  "confirmClearNotes": {
+    "message": "مسح كل الملاحظات؟"
+  },
+  "trackerModalTitle": {
+    "message": "وقت الويب"
+  },
+  "exportTooltip": {
+    "message": "تصدير البيانات"
+  },
+  "importTooltip": {
+    "message": "استيراد البيانات"
+  },
+  "trackerModeDay": {
+    "message": "عرض يومي"
+  },
+  "trackerModeMonth": {
+    "message": "عرض شهري"
+  },
+  "trackerModeAll": {
+    "message": "الكل"
+  },
+  "trackerTodayLabel": {
+    "message": "اليوم"
+  },
+  "trackerMonthLabel": {
+    "message": "هذا الشهر"
+  },
+  "trackerAvgLabel": {
+    "message": "متوسط"
+  },
+  "techModalTitle": {
+    "message": "تقنيات"
+  },
+  "techLoadingMsg": {
+    "message": "تحليل الموقع..."
+  },
+  "uiSettings": {
+    "message": "الإعدادات"
+  },
+  "supportTitle": {
+    "message": "دعم الإضافة"
+  },
+  "supportDesc": {
+    "message": "All In One مجانية. دعمك يضيف ميزات جديدة."
+  },
+  "donateBtn": {
+    "message": "تبرع وادعم"
+  },
+  "websiteBtn": {
+    "message": "الموقع الرسمي"
+  },
+  "rateBtn": {
+    "message": "تقييم الإضافة"
+  },
+  "versionLabel": {
+    "message": "الإصدار:"
+  },
+  "privacyLabel": {
+    "message": "الخصوصية"
+  },
+  "systemPageTitle": {
+    "message": "النظام"
+  },
+  "systemPageDesc": {
+    "message": "الأدوات معطلة"
+  },
+  "radioPlay": {
+    "message": "تشغيل"
+  },
+  "radioPause": {
+    "message": "إيقاف مؤقت"
+  },
+  "colorPickerPicking": {
+    "message": "تحديد..."
+  },
+  "colorPickerCopied": {
+    "message": "تم النسخ: "
+  },
+  "cacheNotSupported": {
+    "message": "غير مدعوم"
+  },
+  "cacheClearConfirm": {
+    "message": "مسح جميع البيانات من هذا الموقع"
+  },
+  "cacheError": {
+    "message": "خطأ"
+  },
+  "cacheClearing": {
+    "message": "جارِ المسح..."
+  },
+  "cacheCleared": {
+    "message": "تم المسح!"
+  },
+  "fontCopied": {
+    "message": "تم النسخ!"
+  },
+  "fontNotCopied": {
+    "message": "لم يتم النسخ"
+  },
+  "notesSaved": {
+    "message": "تم الحفظ"
+  },
+  "notesTooLarge": {
+    "message": "الملاحظة كبيرة جدًا"
+  },
+  "notesLinkText": {
+    "message": "رابط"
+  },
+  "trackerToday": {
+    "message": "اليوم"
+  },
+  "trackerThatDay": {
+    "message": "ذلك اليوم"
+  },
+  "trackerSelectedMonth": {
+    "message": "الشهر المحدد"
+  },
+  "trackerTotal": {
+    "message": "المجموع"
+  },
+  "trackerNoData": {
+    "message": "لا توجد بيانات لهذه الفترة"
+  },
+  "trackerExportEmpty": {
+    "message": "لا توجد بيانات متتبع لتصديرها."
+  },
+  "trackerExportTruncated": {
+    "message": "تم تقليص التصدير إلى 10 ميغابايت للحفاظ على استقرار النافذة المنبثقة."
+  },
+  "trackerImportEmpty": {
+    "message": "لا توجد بيانات متتبع صالحة لاستيرادها."
+  },
+  "trackerImportSuccess": {
+    "message": "تم استيراد البيانات بنجاح!"
+  },
+  "trackerImportError": {
+    "message": "خطأ في قراءة الملف."
+  },
+  "swStatusLive": {
+    "message": "بث مباشر قيد التقدم"
+  },
+  "swStatusReady": {
+    "message": "جاهز"
+  },
+  "swUndoTitle": {
+    "message": "احذف هذه اللحظة"
+  },
+  "swNoLaps": {
+    "message": "لا توجد لحظات مسجلة"
+  },
+  "swLiveTitlePrefix": {
+    "message": "مباشر #"
+  },
+  "swDurationLabel": {
+    "message": "المدة: "
+  },
+  "swMomentLabel": {
+    "message": "لحظة "
+  },
+  "swExportTxtBtn": {
+    "message": "تصدير كـ .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "المدة الإجمالية: "
+  },
+  "swCopyBtn": {
+    "message": "نسخ إلى الحافظة"
+  },
+  "swCopiedBtn": {
+    "message": "✓ تم النسخ"
+  },
+  "swNoHistory": {
+    "message": "لا يوجد سجل مباشر"
+  },
+  "techScannerUnavailable": {
+    "message": "الماسح غير متاح في هذه الصفحة."
+  },
+  "techFoundPrefix": {
+    "message": "تم العثور على: "
+  },
+  "techItemsSuffix": {
+    "message": "عناصر"
+  },
+  "techNotFound": {
+    "message": "غير موجود."
+  },
+  "techScannerFailed": {
+    "message": "فشل المسح في هذه الصفحة."
+  },
+  "markerDrawTooltip": {
+    "message": "رسم"
+  },
+  "markerLineTooltip": {
+    "message": "خط"
+  },
+  "markerTextTooltip": {
+    "message": "نص"
+  },
+  "markerMoveTooltip": {
+    "message": "تحريك"
+  },
+  "markerEraseTooltip": {
+    "message": "مسح"
+  },
+  "markerClearAllTooltip": {
+    "message": "مسح الكل"
+  },
+  "markerThicknessTooltip": {
+    "message": "السُمك"
+  },
+  "markerCloseTooltip": {
+    "message": "إغلاق"
+  },
+  "linesLabel": {
+    "message": "أسطر"
+  },
+  "clearCounterTooltip": {
+    "message": "مسح الكل"
+  },
+  "confirmClearCounter": {
+    "message": "هل أنت متأكد أنك تريد مسح الكل؟"
+  }
+}

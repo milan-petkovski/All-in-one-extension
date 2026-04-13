@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - 최고의 생산성 도구"
+  },
+  "extDesc": {
+    "message": "모든 필수 기능을 빠르고 현대적인 무료 인터페이스로 결합한 궁극의 도구입니다."
+  },
+  "markLapDesc": {
+    "message": "스톱워치에서 순간을 기록하세요"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "확장 프로그램 공식 사이트"
+  },
+  "settingsTooltip": {
+    "message": "설정"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "All In One 제공"
+  },
+  "playBtn": {
+    "message": "재생"
+  },
+  "soundTitle": {
+    "message": "사운드"
+  },
+  "resetBtn": {
+    "message": "초기화"
+  },
+  "colorPickerTitle": {
+    "message": "컬러 피커"
+  },
+  "darkModeTitle": {
+    "message": "다크 모드"
+  },
+  "rulerTitle": {
+    "message": "페이지 루러"
+  },
+  "copyEnableTitle": {
+    "message": "복사 활성화"
+  },
+  "markerTitle": {
+    "message": "페이지 마커"
+  },
+  "techTitle": {
+    "message": "사용 기술"
+  },
+  "cacheTitle": {
+    "message": "쿠키 및 캐시"
+  },
+  "fontTitle": {
+    "message": "폰트 파인더"
+  },
+  "counterTitle": {
+    "message": "글자수 카운터"
+  },
+  "stopwatchTitle": {
+    "message": "스톱워치"
+  },
+  "notesTitle": {
+    "message": "스마트 메모"
+  },
+  "trackerTitle": {
+    "message": "Webtime Tracker"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube 싫어요 표시"
+  },
+  "cacheModalTitle": {
+    "message": "쿠키 및 캐시"
+  },
+  "blockCookiesLabel": {
+    "message": "쿠키 자동 차단"
+  },
+  "clearSiteDataBtn": {
+    "message": "이 사이트의 모든 데이터 삭제"
+  },
+  "cancelBtn": {
+    "message": "취소"
+  },
+  "counterModalTitle": {
+    "message": "글자수 카운터"
+  },
+  "counterPlaceholder": {
+    "message": "여기에 텍스트 붙여넣기..."
+  },
+  "charsLabel": {
+    "message": "자수"
+  },
+  "wordsLabel": {
+    "message": "단어"
+  },
+  "stopwatchReady": {
+    "message": "준비됨"
+  },
+  "startBtn": {
+    "message": "시작"
+  },
+  "lapBtn": {
+    "message": "랩"
+  },
+  "stopBtn": {
+    "message": "중지"
+  },
+  "currentRecordedLabel": {
+    "message": "현재 기록"
+  },
+  "liveHistoryLabel": {
+    "message": "라이브 기록"
+  },
+  "clearAllBtn": {
+    "message": "모두 삭제"
+  },
+  "confirmClearHistory": {
+    "message": "모든 기록을 삭제하시겠습니까?"
+  },
+  "deleteBtn": {
+    "message": "삭제"
+  },
+  "notesModalTitle": {
+    "message": "스마트 메모"
+  },
+  "clearNotesTooltip": {
+    "message": "모든 메모 삭제"
+  },
+  "notesPlaceholder": {
+    "message": "여기에 메모 작성..."
+  },
+  "grabTextTooltip": {
+    "message": "페이지에서 텍스트 추출"
+  },
+  "textLabel": {
+    "message": "텍스트"
+  },
+  "addUrlTooltip": {
+    "message": "현재 페이지 URL 추가"
+  },
+  "linkLabel": {
+    "message": "링크"
+  },
+  "addDateTooltip": {
+    "message": "오늘 날짜 추가"
+  },
+  "dateLabel": {
+    "message": "날짜"
+  },
+  "exportNotesTooltip": {
+    "message": "메모 내보내기"
+  },
+  "importNotesTooltip": {
+    "message": "메모 가져오기"
+  },
+  "savedIndicator": {
+    "message": "저장됨"
+  },
+  "confirmClearNotes": {
+    "message": "모든 메모를 삭제하시겠습니까?"
+  },
+  "trackerModalTitle": {
+    "message": "WEBTIME TRACKER"
+  },
+  "exportTooltip": {
+    "message": "데이터 내보내기"
+  },
+  "importTooltip": {
+    "message": "데이터 가져오기"
+  },
+  "trackerModeDay": {
+    "message": "일별 보기"
+  },
+  "trackerModeMonth": {
+    "message": "월별 보기"
+  },
+  "trackerModeAll": {
+    "message": "전체 기간"
+  },
+  "trackerTodayLabel": {
+    "message": "오늘"
+  },
+  "trackerMonthLabel": {
+    "message": "이번 달"
+  },
+  "trackerAvgLabel": {
+    "message": "평균"
+  },
+  "techModalTitle": {
+    "message": "사용 기술"
+  },
+  "techLoadingMsg": {
+    "message": "사이트 분석 중..."
+  },
+  "uiSettings": {
+    "message": "설정"
+  },
+  "supportTitle": {
+    "message": "확장 프로그램 후원"
+  },
+  "supportDesc": {
+    "message": "All In One은 완전 무료 도구입니다. 여러분의 후원은 지속적인 서비스 운영과 새로운 기능 개발에 큰 힘이 됩니다."
+  },
+  "donateBtn": {
+    "message": "후원하기"
+  },
+  "websiteBtn": {
+    "message": "공식 웹사이트"
+  },
+  "rateBtn": {
+    "message": "리뷰 남기기"
+  },
+  "versionLabel": {
+    "message": "버전:"
+  },
+  "privacyLabel": {
+    "message": "개인정보 처리방침"
+  },
+  "systemPageTitle": {
+    "message": "시스템 페이지"
+  },
+  "systemPageDesc": {
+    "message": "수정 도구가 비활성화되었습니다"
+  },
+  "radioPlay": {
+    "message": "재생"
+  },
+  "radioPause": {
+    "message": "정지"
+  },
+  "colorPickerPicking": {
+    "message": "선택 중..."
+  },
+  "colorPickerCopied": {
+    "message": "복사됨: "
+  },
+  "cacheNotSupported": {
+    "message": "지원되지 않음"
+  },
+  "cacheClearConfirm": {
+    "message": "이 사이트의 모든 데이터 삭제"
+  },
+  "cacheError": {
+    "message": "오류"
+  },
+  "cacheClearing": {
+    "message": "삭제 중..."
+  },
+  "cacheCleared": {
+    "message": "삭제 완료!"
+  },
+  "fontCopied": {
+    "message": "복사 완료!"
+  },
+  "fontNotCopied": {
+    "message": "복사 실패"
+  },
+  "notesSaved": {
+    "message": "저장됨"
+  },
+  "notesTooLarge": {
+    "message": "메모 용량 초과"
+  },
+  "notesLinkText": {
+    "message": "링크"
+  },
+  "trackerToday": {
+    "message": "오늘"
+  },
+  "trackerThatDay": {
+    "message": "해당 날짜"
+  },
+  "trackerSelectedMonth": {
+    "message": "선택된 월"
+  },
+  "trackerTotal": {
+    "message": "합계"
+  },
+  "trackerNoData": {
+    "message": "이 기간에 대한 데이터가 없습니다"
+  },
+  "trackerExportEmpty": {
+    "message": "내보낼 트래커 데이터가 없습니다."
+  },
+  "trackerExportTruncated": {
+    "message": "안정성을 위해 내보내기 용량을 10MB로 제한했습니다."
+  },
+  "trackerImportEmpty": {
+    "message": "가져올 유효한 트래커 데이터가 없습니다."
+  },
+  "trackerImportSuccess": {
+    "message": "데이터를 성공적으로 가져왔습니다!"
+  },
+  "trackerImportError": {
+    "message": "파일을 읽는 중 오류가 발생했습니다."
+  },
+  "swStatusLive": {
+    "message": "라이브 중"
+  },
+  "swStatusReady": {
+    "message": "준비됨"
+  },
+  "swUndoTitle": {
+    "message": "기록 삭제"
+  },
+  "swNoLaps": {
+    "message": "기록된 순간이 없습니다"
+  },
+  "swLiveTitlePrefix": {
+    "message": "라이브 #"
+  },
+  "swDurationLabel": {
+    "message": "소요 시간: "
+  },
+  "swMomentLabel": {
+    "message": "기록 시점 "
+  },
+  "swExportTxtBtn": {
+    "message": ".TXT로 내보내기"
+  },
+  "swTotalDurationPrefix": {
+    "message": "총 소요 시간: "
+  },
+  "swCopyBtn": {
+    "message": "클립보드에 복사"
+  },
+  "swCopiedBtn": {
+    "message": "✓ 복사됨"
+  },
+  "swNoHistory": {
+    "message": "라이브 기록이 없습니다"
+  },
+  "techScannerUnavailable": {
+    "message": "이 페이지에서는 스캐너를 사용할 수 없습니다."
+  },
+  "techFoundPrefix": {
+    "message": "검색 결과: "
+  },
+  "techItemsSuffix": {
+    "message": "개"
+  },
+  "techNotFound": {
+    "message": "발견된 항목이 없습니다."
+  },
+  "techScannerFailed": {
+    "message": "페이지 스캔에 실패했습니다."
+  },
+  "markerDrawTooltip": {
+    "message": "그리기"
+  },
+  "markerLineTooltip": {
+    "message": "직선"
+  },
+  "markerTextTooltip": {
+    "message": "텍스트"
+  },
+  "markerMoveTooltip": {
+    "message": "이동"
+  },
+  "markerEraseTooltip": {
+    "message": "지우개"
+  },
+  "markerClearAllTooltip": {
+    "message": "모두 지우기"
+  },
+  "markerThicknessTooltip": {
+    "message": "두께"
+  },
+  "markerCloseTooltip": {
+    "message": "닫기"
+  },
+  "linesLabel": {
+    "message": "줄 수"
+  },
+  "clearCounterTooltip": {
+    "message": "모두 지우기"
+  },
+  "confirmClearCounter": {
+    "message": "정말 모두 지우시겠습니까?"
+  }
+}

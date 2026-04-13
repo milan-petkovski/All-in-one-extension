@@ -69,7 +69,6 @@ function playTone(ctx, cfg) {
 }
 
 function playSuccessSound(ctx, now) {
-  // Standard app-style success chime.
   playTone(ctx, {
     type: 'triangle',
     fromHz: 880,
@@ -94,7 +93,6 @@ function playSuccessSound(ctx, now) {
 }
 
 function playErrorSound(ctx, now) {
-  // Single "dun" failure cue.
   playTone(ctx, {
     type: 'triangle',
     fromHz: 240,
@@ -107,7 +105,6 @@ function playErrorSound(ctx, now) {
   });
 }
 
-// Presretni komande sa tastature i prosledi ih background-u
 if ('mediaSession' in navigator) {
   navigator.mediaSession.setActionHandler('play', () => {
     safeRuntimeSendMessage({ action: "hardwarePlay" });
@@ -128,8 +125,9 @@ chrome.runtime.onMessage.addListener((request) => {
 
     if ('mediaSession' in navigator) {
       navigator.mediaSession.metadata = new MediaMetadata({
-        title: 'Radio IN',
-        artist: 'Pokrece All In One ekstenzija'
+        // Koristimo poslate prevode jer chrome.i18n ovde ume da zakaze
+        title: request.title || 'Radio IN',
+        artist: request.artist || 'Pokreće All In One ekstenzija'
       });
     }
   } else if (action === "pause") {
@@ -147,9 +145,7 @@ chrome.runtime.onMessage.addListener((request) => {
 
       if (request.soundType === "success") {
         playSuccessSound(ctx, now);
-      }
-
-      else if (request.soundType === "error") {
+      } else if (request.soundType === "error") {
         playErrorSound(ctx, now);
       }
     } catch (err) {

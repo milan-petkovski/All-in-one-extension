@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - De beste productiviteitstool"
+  },
+  "extDesc": {
+    "message": "De ultieme tool die alle essentiële functies combineert in een snelle, moderne en gratis interface."
+  },
+  "markLapDesc": {
+    "message": "Leg een moment vast op de stopwatch"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "Officiële website"
+  },
+  "settingsTooltip": {
+    "message": "Instellingen"
+  },
+  "radioTitle": {
+    "message": "Radio IN"
+  },
+  "radioArtist": {
+    "message": "Aangedreven door de All In One extensie"
+  },
+  "playBtn": {
+    "message": "Afspelen"
+  },
+  "soundTitle": {
+    "message": "Geluid"
+  },
+  "resetBtn": {
+    "message": "Resetten"
+  },
+  "colorPickerTitle": {
+    "message": "Kleurkiezer"
+  },
+  "darkModeTitle": {
+    "message": "Donker"
+  },
+  "rulerTitle": {
+    "message": "Pagina Liniaal"
+  },
+  "copyEnableTitle": {
+    "message": "Kopiën"
+  },
+  "markerTitle": {
+    "message": "Markeerder"
+  },
+  "techTitle": {
+    "message": "Technologieën"
+  },
+  "cacheTitle": {
+    "message": "Cookies/Cache"
+  },
+  "fontTitle": {
+    "message": "Lettertype"
+  },
+  "counterTitle": {
+    "message": "Teller"
+  },
+  "stopwatchTitle": {
+    "message": "Stopwatch"
+  },
+  "notesTitle": {
+    "message": "Notities"
+  },
+  "trackerTitle": {
+    "message": "Tijd Tracker"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube Dislike"
+  },
+  "cacheModalTitle": {
+    "message": "COOKIES EN CACHE"
+  },
+  "blockCookiesLabel": {
+    "message": "Cookies automatisch blokkeren"
+  },
+  "clearSiteDataBtn": {
+    "message": "Wis alle gegevens van deze site"
+  },
+  "cancelBtn": {
+    "message": "ANNULEREN"
+  },
+  "counterModalTitle": {
+    "message": "TEKENTELLER"
+  },
+  "counterPlaceholder": {
+    "message": "Plak hier tekst..."
+  },
+  "charsLabel": {
+    "message": "Tekens"
+  },
+  "wordsLabel": {
+    "message": "Woorden"
+  },
+  "stopwatchReady": {
+    "message": "KLAAR"
+  },
+  "startBtn": {
+    "message": "STARTEN"
+  },
+  "lapBtn": {
+    "message": "RONDE"
+  },
+  "stopBtn": {
+    "message": "STOPPEN"
+  },
+  "currentRecordedLabel": {
+    "message": "MOMENTEEL OPGENOMEN"
+  },
+  "liveHistoryLabel": {
+    "message": "LIVE GESCHIEDENIS"
+  },
+  "clearAllBtn": {
+    "message": "ALLES WISSEN"
+  },
+  "confirmClearHistory": {
+    "message": "Weet je zeker dat je de hele geschiedenis wilt wissen?"
+  },
+  "deleteBtn": {
+    "message": "VERWIJDEREN"
+  },
+  "notesModalTitle": {
+    "message": "SLIMME NOTITIES"
+  },
+  "clearNotesTooltip": {
+    "message": "Wis alle notities"
+  },
+  "notesPlaceholder": {
+    "message": "Schrijf hier notities..."
+  },
+  "grabTextTooltip": {
+    "message": "Tekst van pagina extraheren"
+  },
+  "textLabel": {
+    "message": "Tekst"
+  },
+  "addUrlTooltip": {
+    "message": "Huidige URL toevoegen"
+  },
+  "linkLabel": {
+    "message": "Link"
+  },
+  "addDateTooltip": {
+    "message": "Datum van vandaag toevoegen"
+  },
+  "dateLabel": {
+    "message": "Datum"
+  },
+  "exportNotesTooltip": {
+    "message": "Notities exporteren"
+  },
+  "importNotesTooltip": {
+    "message": "Notities importeren"
+  },
+  "savedIndicator": {
+    "message": "Opgeslagen"
+  },
+  "confirmClearNotes": {
+    "message": "Weet je zeker dat je alle notities wilt wissen?"
+  },
+  "trackerModalTitle": {
+    "message": "WEBTIJD TRACKER"
+  },
+  "exportTooltip": {
+    "message": "Gegevens exporteren"
+  },
+  "importTooltip": {
+    "message": "Gegevens importeren"
+  },
+  "trackerModeDay": {
+    "message": "Dagelijkse weergave"
+  },
+  "trackerModeMonth": {
+    "message": "Maandelijkse weergave"
+  },
+  "trackerModeAll": {
+    "message": "Alle tijd"
+  },
+  "trackerTodayLabel": {
+    "message": "Vandaag"
+  },
+  "trackerMonthLabel": {
+    "message": "Deze maand"
+  },
+  "trackerAvgLabel": {
+    "message": "Gemiddelde"
+  },
+  "techModalTitle": {
+    "message": "SITETECHNOLOGIEËN"
+  },
+  "techLoadingMsg": {
+    "message": "Scanner analyseert de site..."
+  },
+  "uiSettings": {
+    "message": "INSTELLINGEN"
+  },
+  "supportTitle": {
+    "message": "Steun de extensie"
+  },
+  "supportDesc": {
+    "message": "All In One is een volledig gratis tool. Je steun helpt dit zo te houden en maakt de ontwikkeling van nieuwe functies mogelijk."
+  },
+  "donateBtn": {
+    "message": "Doneer en steun"
+  },
+  "websiteBtn": {
+    "message": "Officiële website"
+  },
+  "rateBtn": {
+    "message": "Beoordeel de extensie"
+  },
+  "versionLabel": {
+    "message": "Versie:"
+  },
+  "privacyLabel": {
+    "message": "Privacybeleid"
+  },
+  "systemPageTitle": {
+    "message": "SYSTEEMPAGINA"
+  },
+  "systemPageDesc": {
+    "message": "Modificatietools zijn uitgeschakeld"
+  },
+  "radioPlay": {
+    "message": "Play"
+  },
+  "radioPause": {
+    "message": "Pauze"
+  },
+  "colorPickerPicking": {
+    "message": "Kiezen..."
+  },
+  "colorPickerCopied": {
+    "message": "Gekopieerd: "
+  },
+  "cacheNotSupported": {
+    "message": "Niet ondersteund"
+  },
+  "cacheClearConfirm": {
+    "message": "Wis alle gegevens van deze site"
+  },
+  "cacheError": {
+    "message": "Fout"
+  },
+  "cacheClearing": {
+    "message": "Wissen..."
+  },
+  "cacheCleared": {
+    "message": "Gewist!"
+  },
+  "fontCopied": {
+    "message": "Gekopieerd!"
+  },
+  "fontNotCopied": {
+    "message": "Niet gekopieerd"
+  },
+  "notesSaved": {
+    "message": "Opgeslagen"
+  },
+  "notesTooLarge": {
+    "message": "Notitie te groot"
+  },
+  "notesLinkText": {
+    "message": "Link"
+  },
+  "trackerToday": {
+    "message": "Vandaag"
+  },
+  "trackerThatDay": {
+    "message": "Die dag"
+  },
+  "trackerSelectedMonth": {
+    "message": "Geselecteerde maand"
+  },
+  "trackerTotal": {
+    "message": "Totaal"
+  },
+  "trackerNoData": {
+    "message": "Geen gegevens voor deze periode"
+  },
+  "trackerExportEmpty": {
+    "message": "Geen trackergegevens om te exporteren."
+  },
+  "trackerExportTruncated": {
+    "message": "Export is afgekapt tot 10 MB om de pop-up stabiel te houden."
+  },
+  "trackerImportEmpty": {
+    "message": "Geen geldige gegevens om te importeren."
+  },
+  "trackerImportSuccess": {
+    "message": "Gegevens succesvol geïmporteerd!"
+  },
+  "trackerImportError": {
+    "message": "Fout bij het lezen van het bestand."
+  },
+  "swStatusLive": {
+    "message": "LIVE BEZIG"
+  },
+  "swStatusReady": {
+    "message": "KLAAR"
+  },
+  "swUndoTitle": {
+    "message": "Wis dit moment"
+  },
+  "swNoLaps": {
+    "message": "Geen opgenomen momenten"
+  },
+  "swLiveTitlePrefix": {
+    "message": "Live #"
+  },
+  "swDurationLabel": {
+    "message": "Duur: "
+  },
+  "swMomentLabel": {
+    "message": "Moment "
+  },
+  "swExportTxtBtn": {
+    "message": "EXPORTEREN ALS .TXT"
+  },
+  "swTotalDurationPrefix": {
+    "message": "TOTALE DUUR: "
+  },
+  "swCopyBtn": {
+    "message": "KOPIËREN NAAR KLEMBORD"
+  },
+  "swCopiedBtn": {
+    "message": "✓ GEKOPIEERD"
+  },
+  "swNoHistory": {
+    "message": "Geen live geschiedenis"
+  },
+  "techScannerUnavailable": {
+    "message": "Scanner is niet beschikbaar op deze pagina."
+  },
+  "techFoundPrefix": {
+    "message": "Gevonden: "
+  },
+  "techItemsSuffix": {
+    "message": "items"
+  },
+  "techNotFound": {
+    "message": "Niet gevonden."
+  },
+  "techScannerFailed": {
+    "message": "Scannen mislukt op deze pagina."
+  },
+  "markerDrawTooltip": {
+    "message": "Tekenen"
+  },
+  "markerLineTooltip": {
+    "message": "Lijn"
+  },
+  "markerTextTooltip": {
+    "message": "Tekst"
+  },
+  "markerMoveTooltip": {
+    "message": "Verplaatsen"
+  },
+  "markerEraseTooltip": {
+    "message": "Wissen"
+  },
+  "markerClearAllTooltip": {
+    "message": "Alles wissen"
+  },
+  "markerThicknessTooltip": {
+    "message": "Dikte"
+  },
+  "markerCloseTooltip": {
+    "message": "Sluiten"
+  },
+  "linesLabel": {
+    "message": "Regels"
+  },
+  "clearCounterTooltip": {
+    "message": "Alles wissen"
+  },
+  "confirmClearCounter": {
+    "message": "Weet je zeker dat je alles wilt wissen?"
+  }
+}

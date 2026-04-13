@@ -10,7 +10,7 @@
 <body>
   <div id="mainView">
     <header class="app-header">
-      <a href="https://allinone.milanwebportal.com" target="_blank" class="logo-link" title="Zvanični sajt esktenzije">
+      <a href="https://allinone.milanwebportal.com" target="_blank" class="logo-link" data-i18n-title="websiteTooltip">
         <div class="logo-grid">
           <div class="dot"></div>
           <div class="dot accent"></div>
@@ -19,9 +19,9 @@
         </div>
       </a>
 
-      <h1>ALL IN ONE</h1>
+      <h1 data-i18n="appTitle">ALL IN ONE</h1>
 
-      <button id="settingsBtn" class="settings-trigger" title="Podešavanja">
+      <button id="settingsBtn" class="settings-trigger" data-i18n-title="settingsTooltip">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="3"></circle>
           <path
@@ -43,9 +43,9 @@
               <path d="M16.24 7.76a6 6 0 0 1 0 8.48"></path>
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
             </svg>
-            <span>Radio IN</span>
+            <span data-i18n="radioTitle">Radio IN</span>
           </span>
-          <button id="radioBtn">Play</button>
+          <button id="radioBtn" data-i18n="playBtn">Pusti</button>
         </div>
         <input type="range" id="radioVol" min="0" max="100" value="12" class="range-slider">
       </div>
@@ -59,15 +59,15 @@
               <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
               <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
             </svg>
-            <span>Zvuk</span>
+            <span data-i18n="soundTitle">Zvuk</span>
           </span>
-          <button id="resetVolBtn" class="secondary">Reset</button>
+          <button id="resetVolBtn" class="secondary" data-i18n="resetBtn">Resetuj</button>
         </div>
         <input type="range" id="masterVol" min="0" max="1000" value="100" class="range-slider">
       </div>
 
       <div class="card clickable" id="colorBtn">
-        <span>Color Picker</span>
+        <span data-i18n="colorPickerTitle">Color Picker</span>
         <span class="icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -84,7 +84,7 @@
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
           </svg>
-          Dark Mode
+          <span data-i18n="darkModeTitle">Dark Mode</span>
         </span>
         <label class="switch">
           <input type="checkbox" id="nightToggle">
@@ -93,7 +93,7 @@
       </div>
 
       <div class="card clickable" id="rulerBtn">
-        <span>Page Ruler</span>
+        <span data-i18n="rulerTitle">Page Ruler</span>
         <span class="icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -114,7 +114,7 @@
             <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
             <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
           </svg>
-          Enable Copy
+          <span data-i18n="copyEnableTitle">Enable Copy</span>
         </span>
         <label class="switch">
           <input type="checkbox" id="copyToggle">
@@ -123,7 +123,7 @@
       </div>
 
       <div class="card clickable" id="markerBtn">
-        <span>Page Marker</span>
+        <span data-i18n="markerTitle">Page Marker</span>
         <span class="icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -134,7 +134,7 @@
       </div>
 
       <div class="card clickable" id="techBtn">
-        <span>Tehnologije sajta</span>
+        <span data-i18n="techTitle">Tehnologije sajta</span>
         <span class="icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -145,7 +145,7 @@
       </div>
 
       <div class="card clickable" id="clearCacheBtn">
-        <span>Kolačići i Keš</span>
+        <span data-i18n="cacheTitle">Kolačići i Keš</span>
         <span class="icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -159,7 +159,7 @@
       </div>
 
       <div class="card clickable" id="fontBtn">
-        <span>Font Finder</span>
+        <span data-i18n="fontTitle">Font Finder</span>
         <span class="icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -171,7 +171,7 @@
       </div>
 
       <div class="card clickable" id="counterBtn">
-        <span>Brojač karaktera</span>
+        <span data-i18n="counterTitle">Brojač karaktera</span>
         <span class="icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -184,7 +184,7 @@
       </div>
 
       <div class="card clickable" id="stopwatchBtn">
-        <span>Štoperica</span>
+        <span data-i18n="stopwatchTitle">Štoperica</span>
         <span class="icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -196,7 +196,7 @@
       </div>
 
       <div class="card clickable" id="notesBtn">
-        <span>Pametne Beleške</span>
+        <span data-i18n="notesTitle">Pametne Beleške</span>
         <span class="icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -210,7 +210,7 @@
       </div>
 
       <div class="card clickable" id="trackerBtn">
-        <span>Webtime Tracker</span>
+        <span data-i18n="trackerTitle">Webtime Tracker</span>
         <span class="icon">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -232,7 +232,7 @@
               d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22h0a3.13 3.13 0 0 1-3-3.88Z">
             </path>
           </svg>
-          Return YouTube Dislike
+          <span data-i18n="ytDislikeTitle">Return YouTube Dislike</span>
         </span>
         <label class="switch">
           <input type="checkbox" id="ytToggle">
@@ -244,21 +244,21 @@
 
   <div id="cookieModal" class="modal-overlay" style="display: none;">
     <div class="modal-content modern-modal action-modal">
-      <h1 class="modal-title">KOLAČIĆI I KEŠ</h1>
+      <h1 class="modal-title" data-i18n="cacheModalTitle">KOLAČIĆI I KEŠ</h1>
 
       <div class="cookie-action-group">
         <div class="settings-row modal-setting-row">
-          <span style="font-size: 12px; color: var(--text-dim);">Automatski blokiraj kolačiće</span>
+          <span style="font-size: 12px; color: var(--text-dim);" data-i18n="blockCookiesLabel">Automatski blokiraj kolačiće</span>
           <label class="switch">
             <input type="checkbox" id="cookieToggle">
             <span class="slider"></span>
           </label>
         </div>
-        <button id="realClearBtn" class="treci">Obriši sve podatke sa ovog sajta</button>
+        <button id="realClearBtn" class="treci" data-i18n="clearSiteDataBtn">Obriši sve podatke sa ovog sajta</button>
       </div>
 
       <div class="modal-buttons modal-cancel-row">
-        <button id="closeCookieModal" class="secondary">OTKAŽI</button>
+        <button id="closeCookieModal" class="secondary" data-i18n="cancelBtn">OTKAŽI</button>
       </div>
     </div>
   </div>
@@ -266,20 +266,39 @@
   <div id="counterView" class="sub-view" style="display: none;">
     <div class="sub-header">
       <button id="counterBackBtn" class="secondary icon-btn">←</button>
-      <h1>BROJAČ KARAKTERA</h1>
-      <div class="spacer"></div>
+      <h1 data-i18n="counterModalTitle">BROJAČ KARAKTERA</h1>
+      <button id="counterClearBtn" class="secondary icon-btn" style="color: #ff4444;" data-i18n-title="clearCounterTooltip">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="3 6 5 6 21 6"></polyline>
+          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+        </svg>
+      </button>
     </div>
     <div class="counter-container">
-      <textarea id="counterArea" placeholder="Nalepi tekst ovde..."></textarea>
+      <textarea id="counterArea" placeholder="Nalepi tekst ovde..." data-i18n-placeholder="counterPlaceholder"></textarea>
     </div>
     <div class="stats-grid counter-stats">
       <div class="stat-box">
-        <div class="stat-label">Karaktera</div>
+        <div class="stat-label" data-i18n="charsLabel">Karaktera</div>
         <div id="charCount" class="stat-value highlight">0</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">Reči</div>
+        <div class="stat-label" data-i18n="wordsLabel">Reči</div>
         <div id="wordCount" class="stat-value highlight">0</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label" data-i18n="linesLabel">Redova</div>
+        <div id="lineCount" class="stat-value highlight">0</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="clearCounterModal" class="modal-overlay" style="display: none;">
+    <div class="modal-content modern-modal action-modal">
+      <p data-i18n="confirmClearCounter">Da li sigurno želiš da obrišeš sve?</p>
+      <div class="modal-buttons">
+        <button id="cancelClearCounter" class="secondary" data-i18n="cancelBtn">OTKAŽI</button>
+        <button id="confirmClearCounter" class="treci" data-i18n="deleteBtn">OBRIŠI</button>
       </div>
     </div>
   </div>
@@ -287,21 +306,21 @@
   <div id="stopwatchView" class="sub-view" style="display: none;">
     <div class="sub-header">
       <button id="swBackBtn" class="secondary icon-btn">←</button>
-      <h1 id="status">SPREMAN</h1>
+      <h1 id="status" data-i18n="stopwatchReady">SPREMAN</h1>
       <div class="spacer"></div>
     </div>
     <div id="timer">00:00:00</div>
     <div class="sw-main-controls">
-      <button id="start" class="prvi">START</button>
-      <button id="lap" class="drugi">LAP<br><small>(ALT+SHIFT+L)</small></button>
-      <button id="stop" class="treci">STOP</button>
+      <button id="start" class="prvi" data-i18n="startBtn">START</button>
+      <button id="lap" class="drugi"><span data-i18n="lapBtn">LAP</span><br><small>(ALT+SHIFT+L)</small></button>
+      <button id="stop" class="treci" data-i18n="stopBtn">STOP</button>
     </div>
-    <div class="section-label">TRENUTNO ZABELEŽENO</div>
+    <div class="section-label" data-i18n="currentRecordedLabel">TRENUTNO ZABELEŽENO</div>
     <ul id="laps" class="current-laps-list compact"></ul>
     <div class="history-section">
       <div class="history-header">
-        <span>ISTORIJA LAJVOVA</span>
-        <button id="clear-history">OBRIŠI SVE</button>
+        <span data-i18n="liveHistoryLabel">ISTORIJA LAJVOVA</span>
+        <button id="clear-history" data-i18n="clearAllBtn">OBRIŠI SVE</button>
       </div>
       <div id="history-list" class="styled-accordion"></div>
     </div>
@@ -309,10 +328,10 @@
 
   <div id="customModal" class="modal-overlay" style="display: none;">
     <div class="modal-content modern-modal action-modal">
-      <p>Da li sigurno želiš da obrišeš svu istoriju?</p>
+      <p data-i18n="confirmClearHistory">Da li sigurno želiš da obrišeš svu istoriju?</p>
       <div class="modal-buttons">
-        <button id="cancelClear" class="secondary">OTKAŽI</button>
-        <button id="confirmClear" class="treci">OBRIŠI</button>
+        <button id="cancelClear" class="secondary" data-i18n="cancelBtn">OTKAŽI</button>
+        <button id="confirmClear" class="treci" data-i18n="deleteBtn">OBRIŠI</button>
       </div>
     </div>
   </div>
@@ -320,8 +339,8 @@
   <div id="notesView" class="sub-view" style="display: none;">
     <div class="sub-header">
       <button id="backBtn" class="secondary icon-btn">&#8592;</button>
-      <h1>PAMETNE BELEŠKE</h1>
-      <button id="notesClearBtn" class="secondary icon-btn" style="color: #ff4444;">
+      <h1 data-i18n="notesModalTitle">PAMETNE BELEŠKE</h1>
+      <button id="notesClearBtn" class="secondary icon-btn" style="color: #ff4444;" data-i18n-title="clearNotesTooltip">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="3 6 5 6 21 6"></polyline>
           <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
@@ -329,11 +348,11 @@
       </button>
     </div>
 
-    <div id="noteArea" contenteditable="true" class="smart-notes" data-placeholder="Kreni da kucaš..."></div>
+    <div id="noteArea" contenteditable="true" class="smart-notes" data-i18n-placeholder="notesPlaceholder"></div>
 
     <div class="note-footer">
       <div class="note-actions">
-        <button id="grabTextBtn" class="note-btn" title="Selektuj tekst na stranici i ubaci u beleške">
+        <button id="grabTextBtn" class="note-btn" data-i18n-title="grabTextTooltip">
           <svg viewBox="0 0 24 24">
             <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
             <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
@@ -341,32 +360,32 @@
             <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15">
             </path>
           </svg>
-          Tekst
+          <span data-i18n="textLabel">Tekst</span>
         </button>
-        <button id="addUrlBtn" class="note-btn" title="Dodaj link stranice">
+        <button id="addUrlBtn" class="note-btn" data-i18n-title="addUrlTooltip">
           <svg viewBox="0 0 24 24">
             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
           </svg>
-          Link
+          <span data-i18n="linkLabel">Link</span>
         </button>
-        <button id="addDateBtn" class="note-btn" title="Dodaj trenutni datum">
+        <button id="addDateBtn" class="note-btn" data-i18n-title="addDateTooltip">
           <svg viewBox="0 0 24 24">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="16" y1="2" x2="16" y2="6"></line>
             <line x1="8" y1="2" x2="8" y2="6"></line>
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
-          Datum
+          <span data-i18n="dateLabel">Datum</span>
         </button>
-        <button id="exportNotesBtn" class="note-btn" title="Sačuvaj beleške u fajl (Backup)">
+        <button id="exportNotesBtn" class="note-btn" data-i18n-title="exportNotesTooltip">
           <svg viewBox="0 0 24 24">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
         </button>
-        <button id="importNotesBtn" class="note-btn" title="Učitaj beleške iz fajla (Import)">
+        <button id="importNotesBtn" class="note-btn" data-i18n-title="importNotesTooltip">
           <svg viewBox="0 0 24 24">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="17 8 12 3 7 8"></polyline>
@@ -376,17 +395,17 @@
         <input type="file" id="importFileInput" style="display: none;" accept=".html,.txt">
       </div>
       <div class="save-status">
-        <span id="saveIndicator">Sačuvano</span>
+        <span id="saveIndicator" data-i18n="savedIndicator">Sačuvano</span>
       </div>
     </div>
   </div>
 
   <div id="clearNotesModal" class="modal-overlay" style="display: none;">
     <div class="modal-content modern-modal action-modal">
-      <p>Da li sigurno želiš da obrišeš sve beleške?</p>
+      <p data-i18n="confirmClearNotes">Da li sigurno želiš da obrišeš sve beleške?</p>
       <div class="modal-buttons">
-        <button id="cancelClearNotes" class="secondary">OTKAŽI</button>
-        <button id="confirmClearNotes" class="treci">OBRIŠI</button>
+        <button id="cancelClearNotes" class="secondary" data-i18n="cancelBtn">OTKAŽI</button>
+        <button id="confirmClearNotes" class="treci" data-i18n="deleteBtn">OBRIŠI</button>
       </div>
     </div>
   </div>
@@ -394,7 +413,7 @@
   <div id="trackerView" class="sub-view" style="display: none;">
     <div class="sub-header">
       <button id="trackerBackBtn" class="secondary icon-btn">←</button>
-      <h1>WEBTIME TRACKER</h1>
+      <h1 data-i18n="trackerModalTitle">WEBTIME TRACKER</h1>
       <button id="trackerRefreshBtn" class="secondary icon-btn refresh-btn">↻</button>
     </div>
 
@@ -407,11 +426,11 @@
       </div>
 
       <select id="trackerMode" class="modern-input">
-        <option value="day">Dnevni prikaz</option>
-        <option value="month">Mesečni prikaz</option>
-        <option value="all">Sve vreme</option>
+        <option value="day" data-i18n="trackerModeDay">Dnevni prikaz</option>
+        <option value="month" data-i18n="trackerModeMonth">Mesečni prikaz</option>
+        <option value="all" data-i18n="trackerModeAll">Sve vreme</option>
       </select>
-      <button id="exportTrackerBtn" class="secondary icon-btn" title="Sačuvaj">
+      <button id="exportTrackerBtn" class="secondary icon-btn" data-i18n-title="exportTooltip">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -419,7 +438,7 @@
           <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg>
       </button>
-      <button id="importTrackerBtn" class="secondary icon-btn" title="Učitaj">
+      <button id="importTrackerBtn" class="secondary icon-btn" data-i18n-title="importTooltip">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -432,15 +451,15 @@
 
     <div class="stats-grid">
       <div class="stat-box">
-        <div id="statTotalLabel" class="stat-label">Danas</div>
+        <div id="statTotalLabel" class="stat-label" data-i18n="trackerTodayLabel">Danas</div>
         <div id="statTotal" class="stat-value highlight">0s</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">Ovaj mesec</div>
+        <div class="stat-label" data-i18n="trackerMonthLabel">Ovaj mesec</div>
         <div id="statMonth" class="stat-value">0s</div>
       </div>
       <div class="stat-box">
-        <div class="stat-label">Prosek</div>
+        <div class="stat-label" data-i18n="trackerAvgLabel">Prosek</div>
         <div id="statAvg" class="stat-value">0s</div>
       </div>
     </div>
@@ -453,13 +472,13 @@
   <div id="techView" class="sub-view" style="display: none;">
     <div class="sub-header">
       <button id="techBackBtn" class="secondary icon-btn">←</button>
-      <h1>TEHNOLOGIJE SAJTA</h1>
+      <h1 data-i18n="techModalTitle">TEHNOLOGIJE SAJTA</h1>
       <div class="spacer"></div>
     </div>
 
     <div style="padding: 15px; overflow-y: auto; flex: 1; padding-bottom: 30px;">
       <div id="techLoading"
-        style="text-align: center; color: var(--text-dim); margin-top: 20px; font-weight: bold; font-size: 11px;">Skener
+        style="text-align: center; color: var(--text-dim); margin-top: 20px; font-weight: bold; font-size: 11px;" data-i18n="techLoadingMsg">Skener
         analizira sajt...</div>
       <div id="techResultList" style="display: flex; flex-direction: column; gap: 8px;"></div>
     </div>
@@ -468,28 +487,105 @@
   <div id="settingsView" class="sub-view" style="display: none;">
     <div class="sub-header">
       <button id="settingsBackBtn" class="secondary icon-btn">&#8592;</button>
-      <h1>PODEŠAVANJA</h1>
-      <div class="spacer"></div>
+      <h1 data-i18n="uiSettings">PODEŠAVANJA</h1>
+      <div class="lang-container">
+        <svg class="lang-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m5 8 6 6"></path>
+          <path d="m4 14 6-6 2-3"></path>
+          <path d="M2 5h12"></path>
+          <path d="M7 2h1"></path>
+          <path d="m22 22-5-10-5 10"></path>
+          <path d="M14 18h6"></path>
+        </svg>
+        <select id="langSelect" class="lang-select">
+          <option value="am">Amharic</option>
+          <option value="ar">Arabic</option>
+          <option value="bg">Bulgarian</option>
+          <option value="bn">Bengali</option>
+          <option value="ca">Catalan</option>
+          <option value="cs">Czech</option>
+          <option value="da">Danish</option>
+          <option value="de">German</option>
+          <option value="el">Greek</option>
+          <option value="en">English</option>
+          <option value="en_AU">English (Australia)</option>
+          <option value="en_GB">English (UK)</option>
+          <option value="en_US">English (US)</option>
+          <option value="es">Spanish</option>
+          <option value="es_419">Spanish (Latin America)</option>
+          <option value="et">Estonian</option>
+          <option value="fa">Persian</option>
+          <option value="fi">Finnish</option>
+          <option value="fil">Filipino</option>
+          <option value="fr">French</option>
+          <option value="gu">Gujarati</option>
+          <option value="he">Hebrew</option>
+          <option value="hi">Hindi</option>
+          <option value="hr">Croatian</option>
+          <option value="hu">Hungarian</option>
+          <option value="id">Indonesian</option>
+          <option value="it">Italian</option>
+          <option value="ja">Japanese</option>
+          <option value="kn">Kannada</option>
+          <option value="ko">Korean</option>
+          <option value="lt">Lithuanian</option>
+          <option value="lv">Latvian</option>
+          <option value="ml">Malayalam</option>
+          <option value="mr">Marathi</option>
+          <option value="ms">Malay</option>
+          <option value="nl">Dutch</option>
+          <option value="no">Norwegian</option>
+          <option value="pl">Polish</option>
+          <option value="pt_BR">Portuguese (Brazil)</option>
+          <option value="pt_PT">Portuguese (Portugal)</option>
+          <option value="ro">Romanian</option>
+          <option value="ru">Russian</option>
+          <option value="sk">Slovak</option>
+          <option value="sl">Slovenian</option>
+          <option value="sr">Srpski</option>
+          <option value="sv">Swedish</option>
+          <option value="sw">Swahili</option>
+          <option value="ta">Tamil</option>
+          <option value="te">Telugu</option>
+          <option value="th">Thai</option>
+          <option value="tr">Turkish</option>
+          <option value="uk">Ukrainian</option>
+          <option value="vi">Vietnamese</option>
+          <option value="zh_CN">Chinese (Simplified)</option>
+          <option value="zh_TW">Chinese (Traditional)</option>
+        </select>
+      </div>
     </div>
 
     <div class="settings-content">
       <div class="card special-card support-card">
-        <span class="support-title">Podrži ekstenziju</span>
-        <p class="support-desc">All In One je potpuno besplatan alat. Tvoja podrška pomaže da tako i ostane i omogućava
+        <span class="support-title" data-i18n="supportTitle">Podrži ekstenziju</span>
+        <p class="support-desc" data-i18n="supportDesc">All In One je potpuno besplatan alat. Tvoja podrška pomaže da tako i ostane i omogućava
           redovan razvoj novih opcija.</p>
         <b class="support-amount">0 / 5 EUR</b>
-        <button id="donateBtn" class="support-btn">Doniraj i podrži rad</button>
+        <button id="donateBtn" class="support-btn" data-i18n="donateBtn">Doniraj i podrži rad</button>
       </div>
 
-      <button id="webBtn" class="settings-link-btn">Zvanični website ekstenzije</button>
+      <button id="webBtn" class="settings-link-btn" data-i18n="websiteBtn">Zvanični website ekstenzije</button>
       <button id="portalBtn" class="settings-link-btn">Milan Web Portal</button>
-      <button id="rateBtn" class="settings-outline-btn">Oceni ekstenziju</button>
+      <button id="rateBtn" class="settings-outline-btn" data-i18n="rateBtn">Oceni ekstenziju</button>
     </div>
 
     <div class="settings-footer">
-      <p>Verzija: <span id="verNum">Učitavanje...</span></p>
-      <a href="#" id="privacyLink">Politika privatnosti</a>
-      <p>&copy; 2026 Milan Web Portal</p>
+      <p class="footer-ver">
+        <span data-i18n="versionLabel">Verzija:</span> 
+        <span id="verNum">Učitavanje...</span>
+      </p>
+      
+      <a href="mailto:contact@milanwebportal.com" class="footer-email">
+        contact@milanwebportal.com
+      </a>
+
+      <div class="footer-bottom">
+        <a href="#" id="privacyLink" data-i18n="privacyLabel">Politika privatnosti</a>
+        <span class="footer-dot">•</span>
+        <span>&copy; 2026 Milan Web Portal</span>
+      </div>
     </div>
   </div>
 

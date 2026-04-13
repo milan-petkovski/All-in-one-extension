@@ -1,0 +1,383 @@
+{
+  "extName": {
+    "message": "All In One - সেরা প্রোডাক্টিভিটি টুল"
+  },
+  "extDesc": {
+    "message": "আল্টিমেট টুল যা সব প্রয়োজনীয় ফিচারকে একটি দ্রুত, আধুনিক এবং ফ্রি ইন্টারফেসে একত্রিত করে।"
+  },
+  "markLapDesc": {
+    "message": "স্টপওয়াচে একটি মুহূর্ত রেকর্ড করুন"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "ওয়েবসাইট"
+  },
+  "settingsTooltip": {
+    "message": "সেটিংস"
+  },
+  "radioTitle": {
+    "message": "রেডিও IN"
+  },
+  "radioArtist": {
+    "message": "All In One এক্সটেনশন দ্বারা চালিত"
+  },
+  "playBtn": {
+    "message": "প্লে করুন"
+  },
+  "soundTitle": {
+    "message": "শব্দ"
+  },
+  "resetBtn": {
+    "message": "রিসেট করুন"
+  },
+  "colorPickerTitle": {
+    "message": "কালার পিকার"
+  },
+  "darkModeTitle": {
+    "message": "ডার্ক মোড"
+  },
+  "rulerTitle": {
+    "message": "পেজ রুলার"
+  },
+  "copyEnableTitle": {
+    "message": "কপি"
+  },
+  "markerTitle": {
+    "message": "মার্কার"
+  },
+  "techTitle": {
+    "message": "প্রযুক্তি"
+  },
+  "cacheTitle": {
+    "message": "কুকি/ক্যাশে"
+  },
+  "fontTitle": {
+    "message": "ফন্ট"
+  },
+  "counterTitle": {
+    "message": "কাউন্টার"
+  },
+  "stopwatchTitle": {
+    "message": "স্টপওয়াচ"
+  },
+  "notesTitle": {
+    "message": "স্মার্ট নোট"
+  },
+  "trackerTitle": {
+    "message": "ওয়েবটাইম ট্র্যাকার"
+  },
+  "ytDislikeTitle": {
+    "message": "ইউটিউব ডিসলাইক ফেরত আনুন"
+  },
+  "cacheModalTitle": {
+    "message": "কুকিজ এবং ক্যাশে"
+  },
+  "blockCookiesLabel": {
+    "message": "স্বয়ংক্রিয়ভাবে কুকিজ ব্লক করুন"
+  },
+  "clearSiteDataBtn": {
+    "message": "এই সাইট থেকে সমস্ত ডেটা সাফ করুন"
+  },
+  "cancelBtn": {
+    "message": "বাতিল করুন"
+  },
+  "counterModalTitle": {
+    "message": "ক্যারেক্টার কাউন্টার"
+  },
+  "counterPlaceholder": {
+    "message": "এখানে টেক্সট পেস্ট করুন..."
+  },
+  "charsLabel": {
+    "message": "অক্ষর"
+  },
+  "wordsLabel": {
+    "message": "শব্দ"
+  },
+  "stopwatchReady": {
+    "message": "প্রস্তুত"
+  },
+  "startBtn": {
+    "message": "শুরু করুন"
+  },
+  "lapBtn": {
+    "message": "ল্যাপ"
+  },
+  "stopBtn": {
+    "message": "থামান"
+  },
+  "currentRecordedLabel": {
+    "message": "বর্তমানে রেকর্ড করা হয়েছে"
+  },
+  "liveHistoryLabel": {
+    "message": "লাইভ হিস্ট্রি"
+  },
+  "clearAllBtn": {
+    "message": "সব মুছে ফেলুন"
+  },
+  "confirmClearHistory": {
+    "message": "আপনি কি নিশ্চিত যে আপনি সমস্ত ইতিহাস মুছে ফেলতে চান?"
+  },
+  "deleteBtn": {
+    "message": "মুছে ফেলুন"
+  },
+  "notesModalTitle": {
+    "message": "স্মার্ট নোট"
+  },
+  "clearNotesTooltip": {
+    "message": "সমস্ত নোট মুছে ফেলুন"
+  },
+  "notesPlaceholder": {
+    "message": "এখানে নোট লিখুন..."
+  },
+  "grabTextTooltip": {
+    "message": "পেজ থেকে টেক্সট এক্সট্রাক্ট করুন"
+  },
+  "textLabel": {
+    "message": "টেক্সট"
+  },
+  "addUrlTooltip": {
+    "message": "বর্তমান পেজের URL যোগ করুন"
+  },
+  "linkLabel": {
+    "message": "লিংক"
+  },
+  "addDateTooltip": {
+    "message": "আজকের তারিখ যোগ করুন"
+  },
+  "dateLabel": {
+    "message": "তারিখ"
+  },
+  "exportNotesTooltip": {
+    "message": "নোট এক্সপোর্ট করুন"
+  },
+  "importNotesTooltip": {
+    "message": "নোট ইমপোর্ট করুন"
+  },
+  "savedIndicator": {
+    "message": "সংরক্ষিত"
+  },
+  "confirmClearNotes": {
+    "message": "আপনি কি নিশ্চিত যে আপনি সমস্ত নোট মুছে ফেলতে চান?"
+  },
+  "trackerModalTitle": {
+    "message": "ওয়েবটাইম ট্র্যাকার"
+  },
+  "exportTooltip": {
+    "message": "ডেটা এক্সপোর্ট করুন"
+  },
+  "importTooltip": {
+    "message": "ডেটা ইমপোর্ট করুন"
+  },
+  "trackerModeDay": {
+    "message": "দৈনিক ভিউ"
+  },
+  "trackerModeMonth": {
+    "message": "মাসিক ভিউ"
+  },
+  "trackerModeAll": {
+    "message": "সব সময়"
+  },
+  "trackerTodayLabel": {
+    "message": "আজ"
+  },
+  "trackerMonthLabel": {
+    "message": "এই মাস"
+  },
+  "trackerAvgLabel": {
+    "message": "গড়"
+  },
+  "techModalTitle": {
+    "message": "সাইট প্রযুক্তি"
+  },
+  "techLoadingMsg": {
+    "message": "স্ক্যানার সাইটটি বিশ্লেষণ করছে..."
+  },
+  "uiSettings": {
+    "message": "সেটিংস"
+  },
+  "supportTitle": {
+    "message": "এক্সটেনশনটি সমর্থন করুন"
+  },
+  "supportDesc": {
+    "message": "All In One একটি সম্পূর্ণ বিনামূল্যের টুল। আপনার সমর্থন এটিকে এভাবেই রাখতে সাহায্য করে এবং নতুন বৈশিষ্ট্যগুলির নিয়মিত বিকাশ সক্ষম করে।"
+  },
+  "donateBtn": {
+    "message": "দান করুন এবং সমর্থন করুন"
+  },
+  "websiteBtn": {
+    "message": "অফিসিয়াল ওয়েবসাইট"
+  },
+  "rateBtn": {
+    "message": "এক্সটেনশন রেট করুন"
+  },
+  "versionLabel": {
+    "message": "সংস্করণ:"
+  },
+  "privacyLabel": {
+    "message": "গোপনীয়তা নীতি"
+  },
+  "systemPageTitle": {
+    "message": "সিস্টেম পেজ"
+  },
+  "systemPageDesc": {
+    "message": "পরিবর্তন টুল অক্ষম করা হয়েছে"
+  },
+  "radioPlay": {
+    "message": "চালান"
+  },
+  "radioPause": {
+    "message": "থামান"
+  },
+  "colorPickerPicking": {
+    "message": "বাছাই করা হচ্ছে..."
+  },
+  "colorPickerCopied": {
+    "message": "কপি করা হয়েছে: "
+  },
+  "cacheNotSupported": {
+    "message": "সমর্থিত নয়"
+  },
+  "cacheClearConfirm": {
+    "message": "এই সাইট থেকে সমস্ত ডেটা সাফ করুন"
+  },
+  "cacheError": {
+    "message": "ত্রুটি"
+  },
+  "cacheClearing": {
+    "message": "সাফ করা হচ্ছে..."
+  },
+  "cacheCleared": {
+    "message": "সাফ করা হয়েছে!"
+  },
+  "fontCopied": {
+    "message": "কপি করা হয়েছে!"
+  },
+  "fontNotCopied": {
+    "message": "কপি করা হয়নি"
+  },
+  "notesSaved": {
+    "message": "সংরক্ষিত"
+  },
+  "notesTooLarge": {
+    "message": "নোট অনেক বড়"
+  },
+  "notesLinkText": {
+    "message": "লিংক"
+  },
+  "trackerToday": {
+    "message": "আজ"
+  },
+  "trackerThatDay": {
+    "message": "ঐ দিন"
+  },
+  "trackerSelectedMonth": {
+    "message": "নির্বাচিত মাস"
+  },
+  "trackerTotal": {
+    "message": "মোট"
+  },
+  "trackerNoData": {
+    "message": "এই সময়ের জন্য কোনো ডেটা নেই"
+  },
+  "trackerExportEmpty": {
+    "message": "এক্সপোর্ট করার জন্য কোনো ট্র্যাকার ডেটা নেই।"
+  },
+  "trackerExportTruncated": {
+    "message": "পপআপ স্থিতিশীল রাখতে এক্সপোর্ট 10MB তে ছোট করা হয়েছে।"
+  },
+  "trackerImportEmpty": {
+    "message": "ইমপোর্ট করার জন্য কোনো বৈধ ট্র্যাকার ডেটা নেই।"
+  },
+  "trackerImportSuccess": {
+    "message": "ডেটা সফলভাবে ইমপোর্ট করা হয়েছে!"
+  },
+  "trackerImportError": {
+    "message": "ফাইলটি পড়তে ত্রুটি।"
+  },
+  "swStatusLive": {
+    "message": "লাইভ চলছে"
+  },
+  "swStatusReady": {
+    "message": "প্রস্তুত"
+  },
+  "swUndoTitle": {
+    "message": "এই মুহূর্তটি মুছে ফেলুন"
+  },
+  "swNoLaps": {
+    "message": "কোনো রেকর্ড করা মুহূর্ত নেই"
+  },
+  "swLiveTitlePrefix": {
+    "message": "লাইভ #"
+  },
+  "swDurationLabel": {
+    "message": "সময়কাল: "
+  },
+  "swMomentLabel": {
+    "message": "মুহূর্ত "
+  },
+  "swExportTxtBtn": {
+    "message": ".TXT হিসেবে এক্সপোর্ট করুন"
+  },
+  "swTotalDurationPrefix": {
+    "message": "মোট সময়কাল: "
+  },
+  "swCopyBtn": {
+    "message": "ক্লিপবোর্ডে কপি করুন"
+  },
+  "swCopiedBtn": {
+    "message": "✓ কপি করা হয়েছে"
+  },
+  "swNoHistory": {
+    "message": "কোনো লাইভ হিস্ট্রি নেই"
+  },
+  "techScannerUnavailable": {
+    "message": "স্ক্যানারটি এই পেজে উপলব্ধ নয়।"
+  },
+  "techFoundPrefix": {
+    "message": "পাওয়া গেছে: "
+  },
+  "techItemsSuffix": {
+    "message": "আইটেম"
+  },
+  "techNotFound": {
+    "message": "পাওয়া যায়নি।"
+  },
+  "techScannerFailed": {
+    "message": "এই পেজে স্ক্যান করা ব্যর্থ হয়েছে।"
+  },
+  "markerDrawTooltip": {
+    "message": "আঁকুন"
+  },
+  "markerLineTooltip": {
+    "message": "লাইন"
+  },
+  "markerTextTooltip": {
+    "message": "টেক্সট"
+  },
+  "markerMoveTooltip": {
+    "message": "সরান"
+  },
+  "markerEraseTooltip": {
+    "message": "মুছুন"
+  },
+  "markerClearAllTooltip": {
+    "message": "সব মুছে ফেলুন"
+  },
+  "markerThicknessTooltip": {
+    "message": "পুরুত্ব"
+  },
+  "markerCloseTooltip": {
+    "message": "বন্ধ করুন"
+  },
+  "linesLabel": {
+    "message": "লাইন"
+  },
+  "clearCounterTooltip": {
+    "message": "সব মুছুন"
+  },
+  "confirmClearCounter": {
+    "message": "আপনি কি নিশ্চিত যে সব মুছতে চান?"
+  }
+}
