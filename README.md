@@ -8,7 +8,7 @@
   <h2>
     <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem">📥 Download Extension</a>
     &nbsp; | &nbsp;
-    <a href="https://allinone.milanwebportal.com/">🌐 Visit Official Website</a>
+    <a href="https://allinone.milanwebportal.com">🌐 Visit Official Website</a>
   </h2>
 
   <p><b>🌍 Available Globally:</b> Supported in all 55 languages provided by the Chrome Web Store!</p>
@@ -141,11 +141,11 @@ Your help keeps this tool free and accessible to everyone!
 <br>
 
 # 📬 Contact
-Official Extension Website: allinone.milanwebportal.com
+Official Extension Website: <a href="https://allinone.milanwebportal.com/">allinone.milanwebportal.com</a>
 
 Project Author: Milan Petkovski (Milan Web Portal)
 
-Author's Website: milanwebportal.com
+Author's Website: <a href="https://milanwebportal.com/">milanwebportal.com</a>
 
 Contact Email: contact@milanwebportal.com
 
