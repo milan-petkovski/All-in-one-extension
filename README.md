@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://allinone.milanwebportal.com/">
-    <img src="https://i.postimg.cc/QCDdJcBM/home.png" alt="All In One Logo" width="300" />
+    <img src="https://i.ibb.co/fzrhVJMV/cover.png" alt="All In One Logo" width="300" />
   </a>
   <h1>All In One Extension</h1>
   <p>The ultimate tool that combines all essential features into one fast, modern, and free interface.</p>
@@ -14,13 +14,13 @@
   <p><b>🌍 Available Globally:</b> Supported in all 55 languages provided by the Chrome Web Store!</p>
 
   <p><b>Supported Browsers:</b></p>
-  <img src="https://i.postimg.cc/hG4JDr9D/1.webp" width="35" alt="Chrome"> &nbsp;
-  <img src="https://i.postimg.cc/3wry8BgK/2.webp" width="35" alt="Edge"> &nbsp;
-  <img src="https://i.postimg.cc/yN6J1PF6/3.webp" width="35" alt="Brave"> &nbsp;
-  <img src="https://i.postimg.cc/s2fBjcpD/4.webp" width="35" alt="Opera"> &nbsp;
-  <img src="https://i.postimg.cc/1zRgmHp3/5.webp" width="35" alt="Opera GX"> &nbsp;
-  <img src="https://i.postimg.cc/5t9H43wt/6.webp" width="35" alt="Vivaldi"> &nbsp;
-  <img src="https://i.postimg.cc/fbHVJ9Kn/7.webp" width="35" alt="Arc">
+  <img src="https://i.ibb.co/Z1fKtkNR/chrome.png" width="35" alt="Chrome"> &nbsp;
+  <img src="https://i.ibb.co/MydYc4MG/edge.png" width="35" alt="Edge"> &nbsp;
+  <img src="https://i.ibb.co/20VngJHD/brave.png" width="35" alt="Brave"> &nbsp;
+  <img src="https://i.ibb.co/n85qHQ9H/opera.png" width="35" alt="Opera"> &nbsp;
+  <img src="https://i.ibb.co/JFRZ7mFK/operagx.png" width="35" alt="Opera GX"> &nbsp;
+  <img src="https://i.ibb.co/HT3X5SF3/vivaldi.png" width="35" alt="Vivaldi"> &nbsp;
+  <img src="https://i.ibb.co/23Y2kFgc/arc.png" width="35" alt="Arc">
 
   <p>...and all other Chromium based browsers.</p>
 </div>
@@ -99,43 +99,37 @@ Your help keeps this tool free and accessible to everyone!
 
 # 📸 Gallery
 <table align="center" width="100%">
-<tr>
-<td width="100%" align="center" colspan="2">
-<img src="https://i.postimg.cc/yxK8y0J1/mainmenu.png" alt="Main Menu" />
-
-
-<b>Main Extension Menu</b>
-</td>
-</tr>
-<tr>
-<td width="50%" align="center">
-<img src="https://i.postimg.cc/zvNGFTL8/charactercounter.png" alt="Character Counter" />
-
-
-<b>Character Counter</b>
-</td>
-<td width="50%" align="center">
-<img src="https://i.postimg.cc/Kjb8DtKZ/clippingtool.png" alt="Stopwatch for Clipping" />
-
-
-<b>Stopwatch (Clipping Tool)</b>
-</td>
-</tr>
-<tr>
-<td width="50%" align="center">
-<img src="https://i.postimg.cc/kGCgvWV4/smartnotes.png" alt="Smart Notes" />
-
-
-<b>Smart Notes</b>
-</td>
-
-<td width="50%" align="center">
-<img src="https://i.postimg.cc/yxK8y0J7/webtimetracker.png" alt="Webtime Tracker" />
-
-
-<b>Webtime Tracker</b>
-</td>
-</tr>
+    <tr>
+      <td align="center" colspan="2" width="100%">
+        <img src="https://i.ibb.co/WvpNFj8z/home.png" alt="Main Menu" />
+        <br />
+        <b>Main Extension Menu</b>
+      </td>
+    </tr>
+    <tr>      
+      <td align="center" width="50%">
+        <img src="https://i.ibb.co/4wp1K0Qg/clippingtool.png" alt="Stopwatch for Clipping" />
+        <br />
+        <b>Stopwatch (Clipping Tool)</b>
+      </td>      
+      <td align="center" width="50%">
+        <img src="https://i.ibb.co/VYwXH7Rk/webtimetracker.png" alt="Webtime Tracker" />
+        <br />
+        <b>Webtime Tracker</b>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="50%">
+        <img src="https://i.ibb.co/HTc4jC2x/smartnotes.png" alt="Smart Notes" />
+        <br />
+        <b>Smart Notes</b>
+      </td>      
+      <td align="center" width="50%">
+        <img src="https://i.ibb.co/WSSvYBK/charactercounter.png" alt="Character Counter" />
+        <br />
+        <b>Character Counter</b>
+      </td>
+    </tr>
 </table>
 
 <br>
