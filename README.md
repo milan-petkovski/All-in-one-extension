@@ -101,7 +101,7 @@ Your help keeps this tool free and accessible to everyone!
 <table align="center" width="100%">
     <tr>
       <td align="center" colspan="2" width="100%">
-        <img src="https://i.ibb.co/WvpNFj8z/home.png" alt="Main Menu" />
+        <img src="https://i.ibb.co/TMNvzDFQ/1.png" alt="Main Menu" />
         <br />
         <b>Main Extension Menu</b>
       </td>
