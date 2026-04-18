@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://allinone.milanwebportal.com/">
-    <img src="https://i.ibb.co/fzrhVJMV/cover.png" alt="All In One Logo" width="300" />
+    <img src="https://allinone.milanwebportal.com/Branding/EN/6.png" alt="All In One Logo" width="300" />
   </a>
   <h1>All In One Extension</h1>
   <p>The ultimate tool that combines all essential features into one fast, modern, and free interface.</p>
@@ -101,33 +101,33 @@ Your help keeps this tool free and accessible to everyone!
 <table align="center" width="100%">
     <tr>
       <td align="center" colspan="2" width="100%">
-        <img src="https://i.ibb.co/TMNvzDFQ/1.png" alt="Main Menu" />
+        <img src="https://allinone.milanwebportal.com/Branding/EN/1.png" alt="Main Menu" />
         <br />
         <b>Main Extension Menu</b>
       </td>
     </tr>
     <tr>      
       <td align="center" width="50%">
-        <img src="https://i.ibb.co/4wp1K0Qg/clippingtool.png" alt="Stopwatch for Clipping" />
+        <img src="https://allinone.milanwebportal.com/Branding/EN/2.png" alt="Stopwatch for Clipping" />
         <br />
         <b>Stopwatch (Clipping Tool)</b>
       </td>      
       <td align="center" width="50%">
-        <img src="https://i.ibb.co/VYwXH7Rk/webtimetracker.png" alt="Webtime Tracker" />
+        <img src="https://allinone.milanwebportal.com/Branding/EN/3.png" alt="Webtime Tracker" />
         <br />
         <b>Webtime Tracker</b>
       </td>
     </tr>
     <tr>
       <td align="center" width="50%">
-        <img src="https://i.ibb.co/HTc4jC2x/smartnotes.png" alt="Smart Notes" />
-        <br />
-        <b>Smart Notes</b>
-      </td>      
-      <td align="center" width="50%">
-        <img src="https://i.ibb.co/WSSvYBK/charactercounter.png" alt="Character Counter" />
+        <img src="https://allinone.milanwebportal.com/Branding/EN/4.png" alt="Character Counter" />
         <br />
         <b>Character Counter</b>
+      </td>
+      <td align="center" width="50%">
+        <img src="https://allinone.milanwebportal.com/Branding/EN/5.png" alt="Smart Notes" />
+        <br />
+        <b>Smart Notes</b>
       </td>
     </tr>
 </table>
