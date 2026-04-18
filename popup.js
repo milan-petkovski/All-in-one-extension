@@ -1,20 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
     // --- INICIJALIZACIJA PREVODA ---
-
-    // Universal event tracking function (local + Google Analytics)
-    const GA_MEASUREMENT_ID = "G-F52S6J4TZV";
-    const GA_API_SECRET = "j09W3gL-TImYVi2ZE7rHxA";
-    const GA_ENDPOINT = `https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${GA_API_SECRET}`;
-
     function trackEvent(eventName, eventData = {}) {
-        // Local stats (for future UI)
-        chrome.storage.local.get(["eventStats"], (res) => {
-            const stats = res.eventStats || {};
-            stats[eventName] = (stats[eventName] || 0) + 1;
-            chrome.storage.local.set({ eventStats: stats });
-        });
-
-        // Google Analytics event - šalji poruku background-u
         try {
             chrome.runtime.sendMessage({
                 action: "aio_track_event",
@@ -31,7 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     const appLangData = await chrome.storage.local.get(['appLang']);
     const currentLang = appLangData.appLang || 'sr';
-
     const langSelect = document.getElementById('langSelect');
     if (langSelect) {
         langSelect.value = currentLang;
@@ -40,31 +25,35 @@ document.addEventListener("DOMContentLoaded", async () => {
             window.location.reload();
         });
     }
-
     try {
         const res = await fetch(chrome.runtime.getURL(`_locales/${currentLang}/messages.json`));
         window.i18nDict = await res.json();
     } catch (e) {
-        console.warn("Prevod nije učitan", e);
+        // Silent fail in production
     }
-
     if (window.i18nDict) {
-        // 1. Prevod običnog teksta (data-i18n)
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (window.i18nDict[key]) {
-                el.textContent = window.i18nDict[key].message;
+                const fullMessage = window.i18nDict[key].message;
+                el.textContent = fullMessage;
+                    
+                // Automatski dodajemo tooltip da korisnik vidi pun tekst na hover
+                el.setAttribute('title', fullMessage);
             }
         });
-
         // 2. Prevod placeholder-a (data-i18n-placeholder)
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
             const key = el.getAttribute('data-i18n-placeholder');
             if (window.i18nDict[key]) {
-                el.setAttribute('placeholder', window.i18nDict[key].message);
+                // Za contenteditable elemente koristi data-placeholder, za inpute placeholder atribut
+                if (el.isContentEditable) {
+                    el.setAttribute('data-placeholder', window.i18nDict[key].message);
+                } else {
+                    el.setAttribute('placeholder', window.i18nDict[key].message);
+                }
             }
         });
-
         // 3. Prevod tooltips-a / hover teksta (data-i18n-title)
         document.querySelectorAll('[data-i18n-title]').forEach(el => {
             const key = el.getAttribute('data-i18n-title');
@@ -74,14 +63,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
     // -------------------------------
-
     let tab = null;
     let host = null;
     try {
         const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
         tab = tabs?.[0];
         const url = tab?.url || "";
-
         // Detektuj sistenske stranice (chrome://, chrome-extension://, about:, etc)
         if (url && url.startsWith("http")) {
             try {
@@ -91,14 +78,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         }
     } catch (err) {
-        console.error("Error querying active tab:", err);
+        // Silent fail
         host = null;
     }
-
     if (!host) {
-        console.log("[SYSTEM PAGE DETECTED]");
         document.body.classList.add("restricted-session");
-
         const mainView = document.getElementById("mainView");
         const overlay = document.createElement("div");
         overlay.className = "restricted-overlay";
@@ -116,20 +100,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         `;
         mainView.appendChild(overlay);
     }
-
     //#region DOM ELEMENATI
     const elements = {
         radioBtn: document.getElementById("radioBtn"),
         radioVol: document.getElementById("radioVol"),
         masterVol: document.getElementById("masterVol"),
-        volText: document.getElementById("volText"),
         colorBtn: document.getElementById("colorBtn"),
         nightToggle: document.getElementById("nightToggle"),
         copyToggle: document.getElementById("copyToggle"),
         ytToggle: document.getElementById("ytToggle"),
         rulerBtn: document.getElementById("rulerBtn"),
         markerBtn: document.getElementById("markerBtn"),
-        screenBtn: document.getElementById("screenBtn"),
         resetVolBtn: document.getElementById("resetVolBtn"),
         clearCacheBtn: document.getElementById("clearCacheBtn"),
         fontBtn: document.getElementById("fontBtn"),
@@ -139,34 +120,36 @@ document.addEventListener("DOMContentLoaded", async () => {
         stopwatchBtn: document.getElementById("stopwatchBtn"),
         cookieModal: document.getElementById("cookieModal"),
         cookieToggle: document.getElementById("cookieToggle"),
-        confirmClearCache: document.getElementById("confirmClearCache"),
         closeCookieModal: document.getElementById("closeCookieModal"),
+        // Radio Import
+        importRadioBtn: document.getElementById("importRadioBtn"),
+        radioImportModal: document.getElementById("radioImportModal"),
+        radioUrlInput: document.getElementById("radioUrlInput"),
+        saveRadioUrlBtn: document.getElementById("saveRadioUrlBtn"),
+        closeRadioModal: document.getElementById("closeRadioModal"),
+        clearRadioInput: document.getElementById("clearRadioInput"),
+        radioCardTitle: document.getElementById("radioCardTitle"),
+        radioModalTitle: document.getElementById("radioModalTitle"),
     };
-
     const mainView = document.getElementById("mainView");
     const trackerView = document.getElementById("trackerView");
     const notesView = document.getElementById("notesView");
     const noteArea = document.getElementById("noteArea");
     const saveIndicator = document.getElementById("saveIndicator");
     //#endregion
-
     //#region INICIJALNO STANJE
     const stateIds = ["nightToggle", "ytToggle"];
     const keysToGet = [...stateIds];
-
     if (host) {
         keysToGet.push(host);
         keysToGet.push(host + "_vol");
         keysToGet.push("global_vol");
     }
-
     chrome.storage.local.get(keysToGet, (res) => {
         if (chrome.runtime.lastError) return;
-
         stateIds.forEach(id => {
             if (elements[id] && res[id] !== undefined) elements[id].checked = res[id];
         });
-
         if (host) {
             if (elements.copyToggle) elements.copyToggle.checked = Boolean(res[host]);
             const siteVol = Number(res[host + "_vol"]);
@@ -175,7 +158,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ? siteVol
                 : (Number.isFinite(globalVol) ? globalVol : 100);
             if (elements.masterVol) elements.masterVol.value = savedVol;
-            if (elements.volText) elements.volText.textContent = savedVol + "%";
         } else {
             // Isključi kontrole koje ne rade na sistemskim stranicama
             if (elements.copyToggle) elements.copyToggle.disabled = true;
@@ -183,18 +165,31 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    elements.copyToggle?.addEventListener("change", () => {
-        trackEvent(elements.copyToggle.checked ? "kopiranje omogućeno" : "kopiranje onemogućeno");
-        if (host) {
-            chrome.storage.local.set({ [host]: elements.copyToggle.checked });
+    // Initialize radio title based on custom/default on popup load
+    chrome.storage.local.get(['customRadioUrl'], (res) => {
+        const url = res.customRadioUrl || "";
+        const isCustom = url.trim();
+        const titleText = isCustom
+            ? getI18nMsg("radioTitleCustom", "Radio")
+            : getI18nMsg("radioTitle", "Radio IN");
+        if (elements.radioCardTitle) {
+            elements.radioCardTitle.textContent = titleText;
+        }
+        if (elements.radioModalTitle) {
+            elements.radioModalTitle.textContent = titleText;
         }
     });
 
+    elements.copyToggle?.addEventListener("change", () => {
+        trackEvent(elements.copyToggle.checked ? "kopiranje omogućeno" : "kopiranje onemogućeno");
+        if (host) {
+            chrome.storage.local.set({ [host]: elements.copyToggle.checked }).catch(() => { });
+        }
+    });
     elements.ytToggle?.addEventListener("change", (e) => {
         const isYtEnabled = e.target.checked;
         trackEvent(isYtEnabled ? "youtube omogućeno" : "youtube onemogućeno");
-        chrome.storage.local.set({ ytToggle: isYtEnabled });
-
+        chrome.storage.local.set({ ytToggle: isYtEnabled }).catch(() => { });
         // Auto-apply only for boost mode to avoid overriding site/player volume at 100%.
         if (isYtEnabled && host && elements.masterVol) {
             const currentVol = Number(elements.masterVol.value);
@@ -204,72 +199,126 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
     //#endregion
-
     //#region RADIO
+    const playSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+    const pauseSvg = `<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+
     chrome.runtime.sendMessage({ action: "getRadioStatus" }, (response) => {
+        if (chrome.runtime.lastError) return;
         if (response && elements.radioBtn) {
-            elements.radioBtn.innerText = response.playing ? getI18nMsg("radioPause", "Pause") : getI18nMsg("radioPlay", "Play");
+            elements.radioBtn.innerHTML = response.playing ? pauseSvg : playSvg;
             if (elements.radioVol) elements.radioVol.value = response.volume;
         }
     });
-
     chrome.storage.onChanged.addListener((changes) => {
         if (changes.playing && elements.radioBtn) {
             const isPlaying = changes.playing.newValue;
-            elements.radioBtn.textContent = isPlaying ? getI18nMsg("radioPause", "Pause") : getI18nMsg("radioPlay", "Play");
-
+            elements.radioBtn.innerHTML = isPlaying ? pauseSvg : playSvg;
             if (!isPlaying && elements.radioVol) {
                 elements.radioVol.value = 12;
             }
         }
     });
-
     elements.radioVol?.addEventListener("input", () => {
         const val = parseInt(elements.radioVol.value);
         trackEvent("radio pojačan", { vrednost: val });
-        if (elements.radioBtn.textContent === getI18nMsg("radioPause", "Pause")) {
+        // We check if it is playing by checking the innerHTML for pauseSvg
+        if (elements.radioBtn.innerHTML.includes('M6 19')) {
             chrome.runtime.sendMessage({ action: "setRadioVolume", value: val });
         }
     });
-
     elements.radioVol?.addEventListener("change", () => {
         const val = parseInt(elements.radioVol.value);
         trackEvent("radio utišan", { vrednost: val });
-        chrome.storage.local.set({ volume: val });
+        chrome.storage.local.set({ volume: val }).catch(() => { });
     });
-
     elements.radioBtn?.addEventListener("click", () => {
-        trackEvent(elements.radioBtn.textContent === getI18nMsg("radioPause", "Pause") ? "radio zatvoren" : "radio otvoren");
+        const isPlaying = elements.radioBtn.innerHTML.includes('M6 19');
+        trackEvent(isPlaying ? "radio zatvoren" : "radio otvoren");
         chrome.runtime.sendMessage({ action: "toggleRadio" }, (res) => {
+            if (chrome.runtime.lastError) return;
             if (res) {
-                elements.radioBtn.textContent = res.playing ? getI18nMsg("radioPause", "Pause") : getI18nMsg("radioPlay", "Play");
+                elements.radioBtn.innerHTML = res.playing ? pauseSvg : playSvg;
                 if (!res.playing) elements.radioVol.value = 12;
             }
         });
     });
 
+    // Radio Import Logic
+    elements.importRadioBtn?.addEventListener("click", () => {
+        chrome.storage.local.get(['customRadioUrl'], (res) => {
+            if (elements.radioUrlInput) {
+                elements.radioUrlInput.value = res.customRadioUrl || "";
+            }
+            if (elements.radioImportModal) {
+                elements.radioImportModal.style.display = "flex";
+            }
+        });
+    });
+
+    elements.closeRadioModal?.addEventListener("click", () => {
+        if (elements.radioImportModal) {
+            elements.radioImportModal.style.display = "none";
+        }
+    });
+
+    // Clear input button handler
+    elements.clearRadioInput?.addEventListener("click", () => {
+        if (elements.radioUrlInput) {
+            elements.radioUrlInput.value = "";
+            elements.radioUrlInput.focus();
+        }
+    });
+
+    // Function to update radio card and modal title based on custom/default
+    function updateRadioTitle(url) {
+        const isCustom = url && url.trim();
+        const titleText = isCustom
+            ? getI18nMsg("radioTitleCustom", "Radio")
+            : getI18nMsg("radioTitle", "Radio IN");
+        if (elements.radioCardTitle) {
+            elements.radioCardTitle.textContent = titleText;
+        }
+        if (elements.radioModalTitle) {
+            elements.radioModalTitle.textContent = titleText;
+        }
+    }
+
+    elements.saveRadioUrlBtn?.addEventListener("click", () => {
+        const url = elements.radioUrlInput.value.trim();
+        chrome.storage.local.set({ customRadioUrl: url }, () => {
+            if (elements.radioImportModal) {
+                elements.radioImportModal.style.display = "none";
+            }
+            // Update title based on custom/default
+            updateRadioTitle(url);
+            // Proveri da li trenutno svira
+            const isPlaying = elements.radioBtn.innerHTML.includes('M6 19');
+            if (isPlaying) {
+                // Ako svira, pošalji direktnu komandu za promenu stanice bez gašenja/paljenja
+                chrome.runtime.sendMessage({ action: "playCustomUrl", url: url });
+            }
+        });
+    });
+    //#endregion
+
     // Kreiramo jedan globalni tooltip
     const tooltip = document.createElement('div');
     tooltip.className = 'sliderTooltip';
     document.body.appendChild(tooltip);
-
     const sliders = document.querySelectorAll('.range-slider');
-
     sliders.forEach(slider => {
         const azuriraj = (e) => {
             const val = slider.value;
             const min = slider.min || 0;
             const max = slider.max || 100;
             const percent = (val - min) / (max - min);
-
             const rect = slider.getBoundingClientRect();
             const thumbWidth = 12;
             const offset = (rect.width - thumbWidth) * percent;
             const thumbCenter = rect.left + (thumbWidth / 2) + offset;
-
             // Provera da li je miš blizu centra kružića (unutar 15px levo/desno)
             const isOverThumb = e ? Math.abs(e.clientX - thumbCenter) < 15 : false;
-
             if (isOverThumb || (e && e.type === 'input')) {
                 tooltip.textContent = val + '%';
                 tooltip.style.opacity = '1';
@@ -278,152 +327,28 @@ document.addEventListener("DOMContentLoaded", async () => {
             } else {
                 tooltip.style.opacity = '0';
             }
-        };
-
+        }
         // Prati pomeranje miša preko slajdera bez klika
         slider.addEventListener('mousemove', azuriraj);
-
         // Radi dok se pomera (klik i drag)
         slider.addEventListener('input', azuriraj);
-
         // Sakrij čim miš skroz izađe sa slajdera
         slider.addEventListener('mouseleave', () => {
             tooltip.style.opacity = '0';
         });
     });
-
     //#endregion
-
     //#region VOLUME MASTER
-
     const applyVolume = (val) => {
-        if (!host || !tab?.id) return;
-        const raw = Number(val);
-        const safeRaw = Number.isFinite(raw) ? raw : 100;
-        const clampedRaw = Math.max(0, Math.min(safeRaw, 1000));
-
-        // 100% is neutral (current tab volume), below attenuates, above boosts.
-        const multiplier = Math.max(0, clampedRaw / 100);
-        const gainValue = clampedRaw > 100 ? Math.max(1, Math.min(clampedRaw / 100, 10)) : 1;
-
-        chrome.scripting.executeScript({
-            target: { tabId: tab.id },
-            world: "MAIN",
-            func: (gain, rawLevel, mult) => {
-                try {
-                    if (!window.aioBaseMediaVolumes) {
-                        window.aioBaseMediaVolumes = new WeakMap();
-                    }
-
-                    const ensureBaseline = (media) => {
-                        if (!window.aioBaseMediaVolumes.has(media)) {
-                            const initialVol = Number.isFinite(media.volume) ? media.volume : 1;
-                            const safeInitial = Math.max(0, Math.min(initialVol, 1));
-                            window.aioBaseMediaVolumes.set(media, safeInitial);
-                        }
-
-                        if (!media.aioVolBaselineListenerAttached) {
-                            media.aioVolBaselineListenerAttached = true;
-                            media.addEventListener("volumechange", () => {
-                                if (window.aioVolInternalWrite) return;
-                                if (window.aioCurrentRawVolume !== 100) return;
-                                const liveVol = Number(media.volume);
-                                if (!Number.isFinite(liveVol)) return;
-                                window.aioBaseMediaVolumes.set(media, Math.max(0, Math.min(liveVol, 1)));
-                            }, true);
-                        }
-
-                        return window.aioBaseMediaVolumes.get(media);
-                    };
-
-                    window.aioCurrentRawVolume = rawLevel;
-                    window.aioVolInternalWrite = true;
-                    document.querySelectorAll("audio, video").forEach((media) => {
-                        try {
-                            const baseVol = ensureBaseline(media);
-                            const targetVol = rawLevel > 100 ? baseVol : Math.max(0, Math.min(baseVol * mult, 1));
-                            media.volume = targetVol;
-                        } catch (e) {
-                            // Ignore element-level failures.
-                        }
-                    });
-                    window.aioVolInternalWrite = false;
-
-                    // For 0-100 mode, avoid touching AudioContext (prevents autoplay warnings).
-                    if (rawLevel <= 100) {
-                        if (window.aioVolObserver) {
-                            window.aioVolObserver.disconnect();
-                            window.aioVolObserver = null;
-                        }
-                        if (window.aioVolGain) window.aioVolGain.gain.value = 1;
-                        return;
-                    }
-
-                    if (!window.aioVolCtx) {
-                        window.aioVolCtx = new (window.AudioContext || window.webkitAudioContext)();
-                        window.aioVolGain = window.aioVolCtx.createGain();
-                        window.aioVolGain.connect(window.aioVolCtx.destination);
-                        window.aioConnectedMedias = new Set();
-                    }
-
-                    const registerUnlock = () => {
-                        if (window.aioVolUnlockRegistered) return;
-                        window.aioVolUnlockRegistered = true;
-
-                        const unlock = () => {
-                            if (window.aioVolCtx && window.aioVolCtx.state === "suspended") {
-                                window.aioVolCtx.resume().catch(() => { });
-                            }
-                            window.aioVolUnlockRegistered = false;
-                        };
-
-                        document.addEventListener("pointerdown", unlock, { once: true, capture: true });
-                        document.addEventListener("keydown", unlock, { once: true, capture: true });
-                        document.addEventListener("touchstart", unlock, { once: true, capture: true });
-                    };
-
-                    if (window.aioVolCtx.state === "suspended") {
-                        registerUnlock();
-                    }
-
-                    window.aioVolGain.gain.value = gain;
-
-                    const connectAllMedia = () => {
-                        document.querySelectorAll("audio, video").forEach((media) => {
-                            if (window.aioConnectedMedias.has(media)) return;
-                            try {
-                                const source = window.aioVolCtx.createMediaElementSource(media);
-                                source.connect(window.aioVolGain);
-                                window.aioConnectedMedias.add(media);
-                            } catch (e) {
-                                // Element can fail if already wired by browser/page internals.
-                            }
-                        });
-                    };
-
-                    connectAllMedia();
-
-                    if (!window.aioVolObserver && document.documentElement) {
-                        window.aioVolObserver = new MutationObserver(connectAllMedia);
-                        window.aioVolObserver.observe(document.documentElement, { childList: true, subtree: true });
-                    }
-                } catch (e) {
-                    window.aioVolInternalWrite = false;
-                    // WebAudio can fail on some pages; keep base volume control alive.
-                    try {
-                        document.querySelectorAll("audio, video").forEach((media) => {
-                            media.volume = Math.max(0, Math.min(media.volume * mult, 1));
-                        });
-                    } catch (_) { }
-                    console.error("Vol:", e.message);
-                }
-            },
-            args: [gainValue, clampedRaw, multiplier]
-        }).catch((e) => console.error("Volume script error:", e));
+        if (!host) {
+            if (elements.volText) elements.volText.textContent = getI18nMsg("volumeMasterNotSupported", "Nije podržano na ovoj stranici");
+            if (elements.masterVol) elements.masterVol.disabled = true;
+            return;
+        }
+        chrome.storage.local.set({ [host + "_vol"]: val, global_vol: val }).catch(() => { });
     };
-
     if (host) {
-        chrome.storage.local.get([host + "_vol", "global_vol", "ytToggle"], (data) => {
+        chrome.storage.local.get([host + "_vol", "global_vol"], (data) => {
             const siteVol = Number(data[host + "_vol"]);
             const globalVol = Number(data.global_vol);
             const vol = Number.isFinite(siteVol)
@@ -432,98 +357,74 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (elements.masterVol) {
                 elements.masterVol.value = vol;
                 if (elements.volText) elements.volText.textContent = vol + "%";
-                // On popup open, apply only when boost is active (>100), otherwise preserve current player volume.
-                if (data.ytToggle && vol > 100) {
-                    applyVolume(vol);
-                }
             }
         });
     }
-
     elements.masterVol?.addEventListener("input", (e) => {
         const val = e.target.value;
         trackEvent("zvuk pojačan", { vrednost: val });
         if (elements.volText) elements.volText.textContent = val + "%";
         applyVolume(val);
     });
-
     elements.masterVol?.addEventListener("change", (e) => {
         const val = e.target.value;
         trackEvent("zvuk utišan", { vrednost: val });
-        if (host) chrome.storage.local.set({ [host + "_vol"]: val, global_vol: val });
+        applyVolume(val);
     });
-
     elements.resetVolBtn?.addEventListener("click", () => {
         trackEvent("zvuk resetovan");
         const vol = 100;
         if (elements.masterVol) {
             elements.masterVol.value = vol;
             if (elements.volText) elements.volText.textContent = vol + "%";
-
-            if (host) chrome.storage.local.set({ [host + "_vol"]: vol, global_vol: vol });
-
             applyVolume(vol);
         }
     });
-
     //#endregion
-
     //#region COLOR PICKER, NIGHT MODE, RULLER, MARKER
     elements.colorBtn?.addEventListener("click", async () => {
         trackEvent("boja izabrana");
         const textSpan = elements.colorBtn.querySelector("span");
         const iconSpan = elements.colorBtn.querySelector(".icon");
         const originalText = getI18nMsg("colorPickerBtn", "Color Picker");
-
         try {
             textSpan.textContent = getI18nMsg("colorPickerPicking", "Biranje...");
             const ed = new EyeDropper();
             const res = await ed.open();
-
             const hexColor = res.sRGBHex;
             await navigator.clipboard.writeText(hexColor);
-
             textSpan.textContent = getI18nMsg("colorPickerCopied", "Kopirano: ") + hexColor;
-
             const originalIconColor = iconSpan.style.color;
             const originalBorder = elements.colorBtn.style.borderColor;
-
             iconSpan.style.color = hexColor;
             elements.colorBtn.style.borderColor = hexColor;
             elements.colorBtn.style.boxShadow = `0 0 10px ${hexColor}44`;
-
             setTimeout(() => {
                 textSpan.textContent = originalText;
                 iconSpan.style.color = originalIconColor;
                 elements.colorBtn.style.borderColor = originalBorder;
                 elements.colorBtn.style.boxShadow = "";
             }, 2000);
-
         } catch (err) {
             textSpan.textContent = originalText;
         }
     });
-
     elements.nightToggle?.addEventListener("change", (e) => {
         const isNight = e.target.checked;
         trackEvent(isNight ? "tamni režim uključen" : "tamni režim isključen");
         chrome.storage.local.set({ nightToggle: isNight });
-
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
             func: (on) => {
                 let styleNode = document.getElementById("aio-dark-style");
                 let transitionNode = document.getElementById("aio-dark-transition");
                 const isDarkAlreadyActive = !!styleNode;
-
                 if (on) {
                     // Duplo-zaštita: ako je već active, ne radi
                     if (isDarkAlreadyActive) return;
-
                     // Provera: da li je sajt već u dark modu
                     let isSiteAlreadyDark = false;
                     const html = document.documentElement;
-
                     // Eksplicitne dark mode klase/atributi
                     if (html.classList.contains('dark') ||
                         html.getAttribute('data-theme') === 'dark' ||
@@ -533,8 +434,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     } else {
                         // Probaj da detektuješ background boju sa fallback opcijama
                         let bgColor = null;
-                        let elements = [document.body, html, document.documentElement, document.querySelector('main'), document.querySelector('[role="application"]')];
-
+                        let elements = [document.body, html, document.documentElement, document.querySelector('main'), document.querySelector('[role="application"]'), document.querySelector('#root'), document.querySelector('#__next')];
                         for (let el of elements) {
                             if (!el) continue;
                             let bg = window.getComputedStyle(el).backgroundColor;
@@ -543,12 +443,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 break;
                             }
                         }
-
                         // Ako nije pronašao nigdje, koristi bijelu kao fallback (za light sajtove)
                         if (!bgColor) {
                             bgColor = 'rgb(255, 255, 255)'; // Pretpostavi bijelu stranicu
                         }
-
                         const rgb = bgColor.match(/\d+/g);
                         if (rgb && rgb.length >= 3) {
                             // Luminocity formula (ITU-R BT.601)
@@ -556,10 +454,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                             if (luma < 128) isSiteAlreadyDark = true;
                         }
                     }
-
                     // Ako je sajt već dark, ne invertuj
                     if (isSiteAlreadyDark) return;
-
                     // Dodaj transition za smooth prelaz
                     if (!transitionNode) {
                         transitionNode = document.createElement("style");
@@ -569,7 +465,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                         `;
                         document.head.appendChild(transitionNode);
                     }
-
                     if (!styleNode) {
                         styleNode = document.createElement("style");
                         styleNode.id = "aio-dark-style";
@@ -586,10 +481,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             },
             args: [isNight]
         }).catch((err) => {
-            console.error("Dark mode toggle failed:", err);
+            // Silent fail
         });
     });
-
     elements.rulerBtn?.addEventListener("click", () => {
         trackEvent("lenjir otvoren");
         chrome.scripting.executeScript({
@@ -603,7 +497,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 ov.style = "position:fixed;top:0;left:0;width:100%;height:100%;z-index:999998;cursor:crosshair;background:transparent;";
                 r.style = "position:fixed;border:1px solid #00ff88;background:rgba(0,255,136,0.1);z-index:999999;pointer-events:none;display:flex;align-items:center;justify-content:center;font-family: 'Inter', sans-serif;box-shadow:0 0 15px rgba(0,255,136,0.2); transition: none;";
                 document.body.append(ov, r);
-
                 let sx, sy, drag = false;
                 let isPointerDown = false;
                 let removed = false;
@@ -613,7 +506,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     isPointerDown = false;
                     if (!drag) cleanup();
                 };
-
                 const cleanup = () => {
                     if (removed) return;
                     removed = true;
@@ -622,7 +514,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     document.removeEventListener("keydown", esc);
                     window.removeEventListener("mouseup", onGlobalMouseUp, true);
                 };
-
                 ov.onmousedown = (e) => {
                     isPointerDown = true;
                     sx = e.clientX;
@@ -640,7 +531,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                         r.style.top = Math.min(e.clientY, sy) + "px";
                         r.style.width = w + "px";
                         r.style.height = h + "px";
-
                         r.innerHTML = `
                             <div style="background:rgba(0,0,0,0.75); padding:6px 12px; border-radius:8px; color:#00ff88; font-size:14px; font-weight:600; backdrop-filter:blur(4px); border:1px solid rgba(0,255,136,0.3); display:flex; gap:10px; box-shadow:0 4px 15px rgba(0,0,0,0.5);">
                                 <span><span style="color:#fff; opacity:0.7;">W:</span> ${w}px</span>
@@ -659,37 +549,35 @@ document.addEventListener("DOMContentLoaded", async () => {
             window.close();
         });
     });
-
     elements.markerBtn?.addEventListener("click", () => {
         trackEvent("marker otvoren");
         chrome.storage.local.get(['selectedColor'], (data) => {
             const color = data.selectedColor || "#00ff88";
             chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ["marker_engine.js"] }, () => {
                 if (chrome.runtime.lastError) return;
-                chrome.tabs.sendMessage(tab.id, { action: "initMarkerColor", color });
+                chrome.tabs.sendMessage(tab.id, { action: "initMarker" });
+                setTimeout(() => {
+                    chrome.tabs.sendMessage(tab.id, { action: "initMarkerColor", color });
+                }, 50);
                 window.close();
             });
         });
     });
     //#endregion
-
     //#region KOLACICI I KES
     const cookieModal = document.getElementById("cookieModal");
     const realClearBtn = document.getElementById("realClearBtn");
     const closeCookieModal = document.getElementById("closeCookieModal");
     const cookieToggle = document.getElementById("cookieToggle");
-
     elements.clearCacheBtn?.addEventListener("click", (e) => {
         trackEvent("brisanje keša otvoreno");
         e.preventDefault();
         cookieModal.style.display = "flex";
     });
-
     closeCookieModal?.addEventListener("click", () => {
         trackEvent("brisanje keša zatvoreno");
         cookieModal.style.display = "none";
     });
-
     realClearBtn?.addEventListener("click", async () => {
         trackEvent("keš obrisan");
         let tab = null;
@@ -702,15 +590,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                 return;
             }
         } catch (err) {
-            console.error("Tab query error:", err);
+            // Silent fail
             realClearBtn.innerText = getI18nMsg("cacheError", "Greška");
             setTimeout(() => realClearBtn.innerText = getI18nMsg("cacheClearConfirm", "Obriši sve podatke sa ovog sajta"), 1500);
             return;
         }
-
         const originalText = realClearBtn.innerText;
         realClearBtn.innerText = getI18nMsg("cacheClearing", "Brisanje...");
-
         chrome.runtime.sendMessage({ action: "clearSiteData", url: tab.url }, (response) => {
             if (chrome.runtime.lastError || !response?.ok) {
                 realClearBtn.innerText = getI18nMsg("cacheError", "Greška");
@@ -719,13 +605,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }, 1200);
                 return;
             }
-
             chrome.scripting.executeScript({
                 target: { tabId: tab.id },
                 func: async () => {
                     try { sessionStorage.clear(); } catch (_) { }
                     try { localStorage.clear(); } catch (_) { }
-
                     try {
                         if (window.indexedDB && indexedDB.databases) {
                             const dbs = await indexedDB.databases();
@@ -742,14 +626,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                             })));
                         }
                     } catch (_) { }
-
                     try {
                         if (window.caches && caches.keys) {
                             const keys = await caches.keys();
                             await Promise.all(keys.map((key) => caches.delete(key)));
                         }
                     } catch (_) { }
-
                     try {
                         if (navigator.serviceWorker?.getRegistrations) {
                             const regs = await navigator.serviceWorker.getRegistrations();
@@ -758,7 +640,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     } catch (_) { }
                 }
             }).catch(() => { });
-
             realClearBtn.innerText = getI18nMsg("cacheCleared", "Obrisano!");
             setTimeout(() => {
                 realClearBtn.innerText = originalText;
@@ -767,28 +648,24 @@ document.addEventListener("DOMContentLoaded", async () => {
             }, 700);
         });
     });
-
     chrome.storage.local.get(["cookieBlock"], (res) => {
         if (cookieToggle) cookieToggle.checked = res.cookieBlock || false;
     });
-
     cookieToggle?.addEventListener("change", async (e) => {
         trackEvent(e.target.checked ? "kolačići blokirani" : "kolačići dozvoljeni");
         try {
             const isChecked = e.target.checked;
             await chrome.storage.local.set({ cookieBlock: isChecked });
-
             const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
             const tab = tabs?.[0];
             if (tab && tab.url && tab.url.startsWith("http")) {
                 chrome.tabs.reload(tab.id);
             }
         } catch (err) {
-            console.error("Cookie toggle error:", err);
+            // Silent fail
         }
     });
     //#endregion
-
     //#region FONT PICKER
     if (elements.fontBtn) {
         elements.fontBtn.addEventListener("click", async () => {
@@ -800,7 +677,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     window.close();
                     return;
                 }
-
                 await chrome.scripting.executeScript({
                     target: { tabId: tab.id },
                     func: (copiedText, notCopiedText) => {
@@ -808,7 +684,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                             return;
                         }
                         window.aioFontFinderActive = true;
-
                         const styleTag = document.createElement("style");
                         styleTag.id = "aio-font-styles";
                         styleTag.innerHTML = `
@@ -817,20 +692,16 @@ document.addEventListener("DOMContentLoaded", async () => {
                         .aio-font-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px); background: #16161e; color: #00ff88; padding: 15px 25px; border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 8px 20px rgba(0,0,0,0.6); border: 1px solid #00ff88; z-index: 2147483647; opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease; text-align: center; }
                     `;
                         (document.head || document.documentElement).appendChild(styleTag);
-
                         const tooltip = document.createElement("div");
                         tooltip.className = "aio-font-tooltip";
                         document.body.appendChild(tooltip);
-
                         let currentTarget = null;
                         let cleaned = false;
-
                         const getPrimaryFont = (el) => {
                             if (!el || !(el instanceof Element)) return "";
                             const rawFont = window.getComputedStyle(el).fontFamily || "";
                             return rawFont.split(',')[0].replace(/[\'"]/g, '').trim();
                         };
-
                         const resolveFontTarget = (startEl) => {
                             let node = startEl;
                             while (node && node !== document.documentElement) {
@@ -840,7 +711,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                             }
                             return { node: startEl, font: "Unknown Font" };
                         };
-
                         const cleanup = ({ removeStyle = true } = {}) => {
                             if (cleaned) return;
                             cleaned = true;
@@ -853,7 +723,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                             if (removeStyle) styleTag.remove();
                             window.aioFontFinderActive = false;
                         };
-
                         const copyText = async (text) => {
                             try {
                                 await navigator.clipboard.writeText(text);
@@ -876,16 +745,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 }
                             }
                         };
-
                         const mouseOverHandler = (e) => {
                             const result = resolveFontTarget(e.target);
                             currentTarget = result.node;
                             const cistFont = result.font || "Unknown Font";
-
                             tooltip.style.display = 'block';
                             tooltip.innerHTML = "<span style='color: #a0a0a8; font-size: 10px; display: block; margin-bottom: 2px;'>Font:</span>" + cistFont;
                         };
-
                         const mouseMoveHandler = (e) => {
                             if (tooltip.style.display === 'block') {
                                 const offset = 15;
@@ -897,42 +763,31 @@ document.addEventListener("DOMContentLoaded", async () => {
                                 tooltip.style.top = top + "px";
                             }
                         };
-
                         const clickHandler = async (e) => {
                             e.preventDefault();
                             e.stopPropagation();
-
                             if (!currentTarget) return;
-
                             const cistFont = getPrimaryFont(currentTarget) || "Unknown Font";
-
                             const copied = await copyText(cistFont);
-
                             cleanup({ removeStyle: false });
-
                             const toast = document.createElement("div");
                             toast.className = "aio-font-toast";
                             toast.innerHTML = `<span style='color: #a0a0a8; font-size: 12px; display: block; margin-bottom: 4px;'>${copied ? copiedText : notCopiedText}</span>${cistFont}`;
                             document.body.appendChild(toast);
-
                             requestAnimationFrame(() => {
                                 toast.style.opacity = "1";
                                 toast.style.transform = "translateX(-50%) translateY(0)";
                             });
-
                             setTimeout(() => {
                                 toast.style.opacity = "0";
                                 toast.style.transform = "translateX(-50%) translateY(20px)";
                                 setTimeout(() => { toast.remove(); styleTag.remove(); }, 300);
                             }, 2500);
                         };
-
                         const escHandler = (e) => {
                             if (e.key === "Escape") cleanup();
                         };
-
                         const unloadHandler = () => cleanup();
-
                         document.addEventListener("mouseover", mouseOverHandler, true);
                         document.addEventListener("mousemove", mouseMoveHandler, true);
                         document.addEventListener("click", clickHandler, true);
@@ -941,22 +796,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                     },
                     args: [getI18nMsg("fontCopied", "Kopirano!"), getI18nMsg("fontNotCopied", "Nije kopirano")]
                 });
-
                 // Match previous behavior: close popup while selecting font on page.
                 window.close();
             } catch (err) {
-                console.error("Font picker error:", err);
+                // Silent fail
             }
         });
     }
     //#endregion
-
     //#region PAMETNE BELEŠKE
     const clearModal = document.getElementById("clearNotesModal");
     const MAX_NOTES_BYTES = 2 * 1024 * 1024;
     let saveTimeout;
     let notesSaveQueue = Promise.resolve();
-
     function escapeHtml(str = "") {
         return str
             .replace(/&/g, "&amp;")
@@ -965,7 +817,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             .replace(/\"/g, "&quot;")
             .replace(/'/g, "&#39;");
     }
-
     function getSafeHttpUrl(rawUrl = "") {
         try {
             const u = new URL(rawUrl);
@@ -974,29 +825,22 @@ document.addEventListener("DOMContentLoaded", async () => {
             return null;
         }
     }
-
     function sanitizeNotesHtml(rawHtml = "") {
         const template = document.createElement("template");
         template.innerHTML = rawHtml;
-
         const allowedTags = new Set(["b", "i", "a", "br", "div", "span", "ul", "ol", "li", "p"]);
-
         const sanitizeNode = (node) => {
             if (node.nodeType === Node.TEXT_NODE) {
                 return document.createTextNode(node.textContent || "");
             }
-
             if (node.nodeType !== Node.ELEMENT_NODE) {
                 return document.createTextNode("");
             }
-
             const tag = node.tagName.toLowerCase();
             if (!allowedTags.has(tag)) {
                 return document.createTextNode(node.textContent || "");
             }
-
             const clean = document.createElement(tag);
-
             if (tag === "a") {
                 const safeHref = getSafeHttpUrl(node.getAttribute("href") || "");
                 if (safeHref) {
@@ -1005,39 +849,31 @@ document.addEventListener("DOMContentLoaded", async () => {
                     clean.setAttribute("rel", "noopener noreferrer");
                 }
             }
-
             if (tag === "b") {
                 const styleVal = (node.getAttribute("style") || "").replace(/\s+/g, "").toLowerCase();
                 if (styleVal === "color:var(--accent);" || styleVal === "color:var(--accent)") {
                     clean.setAttribute("style", "color: var(--accent);");
                 }
             }
-
             Array.from(node.childNodes).forEach((child) => {
                 clean.appendChild(sanitizeNode(child));
             });
-
             return clean;
         };
-
         const root = document.createElement("div");
         Array.from(template.content.childNodes).forEach((child) => {
             root.appendChild(sanitizeNode(child));
         });
-
         return root.innerHTML;
     }
-
     function persistNotesHtml(safeHtml) {
         notesSaveQueue = notesSaveQueue.then(async () => {
             await chrome.storage.local.set({ "mojeBeleske": safeHtml });
         }).catch((err) => {
-            console.error("Notes save error:", err);
+            // Silent fail
         });
-
         return notesSaveQueue;
     }
-
     function getUtf8ByteLength(value) {
         try {
             return new TextEncoder().encode(String(value || "")).length;
@@ -1045,47 +881,45 @@ document.addEventListener("DOMContentLoaded", async () => {
             return unescape(encodeURIComponent(String(value || ""))).length;
         }
     }
-
     function showSaveIndicator(text = getI18nMsg("notesSaved", "Sačuvano"), isError = false) {
         if (!saveIndicator) return;
         saveIndicator.textContent = text;
         saveIndicator.style.color = isError ? "#ff7a7a" : "var(--accent)";
         saveIndicator.style.opacity = "1";
-        setTimeout(() => {
+        let hideIndicator = () => {
             saveIndicator.style.opacity = "0";
             if (isError) {
                 saveIndicator.textContent = getI18nMsg("notesSaved", "Sačuvano");
                 saveIndicator.style.color = "var(--accent)";
             }
+        };
+        // Use requestAnimationFrame for smoother UI update
+        let rafId = null;
+        setTimeout(() => {
+            rafId = requestAnimationFrame(hideIndicator);
         }, 1200);
     }
-
     function saveNotes(immediate = false) {
         const commit = () => {
             const safeHtml = sanitizeNotesHtml(noteArea.innerHTML || "");
             if (noteArea.innerHTML !== safeHtml) {
                 noteArea.innerHTML = safeHtml;
             }
-
             const payloadBytes = getUtf8ByteLength(safeHtml);
             if (payloadBytes > MAX_NOTES_BYTES) {
                 showSaveIndicator(getI18nMsg("notesTooLarge", "Prevelika beleška"), true);
                 return;
             }
-
             persistNotesHtml(safeHtml);
             showSaveIndicator();
         };
-
         clearTimeout(saveTimeout);
         if (immediate) {
             commit();
             return;
         }
-
         saveTimeout = setTimeout(commit, 300);
     }
-
     function appendToNotes(content, isHTML = false) {
         noteArea.focus();
         if (isHTML) {
@@ -1095,7 +929,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         saveNotes();
     }
-
     // Učitavanje beleški
     chrome.storage.local.get("mojeBeleske", (res) => {
         if (res.mojeBeleske) {
@@ -1106,76 +939,117 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         }
     });
-
     // Navigacija
     document.getElementById("notesBtn")?.addEventListener("click", () => {
         trackEvent("beleške otvorene");
         document.getElementById("mainView").style.display = "none";
         document.getElementById("notesView").style.display = "flex";
+        updateNotesCount();
         noteArea.focus();
     });
-
     document.getElementById("backBtn")?.addEventListener("click", () => {
         trackEvent("beleške nazad");
         saveNotes(true);
         document.getElementById("notesView").style.display = "none";
         document.getElementById("mainView").style.display = "block";
     });
-
     // Modal logika za brisanje
     document.getElementById("notesClearBtn")?.addEventListener("click", () => {
         trackEvent("brisanje beleški otvoreno");
         clearModal.style.display = "flex";
     });
-
     document.getElementById("cancelClearNotes")?.addEventListener("click", () => {
         trackEvent("brisanje beleški otkazano");
         clearModal.style.display = "none";
     });
-
     document.getElementById("confirmClearNotes")?.addEventListener("click", () => {
         trackEvent("beleške obrisane");
+        clearTimeout(saveTimeout);
         noteArea.innerHTML = "";
-        chrome.storage.local.set({ "mojeBeleske": "" });
+        persistNotesHtml("");
+        updateNotesCount(); // Reset count
         clearModal.style.display = "none";
     });
-
+    // Word count za beleške
+    function updateNotesCount() {
+        const text = noteArea.innerText || "";
+        const words = (text.match(/[\p{L}\p{N}]+/gu) || []).length;
+        const chars = text.length;
+        const indicator = document.getElementById("saveIndicator");
+        if (indicator) {
+            const savedText = getI18nMsg("savedIndicator", "Sačuvano");
+            const wordLabel = getI18nMsg("wordsLabelShort", "reči");
+            indicator.textContent = `${savedText} | ${words} ${wordLabel}`;
+        }
+    }
+    // Pomoćne funkcije za čuvanje i vraćanje kursora
+    function saveSelection(container) {
+        const sel = window.getSelection();
+        if (sel.rangeCount === 0) return null;
+        const range = sel.getRangeAt(0);
+        const preCaretRange = range.cloneRange();
+        preCaretRange.selectNodeContents(container);
+        preCaretRange.setEnd(range.endContainer, range.endOffset);
+        return preCaretRange.toString().length;
+    }
+    function restoreSelection(container, savedOffset) {
+        if (savedOffset === null) return;
+        let charIndex = 0;
+        const range = document.createRange();
+        range.setStart(container, 0);
+        range.collapse(true);
+        const nodeStack = [container];
+        let node;
+        let foundStart = false;
+        while (!foundStart && (node = nodeStack.pop())) {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const nextCharIndex = charIndex + node.length;
+                if (!foundStart && savedOffset >= charIndex && savedOffset <= nextCharIndex) {
+                    range.setStart(node, savedOffset - charIndex);
+                    range.setEnd(node, savedOffset - charIndex);
+                    foundStart = true;
+                }
+                charIndex = nextCharIndex;
+            } else {
+                let i = node.childNodes.length;
+                while (i--) {
+                    nodeStack.push(node.childNodes[i]);
+                }
+            }
+        }
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+    }
     // Pametna logika i kalkulator (FIXED CURSOR)
     noteArea.addEventListener("input", (e) => {
-        const calcRegex = /(\d+(?:\.\d+)?)\s*([\+\-\*\/])\s*(\d+(?:\.\d+)?)\s*=(?!\s*<b)/;
-
+        const calcRegex = /(\d+(?:\.\d+)?)\s*([\+\-\*\/])\s*(\d+(?:\.\d+)?)\s*=(?!\s*<b)/g;
         // Proveravamo samo tekstualni sadržaj da ne pokvarimo HTML strukturu
         if (calcRegex.test(noteArea.innerText)) {
+            const savedOffset = saveSelection(noteArea);
             let html = noteArea.innerHTML;
+            let offsetAdjustment = 0;
             let newHtml = html.replace(calcRegex, (match, a, op, b) => {
                 let n1 = parseFloat(a), n2 = parseFloat(b), r = 0;
                 if (op === '+') r = n1 + n2;
                 else if (op === '-') r = n1 - n2;
                 else if (op === '*') r = n1 * n2;
                 else if (op === '/') r = n2 !== 0 ? n1 / n2 : 0;
-
                 r = Math.round(r * 100) / 100;
+                offsetAdjustment += String(r).length + 2; // " " + r + "\xA0" (non-breaking space)
                 return `${match} <b style="color: var(--accent);">${r}</b>&nbsp;`;
             });
-
             if (html !== newHtml) {
                 noteArea.innerHTML = newHtml;
-                // Vraćamo kursor na kraj (fokus na contentEditable nakon innerHTML reseta)
-                const range = document.createRange();
-                const sel = window.getSelection();
-                range.selectNodeContents(noteArea);
-                range.collapse(false);
-                sel.removeAllRanges();
-                sel.addRange(range);
+                restoreSelection(noteArea, savedOffset !== null ? savedOffset + offsetAdjustment : null);
             }
         }
+        updateNotesCount();
         saveNotes();
     });
-
     noteArea.addEventListener("blur", () => {
         saveNotes(true);
     });
-
     // Čist paste
     noteArea.addEventListener("paste", (e) => {
         e.preventDefault();
@@ -1188,7 +1062,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         document.execCommand("insertText", false, text);
     });
-
     // Otvaranje linkova
     noteArea.addEventListener("click", (e) => {
         if (e.target.tagName === "A") {
@@ -1197,7 +1070,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             if (safeHref) chrome.tabs.create({ url: safeHref });
         }
     });
-
     // Akciona dugmad (Grab Text, URL, Date)
     document.getElementById("grabTextBtn")?.addEventListener("click", async () => {
         trackEvent("notes_grab_text");
@@ -1205,7 +1077,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
             const tab = tabs?.[0];
             if (!tab?.url || !tab.url.startsWith("http")) return;
-
             chrome.scripting.executeScript({
                 target: { tabId: tab.id },
                 func: () => window.getSelection().toString()
@@ -1215,10 +1086,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }
             });
         } catch (err) {
-            console.error("Grab text error:", err);
+            // Silent fail
         }
     });
-
     document.getElementById("addUrlBtn")?.addEventListener("click", async () => {
         trackEvent("notes_add_url");
         try {
@@ -1230,17 +1100,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (safeHref) appendToNotes(`<a href="${safeHref}">${safeTitle}</a>`, true);
             }
         } catch (err) {
-            console.error("Add URL error:", err);
+            // Silent fail
         }
     });
-
     document.getElementById("addDateBtn")?.addEventListener("click", () => {
         trackEvent("notes_add_date");
         const now = new Date();
-        const str = `${now.toLocaleDateString("sr-RS")} ${now.toLocaleTimeString("sr-RS", { hour: '2-digit', minute: '2-digit' })}`;
+        const str = `${now.toLocaleDateString(currentLang)} ${now.toLocaleTimeString(currentLang, { hour: '2-digit', minute: '2-digit' })}`;
         appendToNotes(`<b>${str}</b>`, true);
     });
-
     // EXPORT i IMPORT
     document.getElementById("exportNotesBtn")?.addEventListener("click", () => {
         trackEvent("notes_export");
@@ -1252,12 +1120,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         a.click();
         URL.revokeObjectURL(url);
     });
-
     document.getElementById("importNotesBtn")?.addEventListener("click", () => {
         trackEvent("notes_import_open");
         document.getElementById("importFileInput")?.click();
     });
-
     document.getElementById("importFileInput")?.addEventListener("change", (e) => {
         trackEvent("notes_import_confirm");
         const file = e.target.files[0];
@@ -1271,7 +1137,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         reader.readAsText(file);
     });
     //#endregion
-
     //#region TIME TRACKER
     const trackerList = document.getElementById("trackerList");
     const trackerDate = document.getElementById("trackerDate");
@@ -1279,7 +1144,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const trackerDatePrikaz = document.getElementById("trackerDatePrikaz");
     let trackerRefreshQueue = Promise.resolve();
     let renderStatsDebounceId = null;
-
     async function forceTrackerTickAndRender() {
         trackerRefreshQueue = trackerRefreshQueue.then(async () => {
             let domain = "";
@@ -1291,21 +1155,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             } catch {
                 domain = "";
             }
-
             try {
                 await chrome.runtime.sendMessage({ action: "tracker_force_tick", domain });
             } catch {
                 // Ako background ne odgovori, i dalje osveži prikaz iz storage-a.
             }
-
             renderStats();
         }).catch((err) => {
-            console.error("Tracker refresh error:", err);
+            // Silent fail
         });
-
         return trackerRefreshQueue;
     }
-
     function formatTime(sec) {
         const h = Math.floor(sec / 3600);
         const m = Math.floor((sec % 3600) / 60);
@@ -1314,12 +1174,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (m > 0) return `${m}m ${s}s`;
         return `${s}s`;
     }
-
     function debouncedRenderStats() {
         clearTimeout(renderStatsDebounceId);
-        renderStatsDebounceId = setTimeout(renderStats, 50);
+        // Use requestAnimationFrame for more responsive UI update
+        renderStatsDebounceId = setTimeout(() => {
+            requestAnimationFrame(renderStats);
+        }, 50);
     }
-
     function renderStats() {
         chrome.storage.local.get(null, (items) => {
             const today = new Date();
@@ -1332,44 +1193,44 @@ document.addEventListener("DOMContentLoaded", async () => {
                     if (yyyy >= 2000 && yyyy <= 2100 && mm >= 1 && mm <= 12 && dd >= 1 && dd <= 31) {
                         selDate = new Date(yyyy, mm - 1, dd);
                     }
+                } else if (parts.length === 2 && parts.every((n) => Number.isFinite(n) && n > 0)) {
+                    const [yyyy, mm] = parts;
+                    if (yyyy >= 2000 && yyyy <= 2100 && mm >= 1 && mm <= 12) {
+                        selDate = new Date(yyyy, mm - 1, 1);
+                    }
                 }
             }
-
             const selKey = `tracker_${selDate.getFullYear()}_${selDate.getMonth() + 1}_${selDate.getDate()}`;
             const selMonthPrefix = `tracker_${selDate.getFullYear()}_${selDate.getMonth() + 1}_`;
             const mode = trackerMode.value;
-
             let listTotals = {};
             let listTotalSec = 0;
             let totalMonth = 0;
             let totalAll = 0;
             let activeDays = 0;
-
+            let activeDaysInMonth = 0; // Aktivni dani u izabranom mesecu za prosek
             // Jedan prolaz kroz podatke umesto više filtera (brže)
             for (const key in items) {
                 if (!key.startsWith("tracker_")) continue;
                 if (!items[key] || typeof items[key] !== "object") continue;
-
                 let daySum = 0;
                 for (const dom in items[key]) {
                     const sec = Number(items[key][dom]);
                     if (Number.isFinite(sec) && sec > 0) daySum += sec;
                 }
-
                 if (daySum > 0) {
                     activeDays++;
                 }
-
                 totalAll += daySum;
-
                 // Provera za trenutno izabrani mesec
-                if (key.startsWith(selMonthPrefix)) totalMonth += daySum;
-
+                if (key.startsWith(selMonthPrefix)) {
+                    totalMonth += daySum;
+                    if (daySum > 0) activeDaysInMonth++;
+                }
                 // Logika prikaza za listu
                 let shouldInclude = (mode === "day" && key === selKey) ||
                     (mode === "month" && key.startsWith(selMonthPrefix)) ||
                     (mode === "all");
-
                 if (shouldInclude) {
                     listTotalSec += daySum;
                     for (const dom in items[key]) {
@@ -1379,23 +1240,56 @@ document.addEventListener("DOMContentLoaded", async () => {
                     }
                 }
             }
-
-            // Ažuriranje statistike
+            // Ažuriranje statistike - zavisno od moda
+            let secondBoxValue, avgValue;
+            const statBox2 = document.getElementById("statBox2");
+            const trackerDateWrapper = document.getElementById("trackerDateWrapper");
+            if (mode === "all") {
+                // U all modu: prvi box = ukupno, drugi = skriven, treći = prosek sve
+                avgValue = Math.floor(totalAll / (activeDays || 1));
+                if (statBox2) statBox2.classList.add("hidden");
+                if (trackerDateWrapper) trackerDateWrapper.classList.add("hidden");
+            } else if (mode === "month") {
+                // U month modu: prvi box = mesec, drugi = skriven, treći = prosek mesec
+                avgValue = Math.floor(totalMonth / (activeDaysInMonth || 1));
+                if (statBox2) statBox2.classList.add("hidden");
+                if (trackerDateWrapper) trackerDateWrapper.classList.remove("hidden");
+            } else {
+                // U day modu: prvi box = dan, drugi = mesec, treći = prosek mesec
+                secondBoxValue = totalMonth;
+                avgValue = Math.floor(totalMonth / (activeDaysInMonth || 1));
+                if (statBox2) statBox2.classList.remove("hidden");
+                if (trackerDateWrapper) trackerDateWrapper.classList.remove("hidden");
+            }
             document.getElementById("statTotal").textContent = formatTime(listTotalSec);
-            document.getElementById("statMonth").textContent = formatTime(totalMonth);
-            document.getElementById("statAvg").textContent = formatTime(Math.floor(totalAll / (activeDays || 1)));
-
-            // Labela za glavni box
-            const label = document.getElementById("statTotalLabel");
+            if (secondBoxValue !== undefined && statBox2) {
+                document.getElementById("statMonth").textContent = formatTime(secondBoxValue);
+            }
+            document.getElementById("statAvg").textContent = formatTime(avgValue);
+            const isCurrentMonth = selDate.getMonth() === today.getMonth() && selDate.getFullYear() === today.getFullYear();
             const isToday = selDate.toDateString() === today.toDateString();
-            if (mode === "day") label.textContent = isToday ? getI18nMsg("trackerToday", "Danas") : getI18nMsg("trackerThatDay", "Taj dan");
-            else if (mode === "month") label.textContent = getI18nMsg("trackerSelectedMonth", "Izabrani mesec");
-            else label.textContent = getI18nMsg("trackerTotal", "Ukupno");
-
-            // Render liste sa progres barovima
+            const label = document.getElementById("statTotalLabel");
+            if (mode === "day") {
+                label.textContent = isToday ? getI18nMsg("trackerToday", "Danas") : getI18nMsg("trackerThatDay", "Taj dan");
+            } else if (mode === "month") {
+                label.textContent = isCurrentMonth ? getI18nMsg("trackerThisMonth", "Ovaj mesec") : getI18nMsg("trackerSelectedMonth", "Izabrani mesec");
+            } else {
+                label.textContent = getI18nMsg("trackerTotal", "Ukupno");
+            }
+            const monthLabel = document.getElementById("statMonthLabel");
+            if (monthLabel && mode === "day") {
+                monthLabel.textContent = isCurrentMonth ? getI18nMsg("trackerThisMonthShort", "Ovaj mesec") : getI18nMsg("trackerThatMonth", "Taj mesec");
+            }
+            const avgLabel = document.getElementById("statAvgLabel");
+            if (avgLabel) {
+                if (mode === "all") {
+                    avgLabel.textContent = getI18nMsg("trackerAvgTotal", "Prosek");
+                } else {
+                    avgLabel.textContent = getI18nMsg("trackerAvgThisMonth", "Prosek (mesec)");
+                }
+            }
             const sorted = Object.entries(listTotals).sort((a, b) => b[1] - a[1]);
             trackerList.innerHTML = sorted.length ? "" : `<div class='empty-msg'>${getI18nMsg("trackerNoData", "Nema podataka za ovaj period")}</div>`;
-
             sorted.forEach(([domain, sec]) => {
                 const percent = ((sec / listTotalSec) * 100).toFixed(1);
                 const item = document.createElement("div");
@@ -1411,35 +1305,65 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
         });
     }
-
     // Otvaranje trackera
     elements.trackerBtn?.addEventListener("click", () => {
         trackEvent("tracker_open");
         if (!trackerView) return;
         mainView.style.display = "none";
         trackerView.style.display = "flex";
-
         const d = new Date();
         const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+        trackerDate.type = "date";
         trackerDate.value = iso;
         trackerDate.max = iso;
         trackerDatePrikaz.value = `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}.`;
-
         trackerMode.value = "day";
         forceTrackerTickAndRender();
     });
-
     // Eventi za kontrole
     trackerDate?.addEventListener("change", (e) => {
         trackEvent("tracker_date_change", { value: e.target.value });
         const parts = e.target.value.split("-");
-        trackerDatePrikaz.value = `${parts[2]}.${parts[1]}.${parts[0]}.`;
+        if (trackerDate.type === "month") {
+            trackerDatePrikaz.value = `${parts[1]}.${parts[0]}.`;
+        } else {
+            trackerDatePrikaz.value = `${parts[2]}.${parts[1]}.${parts[0]}.`;
+        }
         debouncedRenderStats();
     });
-
-    trackerMode?.addEventListener("change", debouncedRenderStats);
     trackerMode?.addEventListener("change", (e) => {
-        trackEvent("tracker_mode_change", { value: e.target.value });
+        const mode = e.target.value;
+        trackEvent("tracker_mode_change", { value: mode });
+        if (mode === "all") {
+            debouncedRenderStats();
+            return;
+        }
+        let currentVal = trackerDate.value;
+        let parts = currentVal ? currentVal.split('-') : [];
+        if (mode === "month") {
+            trackerDate.type = "month";
+            if (parts.length >= 2) {
+                trackerDate.value = `${parts[0]}-${String(parts[1]).padStart(2, '0')}`;
+                trackerDatePrikaz.value = `${String(parts[1]).padStart(2, '0')}.${parts[0]}.`;
+            } else {
+                const d = new Date();
+                trackerDate.value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+                trackerDatePrikaz.value = `${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}.`;
+            }
+        } else {
+            trackerDate.type = "date";
+            if (parts.length === 2) {
+                trackerDate.value = `${parts[0]}-${String(parts[1]).padStart(2, '0')}-01`;
+                trackerDatePrikaz.value = `01.${String(parts[1]).padStart(2, '0')}.${parts[0]}.`;
+            } else if (parts.length === 3) {
+                trackerDatePrikaz.value = `${String(parts[2]).padStart(2, '0')}.${String(parts[1]).padStart(2, '0')}.${parts[0]}.`;
+            } else {
+                const d = new Date();
+                const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+                trackerDate.value = iso;
+                trackerDatePrikaz.value = `${String(d.getDate()).padStart(2, '0')}.${String(d.getMonth() + 1).padStart(2, '0')}.${d.getFullYear()}.`;
+            }
+        }
         debouncedRenderStats();
     });
     trackerDatePrikaz?.addEventListener("click", () => {
@@ -1447,7 +1371,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (trackerDate?.showPicker) trackerDate.showPicker();
         else trackerDate?.click();
     });
-
     document.getElementById("trackerRefreshBtn")?.addEventListener("click", async () => {
         trackEvent("tracker_refresh");
         try {
@@ -1456,17 +1379,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             icon.style.color = "var(--accent)";
             setTimeout(() => icon.style.color = "", 500);
         } catch (err) {
-            console.error("Tracker refresh error:", err);
+            // Silent fail
         }
     });
-
     document.getElementById("trackerBackBtn")?.addEventListener("click", () => {
         trackEvent("tracker_back");
         if (!trackerView) return;
         trackerView.style.display = "none";
         mainView.style.display = "block";
     });
-
     // EXPORT: Čuvanje svih tracker podataka u JSON
     document.getElementById("exportTrackerBtn")?.addEventListener("click", () => {
         trackEvent("tracker_export");
@@ -1475,7 +1396,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const MAX_TRACKER_EXPORT_BYTES = 10 * 1024 * 1024;
             let accumulatedBytes = 0;
             let wasTruncated = false;
-
             for (const key in items) {
                 if (key.startsWith("tracker_")) {
                     const jsonChunk = JSON.stringify(items[key]);
@@ -1484,17 +1404,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                         wasTruncated = true;
                         break;
                     }
-
                     trackerData[key] = items[key];
                     accumulatedBytes += chunkBytes;
                 }
             }
-
             if (Object.keys(trackerData).length === 0) {
-                alert(getI18nMsg("trackerExportEmpty", "Nema tracker podataka za izvoz."));
+                // alert removed for production
                 return;
             }
-
             const blob = new Blob([JSON.stringify(trackerData, null, 2)], { type: "application/json" });
             const url = URL.createObjectURL(blob);
             const a = document.createElement("a");
@@ -1502,26 +1419,21 @@ document.addEventListener("DOMContentLoaded", async () => {
             a.download = `AllInOne_Tracker_Backup.json`;
             a.click();
             URL.revokeObjectURL(url);
-
             if (wasTruncated) {
-                alert(getI18nMsg("trackerExportTruncated", "Izvoz je skraćen na 10MB da popup ostane stabilan."));
+                // alert removed for production
             }
         });
     });
-
     // IMPORT: Učitavanje podataka iz fajla
     const trackerFileInput = document.getElementById("importTrackerFile");
-    document.getElementById("importTrackerBtn")?.addEventListener("click", () => trackerFileInput.click());
     document.getElementById("importTrackerBtn")?.addEventListener("click", () => {
         trackEvent("tracker_import_open");
         trackerFileInput.click();
     });
-
     trackerFileInput?.addEventListener("change", (e) => {
         trackEvent("tracker_import_confirm");
         const file = e.target.files[0];
         if (!file) return;
-
         const reader = new FileReader();
         reader.onload = (event) => {
             try {
@@ -1545,24 +1457,23 @@ document.addEventListener("DOMContentLoaded", async () => {
                         }
                     }
                 });
-
                 if (Object.keys(data).length === 0) {
-                    alert(getI18nMsg("trackerImportEmpty", "Nema validnih tracker podataka za uvoz."));
+                    alert(getI18nMsg("trackerImportError", "Greška: Neispravan fajl ili nema podataka."));
                     return;
                 }
-
                 chrome.storage.local.set(data, () => {
+                    // Očisti tracker keš u background skripti da se spreči pregazivanje uvezenih podataka
+                    chrome.runtime.sendMessage({ action: "tracker_clear_cache" }).catch(() => { });
                     renderStats();
                     alert(getI18nMsg("trackerImportSuccess", "Podaci su uspešno uvezeni!"));
                 });
             } catch (err) {
-                alert(getI18nMsg("trackerImportError", "Greška pri čitanju fajla."));
+                alert(getI18nMsg("trackerImportError", "Greška: Neispravan fajl ili nema podataka."));
             }
         };
         reader.readAsText(file);
     });
     //#endregion
-
     //#region BROJAČ KARAKTERA
     const counterView = document.getElementById("counterView");
     const counterBackBtn = document.getElementById("counterBackBtn");
@@ -1570,33 +1481,57 @@ document.addEventListener("DOMContentLoaded", async () => {
     const charCount = document.getElementById("charCount");
     const wordCount = document.getElementById("wordCount");
     const lineCount = document.getElementById("lineCount");
-    const clearCounterModal = document.getElementById("clearCounterModal"); // Ključna promenljiva!
-
+    const clearCounterModal = document.getElementById("clearCounterModal");
     // Funkcija za ažuriranje brojki
+    // Najrobustniji brojač karaktera, reči i redova
+    function countGraphemes(str) {
+        // Broji samo vidljive karaktere - ignorise nove redove (\n, \r), tabove i space na kraju
+        const cleaned = str.replace(/[\r\n\t]/g, '').trimEnd();
+        if (cleaned === '') return 0;
+        if (typeof Intl.Segmenter === 'function') {
+            const segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' });
+            let count = 0;
+            for (const seg of segmenter.segment(cleaned)) count++;
+            return count;
+        } else {
+            return Array.from(cleaned).length;
+        }
+    }
+    function countWords(str) {
+        // Broji i brojeve i reči (Unicode friendly)
+        // Primer: "Hello 123" => 2 reči
+        // Broji sekvence slova ili brojeva kao reč
+        return (str.match(/[\p{L}\p{N}]+/gu) || []).length;
+    }
+    function countLines(str) {
+        // Broji samo redove koji su zaista prikazani u textarea (ignoriše prazne linije koje nisu deo value)
+        if (str === "") return 0;
+        // Split po novom redu, ukloni prazne linije na kraju
+        const lines = str.replace(/\r\n/g, '\n').split('\n');
+        // Ukloni prazne linije na kraju
+        while (lines.length > 0 && lines[lines.length - 1].trim() === "") lines.pop();
+        return lines.length === 0 ? 1 : lines.length;
+    }
     const updateCounts = (text = "") => {
         if (!charCount || !wordCount || !lineCount) return;
         const normalized = String(text);
-
-        charCount.textContent = String(normalized.length);
-        wordCount.textContent = normalized.trim() === "" ? "0" : String(normalized.trim().split(/\s+/).length);
-
-        // Brojanje redova
-        const lines = normalized === "" ? 0 : normalized.split(/\r\n|\r|\n/).length;
-        lineCount.textContent = String(lines);
+        // Broji sve karaktere (vizuelne, emoji, invisible, whitespace, tab, sve)
+        charCount.textContent = String(countGraphemes(normalized));
+        // Broji reči (Unicode friendly, robustno)
+        wordCount.textContent = String(countWords(normalized));
+        // Broji redove (uključuje prazne redove na kraju i između)
+        lineCount.textContent = String(countLines(normalized));
     };
-
     // Storage funkcije
     const getSavedCounterText = () => localStorage.getItem("aio_counter_text") || "";
     const setSavedCounterText = (text) => localStorage.setItem("aio_counter_text", text);
     const clearSavedCounterText = () => localStorage.removeItem("aio_counter_text");
-
     // Inicijalizacija pri učitavanju
     if (counterArea) {
         const savedText = getSavedCounterText();
         counterArea.value = savedText;
         updateCounts(savedText);
     }
-
     // Dugme na glavnom meniju koje otvara brojač
     // Napomena: Proveri da li se dugme zove counterBtn ili openCounter u tvom HTML-u
     document.getElementById("counterBtn")?.addEventListener("click", () => {
@@ -1606,14 +1541,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         counterView.style.display = "flex";
         counterArea?.focus();
     });
-
+    // Sigurnosna mreza - change event (kada polje izgubi fokus)
+    counterArea?.addEventListener("change", (e) => {
+        const val = e.target.value;
+        updateCounts(val);
+        setSavedCounterText(val);
+    });
     // Nazad na glavno
     counterBackBtn?.addEventListener("click", () => {
         trackEvent("counter_back");
         counterView.style.display = "none";
         document.getElementById("mainView").style.display = "block";
     });
-
     // Kucanje teksta
     counterArea?.addEventListener("input", (e) => {
         trackEvent("counter_input");
@@ -1621,18 +1560,15 @@ document.addEventListener("DOMContentLoaded", async () => {
         updateCounts(val);
         setSavedCounterText(val);
     });
-
     // Modal Logika (Brisanje)
     document.getElementById("counterClearBtn")?.addEventListener("click", () => {
         trackEvent("counter_clear_modal_open");
         if (clearCounterModal) clearCounterModal.style.display = "flex";
     });
-
     document.getElementById("cancelClearCounter")?.addEventListener("click", () => {
         trackEvent("counter_clear_modal_cancel");
         if (clearCounterModal) clearCounterModal.style.display = "none";
     });
-
     document.getElementById("confirmClearCounter")?.addEventListener("click", () => {
         trackEvent("counter_clear_confirm");
         if (counterArea) {
@@ -1643,11 +1579,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (clearCounterModal) clearCounterModal.style.display = "none";
     });
     //#endregion
-
     //#region STOPERICA
+    const swModal = document.getElementById("customModal");
     let swInterval;
     let swHistoryWriteQueue = Promise.resolve();
-
     const swFormat = (ms) => {
         if (!Number.isFinite(ms)) return "00:00:00";
         const total = Math.floor(Math.max(0, ms) / 1000);
@@ -1656,184 +1591,181 @@ document.addEventListener("DOMContentLoaded", async () => {
         const s = (total % 60).toString().padStart(2, '0');
         return `${h}:${m}:${s}`;
     };
-
+    let swRefreshUIDebounceId = null;
     const swRefreshUI = () => {
-        chrome.storage.local.get(["isRunning", "startTime", "currentLaps"], (data) => {
-            const timerEl = document.getElementById("timer");
-            const statusEl = document.getElementById("status");
-            const lapsList = document.getElementById("laps");
-            if (!timerEl || !statusEl || !lapsList) return;
-
-            const isRunning = data.isRunning === true;
-            const startTime = Number.isFinite(data.startTime) ? data.startTime : 0;
-            const currentLaps = Array.isArray(data.currentLaps) ? data.currentLaps : [];
-
-            if (isRunning) {
-                timerEl.innerText = swFormat(Date.now() - startTime);
-                statusEl.innerText = getI18nMsg("swStatusLive", "LAJV U TOKU");
-                statusEl.style.color = "red";
-            } else {
-                timerEl.innerText = "00:00:00";
-                statusEl.innerText = getI18nMsg("swStatusReady", "SPREMAN");
-                statusEl.style.color = "var(--text-dim)";
-            }
-
-            lapsList.innerHTML = "";
-            if (currentLaps.length > 0) {
-                currentLaps.slice().reverse().forEach((lapMs, index) => {
-                    const originalIndex = currentLaps.length - 1 - index;
-                    const lapContainer = document.createElement("div");
-                    lapContainer.style.display = "flex";
-                    lapContainer.style.width = "100%";
-                    lapContainer.style.alignItems = "center";
-                    lapContainer.style.justifyContent = "space-between";
-                    lapContainer.style.padding = "2px 0";
-
-                    const lapLi = document.createElement("span");
-                    const lapTime = Number.isFinite(lapMs) ? lapMs : 0;
-                    const lapIndex = originalIndex + 1;
-                    lapLi.style.flex = "1";
-                    lapLi.innerHTML = `<span>${lapIndex}: </span> <b>${swFormat(lapTime)}</b>`;
-                    lapContainer.appendChild(lapLi);
-
-                    const undoBtn = document.createElement("button");
-                    undoBtn.innerText = "✕";
-                    undoBtn.className = "secondary icon-btn lap-undo-btn";
-                    undoBtn.title = getI18nMsg("swUndoTitle", "Obriši ovaj momenat");
-                    undoBtn.onclick = () => {
-                        const newLaps = currentLaps.filter((_, i) => i !== originalIndex);
-                        chrome.storage.local.set({ currentLaps: newLaps }, () => {
-                            swRefreshUI();
+        if (swRefreshUIDebounceId) clearTimeout(swRefreshUIDebounceId);
+        swRefreshUIDebounceId = setTimeout(() => {
+            requestAnimationFrame(() => {
+                chrome.storage.local.get(["isRunning", "startTime", "currentLaps"], (data) => {
+                    const timerEl = document.getElementById("timer");
+                    const statusEl = document.getElementById("status");
+                    const lapsList = document.getElementById("laps");
+                    if (!timerEl || !statusEl || !lapsList) return;
+                    const isRunning = data.isRunning === true;
+                    const startTime = Number.isFinite(data.startTime) ? data.startTime : 0;
+                    const currentLaps = Array.isArray(data.currentLaps) ? data.currentLaps : [];
+                    if (isRunning) {
+                        timerEl.innerText = swFormat(Date.now() - startTime);
+                        statusEl.innerText = getI18nMsg("swStatusLive", "LAJV U TOKU");
+                        statusEl.style.color = "red";
+                    } else {
+                        timerEl.innerText = "00:00:00";
+                        statusEl.innerText = getI18nMsg("swStatusReady", "SPREMAN");
+                        statusEl.style.color = "var(--text-dim)";
+                    }
+                    lapsList.innerHTML = "";
+                    if (currentLaps.length > 0) {
+                        currentLaps.slice().reverse().forEach((lapMs, index) => {
+                            const originalIndex = currentLaps.length - 1 - index;
+                            const lapContainer = document.createElement("div");
+                            lapContainer.style.display = "flex";
+                            lapContainer.style.width = "100%";
+                            lapContainer.style.alignItems = "center";
+                            lapContainer.style.justifyContent = "space-between";
+                            lapContainer.style.padding = "2px 0";
+                            const lapLi = document.createElement("span");
+                            const lapTime = Number.isFinite(lapMs) ? lapMs : 0;
+                            const lapIndex = originalIndex + 1;
+                            lapLi.style.flex = "1";
+                            lapLi.innerHTML = `<span>${lapIndex}: </span> <b>${swFormat(lapTime)}</b>`;
+                            lapContainer.appendChild(lapLi);
+                            const undoBtn = document.createElement("button");
+                            undoBtn.innerText = "✕";
+                            undoBtn.className = "secondary icon-btn lap-undo-btn";
+                            undoBtn.title = getI18nMsg("swUndoTitle", "Obriši ovaj momenat");
+                            undoBtn.onclick = () => {
+                                const newLaps = currentLaps.filter((_, i) => i !== originalIndex);
+                                chrome.storage.local.set({ currentLaps: newLaps }, () => {
+                                    swRefreshUI();
+                                });
+                            };
+                            lapContainer.appendChild(undoBtn);
+                            const li = document.createElement("li");
+                            li.appendChild(lapContainer);
+                            lapsList.appendChild(li);
                         });
-                    };
-                    lapContainer.appendChild(undoBtn);
-
-                    const li = document.createElement("li");
-                    li.appendChild(lapContainer);
-                    lapsList.appendChild(li);
+                    } else {
+                        lapsList.innerHTML = `<div class=\"empty-msg\">${getI18nMsg("swNoLaps", "Nema zabeleženih momenata")}</div>`;
+                    }
                 });
-            } else {
-                lapsList.innerHTML = `<div class="empty-msg">${getI18nMsg("swNoLaps", "Nema zabeleženih momenata")}</div>`;
-            }
-        });
+            });
+        }, 80);
     };
-
+    let swRenderHistoryDebounceId = null;
     const swRenderHistory = () => {
-        chrome.storage.local.get(["history"], (data) => {
-            const historyList = document.getElementById("history-list");
-            if (!historyList) return;
-            historyList.innerHTML = "";
-
-            const history = Array.isArray(data.history) ? data.history : [];
-            if (history.length > 0) {
-                history.slice().reverse().forEach((session, idx) => {
-                    if (!session || typeof session !== "object") return;
-                    const realIdx = history.length - idx;
-                    const details = document.createElement("details");
-                    const summary = document.createElement("summary");
-
-                    const sessionTime = Number.isFinite(session.sessionStart) ? new Date(session.sessionStart) : new Date();
-                    const sessionLaps = Array.isArray(session.laps) ? session.laps : [];
-                    const sessionDurationMs = sessionLaps.length > 0 ? sessionLaps[sessionLaps.length - 1] : 0;
-                    const endTime = new Date(sessionTime.getTime() + Math.max(0, sessionDurationMs));
-                    const sessionDateStr = sessionTime.toLocaleDateString('sr-RS');
-                    const startTimeStr = sessionTime.toLocaleTimeString('sr-RS', { hour: '2-digit', minute: '2-digit' });
-                    const endTimeStr = endTime.toLocaleTimeString('sr-RS', { hour: '2-digit', minute: '2-digit' });
-                    summary.innerHTML = `<span>${getI18nMsg("swLiveTitlePrefix", "Lajv #")}${realIdx}</span> <small style="color:var(--text-dim); font-weight:normal;">${sessionDateStr} ${startTimeStr} - ${endTimeStr} | ${getI18nMsg("swDurationLabel", "Trajanje: ")}${swFormat(sessionDurationMs)}</small>`;
-
-                    details.addEventListener("click", function () {
-                        if (!this.open) {
-                            document.querySelectorAll("#history-list details").forEach(d => {
-                                if (d !== this) d.removeAttribute("open");
+        if (swRenderHistoryDebounceId) clearTimeout(swRenderHistoryDebounceId);
+        swRenderHistoryDebounceId = setTimeout(() => {
+            requestAnimationFrame(() => {
+                chrome.storage.local.get(["history"], (data) => {
+                    const historyList = document.getElementById("history-list");
+                    if (!historyList) return;
+                    historyList.innerHTML = "";
+                    const history = Array.isArray(data.history) ? data.history : [];
+                    // Limit to last 20 sessions for performance
+                    const limitedHistory = history.slice(-20);
+                    if (limitedHistory.length > 0) {
+                        limitedHistory.slice().reverse().forEach((session, idx) => {
+                            if (!session || typeof session !== "object") return;
+                            const realIdx = history.length - (limitedHistory.length - idx - 1);
+                            const details = document.createElement("details");
+                            const summary = document.createElement("summary");
+                            const sessionTime = Number.isFinite(session.sessionStart) ? new Date(session.sessionStart) : new Date();
+                            const sessionLaps = Array.isArray(session.laps) ? session.laps : [];
+                            const sessionDurationMs = sessionLaps.length > 0 ? sessionLaps[sessionLaps.length - 1] : 0;
+                            const endTime = new Date(sessionTime.getTime() + Math.max(0, sessionDurationMs));
+                            const sessionDateStr = sessionTime.toLocaleDateString(currentLang);
+                            const startTimeStr = sessionTime.toLocaleTimeString(currentLang, { hour: '2-digit', minute: '2-digit' });
+                            const endTimeStr = endTime.toLocaleTimeString(currentLang, { hour: '2-digit', minute: '2-digit' });
+                            summary.innerHTML = `<span>${getI18nMsg("swLiveTitlePrefix", "Lajv #")}${realIdx}</span> <small style="color:var(--text-dim); font-weight:normal;">${sessionDateStr} ${startTimeStr} - ${endTimeStr} | ${getI18nMsg("swDurationLabel", "Trajanje: ")}${swFormat(sessionDurationMs)}</small>`;
+                            details.addEventListener("click", function () {
+                                if (!this.open) {
+                                    document.querySelectorAll("#history-list details").forEach(d => {
+                                        if (d !== this) d.removeAttribute("open");
+                                    });
+                                }
                             });
-                        }
-                    });
-
-                    const contentDiv = document.createElement("div");
-                    contentDiv.className = "session-content";
-
-                    const ul = document.createElement("ul");
-                    ul.style.listStyle = "none";
-                    ul.style.padding = "0";
-                    sessionLaps.forEach((lap, i) => {
-                        const li = document.createElement("li");
-                        li.style.display = "flex";
-                        li.style.justifyContent = "space-between";
-                        li.style.fontSize = "11px";
-                        li.style.padding = "4px 0";
-                        li.style.borderBottom = "1px solid rgba(255,255,255,0.03)";
-                        const lapTime = Number.isFinite(lap) ? lap : 0;
-                        li.innerHTML = `<span style="color:var(--text-dim)">${getI18nMsg("swMomentLabel", "Momenat ")}${i + 1}</span> <b>${swFormat(lapTime)}</b>`;
-                        ul.appendChild(li);
-                    });
-
-                    const downloadBtn = document.createElement("button");
-                    downloadBtn.innerText = getI18nMsg("swExportTxtBtn", "EKSPORTUJ KAO .TXT");
-                    downloadBtn.className = "export-btn-mini";
-                    downloadBtn.onclick = () => {
-                        try {
-                            const sessionDateFull = Number.isFinite(session.sessionStart) ? new Date(session.sessionStart).toLocaleString('sr-RS') : new Date().toLocaleString('sr-RS');
-                            let txt = `${getI18nMsg("swLiveTitlePrefix", "LAJV #").toUpperCase()}${realIdx} | ${sessionDateFull}\n--------------------------\n`;
-                            const exportLaps = Array.isArray(session.laps) ? session.laps : [];
-                            txt += `${getI18nMsg("swTotalDurationPrefix", "UKUPNO TRAJANJE: ")}${swFormat(exportLaps.length > 0 ? exportLaps[exportLaps.length - 1] : 0)}\n\n`;
-                            exportLaps.forEach((l, i) => {
-                                const lapTime = Number.isFinite(l) ? l : 0;
-                                txt += `${i + 1}. ${swFormat(lapTime)}\n`;
+                            const contentDiv = document.createElement("div");
+                            contentDiv.className = "session-content";
+                            const ul = document.createElement("ul");
+                            ul.style.listStyle = "none";
+                            ul.style.padding = "0";
+                            sessionLaps.forEach((lap, i) => {
+                                const li = document.createElement("li");
+                                li.style.display = "flex";
+                                li.style.justifyContent = "space-between";
+                                li.style.fontSize = "11px";
+                                li.style.padding = "4px 0";
+                                li.style.borderBottom = "1px solid rgba(255,255,255,0.03)";
+                                const lapTime = Number.isFinite(lap) ? lap : 0;
+                                li.innerHTML = `<span style="color:var(--text-dim)">${getI18nMsg("swMomentLabel", "Momenat ")}${i + 1}</span> <b>${swFormat(lapTime)}</b>`;
+                                ul.appendChild(li);
                             });
-                            const blob = new Blob([txt], { type: "text/plain" });
-                            const url = URL.createObjectURL(blob);
-                            const a = document.createElement("a");
-                            a.href = url;
-                            a.download = `lajv_${realIdx}.txt`;
-                            a.click();
-                            URL.revokeObjectURL(url);
-                        } catch (err) {
-                            console.error("Export error:", err);
-                        }
-                    };
-
-                    const copyBtn = document.createElement("button");
-                    copyBtn.innerText = getI18nMsg("swCopyBtn", "KOPIRAJ U KLIPBORD");
-                    copyBtn.className = "export-btn-mini";
-                    copyBtn.style.backgroundColor = "var(--accent)";
-                    copyBtn.style.color = "#000";
-                    copyBtn.onclick = () => {
-                        try {
-                            const sessionDateFull = Number.isFinite(session.sessionStart) ? new Date(session.sessionStart).toLocaleString('sr-RS') : new Date().toLocaleString('sr-RS');
-                            let txt = `${getI18nMsg("swLiveTitlePrefix", "LAJV #").toUpperCase()}${realIdx} | ${sessionDateFull}\n`;
-                            const exportLaps = Array.isArray(session.laps) ? session.laps : [];
-                            txt += `${getI18nMsg("swTotalDurationPrefix", "UKUPNO TRAJANJE: ")}${swFormat(exportLaps.length > 0 ? exportLaps[exportLaps.length - 1] : 0)}\n\n`;
-                            exportLaps.forEach((l, i) => {
-                                const lapTime = Number.isFinite(l) ? l : 0;
-                                txt += `${i + 1}. ${swFormat(lapTime)}\n`;
-                            });
-                            navigator.clipboard.writeText(txt).then(() => {
-                                copyBtn.innerText = getI18nMsg("swCopiedBtn", "✓ KOPIRANO");
-                                setTimeout(() => { copyBtn.innerText = getI18nMsg("swCopyBtn", "KOPIRAJ U KLIPBORD"); }, 2000);
-                            }).catch(() => {
-                                console.error("Clipboard error");
-                            });
-                        } catch (err) {
-                            console.error("Copy error:", err);
-                        }
-                    };
-
-                    contentDiv.appendChild(ul);
-                    const actionButtons = document.createElement("div");
-                    actionButtons.className = "session-actions";
-                    actionButtons.appendChild(downloadBtn);
-                    actionButtons.appendChild(copyBtn);
-                    contentDiv.appendChild(actionButtons);
-                    details.appendChild(summary);
-                    details.appendChild(contentDiv);
-                    historyList.appendChild(details);
+                            const downloadBtn = document.createElement("button");
+                            downloadBtn.innerText = getI18nMsg("swExportTxtBtn", "EKSPORTUJ KAO .TXT");
+                            downloadBtn.className = "export-btn-mini";
+                            downloadBtn.onclick = () => {
+                                try {
+                                    const sessionDateFull = Number.isFinite(session.sessionStart) ? new Date(session.sessionStart).toLocaleString(currentLang) : new Date().toLocaleString(currentLang);
+                                    let txt = `${getI18nMsg("swLiveTitlePrefix", "LAJV #").toUpperCase()}${realIdx} | ${sessionDateFull}\n--------------------------\n`;
+                                    const exportLaps = Array.isArray(session.laps) ? session.laps : [];
+                                    txt += `${getI18nMsg("swTotalDurationPrefix", "UKUPNO TRAJANJE: ")}${swFormat(exportLaps.length > 0 ? exportLaps[exportLaps.length - 1] : 0)}\n\n`;
+                                    exportLaps.forEach((l, i) => {
+                                        const lapTime = Number.isFinite(l) ? l : 0;
+                                        txt += `${i + 1}. ${swFormat(lapTime)}\n`;
+                                    });
+                                    const blob = new Blob([txt], { type: "text/plain" });
+                                    const url = URL.createObjectURL(blob);
+                                    const a = document.createElement("a");
+                                    a.href = url;
+                                    a.download = `lajv_${realIdx}.txt`;
+                                    a.click();
+                                    URL.revokeObjectURL(url);
+                                } catch (err) {
+                                    // Silent fail
+                                }
+                            };
+                            const copyBtn = document.createElement("button");
+                            copyBtn.innerText = getI18nMsg("swCopyBtn", "KOPIRAJ U KLIPBORD");
+                            copyBtn.className = "export-btn-mini";
+                            copyBtn.style.backgroundColor = "var(--accent)";
+                            copyBtn.style.color = "#000";
+                            copyBtn.onclick = () => {
+                                try {
+                                    const sessionDateFull = Number.isFinite(session.sessionStart) ? new Date(session.sessionStart).toLocaleString(currentLang) : new Date().toLocaleString(currentLang);
+                                    let txt = `${getI18nMsg("swLiveTitlePrefix", "LAJV #").toUpperCase()}${realIdx} | ${sessionDateFull}\n`;
+                                    const exportLaps = Array.isArray(session.laps) ? session.laps : [];
+                                    txt += `${getI18nMsg("swTotalDurationPrefix", "UKUPNO TRAJANJE: ")}${swFormat(exportLaps.length > 0 ? exportLaps[exportLaps.length - 1] : 0)}\n\n`;
+                                    exportLaps.forEach((l, i) => {
+                                        const lapTime = Number.isFinite(l) ? l : 0;
+                                        txt += `${i + 1}. ${swFormat(lapTime)}\n`;
+                                    });
+                                    navigator.clipboard.writeText(txt).then(() => {
+                                        copyBtn.innerText = getI18nMsg("swCopiedBtn", "✓ KOPIRANO");
+                                        setTimeout(() => { copyBtn.innerText = getI18nMsg("swCopyBtn", "KOPIRAJ U KLIPBORD"); }, 2000);
+                                    }).catch(() => {
+                                        // Silent fail
+                                    });
+                                } catch (err) {
+                                    // Silent fail
+                                }
+                            };
+                            contentDiv.appendChild(ul);
+                            const actionButtons = document.createElement("div");
+                            actionButtons.className = "session-actions";
+                            actionButtons.appendChild(downloadBtn);
+                            actionButtons.appendChild(copyBtn);
+                            contentDiv.appendChild(actionButtons);
+                            details.appendChild(summary);
+                            details.appendChild(contentDiv);
+                            historyList.appendChild(details);
+                        });
+                    } else {
+                        historyList.innerHTML = `<div class='no-history'>${getI18nMsg("swNoHistory", "Nema istorije lajvova")}</div>`;
+                    }
                 });
-            } else {
-                historyList.innerHTML = `<div class='no-history'>${getI18nMsg("swNoHistory", "Nema istorije lajvova")}</div>`;
-            }
+            }, 100);
         });
     };
-
     elements.stopwatchBtn?.addEventListener("click", () => {
         trackEvent("stopwatch_open");
         const mainView = document.getElementById("mainView");
@@ -1846,7 +1778,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         swRenderHistory();
         swRefreshUI();
     });
-
     document.getElementById("swBackBtn")?.addEventListener("click", () => {
         trackEvent("stopwatch_back");
         const stopwatchView = document.getElementById("stopwatchView");
@@ -1856,30 +1787,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         mainView.style.display = "block";
         if (swInterval) clearInterval(swInterval);
     });
-
     window.addEventListener("beforeunload", () => {
         if (swInterval) clearInterval(swInterval);
     });
-
     document.getElementById("start")?.addEventListener("click", () => {
         trackEvent("stopwatch_start");
         chrome.storage.local.get(["isRunning"], (data) => {
             if (data.isRunning === true) {
-                // Sesija je već pokrenuta, ignoriši
                 return;
             }
             const now = Date.now();
             chrome.storage.local.set({ isRunning: true, startTime: now, currentLaps: [] }, swRefreshUI);
-            // Resetuj cooldown timer u background-u
             chrome.runtime.sendMessage({ action: "sw_start_session" }).catch(() => { });
         });
     });
-
     document.getElementById("lap")?.addEventListener("click", () => {
         trackEvent("stopwatch_lap");
         chrome.runtime.sendMessage({ action: "manual_lap" });
     });
-
     document.getElementById("stop")?.addEventListener("click", () => {
         trackEvent("stopwatch_stop");
         chrome.storage.local.get(["isRunning", "startTime", "currentLaps", "history"], (data) => {
@@ -1887,61 +1812,53 @@ document.addEventListener("DOMContentLoaded", async () => {
             const startTime = Number.isFinite(data.startTime) ? data.startTime : Date.now();
             const currentLaps = Array.isArray(data.currentLaps) ? data.currentLaps : [];
             const session = { sessionStart: startTime, laps: currentLaps };
-
             swHistoryWriteQueue = swHistoryWriteQueue.then(async () => {
                 const latest = await chrome.storage.local.get(["isRunning", "history"]);
                 if (latest.isRunning !== true) return;
                 const latestHistory = Array.isArray(latest.history) ? latest.history : [];
                 await chrome.storage.local.set({ isRunning: false, history: [...latestHistory, session], startTime: 0, currentLaps: [] });
             }).catch((err) => {
-                console.error("Stopwatch stop error:", err);
+                // Silent fail
             });
-
             swHistoryWriteQueue.then(() => {
                 swRefreshUI();
                 swRenderHistory();
             });
         });
     });
-    // Alt+Shift+L shortcut - samo dok je stopwatch view vidljiv
     document.addEventListener("keydown", (e) => {
         if (e.altKey && e.shiftKey && (e.key.toLowerCase() === "l")) {
-            trackEvent("stopwatch_shortcut_lap");
-        }
-        const stopwatchView = document.getElementById("stopwatchView");
-        const isStopwatchVisible = stopwatchView && stopwatchView.style.display !== "none";
-        if (isStopwatchVisible && e.altKey && e.shiftKey && (e.key.toLowerCase() === "l")) {
-            chrome.runtime.sendMessage({ action: "manual_lap" }).catch(() => { });
+            const stopwatchView = document.getElementById("stopwatchView");
+            const isStopwatchVisible = stopwatchView && stopwatchView.style.display !== "none";
+            if (isStopwatchVisible) {
+                trackEvent("stopwatch_shortcut_lap");
+                chrome.runtime.sendMessage({ action: "manual_lap" }).catch(() => { });
+            }
         }
     });
-    const swModal = document.getElementById("customModal");
     document.getElementById("clear-history")?.addEventListener("click", () => {
         trackEvent("stopwatch_clear_history_modal_open");
         if (!swModal) return;
         swModal.style.display = "flex";
     });
-
     document.getElementById("cancelClear")?.addEventListener("click", () => {
         trackEvent("stopwatch_clear_history_modal_cancel");
         if (!swModal) return;
         swModal.style.display = "none";
     });
-
     document.getElementById("confirmClear")?.addEventListener("click", () => {
         trackEvent("stopwatch_clear_history_confirm");
         if (!swModal) return;
         swHistoryWriteQueue = swHistoryWriteQueue.then(async () => {
             await chrome.storage.local.set({ history: [] });
         }).catch((err) => {
-            console.error("Clear history error:", err);
+            // Silent fail
         });
-
         swHistoryWriteQueue.then(() => {
             swRenderHistory();
             swModal.style.display = "none";
         });
     });
-
     // Pravilno izolovan slušalac poruka za osvežavanje UI-ja
     chrome.runtime.onMessage.addListener((msg) => {
         if (msg.action === "update_ui") {
@@ -1951,15 +1868,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             elements.radioBtn.innerText = msg.playing ? getI18nMsg("radioPause", "Pause") : getI18nMsg("radioPlay", "Play");
         }
     });
-    //#endregion
-
-    //#region SETTINGS
     document.getElementById("settingsBtn")?.addEventListener("click", () => {
         trackEvent("settings_open");
         document.getElementById("mainView").style.display = "none";
         document.getElementById("settingsView").style.display = "flex";
     });
-
     document.getElementById("settingsBackBtn")?.addEventListener("click", () => {
         trackEvent("settings_back");
         document.getElementById("settingsView").style.display = "none";
@@ -1969,53 +1882,49 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (verNum && typeof chrome !== "undefined" && chrome.runtime && chrome.runtime.getManifest) {
         verNum.innerText = chrome.runtime.getManifest().version;
     }
-
     document.getElementById("donateBtn")?.addEventListener("click", () => {
         trackEvent("donate_click");
         chrome.tabs.create({ url: "https://paypal.me/milanpetkovski1" });
     });
-
     document.getElementById("webBtn")?.addEventListener("click", () => {
         trackEvent("web_click");
         chrome.tabs.create({ url: "https://allinone.milanwebportal.com" });
     });
-
     document.getElementById("portalBtn")?.addEventListener("click", () => {
         trackEvent("portal_click");
         chrome.tabs.create({ url: "https://milanwebportal.com" });
     });
-
     document.getElementById("rateBtn")?.addEventListener("click", () => {
         trackEvent("rate_click");
         chrome.tabs.create({ url: "https://chromewebstore.google.com/detail/all-in-one/hmkcbieabcldlndhjeemggokhlebjoem/reviews" });
     });
-
     document.getElementById("privacyLink")?.addEventListener("click", (e) => {
         trackEvent("privacy_click");
         e.preventDefault();
         chrome.tabs.create({ url: "https://allinone.milanwebportal.com/privacy" });
     });
-
-    document.getElementById("emailBtn")?.addEventListener("click", (e) => {
-        trackEvent("email_click");
-        e.preventDefault();
-        chrome.tabs.create({ url: "mailto:contact@milanwebportal.com" });
-    });
+    // Uklonjen JS handler za emailBtn, koristi se samo <a href="mailto:...">
+    // Kopiranje email adrese u settings footeru
+    const copyEmailBtn = document.getElementById("copyEmailBtn");
+    if (copyEmailBtn) {
+        // Tooltip je uklonjen radi savršenog poravnanja
+        copyEmailBtn.addEventListener("click", async () => {
+            const email = "contact@milanwebportal.com";
+            try {
+                await navigator.clipboard.writeText(email);
+            } catch { }
+        });
+    }
     //#endregion
-
     //#region TEHNOLOGIJE SAJTA
-
     document.getElementById("techBtn")?.addEventListener("click", async () => {
         try {
             document.getElementById("mainView").style.display = "none";
             document.getElementById("techView").style.display = "flex";
-
             const listContainer = document.getElementById("techResultList");
             const loading = document.getElementById("techLoading");
-
             listContainer.innerHTML = "";
             loading.style.display = "block";
-
             const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
             const tab = tabs?.[0];
             if (!tab?.id || !tab.url || !tab.url.startsWith("http")) {
@@ -2023,7 +1932,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techScannerUnavailable", "Skener nije dostupan na ovoj stranici.")}</div>`;
                 return;
             }
-
             const executeWithTimeout = (tabId) => {
                 return new Promise((resolve, reject) => {
                     let isResolved = false;
@@ -2033,19 +1941,53 @@ document.addEventListener("DOMContentLoaded", async () => {
                             reject(new Error("Scanner timeout: stranica je presporo odgovorila"));
                         }
                     }, 8000);
-
+                    const techCatMap = {
+                        'Osnova': getI18nMsg('techCatBase', 'Osnova'),
+                        'Sistem': getI18nMsg('techCatSystem', 'Sistem'),
+                        'E Trgovina': getI18nMsg('techCatEcom', 'E Trgovina'),
+                        'Tehnologije': getI18nMsg('techCatTech', 'Tehnologije'),
+                        'Stilovi': getI18nMsg('techCatStyles', 'Stilovi'),
+                        'Baza Podataka': getI18nMsg('techCatDb', 'Baza Podataka'),
+                        'Backend': getI18nMsg('techCatBackend', 'Backend'),
+                        'Server': getI18nMsg('techCatServer', 'Server'),
+                        'Mreža': getI18nMsg('techCatNetwork', 'Mreža'),
+                        'Sigurnost': getI18nMsg('techCatSecurity', 'Sigurnost'),
+                        'Keširanje': getI18nMsg('techCatCaching', 'Keširanje'),
+                        'CDN': getI18nMsg('techCatCdn', 'CDN'),
+                        'Analitika': getI18nMsg('techCatAnalytics', 'Analitika'),
+                        'Reklame': getI18nMsg('techCatAds', 'Reklame'),
+                        'Plaćanje': getI18nMsg('techCatPayment', 'Plaćanje'),
+                        'Komunikacija': getI18nMsg('techCatComm', 'Komunikacija'),
+                        'Mediji': getI18nMsg('techCatMedia', 'Mediji'),
+                        'Build': getI18nMsg('techCatBuild', 'Build'),
+                        'SEO': getI18nMsg('techCatSeo', 'SEO'),
+                        'Statistika': getI18nMsg('techCatStats', 'Statistika'),
+                        'Alati': getI18nMsg('techCatTools', 'Alati')
+                    };
+                    const techStatLabels = {
+                        dom: getI18nMsg('techStatDom', 'DOM'),
+                        images: getI18nMsg('techStatImages', 'Slike'),
+                        scripts: getI18nMsg('techStatScripts', 'Skripte'),
+                        links: getI18nMsg('techStatLinks', 'Linkovi'),
+                        css: getI18nMsg('techStatCss', 'CSS'),
+                        forms: getI18nMsg('techStatForms', 'Forme'),
+                        tables: getI18nMsg('techStatTables', 'Tabele'),
+                        svg: getI18nMsg('techStatSvg', 'SVG'),
+                        video: getI18nMsg('techStatVideo', 'Video'),
+                        audio: getI18nMsg('techStatAudio', 'Audio'),
+                        iframes: getI18nMsg('techStatIframes', 'Iframe')
+                    };
                     chrome.scripting.executeScript({
                         target: { tabId: tabId },
                         world: "MAIN",
-                        func: async (foundLabel, noneFoundLabel) => {
+                        func: async (foundLabel, noneFoundLabel, catMap, statLabels) => {
                             const results = [];
                             const add = (category, name, detail = "") => {
                                 if (!category || !name) return;
-                                results.push({ category, name, detail });
+                                const translatedCat = catMap[category] || category;
+                                results.push({ category: translatedCat, name, detail });
                             };
                             const getAttr = (el, attr) => (el?.getAttribute?.(attr) || "").toLowerCase();
-
-                            // 1. DOM SKENIRANJE
                             const html = document.documentElement;
                             const scriptEls = Array.from(document.scripts);
                             const scripts = scriptEls.map(s => (s.src || '').toLowerCase()).filter(Boolean);
@@ -2053,177 +1995,227 @@ document.addEventListener("DOMContentLoaded", async () => {
                             const linkEls = Array.from(document.querySelectorAll('link'));
                             const links = linkEls.map(l => (l.href || '').toLowerCase()).filter(Boolean);
                             const metas = Array.from(document.querySelectorAll('meta'));
-                            const hasScript = (needle) => scripts.some(s => s.includes(needle));
                             const getMetaByName = (name) => {
                                 const el = metas.find(m => (m.getAttribute('name') || '').toLowerCase() === name.toLowerCase());
                                 return el ? (el.getAttribute('content') || '') : '';
                             };
-
-                            add('Page Stats', 'DOM Snapshot', `Scripts: ${scriptEls.length} | Links: ${linkEls.length} | Meta: ${metas.length} | Images: ${document.images.length}`);
-
-                            // 2. ČITANJE SERVER HEADERA (Backend, Security, Caching)
+                            // Osnova
+                            add('Osnova', 'HTML5');
+                            add('Osnova', 'JavaScript');
+                            if (document.characterSet) add('Osnova', document.characterSet);
+                            if (window.location.protocol === 'https:') add('Osnova', 'HTTPS');
+                            if (getMetaByName('viewport')) add('Osnova', 'Viewport');
+                            if (getMetaByName('theme-color')) add('Osnova', 'Theme Color');
+                            if (html.lang) add('Osnova', html.lang.toUpperCase());
+                            if (document.querySelector('link[rel="manifest"]')) add('Osnova', 'PWA');
+                            if (window.speechSynthesis) add('Osnova', 'Web Speech API');
+                            if (window.WebGLRenderingContext) add('Osnova', 'WebGL');
+                            if (window.caches) add('Osnova', 'Cache API');
+                            if (navigator.serviceWorker) add('Osnova', 'Service Workers');
+                            if (window.indexedDB) add('Osnova', 'IndexedDB');
+                            if (window.WebAssembly) add('Osnova', 'WebAssembly');
+                            if (window.RTCPeerConnection) add('Osnova', 'WebRTC');
+                            if (navigator.geolocation) add('Osnova', 'Geolocation');
+                            // Mreža i IP 
+                            try {
+                                const siteHost = window.location.hostname;
+                                const dnsRes = await fetch('https://dns.google/resolve?name=' + encodeURIComponent(siteHost) + '&type=A');
+                                const dnsJson = await dnsRes.json();
+                                const ip = dnsJson?.Answer?.find(a => a.type === 1)?.data;
+                                if (ip) {
+                                    const ipinfoRes = await fetch('https://ipinfo.io/' + ip + '/json');
+                                    const ipinfo = await ipinfoRes.json();
+                                    if (ipinfo.ip) add('Mreža', ipinfo.ip);
+                                    if (ipinfo.hostname) add('Mreža', ipinfo.hostname);
+                                    if (ipinfo.org) add('Mreža', ipinfo.org);
+                                    let lokacija = [];
+                                    if (ipinfo.city) lokacija.push(ipinfo.city);
+                                    if (ipinfo.country) lokacija.push(ipinfo.country);
+                                    if (lokacija.length) add('Mreža', lokacija.join(', '));
+                                    if (ipinfo.loc) add('Mreža', ipinfo.loc);
+                                    if (ipinfo.timezone) add('Mreža', ipinfo.timezone);
+                                    if (ipinfo.postal) add('Mreža', ipinfo.postal);
+                                }
+                            } catch (e) { }
+                            // CDNs
+                            if (scripts.some(s => s.includes('cdnjs'))) add('CDN', 'CDNJS');
+                            if (scripts.some(s => s.includes('jsdelivr'))) add('CDN', 'jsDelivr');
+                            if (scripts.some(s => s.includes('unpkg'))) add('CDN', 'UNPKG');
+                            if (links.some(l => l.includes('fonts.googleapis.com'))) add('CDN', 'Google Fonts');
+                            if (links.some(l => l.includes('use.typekit.net'))) add('CDN', 'Adobe Fonts');
+                            if (scripts.some(s => s.includes('stackpath.bootstrapcdn.com'))) add('CDN', 'BootstrapCDN');
+                            if (scripts.some(s => s.includes('cloudflare'))) add('CDN', 'Cloudflare');
+                            if (scripts.some(s => s.includes('fastly'))) add('CDN', 'Fastly');
+                            // Statistika stranice (oznake iz prevoda / statLabels)
+                            add('Statistika', document.getElementsByTagName('*').length + ' ' + statLabels.dom);
+                            add('Statistika', document.images.length + ' ' + statLabels.images);
+                            add('Statistika', scriptEls.length + ' ' + statLabels.scripts);
+                            add('Statistika', document.links.length + ' ' + statLabels.links);
+                            add('Statistika', linkEls.filter(l => getAttr(l, 'rel') === 'stylesheet').length + ' ' + statLabels.css);
+                            add('Statistika', document.forms.length + ' ' + statLabels.forms);
+                            if (document.getElementsByTagName('table').length > 0) add('Statistika', document.getElementsByTagName('table').length + ' ' + statLabels.tables);
+                            if (document.getElementsByTagName('svg').length > 0) add('Statistika', document.getElementsByTagName('svg').length + ' ' + statLabels.svg);
+                            if (document.getElementsByTagName('video').length > 0) add('Statistika', document.getElementsByTagName('video').length + ' ' + statLabels.video);
+                            if (document.getElementsByTagName('audio').length > 0) add('Statistika', document.getElementsByTagName('audio').length + ' ' + statLabels.audio);
+                            if (document.getElementsByTagName('iframe').length > 0) add('Statistika', document.getElementsByTagName('iframe').length + ' ' + statLabels.iframes);
+                            // SEO tagovi
+                            if (document.title) add('SEO', 'Title');
+                            if (getMetaByName('description')) add('SEO', 'Description');
+                            if (getMetaByName('keywords')) add('SEO', 'Keywords');
+                            if (getMetaByName('robots')) add('SEO', 'Robots');
+                            if (getMetaByName('author')) add('SEO', 'Author');
+                            if (document.querySelector('link[rel="canonical"]')) add('SEO', 'Canonical');
+                            if (document.querySelector('link[rel="alternate"][hreflang]')) add('SEO', 'Hreflang');
+                            if (metas.some(m => m.getAttribute('property')?.startsWith('og:'))) add('SEO', 'Open Graph');
+                            if (metas.some(m => getAttr(m, 'name').startsWith('twitter:'))) add('SEO', 'Twitter Cards');
+                            if (document.querySelector('script[type="application/ld+json"]')) add('SEO', 'JSON LD');
+                            if (document.querySelector('[itemscope]')) add('SEO', 'Microdata');
+                            if (document.querySelector('h1')) add('SEO', 'H1 Tag');
+                            // Backend i server headeri
                             try {
                                 const response = await fetch(window.location.href, { method: 'HEAD', cache: 'no-store' });
                                 const header = (name) => (response.headers.get(name) || '').toLowerCase();
-
                                 const server = header('server');
                                 const poweredBy = header('x-powered-by');
-
-                                if (server.includes('nginx')) add('Web Server', 'Nginx', server);
-                                if (server.includes('apache')) add('Web Server', 'Apache', server);
-                                if (server.includes('litespeed')) add('Web Server', 'LiteSpeed', server);
-                                if (server.includes('cloudflare')) add('CDN / Security', 'Cloudflare', server);
-                                if (server.includes('cloudfront')) add('CDN', 'Amazon CloudFront', server);
-                                if (server.includes('fastly')) add('CDN', 'Fastly', server);
-                                if (server.includes('akamai')) add('CDN', 'Akamai', server);
-                                if (server.includes('varnish')) add('Caching', 'Varnish', server);
-
-                                if (poweredBy.includes('php')) add('Backend Language', 'PHP', poweredBy);
-                                if (poweredBy.includes('express')) add('Backend Framework', 'Express.js', poweredBy);
-                                if (poweredBy.includes('asp.net')) add('Backend Framework', 'ASP.NET', poweredBy);
-                                if (poweredBy.includes('node')) add('Backend Runtime', 'Node.js', poweredBy);
-                                if (poweredBy.includes('laravel')) add('Backend Framework', 'Laravel', poweredBy);
-
-                                if (header('content-security-policy')) add('Security Header', 'Content-Security-Policy', 'present');
-                                if (header('strict-transport-security')) add('Security Header', 'Strict-Transport-Security', 'present');
-                                if (header('x-frame-options')) add('Security Header', 'X-Frame-Options', 'present');
-                                if (header('x-content-type-options')) add('Security Header', 'X-Content-Type-Options', 'present');
-                                if (header('referrer-policy')) add('Security Header', 'Referrer-Policy', 'present');
-                                if (header('permissions-policy')) add('Security Header', 'Permissions-Policy', 'present');
-                                if (header('cross-origin-opener-policy')) add('Security Header', 'COOP', 'present');
-                                if (header('cross-origin-embedder-policy')) add('Security Header', 'COEP', 'present');
-
-                                if (header('cache-control')) add('Caching', 'Cache-Control', 'present');
-                                if (header('etag')) add('Caching', 'ETag', 'present');
-                                if (header('age')) add('Caching', 'Age Header', 'present');
-                                if (header('cf-cache-status')) add('CDN / Cache', 'Cloudflare Cache Status', header('cf-cache-status'));
-                                if (header('x-cache')) add('CDN / Cache', 'X-Cache Header', header('x-cache'));
+                                if (server.includes('nginx')) add('Server', 'Nginx');
+                                if (server.includes('apache')) add('Server', 'Apache');
+                                if (server.includes('litespeed')) add('Server', 'LiteSpeed');
+                                if (server.includes('cloudflare')) add('Server', 'Cloudflare');
+                                if (server.includes('varnish')) add('Server', 'Varnish');
+                                if (server.includes('cowboy')) add('Server', 'Cowboy');
+                                if (server.includes('iis')) add('Server', 'IIS');
+                                if (server.includes('caddy')) add('Server', 'Caddy');
+                                if (poweredBy.includes('php')) add('Backend', 'PHP');
+                                if (poweredBy.includes('express')) add('Backend', 'Express.js');
+                                if (poweredBy.includes('asp.net')) add('Backend', 'ASP.NET');
+                                if (poweredBy.includes('laravel')) add('Backend', 'Laravel');
+                                if (poweredBy.includes('next')) add('Backend', 'Next.js');
+                                if (poweredBy.includes('django')) add('Backend', 'Django');
+                                if (poweredBy.includes('ruby')) add('Backend', 'Ruby on Rails');
+                                if (poweredBy.includes('python')) add('Backend', 'Python');
+                                if (poweredBy.includes('java')) add('Backend', 'Java');
+                                if (header('content-security-policy')) add('Sigurnost', 'CSP');
+                                if (header('strict-transport-security')) add('Sigurnost', 'HSTS');
+                                if (header('x-frame-options')) add('Sigurnost', 'X Frame Options');
+                                if (header('x-content-type-options')) add('Sigurnost', 'X Content Type Options');
+                                if (header('referrer-policy')) add('Sigurnost', 'Referrer Policy');
+                                if (header('permissions-policy')) add('Sigurnost', 'Permissions Policy');
+                                if (header('access-control-allow-origin')) add('Sigurnost', 'CORS');
+                                if (header('cache-control')) add('Keširanje', 'Cache Control');
+                                if (header('etag')) add('Keširanje', 'ETag');
+                                if (header('cf-cache-status')) add('Keširanje', 'Cloudflare Cache');
                             } catch (e) { }
-
-                            // Jezik i Domen
-                            if (html.lang) add('Content Language', html.lang.toUpperCase(), 'html[lang]');
-                            const hostname = window.location.hostname || '';
-                            const isLocalhost = hostname === 'localhost';
-                            const isIPv4 = /^\d{1,3}(\.\d{1,3}){3}$/.test(hostname);
-                            const isIPv6 = hostname.includes(':');
-                            if (!isLocalhost && !isIPv4 && !isIPv6) {
-                                const tld = hostname.split('.').pop();
-                                if (tld && tld !== hostname) add('Domain', '.' + tld, hostname);
-                            }
-
-                            // CMS i E-commerce
+                            // CMS
                             const generator = getMetaByName('generator').toLowerCase();
-                            if (generator.includes('wordpress') || links.some(l => l.includes('wp-content'))) add('CMS / Builder', 'WordPress', generator || 'wp-content detected');
-                            if (generator.includes('joomla')) add('CMS / Builder', 'Joomla', generator);
-                            if (generator.includes('drupal')) add('CMS / Builder', 'Drupal', generator);
-                            if (generator.includes('wix')) add('CMS / Builder', 'Wix', generator);
-                            if (html.hasAttribute('data-wf-site')) add('CMS / Builder', 'Webflow', 'data-wf-site');
-                            if (window.Shopify || scripts.some(s => s.includes('shopify'))) add('ECommerce', 'Shopify', 'window.Shopify or script match');
-                            if (document.querySelector('.woocommerce')) add('ECommerce', 'WooCommerce', '.woocommerce');
-                            if (window.Magento) add('ECommerce', 'Magento', 'window.Magento');
-
-                            // Frameworks & Biblioteke
-                            if (document.querySelector('#__next') || window.next || window.__NEXT_DATA__) add('Framework', 'Next.js', window.__NEXT_DATA__?.buildId ? `build: ${window.__NEXT_DATA__.buildId}` : '#__next');
-                            if (document.querySelector('#___gatsby') || window.gatsby) add('Framework', 'Gatsby', '#___gatsby/window.gatsby');
-                            if (window.React || window.__REACT_DEVTOOLS_GLOBAL_HOOK__ || document.querySelector('[data-reactroot]')) add('Framework', 'React', window.React?.version ? `v${window.React.version}` : 'React signal');
-                            if (window.Vue || document.querySelector('[data-v-app]') || window.__VUE__) add('Framework', 'Vue.js', window.Vue?.version ? `v${window.Vue.version}` : 'Vue signal');
-                            if (window.angular || document.querySelector('[ng-version]')) add('Framework', 'Angular', document.querySelector('[ng-version]')?.getAttribute('ng-version') || 'Angular signal');
-                            if (window.Svelte || document.querySelector('[data-svelte-h]')) add('Framework', 'Svelte', 'Svelte marker');
-                            if (window.__NUXT__ || document.querySelector('#__nuxt')) add('Framework', 'Nuxt.js', '#__nuxt/window.__NUXT__');
-                            if (window.jQuery) add('JavaScript Library', 'jQuery', window.jQuery?.fn?.jquery ? `v${window.jQuery.fn.jquery}` : 'window.jQuery');
-                            if (window._ && window._.VERSION) add('JavaScript Library', 'Lodash', `v${window._.VERSION}`);
-                            if (window.gsap) add('Animations', 'GSAP', window.gsap?.version ? `v${window.gsap.version}` : 'window.gsap');
-                            if (window.THREE) add('3D Graphics', 'Three.js', window.THREE?.REVISION ? `r${window.THREE.REVISION}` : 'window.THREE');
-                            if (window.Alpine) add('JavaScript Library', 'Alpine.js', window.Alpine?.version ? `v${window.Alpine.version}` : 'window.Alpine');
-
-                            // Build / Tooling
-                            if (hasScript('vite') || inlineScripts.includes('@vite/client')) add('Build Tool', 'Vite', 'script/@vite/client');
-                            if (hasScript('webpack') || inlineScripts.includes('webpackjsonp')) add('Build Tool', 'Webpack', 'script/webpackjsonp');
-                            if (hasScript('parcel')) add('Build Tool', 'Parcel', 'script match');
-                            if (hasScript('/_next/static/')) add('Bundling', 'Next.js Build Chunks', '/_next/static/');
-                            if (scripts.some(s => s.includes('astro'))) add('Framework', 'Astro', 'script match');
-
-                            // Analitika i Marketing
-                            if (window.ga || window.gtag || scripts.some(s => s.includes('google-analytics'))) add('Analytics', 'Google Analytics', 'ga/gtag/script');
-                            if (window.fbq || scripts.some(s => s.includes('fbevents.js'))) add('Marketing', 'Meta Pixel', 'fbq/fbevents');
-                            if (window.hj || scripts.some(s => s.includes('hotjar'))) add('Analytics', 'Hotjar', 'hj/hotjar script');
-                            if (window.google_tag_manager || scripts.some(s => s.includes('googletagmanager'))) add('Tag Manager', 'Google Tag Manager', 'gtm signal');
-                            if (scripts.some(s => s.includes('adsbygoogle'))) add('Monetization', 'Google AdSense', 'adsbygoogle script');
-
+                            if (generator.includes('wordpress') || links.some(l => l.includes('wp-content'))) add('Sistem', 'WordPress');
+                            if (generator.includes('joomla')) add('Sistem', 'Joomla');
+                            if (generator.includes('wix')) add('Sistem', 'Wix');
+                            if (generator.includes('drupal')) add('Sistem', 'Drupal');
+                            if (html.hasAttribute('data-wf-site')) add('Sistem', 'Webflow');
+                            if (generator.includes('ghost')) add('Sistem', 'Ghost');
+                            if (generator.includes('squarespace')) add('Sistem', 'Squarespace');
+                            if (generator.includes('weebly')) add('Sistem', 'Weebly');
+                            if (window.contentful) add('Sistem', 'Contentful');
+                            // E Trgovina i Plaćanja
+                            if (window.Shopify || scripts.some(s => s.includes('shopify'))) add('E Trgovina', 'Shopify');
+                            if (document.querySelector('.woocommerce')) add('E Trgovina', 'WooCommerce');
+                            if (window.Magento) add('E Trgovina', 'Magento');
+                            if (generator.includes('prestashop')) add('E Trgovina', 'PrestaShop');
+                            if (generator.includes('opencart')) add('E Trgovina', 'OpenCart');
+                            if (window.Stripe) add('Plaćanje', 'Stripe');
+                            if (window.paypal) add('Plaćanje', 'PayPal');
+                            // Frameworks i njihove verzije
+                            const nextBuild = window.__NEXT_DATA__?.buildId ? `Build ${window.__NEXT_DATA__.buildId}` : '';
+                            if (document.querySelector('#__next') || window.next || window.__NEXT_DATA__) add('Tehnologije', 'Next.js', nextBuild);
+                            if (document.querySelector('#___gatsby') || window.gatsby) add('Tehnologije', 'Gatsby');
+                            const reactVer = window.React?.version ? `v${window.React.version}` : '';
+                            if (window.React || window.__REACT_DEVTOOLS_GLOBAL_HOOK__ || document.querySelector('[data-reactroot]')) add('Tehnologije', 'React', reactVer);
+                            const vueVer = window.Vue?.version ? `v${window.Vue.version}` : '';
+                            if (window.Vue || document.querySelector('[data-v-app]') || window.__VUE__) add('Tehnologije', 'Vue.js', vueVer);
+                            const angularVer = document.querySelector('[ng-version]')?.getAttribute('ng-version');
+                            if (window.angular || angularVer) add('Tehnologije', 'Angular', angularVer ? `v${angularVer}` : '');
+                            if (window.Svelte || document.querySelector('[data-svelte-h]')) add('Tehnologije', 'Svelte');
+                            if (window.__NUXT__ || document.querySelector('#__nuxt')) add('Tehnologije', 'Nuxt.js');
+                            if (window.Remix || window.__remixContext) add('Tehnologije', 'Remix');
+                            if (document.querySelector('astro-island') || window.Astro) add('Tehnologije', 'Astro');
+                            if (window.Preact) add('Tehnologije', 'Preact');
+                            const emberVer = window.Ember?.VERSION ? `v${window.Ember.VERSION}` : '';
+                            if (window.Ember) add('Tehnologije', 'Ember.js', emberVer);
+                            if (window.Meteor) add('Tehnologije', 'Meteor');
+                            // Biblioteke i Alati sa verzijama
+                            const jqVersion = window.jQuery?.fn?.jquery ? `v${window.jQuery.fn.jquery}` : '';
+                            if (window.jQuery) add('Tehnologije', 'jQuery', jqVersion);
+                            if (window._) add('Tehnologije', 'Lodash', window._.VERSION ? `v${window._.VERSION}` : '');
+                            if (window.moment) add('Tehnologije', 'Moment.js', window.moment.version ? `v${window.moment.version}` : '');
+                            if (window.axios) add('Tehnologije', 'Axios', window.axios.VERSION ? `v${window.axios.VERSION}` : '');
+                            if (window.d3) add('Tehnologije', 'D3.js', window.d3.version ? `v${window.d3.version}` : '');
+                            if (window.Chart) add('Tehnologije', 'Chart.js', window.Chart.version ? `v${window.Chart.version}` : '');
+                            if (window.Swiper) add('Tehnologije', 'Swiper.js');
+                            if (window.gsap) add('Tehnologije', 'GSAP', window.gsap.version ? `v${window.gsap.version}` : '');
+                            if (window.THREE) add('Tehnologije', 'Three.js', window.THREE.REVISION ? `r${window.THREE.REVISION}` : '');
+                            if (window.anime) add('Tehnologije', 'Anime.js', window.anime.version ? `v${window.anime.version}` : '');
+                            if (window.PIXI) add('Tehnologije', 'PixiJS', window.PIXI.VERSION ? `v${window.PIXI.VERSION}` : '');
+                            if (window.Alpine) add('Tehnologije', 'Alpine.js', window.Alpine.version ? `v${window.Alpine.version}` : '');
+                            if (window.firebase) add('Baza Podataka', 'Firebase');
+                            if (window.supabase) add('Baza Podataka', 'Supabase');
+                            if (window.io) add('Tehnologije', 'Socket.io');
+                            // CSS 
+                            if (links.some(l => l.includes('tailwindcss')) || scripts.some(s => s.includes('tailwind')) || document.querySelector('[class*="tw-"]')) add('Stilovi', 'Tailwind CSS');
+                            if (document.querySelector('[class*="shadcn"]') || document.querySelector('[data-radix-collection]')) add('Stilovi', 'Shadcn UI / Radix UI');
+                            if (document.querySelector('[class*="daisy"]') || document.querySelector('[data-theme]')) add('Stilovi', 'DaisyUI');
+                            if (document.querySelector('[class*="mantine-"]')) add('Stilovi', 'Mantine');
+                            if (window.ChakraUI || document.querySelector('[class*="chakra-"]')) add('Stilovi', 'Chakra UI');
+                            if (document.querySelector('[class*="flowbite"]')) add('Stilovi', 'Flowbite');
+                            if (links.some(l => l.includes('bootstrap')) || scripts.some(s => s.includes('bootstrap'))) add('Stilovi', 'Bootstrap');
+                            if (links.some(l => l.includes('bulma'))) add('Stilovi', 'Bulma');
+                            if (links.some(l => l.includes('foundation'))) add('Stilovi', 'Foundation');
+                            if (links.some(l => l.includes('materialize'))) add('Stilovi', 'Materialize');
+                            if (document.querySelector('style[data-emotion]')) add('Stilovi', 'Emotion');
+                            if (document.querySelector('style[data-styled]')) add('Stilovi', 'Styled Components');
+                            if (links.some(l => l.includes('font-awesome') || l.includes('fontawesome'))) add('Stilovi', 'FontAwesome');
+                            if (links.some(l => l.includes('bootstrap-icons'))) add('Stilovi', 'Bootstrap Icons');
+                            // Alati i Auth
+                            if (window.Clerk || window.__clerk_js_version) add('Alati', 'Clerk Auth');
+                            if (window.auth0) add('Alati', 'Auth0');
+                            if (window.Sentry || window.__SENTRY__) add('Alati', 'Sentry');
+                            if (window.posthog) add('Analitika', 'PostHog');
+                            if (window.umami) add('Analitika', 'Umami');
+                            if (window.fathom) add('Analitika', 'Fathom');
+                            if (window.Stripe) add('Plaćanje', 'Stripe');
+                            if (window.lemonSqueezy || window.LemonSqueezy) add('Plaćanje', 'Lemon Squeezy');
+                            // Build
+                            if (scripts.some(s => s.includes('vite') || inlineScripts.includes('@vite/client'))) add('Build', 'Vite');
+                            if (scripts.some(s => s.includes('webpack') || inlineScripts.includes('webpackjsonp'))) add('Build', 'Webpack');
+                            if (scripts.some(s => s.includes('parcel'))) add('Build', 'Parcel');
+                            if (scripts.some(s => s.includes('rollup'))) add('Build', 'Rollup');
+                            if (scripts.some(s => s.includes('babel'))) add('Build', 'Babel');
+                            // Analitika
+                            const gaMatch = inlineScripts.match(/(g-[a-z0-9]{4,}|ua-\d+-\d+)/i);
+                            const gaId = gaMatch ? gaMatch[0].toUpperCase() : '';
+                            if (window.ga || window.gtag || scripts.some(s => s.includes('google-analytics'))) add('Analitika', 'Google Analytics', gaId);
+                            const fbMatch = inlineScripts.match(/fbq\s*\(\s*['"]init['"]\s*,\s*['"](\d+)['"]/i);
+                            const fbId = fbMatch ? fbMatch[1] : '';
+                            if (window.fbq || scripts.some(s => s.includes('fbevents.js'))) add('Analitika', 'Meta Pixel', fbId);
+                            if (window.hj || scripts.some(s => s.includes('hotjar'))) add('Analitika', 'Hotjar');
+                            if (window.clarity || scripts.some(s => s.includes('clarity.ms'))) add('Analitika', 'Microsoft Clarity');
+                            if (scripts.some(s => s.includes('plausible.io'))) add('Analitika', 'Plausible');
                             const gtmMatch = inlineScripts.match(/gtm-[a-z0-9]+/i);
-                            if (gtmMatch?.[0]) add('Tag Manager ID', gtmMatch[0].toUpperCase(), 'inline script');
-
-                            const ga4Match = inlineScripts.match(/g-[a-z0-9]{4,}/i);
-                            if (ga4Match?.[0]) add('Analytics ID', ga4Match[0].toUpperCase(), 'inline script');
-
-                            const fbqMatch = inlineScripts.match(/fbq\s*\(\s*['\"]init['\"]\s*,\s*['\"](\d+)['\"]/i);
-                            if (fbqMatch?.[1]) add('Marketing ID', `Meta Pixel ${fbqMatch[1]}`, 'inline script');
-
-                            // CDN mreže
-                            if (scripts.some(s => s.includes('cdnjs'))) add('CDN', 'CDNJS', 'script source');
-                            if (scripts.some(s => s.includes('jsdelivr'))) add('CDN', 'jsDelivr', 'script source');
-                            if (links.some(l => l.includes('fonts.googleapis.com'))) add('Fonts', 'Google Fonts', 'fonts.googleapis.com');
-                            if (links.some(l => l.includes('use.typekit.net'))) add('Fonts', 'Adobe Fonts', 'use.typekit.net');
-
-                            // Strukturirani podaci
-                            if (metas.some(m => m.getAttribute('property')?.startsWith('og:'))) add('Structured Data', 'Open Graph', 'meta[property^="og:"]');
-                            if (metas.some(m => getAttr(m, 'name').startsWith('twitter:'))) add('Structured Data', 'Twitter Cards', 'meta[name^="twitter:"]');
-                            if (document.querySelector('script[type="application/ld+json"]')) add('Structured Data', 'JSON-LD', `${document.querySelectorAll('script[type="application/ld+json"]').length} script tag(ova)`);
-                            if (document.querySelector('[itemscope]')) add('Structured Data', 'Microdata', `${document.querySelectorAll('[itemscope]').length} itemscope element(a)`);
-
-                            // SEO
-                            const canonical = document.querySelector('link[rel="canonical"]')?.getAttribute('href') || '';
-                            if (canonical) add('SEO', 'Canonical URL', canonical);
-                            const hreflangCount = document.querySelectorAll('link[hreflang]').length;
-                            if (hreflangCount > 0) add('SEO', 'Hreflang', `${hreflangCount} link(ova)`);
-                            const robotsMeta = getMetaByName('robots');
-                            if (robotsMeta) add('SEO', 'Robots Meta', robotsMeta);
-                            const metaDesc = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
-                            if (metaDesc) add('SEO', 'Meta Description', `${metaDesc.length} karaktera`);
-
-                            // Izgled i Stilovi
-                            if (links.some(l => l.includes('tailwindcss')) || scripts.some(s => s.includes('tailwind'))) add('CSS Framework', 'Tailwind CSS', 'link/script match');
-                            if (links.some(l => l.includes('bootstrap')) || scripts.some(s => s.includes('bootstrap'))) add('CSS Framework', 'Bootstrap', 'link/script match');
-                            const cssCount = linkEls.filter(l => getAttr(l, 'rel').includes('stylesheet')).length;
-                            if (cssCount > 0) add('Site Elements', 'External CSS', `${cssCount} stylesheet link(ova)`);
-                            const inlineStyleCount = document.querySelectorAll('[style]').length;
-                            if (inlineStyleCount > 0) add('Site Elements', 'Inline CSS', `${inlineStyleCount} element(a)`);
-
-                            // Performance hints
-                            const preconnectCount = document.querySelectorAll('link[rel="preconnect"]').length;
-                            const preloadCount = document.querySelectorAll('link[rel="preload"]').length;
-                            const dnsPrefetchCount = document.querySelectorAll('link[rel="dns-prefetch"]').length;
-                            const lazyImageCount = document.querySelectorAll('img[loading="lazy"]').length;
-                            if (preconnectCount > 0) add('Performance', 'Preconnect', `${preconnectCount} link(ova)`);
-                            if (preloadCount > 0) add('Performance', 'Preload', `${preloadCount} link(ova)`);
-                            if (dnsPrefetchCount > 0) add('Performance', 'DNS Prefetch', `${dnsPrefetchCount} link(ova)`);
-                            if (lazyImageCount > 0) add('Performance', 'Lazy-loaded Images', `${lazyImageCount} slika`);
-
-                            // Standardi
-                            add('Markup Language', 'HTML5', document.doctype?.name ? `doctype: ${document.doctype.name}` : 'doctype unknown');
-                            add('Encoding', document.characterSet || 'UTF-8', 'document.characterSet');
-                            add('Client Script', 'JavaScript', `${scriptEls.length} script tag(ova)`);
-                            if (window.location.protocol === 'https:') add('Security', 'SSL/HTTPS', window.location.protocol.toUpperCase());
-
-                            // PWA
-                            const manifestHref = document.querySelector('link[rel="manifest"]')?.getAttribute('href') || '';
-                            if (manifestHref) add('PWA', 'Web App Manifest', manifestHref);
-                            if ('serviceWorker' in navigator) add('PWA', 'Service Worker API', 'navigator.serviceWorker available');
-                            const themeColor = document.querySelector('meta[name="theme-color"]')?.getAttribute('content') || '';
-                            if (themeColor) add('PWA', 'Theme Color', themeColor);
-
-                            // Slike
-                            const images = Array.from(document.images).map(i => i.src.toLowerCase());
-                            const pngCount = images.filter(s => s.includes('.png')).length;
-                            const jpgCount = images.filter(s => s.includes('.jpg') || s.includes('.jpeg')).length;
-                            const svgCount = images.filter(s => s.includes('.svg') || s.includes('data:image/svg')).length;
-                            const webpCount = images.filter(s => s.includes('.webp')).length;
-                            if (pngCount > 0) add('Image Format', 'PNG', `${pngCount} slika`);
-                            if (jpgCount > 0) add('Image Format', 'JPEG', `${jpgCount} slika`);
-                            if (svgCount > 0) add('Image Format', 'SVG', `${svgCount} slika`);
-                            if (webpCount > 0) add('Image Format', 'WebP', `${webpCount} slika`);
-
-                            // Filtriranje duplikata (izbacuje ako se nešto 2x nadje)
+                            const gtmId = gtmMatch ? gtmMatch[0].toUpperCase() : '';
+                            if (window.google_tag_manager || scripts.some(s => s.includes('googletagmanager'))) add('Analitika', 'Google Tag Manager', gtmId);
+                            if (window.Matomo || scripts.some(s => s.includes('matomo'))) add('Analitika', 'Matomo');
+                            if (window.mixpanel) add('Analitika', 'Mixpanel');
+                            if (window.analytics) add('Analitika', 'Segment');
+                            if (scripts.some(s => s.includes('tiktok.com'))) add('Analitika', 'TikTok Pixel');
+                            if (scripts.some(s => s.includes('snap.licdn.com'))) add('Analitika', 'LinkedIn Insight');
+                            // Komunikacija i Mediji
+                            if (window.Intercom) add('Komunikacija', 'Intercom');
+                            if (window.$crisp) add('Komunikacija', 'Crisp Chat');
+                            if (window.Tawk_API) add('Komunikacija', 'Tawk.to');
+                            if (window.zE) add('Komunikacija', 'Zendesk');
+                            if (document.querySelector('iframe[src*="youtube.com"]')) add('Mediji', 'YouTube Player');
+                            if (document.querySelector('iframe[src*="vimeo.com"]')) add('Mediji', 'Vimeo Player');
+                            if (window.videojs) add('Mediji', 'Video.js');
+                            if (scripts.some(s => s.includes('adsbygoogle'))) add('Reklame', 'Google AdSense');
                             const unique = [];
                             const seen = new Set();
                             results.forEach(r => {
@@ -2233,28 +2225,34 @@ document.addEventListener("DOMContentLoaded", async () => {
                                     unique.push(r);
                                 }
                             });
-
                             unique.sort((a, b) => {
-                                const byCat = String(a.category).localeCompare(String(b.category), 'sr', { sensitivity: 'base' });
-                                if (byCat !== 0) return byCat;
-                                return String(a.name).localeCompare(String(b.name), 'sr', { sensitivity: 'base' });
+                                const priority = [
+                                    catMap['Osnova'], catMap['Sistem'], catMap['E Trgovina'],
+                                    catMap['Tehnologije'], catMap['Stilovi'], catMap['Baza Podataka'],
+                                    catMap['Backend'], catMap['Server'], catMap['Mreža'],
+                                    catMap['Sigurnost'], catMap['Keširanje'], catMap['CDN'],
+                                    catMap['Analitika'], catMap['Reklame'], catMap['Plaćanje'],
+                                    catMap['Komunikacija'], catMap['Mediji'], catMap['Build'],
+                                    catMap['SEO'], catMap['Statistika'], catMap['Alati']
+                                ];
+                                const catA = priority.indexOf(a.category);
+                                const catB = priority.indexOf(b.category);
+                                if (catA !== catB) return (catA === -1 ? 99 : catA) - (catB === -1 ? 99 : catB);
+                                return String(a.name).localeCompare(String(b.name));
                             });
-
                             return unique;
                         },
-                        args: [getI18nMsg("techFoundPrefix", "Pronađeno: "), getI18nMsg("techNotFound", "Nije pronađeno.")]
+                        args: [getI18nMsg("techFoundPrefix", "Pronađeno: "), getI18nMsg("techNotFound", "Nije pronađeno."), techCatMap, techStatLabels]
                     }, (res) => {
                         if (!isResolved) {
                             isResolved = true;
                             clearTimeout(timeoutId);
-
                             loading.style.display = "none";
                             if (chrome.runtime.lastError) {
                                 listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techScannerFailed", "Skeniranje nije uspelo na ovoj stranici.")}</div>`;
                                 resolve();
                                 return;
                             }
-
                             if (res && res[0] && Array.isArray(res[0].result)) {
                                 const resultCount = res[0].result.length;
                                 if (resultCount > 0) {
@@ -2263,73 +2261,70 @@ document.addEventListener("DOMContentLoaded", async () => {
                                     summary.style.fontSize = "11px";
                                     summary.style.marginBottom = "8px";
                                     summary.style.textAlign = "center";
-                                    // It uses the passed arg `foundLabel` indirectly through dynamic logic if needed, but here's direct string interpolation
                                     summary.textContent = `${getI18nMsg("techFoundPrefix", "Pronađeno: ")} ${resultCount} ${getI18nMsg("techItemsSuffix", "stavki")}`;
                                     listContainer.appendChild(summary);
                                 }
-
+                                const grouped = {};
                                 res[0].result.forEach(item => {
-                                    const el = document.createElement("div");
-                                    el.className = "tech-item";
-
-                                    const icon = document.createElement("div");
-                                    icon.className = "tech-icon";
-                                    icon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>';
-
-                                    const info = document.createElement("div");
-                                    info.className = "tech-info";
-
-                                    const cat = document.createElement("span");
-                                    cat.className = "tech-cat";
-                                    cat.textContent = String(item.category || "");
-
-                                    const name = document.createElement("span");
-                                    name.className = "tech-name";
-                                    const baseName = String(item.name || "");
-                                    name.textContent = baseName;
-
-                                    info.appendChild(cat);
-                                    info.appendChild(name);
-                                    el.appendChild(icon);
-                                    el.appendChild(info);
-                                    listContainer.appendChild(el);
+                                    if (!grouped[item.category]) grouped[item.category] = [];
+                                    grouped[item.category].push(item);
                                 });
-
-                                if (res[0].result.length === 0) {
-                                    listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techNotFound", "Nije pronađeno.")}</div>`;
-                                }
-                            } else {
-                                listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techNotFound", "Nije pronađeno.")}</div>`;
+                                Object.entries(grouped).forEach(([category, items]) => {
+                                    const groupTitle = document.createElement("div");
+                                    groupTitle.className = "tech-group-title";
+                                    groupTitle.textContent = category;
+                                    groupTitle.style.marginTop = "18px";
+                                    groupTitle.style.fontWeight = "bold";
+                                    groupTitle.style.fontSize = "15px";
+                                    groupTitle.style.color = "var(--accent, #00ff88)";
+                                    listContainer.appendChild(groupTitle);
+                                    items.forEach(item => {
+                                        const el = document.createElement("div");
+                                        el.className = "tech-item";
+                                        const icon = document.createElement("div");
+                                        icon.className = "tech-icon";
+                                        icon.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>';
+                                        const info = document.createElement("div");
+                                        info.className = "tech-info";
+                                        const name = document.createElement("span");
+                                        name.className = "tech-name";
+                                        name.textContent = String(item.name || "");
+                                        info.appendChild(name);
+                                        if (item.detail) {
+                                            const detail = document.createElement("span");
+                                            detail.className = "tech-detail";
+                                            detail.textContent = String(item.detail);
+                                            info.appendChild(detail);
+                                        }
+                                        el.appendChild(icon);
+                                        el.appendChild(info);
+                                        listContainer.appendChild(el);
+                                    });
+                                });
                             }
-
                             resolve();
                         }
                     });
                 });
             };
-
             try {
                 await executeWithTimeout(tab.id);
             } catch (err) {
                 loading.style.display = "none";
-                console.error("Tech scanner error:", err);
-                listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techScannerFailed", "Skeniranje nije uspelo na ovoj stranici.")} - ${err.message || "greška"}</div>`;
+                listContainer.innerHTML = `<div style="color: var(--text-dim); text-align: center;">${getI18nMsg("techScannerFailed", "Skeniranje nije uspelo na ovoj stranici.")}</div>`;
             }
         } catch (err) {
-            console.error("Tech scanner outer error:", err);
+            // Silent fail
         } finally {
-            // Reset view after tech scan completes
+            // Reset view
         }
     });
-
     document.getElementById("techBackBtn")?.addEventListener("click", () => {
         document.getElementById("techView").style.display = "none";
         document.getElementById("mainView").style.display = "block";
     });
-
     //#endregion
 });
-
 // i18n prevod Helper funkcija
 function getI18nMsg(key, defaultText) {
     if (window.i18nDict && window.i18nDict[key] && window.i18nDict[key].message) {

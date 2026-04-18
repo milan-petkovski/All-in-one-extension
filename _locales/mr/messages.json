@@ -162,28 +162,28 @@
     "message": "तुम्हाला खात्री आहे की तुम्ही सर्व नोट्स साफ करू इच्छिता?"
   },
   "trackerModalTitle": {
-    "message": "वेबटाइम ट्रॅकर"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "डेटा एक्सपोर्ट करा"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "डेटा इम्पोर्ट करा"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "दैनिक दृश्य"
+    "message": "दैनंदिन दृश्य"
   },
   "trackerModeMonth": {
     "message": "मासिक दृश्य"
   },
   "trackerModeAll": {
-    "message": "सर्व वेळ"
+    "message": "सर्व काळ"
   },
   "trackerTodayLabel": {
     "message": "आज"
   },
   "trackerMonthLabel": {
-    "message": "या महिन्यात"
+    "message": "हा महिना"
   },
   "trackerAvgLabel": {
     "message": "सरासरी"
@@ -267,34 +267,34 @@
     "message": "लिंक"
   },
   "trackerToday": {
-    "message": "आज"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "त्या दिवशी"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "निवडलेला महिना"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "एकूण"
+    "message": "Total"
   },
   "trackerNoData": {
-    "message": "या कालावधीसाठी कोणताही डेटा नाही"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "एक्सपोर्ट करण्यासाठी कोणताही ट्रॅकर डेटा नाही."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "स्थिरता राखण्यासाठी एक्सपोर्ट 10MB पर्यंत कमी केले."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "इम्पोर्ट करण्यासाठी कोणताही वैध डेटा नाही."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "डेटा यशस्वीरित्या इम्पोर्ट केला!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "फाईल वाचण्यात त्रुटी."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "लाइव्ह सुरू आहे"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "तुम्हाला खात्री आहे का सर्व साफ करायचे आहे?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

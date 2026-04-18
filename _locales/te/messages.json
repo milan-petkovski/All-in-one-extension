@@ -162,13 +162,13 @@
     "message": "మీరు ఖచ్చితంగా అన్ని నోట్స్‌ను క్లియర్ చేయాలనుకుంటున్నారా?"
   },
   "trackerModalTitle": {
-    "message": "వెబ్‌టైమ్ ట్రాకర్"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "డేటాను ఎగుమతి చేయండి"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "డేటాను దిగుమతి చేయండి"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "రోజువారీ వీక్షణ"
@@ -177,7 +177,7 @@
     "message": "నెలవారీ వీక్షణ"
   },
   "trackerModeAll": {
-    "message": "అన్ని సమయాలు"
+    "message": "అన్ని సమయం"
   },
   "trackerTodayLabel": {
     "message": "ఈరోజు"
@@ -267,34 +267,34 @@
     "message": "లింక్"
   },
   "trackerToday": {
-    "message": "ఈరోజు"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "ఆ రోజు"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "ఎంచుకున్న నెల"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "మొత్తం"
+    "message": "Total"
   },
   "trackerNoData": {
-    "message": "ఈ కాలానికి డేటా లేదు"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "ఎగుమతి చేయడానికి ట్రాకర్ డేటా లేదు."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "స్థిరత్వం కోసం ఎగుమతి 10MBకి కుదించబడింది."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "దిగుమతి చేయడానికి చెల్లుబాటు అయ్యే డేటా లేదు."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "డేటా విజయవంతంగా దిగుమతి చేయబడింది!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "ఫైల్ చదవడంలో లోపం."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "లైవ్ పురోగతిలో ఉంది"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "మీరు నిజంగా అన్నింటినీ క్లియర్ చేయాలనుకుంటున్నారా?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

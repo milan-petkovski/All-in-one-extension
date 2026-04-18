@@ -18,7 +18,13 @@
     "message": "Setări"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Importă stație radio personalizată"
   },
   "radioArtist": {
     "message": "Oferit de extensia All In One"
@@ -162,13 +168,13 @@
     "message": "Ești sigur că vrei să ștergi toate notițele?"
   },
   "trackerModalTitle": {
-    "message": "WEBTIME TRACKER"
+    "message": "Urmărire Timp"
   },
   "exportTooltip": {
-    "message": "Exportă datele"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importă datele"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Vizualizare zilnică"
@@ -180,7 +186,7 @@
     "message": "Tot timpul"
   },
   "trackerTodayLabel": {
-    "message": "Azi"
+    "message": "Astăzi"
   },
   "trackerMonthLabel": {
     "message": "Luna aceasta"
@@ -267,10 +273,10 @@
     "message": "Link"
   },
   "trackerToday": {
-    "message": "Azi"
+    "message": "Astăzi"
   },
   "trackerThatDay": {
-    "message": "Acea zi"
+    "message": "Ziua aceea"
   },
   "trackerSelectedMonth": {
     "message": "Luna selectată"
@@ -282,19 +288,19 @@
     "message": "Nu există date pentru această perioadă"
   },
   "trackerExportEmpty": {
-    "message": "Nu există date de tracker pentru export."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Exportul a fost limitat la 10MB pentru stabilitate."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Nu există date de tracker valide pentru import."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Datele au fost importate cu succes!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Eroare la citirea fișierului."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "LIVE ÎN CURS"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Sigur doriți să ștergeți tot?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "Luna aceasta"
+  },
+  "trackerThisMonthShort": {
+    "message": "Luna aceasta"
+  },
+  "trackerThatMonth": {
+    "message": "Luna aceea"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Medie"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Medie"
+  },
+  "trackerAvgTotal": {
+    "message": "Medie"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Sigur doriți să ștergeți datele pentru"
+  },
+  "techCatBase": {
+    "message": "Bază"
+  },
+  "techCatSystem": {
+    "message": "Sistem"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Tehnologii"
+  },
+  "techCatStyles": {
+    "message": "Stiluri"
+  },
+  "techCatDb": {
+    "message": "Bază de date"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Server"
+  },
+  "techCatNetwork": {
+    "message": "Rețea"
+  },
+  "techCatSecurity": {
+    "message": "Securitate"
+  },
+  "techCatCaching": {
+    "message": "Cache"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analiză"
+  },
+  "techCatAds": {
+    "message": "Reclame"
+  },
+  "techCatPayment": {
+    "message": "Plată"
+  },
+  "techCatComm": {
+    "message": "Comunicare"
+  },
+  "techCatMedia": {
+    "message": "Media"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistici"
+  },
+  "techCatTools": {
+    "message": "Unelte"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Imagini"
+  },
+  "techStatScripts": {
+    "message": "Scripturi"
+  },
+  "techStatLinks": {
+    "message": "Linkuri"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formulare"
+  },
+  "techStatTables": {
+    "message": "Tabele"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Audio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Introduceți linkul direct către stația radio preferată"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Șterge câmpul"
+  },
+  "saveRadioStationBtn": {
+    "message": "SALVEAZĂ STAȚIA"
   }
 }

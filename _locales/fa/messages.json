@@ -162,22 +162,22 @@
     "message": "آیا مطمئن هستید که می‌خواهید تمام یادداشت‌ها را پاک کنید؟"
   },
   "trackerModalTitle": {
-    "message": "ردیاب زمان وب"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "صادرات داده‌ها"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "واردات داده‌ها"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "نمای روزانه"
+    "message": "نمایش روزانه"
   },
   "trackerModeMonth": {
-    "message": "نمای ماهانه"
+    "message": "نمایش ماهانه"
   },
   "trackerModeAll": {
-    "message": "تمام زمان"
+    "message": "همه زمان"
   },
   "trackerTodayLabel": {
     "message": "امروز"
@@ -267,34 +267,34 @@
     "message": "لینک"
   },
   "trackerToday": {
-    "message": "امروز"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "آن روز"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "ماه انتخاب شده"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "مجموع"
+    "message": "Total"
   },
   "trackerNoData": {
-    "message": "داده‌ای برای این دوره وجود ندارد"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "داده‌ای برای صادرات وجود ندارد."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "صادرات برای پایداری به 10 مگابایت محدود شد."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "داده معتبری برای واردات وجود ندارد."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "داده‌ها با موفقیت وارد شدند!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "خطا در خواندن فایل."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "پخش زنده در جریان است"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "آیا مطمئن هستید که می‌خواهید همه را پاک کنید؟"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

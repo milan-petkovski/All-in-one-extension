@@ -18,7 +18,13 @@
     "message": "Ayarlar"
   },
   "radioTitle": {
-    "message": "Radyo IN"
+    "message": "Radyo"
+  },
+  "radioTitleCustom": {
+    "message": "Radyo"
+  },
+  "importRadioTooltip": {
+    "message": "Özel radyo istasyonu içe aktar"
   },
   "radioArtist": {
     "message": "All In One ile"
@@ -162,22 +168,22 @@
     "message": "Tüm notları temizle?"
   },
   "trackerModalTitle": {
-    "message": "ZAMAN İZLEYİCİ"
+    "message": "Zaman Takibi"
   },
   "exportTooltip": {
-    "message": "Verileri dışa aktar"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Verileri içe aktar"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "Günlük"
+    "message": "Günlük görünüm"
   },
   "trackerModeMonth": {
-    "message": "Aylık"
+    "message": "Aylık görünüm"
   },
   "trackerModeAll": {
-    "message": "Her zaman"
+    "message": "Tüm zamanlar"
   },
   "trackerTodayLabel": {
     "message": "Bugün"
@@ -273,28 +279,28 @@
     "message": "O gün"
   },
   "trackerSelectedMonth": {
-    "message": "Seçilen ay"
+    "message": "Seçili ay"
   },
   "trackerTotal": {
     "message": "Toplam"
   },
   "trackerNoData": {
-    "message": "Veri yok"
+    "message": "Bu dönem için veri yok"
   },
   "trackerExportEmpty": {
-    "message": "Dışa aktarılacak veri yok."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Dışa aktarma 10MB ile sınırlı."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Geçerli veri yok."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "İçe aktarıldı!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Okuma hatası."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "CANLI"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Tümünü temizlemek istediğinizden emin misiniz?"
+  },
+  "trackerTotalShort": {
+    "message": "Toplam"
+  },
+  "trackerThisMonth": {
+    "message": "Bu ay"
+  },
+  "trackerThisMonthShort": {
+    "message": "Bu ay"
+  },
+  "trackerThatMonth": {
+    "message": "O ay"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Ortalama"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Ortalama"
+  },
+  "trackerAvgTotal": {
+    "message": "Ortalama"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Verileri silmek istediğinize emin misiniz"
+  },
+  "techCatBase": {
+    "message": "Temel"
+  },
+  "techCatSystem": {
+    "message": "Sistem"
+  },
+  "techCatEcom": {
+    "message": "E-Ticaret"
+  },
+  "techCatTech": {
+    "message": "Teknolojiler"
+  },
+  "techCatStyles": {
+    "message": "Stiller"
+  },
+  "techCatDb": {
+    "message": "Veritabanı"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Sunucu"
+  },
+  "techCatNetwork": {
+    "message": "Ağ"
+  },
+  "techCatSecurity": {
+    "message": "Güvenlik"
+  },
+  "techCatCaching": {
+    "message": "Önbellek"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analitik"
+  },
+  "techCatAds": {
+    "message": "Reklamlar"
+  },
+  "techCatPayment": {
+    "message": "Ödeme"
+  },
+  "techCatComm": {
+    "message": "İletişim"
+  },
+  "techCatMedia": {
+    "message": "Medya"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "İstatistikler"
+  },
+  "techCatTools": {
+    "message": "Araçlar"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Görüntüler"
+  },
+  "techStatScripts": {
+    "message": "Komut Dosyaları"
+  },
+  "techStatLinks": {
+    "message": "Bağlantılar"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formlar"
+  },
+  "techStatTables": {
+    "message": "Tablolar"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Ses"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Favori radyo istasyonunuzun doğrudan bağlantısını girin"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Alanı temizle"
+  },
+  "saveRadioStationBtn": {
+    "message": "İSTASYONU KAYDET"
   }
 }

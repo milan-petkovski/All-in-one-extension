@@ -18,7 +18,13 @@
     "message": "设置"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "广播"
+  },
+  "radioTitleCustom": {
+    "message": "广播"
+  },
+  "importRadioTooltip": {
+    "message": "导入自定义电台"
   },
   "radioArtist": {
     "message": "由 All In One 扩展程序提供支持"
@@ -162,13 +168,13 @@
     "message": "删除所有？"
   },
   "trackerModalTitle": {
-    "message": "追踪器"
+    "message": "时间追踪器"
   },
   "exportTooltip": {
-    "message": "导出"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "导入"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "日视图"
@@ -177,7 +183,7 @@
     "message": "月视图"
   },
   "trackerModeAll": {
-    "message": "总览"
+    "message": "全部时间"
   },
   "trackerTodayLabel": {
     "message": "今天"
@@ -270,31 +276,31 @@
     "message": "今天"
   },
   "trackerThatDay": {
-    "message": "当日"
+    "message": "那天"
   },
   "trackerSelectedMonth": {
-    "message": "选中月"
+    "message": "选定的月份"
   },
   "trackerTotal": {
-    "message": "共计"
+    "message": "总计"
   },
   "trackerNoData": {
-    "message": "暂无数据"
+    "message": "此期间无数据"
   },
   "trackerExportEmpty": {
-    "message": "无数据"
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "限额10MB"
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "无效数据"
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "导入成功"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "读取失败"
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "运行中"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "您确定要清除全部吗？"
+  },
+  "trackerTotalShort": {
+    "message": "总计"
+  },
+  "trackerThisMonth": {
+    "message": "本月"
+  },
+  "trackerThisMonthShort": {
+    "message": "本月"
+  },
+  "trackerThatMonth": {
+    "message": "该月"
+  },
+  "trackerAvgThisMonth": {
+    "message": "平均"
+  },
+  "trackerAvgThatMonth": {
+    "message": "平均"
+  },
+  "trackerAvgTotal": {
+    "message": "平均"
+  },
+  "trackerDeleteConfirm": {
+    "message": "确定要删除数据吗"
+  },
+  "techCatBase": {
+    "message": "基础"
+  },
+  "techCatSystem": {
+    "message": "系统"
+  },
+  "techCatEcom": {
+    "message": "电子商务"
+  },
+  "techCatTech": {
+    "message": "技术"
+  },
+  "techCatStyles": {
+    "message": "样式"
+  },
+  "techCatDb": {
+    "message": "数据库"
+  },
+  "techCatBackend": {
+    "message": "后端"
+  },
+  "techCatServer": {
+    "message": "服务器"
+  },
+  "techCatNetwork": {
+    "message": "网络"
+  },
+  "techCatSecurity": {
+    "message": "安全"
+  },
+  "techCatCaching": {
+    "message": "缓存"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "分析"
+  },
+  "techCatAds": {
+    "message": "广告"
+  },
+  "techCatPayment": {
+    "message": "支付"
+  },
+  "techCatComm": {
+    "message": "通信"
+  },
+  "techCatMedia": {
+    "message": "媒体"
+  },
+  "techCatBuild": {
+    "message": "构建"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "统计"
+  },
+  "techCatTools": {
+    "message": "工具"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "图片"
+  },
+  "techStatScripts": {
+    "message": "脚本"
+  },
+  "techStatLinks": {
+    "message": "链接"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "表单"
+  },
+  "techStatTables": {
+    "message": "表格"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "视频"
+  },
+  "techStatAudio": {
+    "message": "音频"
+  },
+  "techStatIframes": {
+    "message": "框架"
+  },
+  "radioModalDesc": {
+    "message": "输入您喜爱的电台直链"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "清除字段"
+  },
+  "saveRadioStationBtn": {
+    "message": "保存电台"
   }
 }

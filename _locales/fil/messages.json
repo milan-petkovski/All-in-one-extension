@@ -18,7 +18,13 @@
     "message": "Mga Setting"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radyo"
+  },
+  "radioTitleCustom": {
+    "message": "Radyo"
+  },
+  "importRadioTooltip": {
+    "message": "Mag-import ng custom na istasyon ng radyo"
   },
   "radioArtist": {
     "message": "Pinapagana ng All In One"
@@ -162,13 +168,13 @@
     "message": "Sigurado ka bang gusto mong i-clear lahat ng tala?"
   },
   "trackerModalTitle": {
-    "message": "WEBTIME TRACKER"
+    "message": "Tagasubaybay ng Oras"
   },
   "exportTooltip": {
-    "message": "I-export ang data"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "I-import ang data"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Araw-araw na view"
@@ -270,31 +276,31 @@
     "message": "Ngayon"
   },
   "trackerThatDay": {
-    "message": "Noong araw na iyon"
+    "message": "Araw na iyon"
   },
   "trackerSelectedMonth": {
-    "message": "Napiling buwan"
+    "message": "Selected month"
   },
   "trackerTotal": {
     "message": "Kabuuan"
   },
   "trackerNoData": {
-    "message": "Walang data para sa panahong ito"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "Walang tracker data na i-e-export."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Pinaikli ang pag-export sa 10MB para sa katatagan."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Walang balidong data na i-i-import."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Matagumpay na na-import ang data!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Error sa pagbasa ng file."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "LIVE NA NAGAGANAP"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Sigurado ka bang gusto mong i-clear lahat?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "Buwan na ito"
+  },
+  "trackerThatMonth": {
+    "message": "Buwan na iyon"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Sigurado ka bang gusto mong burahin ang data para sa"
+  },
+  "techCatBase": {
+    "message": "Base"
+  },
+  "techCatSystem": {
+    "message": "Sistema"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Teknolohiya"
+  },
+  "techCatStyles": {
+    "message": "Mga Estilo"
+  },
+  "techCatDb": {
+    "message": "Database"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Server"
+  },
+  "techCatNetwork": {
+    "message": "Network"
+  },
+  "techCatSecurity": {
+    "message": "Seguridad"
+  },
+  "techCatCaching": {
+    "message": "Caching"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analytics"
+  },
+  "techCatAds": {
+    "message": "Mga Ad"
+  },
+  "techCatPayment": {
+    "message": "Pagbabayad"
+  },
+  "techCatComm": {
+    "message": "Komunikasyon"
+  },
+  "techCatMedia": {
+    "message": "Media"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Estadistika"
+  },
+  "techCatTools": {
+    "message": "Mga Tool"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Mga Larawan"
+  },
+  "techStatScripts": {
+    "message": "Mga Script"
+  },
+  "techStatLinks": {
+    "message": "Mga Link"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Mga Form"
+  },
+  "techStatTables": {
+    "message": "Mga Table"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Audio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Ilagay ang direktang link sa paborito mong istasyon ng radyo"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Burahin ang field"
+  },
+  "saveRadioStationBtn": {
+    "message": "SAVE STATION"
   }
 }

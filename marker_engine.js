@@ -1,5 +1,29 @@
+if (typeof window.markerInitAttempts !== 'number') window.markerInitAttempts = 0;
+if (typeof window.MAX_MARKER_INIT_ATTEMPTS !== 'number') window.MAX_MARKER_INIT_ATTEMPTS = 100;
+
+if (!window.aioMarkerMessageListenerAttached) {
+    chrome.runtime.onMessage.addListener((request) => {
+        if (request.action === "initMarker") {
+            pokreniMarker();
+        }
+        if (request.action === "initMarkerColor") {
+            window.markerCurrentColor = request.color;
+            const picker = document.getElementById('markerColorPicker');
+            const wrapper = document.getElementById('colorWrapper');
+            if (picker) picker.value = request.color;
+            if (wrapper) {
+                wrapper.style.backgroundColor = request.color;
+                wrapper.style.borderColor = request.color;
+            }
+        }
+    });
+    window.aioMarkerMessageListenerAttached = true;
+}
+
 async function pokreniMarker() {
     if (!document.head || !document.body) {
+        window.markerInitAttempts++;
+        if (window.markerInitAttempts > window.MAX_MARKER_INIT_ATTEMPTS) return;
         setTimeout(pokreniMarker, 50);
         return;
     }
@@ -8,27 +32,23 @@ async function pokreniMarker() {
         window.markerInjected = true;
         window.markerCurrentColor = "#00ff88";
 
-        // Učitavanje izabranog jezika iz storage-a
         const langData = await chrome.storage.local.get(['appLang']);
         const currentLang = langData.appLang || 'sr';
         let markerDict = {};
 
-        // Pokušaj učitavanja prevoda; ako ne uspe (npr. fali dozvola), koristi se fallback
         try {
             const response = await fetch(chrome.runtime.getURL(`_locales/${currentLang}/messages.json`));
             if (response.ok) {
                 markerDict = await response.json();
             }
         } catch (e) {
-            console.warn("Marker manual translation fetch failed, using system i18n fallback.");
+            console.warn("Marker translation fetch failed");
         }
 
-        // Pomoćna funkcija koja prvo gleda ručno učitan rečnik, pa onda sistemski chrome.i18n
         const getMsg = (key, fallback) => {
             if (markerDict[key] && markerDict[key].message) {
                 return markerDict[key].message;
             }
-            // Fallback na sistemski i18n (za tooltipe)
             if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
                 const msg = chrome.i18n.getMessage(key);
                 if (msg) return msg;
@@ -103,19 +123,24 @@ async function pokreniMarker() {
         `;
         document.body.appendChild(menu);
 
-        // --- Logika Markera ---
         let mode = "brush";
         let drawing = false;
         let currentElement = null;
         let thickness = 5;
         let rAF = null;
         let pendingPoint = null;
+        let lastBrushX = null;
+        let lastBrushY = null;
+        const BRUSH_MIN_DIST = 2;
 
         const handleGlobalMouseUp = () => { drawing = false; currentElement = null; };
 
         const removeMarker = () => {
             if (rAF) cancelAnimationFrame(rAF);
             document.querySelectorAll('.marker-text-input').forEach((el) => el.remove());
+            svg.querySelectorAll('*').forEach((el) => {
+                if (el._markerCleanup) el._markerCleanup();
+            });
             svg.remove();
             menu.remove();
             const s = document.getElementById('marker-styles');
@@ -126,12 +151,16 @@ async function pokreniMarker() {
 
         const picker = document.getElementById('markerColorPicker');
         const wrapper = document.getElementById('colorWrapper');
-        
+
+        let colorDebounce;
         picker.oninput = (e) => {
             window.markerCurrentColor = e.target.value;
             wrapper.style.backgroundColor = window.markerCurrentColor;
             wrapper.style.borderColor = window.markerCurrentColor;
-            chrome.storage.local.set({ selectedColor: window.markerCurrentColor });
+            if (colorDebounce) clearTimeout(colorDebounce);
+            colorDebounce = setTimeout(() => {
+                chrome.storage.local.set({ selectedColor: window.markerCurrentColor }).catch(() => { });
+            }, 200);
         };
 
         menu.onclick = (e) => {
@@ -188,6 +217,8 @@ async function pokreniMarker() {
             } else {
                 const p = svg.createSVGPoint(); p.x = x; p.y = y;
                 currentElement.points.appendItem(p);
+                lastBrushX = x;
+                lastBrushY = y;
             }
             setupElement(currentElement); svg.appendChild(currentElement);
         };
@@ -201,9 +232,17 @@ async function pokreniMarker() {
                         if (mode === "line") {
                             currentElement.setAttribute("x2", pendingPoint.x);
                             currentElement.setAttribute("y2", pendingPoint.y);
-                        } else {
-                            const p = svg.createSVGPoint(); p.x = pendingPoint.x; p.y = pendingPoint.y;
-                            currentElement.points.appendItem(p);
+                        } else if (lastBrushX !== null && lastBrushY !== null) {
+                            const px = pendingPoint.x;
+                            const py = pendingPoint.y;
+                            const dx = px - lastBrushX;
+                            const dy = py - lastBrushY;
+                            if (dx * dx + dy * dy >= BRUSH_MIN_DIST * BRUSH_MIN_DIST) {
+                                const p = svg.createSVGPoint(); p.x = px; p.y = py;
+                                currentElement.points.appendItem(p);
+                                lastBrushX = px;
+                                lastBrushY = py;
+                            }
                         }
                     }
                     rAF = null;
@@ -215,8 +254,9 @@ async function pokreniMarker() {
 
         function setupElement(el) {
             el.style.pointerEvents = "auto";
-            el.onmouseenter = () => { if (mode === "eraser") el.remove(); };
-            el.onmousedown = (e) => {
+            const mouseEnterHandler = () => { if (mode === "eraser") el.remove(); };
+            el.addEventListener("mouseenter", mouseEnterHandler);
+            const mouseDownHandler = (e) => {
                 if (mode !== "move") return;
                 e.stopPropagation(); e.preventDefault();
                 let lastX = e.clientX, lastY = e.clientY;
@@ -235,24 +275,11 @@ async function pokreniMarker() {
                 window.addEventListener("mousemove", move);
                 window.addEventListener("mouseup", () => window.removeEventListener("mousemove", move), { once: true });
             };
+            el.addEventListener("mousedown", mouseDownHandler);
+            el._markerCleanup = () => {
+                el.removeEventListener("mouseenter", mouseEnterHandler);
+                el.removeEventListener("mousedown", mouseDownHandler);
+            };
         }
     }
-}
-
-pokreniMarker();
-
-if (!window.aioMarkerMessageListenerAttached) {
-    chrome.runtime.onMessage.addListener((request) => {
-        if (request.action === "initMarkerColor") {
-            window.markerCurrentColor = request.color;
-            const picker = document.getElementById('markerColorPicker');
-            const wrapper = document.getElementById('colorWrapper');
-            if (picker) picker.value = request.color;
-            if (wrapper) {
-                wrapper.style.backgroundColor = request.color;
-                wrapper.style.borderColor = request.color;
-            }
-        }
-    });
-    window.aioMarkerMessageListenerAttached = true;
 }

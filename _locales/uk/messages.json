@@ -162,13 +162,13 @@
     "message": "Ви впевнені, що хочете видалити всі нотатки?"
   },
   "trackerModalTitle": {
-    "message": "ТРЕКЕР ВЕБЧАСУ"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "Експорт даних"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Імпорт даних"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Денний перегляд"
@@ -186,7 +186,7 @@
     "message": "Цей місяць"
   },
   "trackerAvgLabel": {
-    "message": "В середньому"
+    "message": "Середнє"
   },
   "techModalTitle": {
     "message": "ТЕХНОЛОГІЇ САЙТУ"
@@ -267,34 +267,34 @@
     "message": "Посилання"
   },
   "trackerToday": {
-    "message": "Сьогодні"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "Той день"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "Обраний місяць"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "Всього"
+    "message": "Total"
   },
   "trackerNoData": {
-    "message": "Немає даних за цей період"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "Немає даних трекера для експорту."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Експорт скорочено до 10 МБ задля стабільності."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Немає коректних даних для імпорту."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Дані успішно імпортовано!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Помилка читання файлу."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "ТРАНСЛЯЦІЯ ТРИВАЄ"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "Ви впевнені, що хочете очистити все?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

@@ -18,7 +18,13 @@
     "message": "Inställningar"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Importera anpassad radiostation"
   },
   "radioArtist": {
     "message": "Drivs av tillägget All In One"
@@ -162,22 +168,22 @@
     "message": "Är du säker på att du vill rensa alla anteckningar?"
   },
   "trackerModalTitle": {
-    "message": "WEBTIME TRACKER"
+    "message": "Tidsspårning"
   },
   "exportTooltip": {
-    "message": "Exportera data"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importera data"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Daglig vy"
   },
   "trackerModeMonth": {
-    "message": "Månadsvy"
+    "message": "Månadsvis vy"
   },
   "trackerModeAll": {
-    "message": "Total tid"
+    "message": "All tid"
   },
   "trackerTodayLabel": {
     "message": "Idag"
@@ -282,19 +288,19 @@
     "message": "Inga data för denna period"
   },
   "trackerExportEmpty": {
-    "message": "Inga trackerdata att exportera."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Exporten har förkortats till 10MB för stabilitet."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Inga giltiga trackerdata att importera."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Data har importerats!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Fel vid läsning av fil."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "LIVE PÅGÅR"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Är du säker på att du vill rensa allt?"
+  },
+  "trackerTotalShort": {
+    "message": "Totalt"
+  },
+  "trackerThisMonth": {
+    "message": "Denna månad"
+  },
+  "trackerThisMonthShort": {
+    "message": "Denna månad"
+  },
+  "trackerThatMonth": {
+    "message": "Den månaden"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Genomsnitt"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Genomsnitt"
+  },
+  "trackerAvgTotal": {
+    "message": "Genomsnitt"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Är du säker på att du vill ta bort data för"
+  },
+  "techCatBase": {
+    "message": "Bas"
+  },
+  "techCatSystem": {
+    "message": "System"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Teknologier"
+  },
+  "techCatStyles": {
+    "message": "Stilar"
+  },
+  "techCatDb": {
+    "message": "Databas"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Server"
+  },
+  "techCatNetwork": {
+    "message": "Nätverk"
+  },
+  "techCatSecurity": {
+    "message": "Säkerhet"
+  },
+  "techCatCaching": {
+    "message": "Caching"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analytics"
+  },
+  "techCatAds": {
+    "message": "Annonser"
+  },
+  "techCatPayment": {
+    "message": "Betalning"
+  },
+  "techCatComm": {
+    "message": "Kommunikation"
+  },
+  "techCatMedia": {
+    "message": "Media"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistik"
+  },
+  "techCatTools": {
+    "message": "Verktyg"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Bilder"
+  },
+  "techStatScripts": {
+    "message": "Skript"
+  },
+  "techStatLinks": {
+    "message": "Länkar"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formulär"
+  },
+  "techStatTables": {
+    "message": "Tabeller"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Ljud"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Ange direktlänken till din favoritradiostation"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Rensa fält"
+  },
+  "saveRadioStationBtn": {
+    "message": "SPARA STATION"
   }
 }

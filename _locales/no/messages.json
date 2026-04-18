@@ -18,7 +18,13 @@
     "message": "Innstillinger"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Importer tilpasset radiostasjon"
   },
   "radioArtist": {
     "message": "Drevet av All In One-utvidelsen"
@@ -162,19 +168,19 @@
     "message": "Er du sikker på at du vil slette alle notater?"
   },
   "trackerModalTitle": {
-    "message": "NETTID-SPORER"
+    "message": "Tidssporing"
   },
   "exportTooltip": {
-    "message": "Eksporter data"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importer data"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "Dagsvisning"
+    "message": "Daglig visning"
   },
   "trackerModeMonth": {
-    "message": "Månedsvisning"
+    "message": "Månedlig visning"
   },
   "trackerModeAll": {
     "message": "Hele tiden"
@@ -282,19 +288,19 @@
     "message": "Ingen data for denne perioden"
   },
   "trackerExportEmpty": {
-    "message": "Ingen spordata å eksportere."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Eksport kuttet til 10 MB for stabilitet."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Ingen gyldige data å importere."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Data importert!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Feil ved lesing av fil."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "LIVE PÅGÅR"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Er du sikker på at du vil tømme alt?"
+  },
+  "trackerTotalShort": {
+    "message": "Totalt"
+  },
+  "trackerThisMonth": {
+    "message": "Denne måneden"
+  },
+  "trackerThisMonthShort": {
+    "message": "Denne måneden"
+  },
+  "trackerThatMonth": {
+    "message": "Den måneden"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Gjennomsnitt"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Gjennomsnitt"
+  },
+  "trackerAvgTotal": {
+    "message": "Gjennomsnitt"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Er du sikker på at du vil slette data for"
+  },
+  "techCatBase": {
+    "message": "Base"
+  },
+  "techCatSystem": {
+    "message": "System"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Teknologier"
+  },
+  "techCatStyles": {
+    "message": "Stiler"
+  },
+  "techCatDb": {
+    "message": "Database"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Server"
+  },
+  "techCatNetwork": {
+    "message": "Nettverk"
+  },
+  "techCatSecurity": {
+    "message": "Sikkerhet"
+  },
+  "techCatCaching": {
+    "message": "Caching"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analytics"
+  },
+  "techCatAds": {
+    "message": "Annonser"
+  },
+  "techCatPayment": {
+    "message": "Betaling"
+  },
+  "techCatComm": {
+    "message": "Kommunikasjon"
+  },
+  "techCatMedia": {
+    "message": "Medier"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistikk"
+  },
+  "techCatTools": {
+    "message": "Verktøy"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Bilder"
+  },
+  "techStatScripts": {
+    "message": "Skript"
+  },
+  "techStatLinks": {
+    "message": "Lenker"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Skjemaer"
+  },
+  "techStatTables": {
+    "message": "Tabeller"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Lyd"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Angi direktelinken til favorittradiostasjonen din"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Tøm felt"
+  },
+  "saveRadioStationBtn": {
+    "message": "LAGRE STASJON"
   }
 }

@@ -162,19 +162,19 @@
     "message": "Kas soovite kindlasti kõik märkmed kustutada?"
   },
   "trackerModalTitle": {
-    "message": "VEEBIAJA JÄLGIJA"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "Ekspordi andmed"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Impordi andmed"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "Päevavaade"
+    "message": "Päevane vaade"
   },
   "trackerModeMonth": {
-    "message": "Kuvaade"
+    "message": "Kuu vaade"
   },
   "trackerModeAll": {
     "message": "Kogu aeg"
@@ -183,7 +183,7 @@
     "message": "Täna"
   },
   "trackerMonthLabel": {
-    "message": "Sel kuul"
+    "message": "See kuu"
   },
   "trackerAvgLabel": {
     "message": "Keskmine"
@@ -267,34 +267,34 @@
     "message": "Link"
   },
   "trackerToday": {
-    "message": "Täna"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "Sellel päeval"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "Valitud kuu"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "Kokku"
+    "message": "Total"
   },
   "trackerNoData": {
-    "message": "Sellel perioodil andmed puuduvad"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "Eksporditavad andmed puuduvad."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Eksport lühendati 10 MB-ni, et hüpikaken püsiks stabiilsena."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Imporditavad kehtivad andmed puuduvad."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Andmed imporditi edukalt!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Viga faili lugemisel."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "OTSEÜLEKANNE KÄIMAS"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "Kas olete kindel, et soovite kõik kustutada?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

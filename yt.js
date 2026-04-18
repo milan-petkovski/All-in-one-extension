@@ -55,22 +55,27 @@ function setWatchDislikes(dislikes) {
   if (!text) return false;
 
   let written = 0;
-
-  // Primary watch/live targets.
-  document.querySelectorAll(
-    "#segmented-dislike-button #text, " +
-    "#segmented-dislike-button .yt-core-attributed-string, " +
-    "#segmented-dislike-button .yt-spec-button-shape-next__button-text-content, " +
-    "ytd-toggle-button-renderer#dislike-button #text, " +
+  // Keširaj selektore
+  const selectors = [
+    "#segmented-dislike-button #text",
+    "#segmented-dislike-button .yt-core-attributed-string",
+    "#segmented-dislike-button .yt-spec-button-shape-next__button-text-content",
+    "ytd-toggle-button-renderer#dislike-button #text",
     "ytd-toggle-button-renderer#dislike-button .yt-core-attributed-string"
-  ).forEach((el) => {
+  ];
+  let elements = [];
+  selectors.forEach(sel => {
+    elements = elements.concat(Array.from(document.querySelectorAll(sel)));
+  });
+  elements.forEach((el) => {
     if (el.textContent !== text) el.textContent = text;
     written++;
   });
 
   // Fallback by aria-label when structural selectors miss.
   if (written === 0) {
-    document.querySelectorAll("button[aria-label]").forEach((btn) => {
+    const btns = Array.from(document.querySelectorAll("button[aria-label]"));
+    btns.forEach((btn) => {
       if (!isDislikeLabel(btn.getAttribute("aria-label") || "")) return;
       const textEl = btn.querySelector("#text, .yt-core-attributed-string, .yt-spec-button-shape-next__button-text-content");
       if (textEl) {
@@ -89,11 +94,16 @@ function setShortsDislikes(dislikes) {
   const text = formatDislikes(dislikes);
   if (!text) return;
 
-  const buttons = document.querySelectorAll(
-    "ytd-reel-video-renderer[is-active] #dislike-button button, " +
-    "ytd-reel-video-renderer #dislike-button button, " +
+  // Keširaj selektore
+  const selectors = [
+    "ytd-reel-video-renderer[is-active] #dislike-button button",
+    "ytd-reel-video-renderer #dislike-button button",
     "ytd-reel-video-renderer button[aria-label]"
-  );
+  ];
+  let buttons = [];
+  selectors.forEach(sel => {
+    buttons = buttons.concat(Array.from(document.querySelectorAll(sel)));
+  });
 
   buttons.forEach((btn) => {
     const label = btn.getAttribute("aria-label") || "";
@@ -155,9 +165,10 @@ function retryApplyTick() {
 }
 
 function startRetryWindow() {
-  ytRetryEndAt = Date.now() + 4500;
+  // PERFORMANCE FIX: Reduced from 4500ms/350ms (~13 attempts) to 2000ms/400ms (~5 attempts)
+  ytRetryEndAt = Date.now() + 2000;
   if (ytRetryTimer) return;
-  ytRetryTimer = setInterval(retryApplyTick, 350);
+  ytRetryTimer = setInterval(retryApplyTick, 400);
 }
 
 function scheduleApplyFromDomChange() {
@@ -218,30 +229,43 @@ function initYtRyd() {
 function startYtWatchers() {
   if (ytObserver) return;
 
-  ytObserver = new MutationObserver(() => {
+  // Use requestAnimationFrame for debounced DOM updates
+  let ytMutationDebounceId = null;
+  let lastMutationTime = 0;
+  ytObserver = new MutationObserver((mutationsList) => {
     if (!ytEnabled) return;
-    scheduleApplyFromDomChange();
+    // PERFORMANCE FIX: Increased throttle from 300ms to 500ms to reduce CPU usage
+    const now = Date.now();
+    if (now - lastMutationTime < 500) return; // throttle na 500ms
+    lastMutationTime = now;
+    let relevant = false;
+    // PERFORMANCE FIX: Limit mutations processed to first 50
+    const maxMutations = Math.min(mutationsList.length, 50);
+    for (let i = 0; i < maxMutations; i++) {
+      const t = mutationsList[i].target;
+      if (!t || t.nodeType !== Node.ELEMENT_NODE || !t.querySelector) continue;
+      if (
+        t.querySelector('#segmented-dislike-button') ||
+        t.querySelector('ytd-toggle-button-renderer#dislike-button')
+      ) {
+        relevant = true;
+        break;
+      }
+    }
+    if (relevant) {
+      if (ytMutationDebounceId) cancelAnimationFrame(ytMutationDebounceId);
+      ytMutationDebounceId = requestAnimationFrame(scheduleApplyFromDomChange);
+    }
   });
   ytObserver.observe(document.documentElement, { childList: true, subtree: true });
 
-  ytUrlWatcher = setInterval(() => {
-    if (!ytEnabled) return;
-    if (location.href !== ytLastUrl) {
-      ytLastUrl = location.href;
-      scheduleFetch();
-    }
-  }, 700);
+  // PERFORMANCE FIX: Removed setInterval URL watcher - yt-navigate-finish event is sufficient
 }
 
 function stopYtWatchers() {
   if (ytObserver) {
     ytObserver.disconnect();
     ytObserver = null;
-  }
-
-  if (ytUrlWatcher) {
-    clearInterval(ytUrlWatcher);
-    ytUrlWatcher = null;
   }
 }
 

@@ -18,7 +18,13 @@
     "message": "Configurações"
   },
   "radioTitle": {
-    "message": "Rádio IN"
+    "message": "Rádio"
+  },
+  "radioTitleCustom": {
+    "message": "Rádio"
+  },
+  "importRadioTooltip": {
+    "message": "Importar estação de rádio personalizada"
   },
   "radioArtist": {
     "message": "Desenvolvido por All In One"
@@ -162,13 +168,13 @@
     "message": "Tem certeza de que deseja limpar todas as notas?"
   },
   "trackerModalTitle": {
-    "message": "RASTREADOR DE TEMPO"
+    "message": "Rastreador Web"
   },
   "exportTooltip": {
-    "message": "Exportar dados"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importar dados"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Visualização diária"
@@ -270,7 +276,7 @@
     "message": "Hoje"
   },
   "trackerThatDay": {
-    "message": "Aquele dia"
+    "message": "Esse dia"
   },
   "trackerSelectedMonth": {
     "message": "Mês selecionado"
@@ -282,19 +288,19 @@
     "message": "Sem dados para este período"
   },
   "trackerExportEmpty": {
-    "message": "Não há dados do rastreador para exportar."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Exportação truncada em 10 MB para manter a estabilidade."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Nenhum dado válido para importar."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Dados importados com sucesso!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Erro ao ler o arquivo."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "AO VIVO EM ANDAMENTO"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Tem certeza de que deseja limpar tudo?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "Este mês"
+  },
+  "trackerThisMonthShort": {
+    "message": "Este mês"
+  },
+  "trackerThatMonth": {
+    "message": "Esse mês"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Média"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Média"
+  },
+  "trackerAvgTotal": {
+    "message": "Média"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Tem certeza de que deseja excluir os dados de"
+  },
+  "techCatBase": {
+    "message": "Base"
+  },
+  "techCatSystem": {
+    "message": "Sistema"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Tecnologias"
+  },
+  "techCatStyles": {
+    "message": "Estilos"
+  },
+  "techCatDb": {
+    "message": "Banco de Dados"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Servidor"
+  },
+  "techCatNetwork": {
+    "message": "Rede"
+  },
+  "techCatSecurity": {
+    "message": "Segurança"
+  },
+  "techCatCaching": {
+    "message": "Cache"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Análise"
+  },
+  "techCatAds": {
+    "message": "Anúncios"
+  },
+  "techCatPayment": {
+    "message": "Pagamento"
+  },
+  "techCatComm": {
+    "message": "Comunicação"
+  },
+  "techCatMedia": {
+    "message": "Mídia"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Estatísticas"
+  },
+  "techCatTools": {
+    "message": "Ferramentas"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Imagens"
+  },
+  "techStatScripts": {
+    "message": "Scripts"
+  },
+  "techStatLinks": {
+    "message": "Links"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formulários"
+  },
+  "techStatTables": {
+    "message": "Tabelas"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Vídeo"
+  },
+  "techStatAudio": {
+    "message": "Áudio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Digite o link direto para sua estação de rádio favorita"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Limpar campo"
+  },
+  "saveRadioStationBtn": {
+    "message": "SALVAR ESTAÇÃO"
   }
 }

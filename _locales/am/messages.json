@@ -18,7 +18,7 @@
     "message": "ዙር"
   },
   "radioTitle": {
-    "message": "ድህረ ገፅ"
+    "message": "ድህረ"
   },
   "radioArtist": {
     "message": "በ All In One ቅጥያ የተጎላበተ"
@@ -162,13 +162,13 @@
     "message": "እርግጠኛ ነዎት ሁሉንም ማስታወሻዎች ማጽዳት ይፈልጋሉ?"
   },
   "trackerModalTitle": {
-    "message": "የድር ጊዜ መከታተያ"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "ውሂብ ወደ ውጭ ላክ"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "ውሂብ አስገባ"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "ዕለታዊ እይታ"
@@ -177,13 +177,13 @@
     "message": "ወርሃዊ እይታ"
   },
   "trackerModeAll": {
-    "message": "ሙሉ ጊዜ"
+    "message": "ሁሉም ሰዓት"
   },
   "trackerTodayLabel": {
     "message": "ዛሬ"
   },
   "trackerMonthLabel": {
-    "message": "ይህ ወር"
+    "message": "በዚህ ወር"
   },
   "trackerAvgLabel": {
     "message": "አማካይ"
@@ -267,34 +267,34 @@
     "message": "አገናኝ"
   },
   "trackerToday": {
-    "message": "ዛሬ"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "ያ ቀን"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "የተመረጠ ወር"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "ጠቅላላ"
+    "message": "Total"
   },
   "trackerNoData": {
-    "message": "ለዚህ ጊዜ ምንም ውሂብ የለም"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "ወደ ውጭ የሚላክ የመከታተያ ውሂብ የለም።"
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "ብቅ-ባዩ የተረጋጋ እንዲሆን ወደ ውጭ መላክ ወደ 10 ሜባ ተቆርጧል።"
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "የሚገባ ትክክለኛ የመከታተያ ውሂብ የለም።"
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "ውሂብ በተሳካ ሁኔታ ገብቷል!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "ፋይሉን በማንበብ ላይ ስህተት።"
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "በቀጥታ ስርጭት ላይ"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "ሁሉንም ማጥፋት እርግጠኛ ነህ?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

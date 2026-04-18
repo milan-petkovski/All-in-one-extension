@@ -18,7 +18,13 @@
     "message": "Ustawienia"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Importuj niestandardową stację radiową"
   },
   "radioArtist": {
     "message": "Zasilane przez All In One"
@@ -162,13 +168,13 @@
     "message": "Czy na pewno chcesz usunąć wszystkie notatki?"
   },
   "trackerModalTitle": {
-    "message": "MONITOR CZASU W SIECI"
+    "message": "Śledzenie Czasu"
   },
   "exportTooltip": {
-    "message": "Eksportuj dane"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importuj dane"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Widok dzienny"
@@ -183,7 +189,7 @@
     "message": "Dzisiaj"
   },
   "trackerMonthLabel": {
-    "message": "W tym miesiącu"
+    "message": "Ten miesiąc"
   },
   "trackerAvgLabel": {
     "message": "Średnia"
@@ -267,34 +273,34 @@
     "message": "Link"
   },
   "trackerToday": {
-    "message": "Dzisiaj"
+    "message": "Dziś"
   },
   "trackerThatDay": {
-    "message": "Tego dnia"
+    "message": "Ten dzień"
   },
   "trackerSelectedMonth": {
     "message": "Wybrany miesiąc"
   },
   "trackerTotal": {
-    "message": "Łącznie"
+    "message": "Razem"
   },
   "trackerNoData": {
-    "message": "Brak danych za ten okres"
+    "message": "Brak danych dla tego okresu"
   },
   "trackerExportEmpty": {
-    "message": "Brak danych do wyeksportowania."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Eksport skrócono do 10 MB w celu zachowania stabilności."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Brak prawidłowych danych do zaimportowania."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Dane zaimportowano pomyślnie!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Błąd odczytu pliku."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "NA ŻYWO W TOKU"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Czy na pewno chcesz wyczyścić wszystko?"
+  },
+  "trackerTotalShort": {
+    "message": "Razem"
+  },
+  "trackerThisMonth": {
+    "message": "Ten miesiąc"
+  },
+  "trackerThisMonthShort": {
+    "message": "Ten miesiąc"
+  },
+  "trackerThatMonth": {
+    "message": "Ten miesiąc"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Średnia"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Średnia"
+  },
+  "trackerAvgTotal": {
+    "message": "Średnia"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Czy na pewno chcesz usunąć dane dla"
+  },
+  "techCatBase": {
+    "message": "Baza"
+  },
+  "techCatSystem": {
+    "message": "System"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Technologie"
+  },
+  "techCatStyles": {
+    "message": "Style"
+  },
+  "techCatDb": {
+    "message": "Baza danych"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Serwer"
+  },
+  "techCatNetwork": {
+    "message": "Sieć"
+  },
+  "techCatSecurity": {
+    "message": "Bezpieczeństwo"
+  },
+  "techCatCaching": {
+    "message": "Pamięć podręczna"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analityka"
+  },
+  "techCatAds": {
+    "message": "Reklamy"
+  },
+  "techCatPayment": {
+    "message": "Płatności"
+  },
+  "techCatComm": {
+    "message": "Komunikacja"
+  },
+  "techCatMedia": {
+    "message": "Media"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statystyki"
+  },
+  "techCatTools": {
+    "message": "Narzędzia"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Obrazy"
+  },
+  "techStatScripts": {
+    "message": "Skrypty"
+  },
+  "techStatLinks": {
+    "message": "Linki"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formularze"
+  },
+  "techStatTables": {
+    "message": "Tabele"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Wideo"
+  },
+  "techStatAudio": {
+    "message": "Audio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Wprowadź bezpośredni link do ulubionej stacji radiowej"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Wyczyść pole"
+  },
+  "saveRadioStationBtn": {
+    "message": "ZAPISZ STACJĘ"
   }
 }

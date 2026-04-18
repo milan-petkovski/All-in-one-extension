@@ -18,7 +18,13 @@
     "message": "அமைப்புகள்"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "வானொலி"
+  },
+  "radioTitleCustom": {
+    "message": "வானொலி"
+  },
+  "importRadioTooltip": {
+    "message": "தனிப்பயன் வானொலி நிலையத்தை இறக்குமதி செய்"
   },
   "radioArtist": {
     "message": "All In One நீட்டிப்பால் இயக்கப்படுகிறது"
@@ -162,28 +168,28 @@
     "message": "அழிக்கவா?"
   },
   "trackerModalTitle": {
-    "message": "நேரக் கண்காணிப்பு"
+    "message": "நேரம் கண்காணிப்பு"
   },
   "exportTooltip": {
-    "message": "ஏற்றுமதி"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "இறக்குமதி"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "நாள்"
+    "message": "நாள்தோறும் காட்சி"
   },
   "trackerModeMonth": {
-    "message": "மாதம்"
+    "message": "மாதாந்திர காட்சி"
   },
   "trackerModeAll": {
-    "message": "எப்போதும்"
+    "message": "எல்லா நேரமும்"
   },
   "trackerTodayLabel": {
     "message": "இன்று"
   },
   "trackerMonthLabel": {
-    "message": "மாதம்"
+    "message": "இந்த மாதம்"
   },
   "trackerAvgLabel": {
     "message": "சராசரி"
@@ -270,31 +276,31 @@
     "message": "இன்று"
   },
   "trackerThatDay": {
-    "message": "அன்று"
+    "message": "அந்த நாள்"
   },
   "trackerSelectedMonth": {
-    "message": "மாதம்"
+    "message": "Selected month"
   },
   "trackerTotal": {
     "message": "மொத்தம்"
   },
   "trackerNoData": {
-    "message": "தகவல் இல்லை"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "இல்லை"
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "கட்டுப்படுத்தப்பட்டது"
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "இல்லை"
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "வெற்றி"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "பிழை"
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "நடப்பில்"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "நீங்கள் நிச்சயமாக அனைத்தையும் அழிக்க விரும்புகிறீர்களா?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "இந்த மாதம்"
+  },
+  "trackerThatMonth": {
+    "message": "அந்த மாதம்"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "சராசரி"
+  },
+  "trackerDeleteConfirm": {
+    "message": "தரவை நிச்சயமாக நீக்க விரும்புகிறீர்களா"
+  },
+  "techCatBase": {
+    "message": "அடிப்படை"
+  },
+  "techCatSystem": {
+    "message": "கணினி"
+  },
+  "techCatEcom": {
+    "message": "மின் வணிகம்"
+  },
+  "techCatTech": {
+    "message": "தொழில்நுட்பங்கள்"
+  },
+  "techCatStyles": {
+    "message": "பாணிகள்"
+  },
+  "techCatDb": {
+    "message": "தரவுத்தளம்"
+  },
+  "techCatBackend": {
+    "message": "பின்தளம்"
+  },
+  "techCatServer": {
+    "message": "சேவையகம்"
+  },
+  "techCatNetwork": {
+    "message": "பிணையம்"
+  },
+  "techCatSecurity": {
+    "message": "பாதுகாப்பு"
+  },
+  "techCatCaching": {
+    "message": "தற்காலிக சேமிப்பு"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "பகுப்பாய்வு"
+  },
+  "techCatAds": {
+    "message": "விளம்பரங்கள்"
+  },
+  "techCatPayment": {
+    "message": "கட்டணம்"
+  },
+  "techCatComm": {
+    "message": "தொடர்பாடல்"
+  },
+  "techCatMedia": {
+    "message": "ஊடகம்"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "புள்ளிவிவரங்கள்"
+  },
+  "techCatTools": {
+    "message": "கருவிகள்"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "படங்கள்"
+  },
+  "techStatScripts": {
+    "message": "ஸ்கிரிப்ட்கள்"
+  },
+  "techStatLinks": {
+    "message": "இணைப்புகள்"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "படிவங்கள்"
+  },
+  "techStatTables": {
+    "message": "அட்டவணைகள்"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "வீடியோ"
+  },
+  "techStatAudio": {
+    "message": "ஆடியோ"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "உங்களுக்கு பிடித்த வானொலி நிலையத்தின் நேரடி இணைப்பை உள்ளிடவும்"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "புலத்தை அழிக்கவும்"
+  },
+  "saveRadioStationBtn": {
+    "message": "நிலையத்தை சேமிக்கவும்"
   }
 }

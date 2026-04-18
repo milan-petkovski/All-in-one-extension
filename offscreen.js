@@ -1,4 +1,4 @@
-const streamUrl = "https://radioinnis-naxinacional.streaming.rs:8622/;stream.nsv";
+const DEFAULT_STREAM_URL = "https://radioinnis-naxinacional.streaming.rs:8622/;stream.nsv";
 const audio = new Audio();
 let audioCtx = null;
 let sfxCompressor = null;
@@ -119,6 +119,7 @@ chrome.runtime.onMessage.addListener((request) => {
   const action = request?.action;
 
   if (action === "play") {
+    const streamUrl = request.url && request.url.trim() ? request.url.trim() : DEFAULT_STREAM_URL;
     audio.src = streamUrl;
     audio.volume = request.volume !== undefined ? request.volume / 100 : 0.12;
     audio.play().catch(() => { });

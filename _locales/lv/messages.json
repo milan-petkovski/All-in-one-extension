@@ -18,7 +18,13 @@
     "message": "Iestatījumi"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Importēt pielāgotu radiostaciju"
   },
   "radioArtist": {
     "message": "Nodrošina All In One paplašinājums"
@@ -162,13 +168,13 @@
     "message": "Vai tiešām vēlaties dzēst visas piezīmes?"
   },
   "trackerModalTitle": {
-    "message": "WEBTIME TRACKER"
+    "message": "Laika uzskaite"
   },
   "exportTooltip": {
-    "message": "Eksportēt datus"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importēt datus"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Dienas skats"
@@ -273,28 +279,28 @@
     "message": "Tā diena"
   },
   "trackerSelectedMonth": {
-    "message": "Atlasītais mēnesis"
+    "message": "Izvēlētais mēnesis"
   },
   "trackerTotal": {
     "message": "Kopā"
   },
   "trackerNoData": {
-    "message": "Šim periodam nav datu"
+    "message": "Nav datu par šo periodu"
   },
   "trackerExportEmpty": {
-    "message": "Nav datu eksportēšanai."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Eksports saīsināts līdz 10 MB stabilitātes nodrošināšanai."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Nav derīgu datu importēšanai."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Dati veiksmīgi importēti!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Kļūda, lasot failu."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "TIEŠRAIDE"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Vai tiešām vēlaties dzēst visu?"
+  },
+  "trackerTotalShort": {
+    "message": "Kopā"
+  },
+  "trackerThisMonth": {
+    "message": "Šis mēnesis"
+  },
+  "trackerThisMonthShort": {
+    "message": "Šis mēnesis"
+  },
+  "trackerThatMonth": {
+    "message": "Tas mēnesis"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Vidējais"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Vidējais"
+  },
+  "trackerAvgTotal": {
+    "message": "Vidējais"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Vai tiešām vēlaties izdzēst datus par"
+  },
+  "techCatBase": {
+    "message": "Bāze"
+  },
+  "techCatSystem": {
+    "message": "Sistēma"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Tehnoloģijas"
+  },
+  "techCatStyles": {
+    "message": "Stili"
+  },
+  "techCatDb": {
+    "message": "Datu bāze"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Serveris"
+  },
+  "techCatNetwork": {
+    "message": "Tīkls"
+  },
+  "techCatSecurity": {
+    "message": "Drošība"
+  },
+  "techCatCaching": {
+    "message": "Caching"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analītika"
+  },
+  "techCatAds": {
+    "message": "Reklāmas"
+  },
+  "techCatPayment": {
+    "message": "Maksājums"
+  },
+  "techCatComm": {
+    "message": "Komunikācija"
+  },
+  "techCatMedia": {
+    "message": "Mediji"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistika"
+  },
+  "techCatTools": {
+    "message": "Rīki"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Attēli"
+  },
+  "techStatScripts": {
+    "message": "Skripti"
+  },
+  "techStatLinks": {
+    "message": "Saites"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formas"
+  },
+  "techStatTables": {
+    "message": "Tabulas"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Audio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Ievadiet tiešo saiti uz iecienītāko radiostaciju"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Notīrīt lauku"
+  },
+  "saveRadioStationBtn": {
+    "message": "SAGLABĀT STACIJU"
   }
 }

@@ -18,7 +18,7 @@
     "message": "সেটিংস"
   },
   "radioTitle": {
-    "message": "রেডিও IN"
+    "message": "রেডিও"
   },
   "radioArtist": {
     "message": "All In One এক্সটেনশন দ্বারা চালিত"
@@ -162,22 +162,22 @@
     "message": "আপনি কি নিশ্চিত যে আপনি সমস্ত নোট মুছে ফেলতে চান?"
   },
   "trackerModalTitle": {
-    "message": "ওয়েবটাইম ট্র্যাকার"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "ডেটা এক্সপোর্ট করুন"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "ডেটা ইমপোর্ট করুন"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "দৈনিক ভিউ"
+    "message": "দৈনিক দৃশ্য"
   },
   "trackerModeMonth": {
-    "message": "মাসিক ভিউ"
+    "message": "মাসিক দৃশ্য"
   },
   "trackerModeAll": {
-    "message": "সব সময়"
+    "message": "সমস্ত সময়"
   },
   "trackerTodayLabel": {
     "message": "আজ"
@@ -267,34 +267,34 @@
     "message": "লিংক"
   },
   "trackerToday": {
-    "message": "আজ"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "ঐ দিন"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "নির্বাচিত মাস"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "মোট"
+    "message": "Total"
   },
   "trackerNoData": {
-    "message": "এই সময়ের জন্য কোনো ডেটা নেই"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "এক্সপোর্ট করার জন্য কোনো ট্র্যাকার ডেটা নেই।"
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "পপআপ স্থিতিশীল রাখতে এক্সপোর্ট 10MB তে ছোট করা হয়েছে।"
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "ইমপোর্ট করার জন্য কোনো বৈধ ট্র্যাকার ডেটা নেই।"
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "ডেটা সফলভাবে ইমপোর্ট করা হয়েছে!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "ফাইলটি পড়তে ত্রুটি।"
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "লাইভ চলছে"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "আপনি কি নিশ্চিত যে সব মুছতে চান?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

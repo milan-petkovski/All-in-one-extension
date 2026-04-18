@@ -18,7 +18,7 @@
     "message": "Ρυθμίσεις"
   },
   "radioTitle": {
-    "message": "Ράδιο IN"
+    "message": "Ράδιο"
   },
   "radioArtist": {
     "message": "Υποστήριξη All In One"
@@ -162,13 +162,13 @@
     "message": "Διαγραφή όλων των σημειώσεων;"
   },
   "trackerModalTitle": {
-    "message": "Χρόνος web"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "Εξαγωγή δεδομένων"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Εισαγωγή δεδομένων"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Ημερήσια προβολή"
@@ -177,13 +177,13 @@
     "message": "Μηνιαία προβολή"
   },
   "trackerModeAll": {
-    "message": "Όλος"
+    "message": "Όλος ο χρόνος"
   },
   "trackerTodayLabel": {
     "message": "Σήμερα"
   },
   "trackerMonthLabel": {
-    "message": "Αυτόν τον μήνα"
+    "message": "Αυτός ο μήνας"
   },
   "trackerAvgLabel": {
     "message": "Μέσος όρος"
@@ -267,34 +267,34 @@
     "message": "Σύνδεσμος"
   },
   "trackerToday": {
-    "message": "Σήμερα"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "Εκείνη η μέρα"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "Επιλεγμένος μήνας"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "Σύνολο"
+    "message": "Total"
   },
   "trackerNoData": {
-    "message": "Δεν υπάρχουν δεδομένα για αυτήν την περίοδο"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "Δεν υπάρχουν δεδομένα για εξαγωγή."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Η εξαγωγή περικόπηκε στα 10MB για σταθερότητα."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Δεν υπάρχουν έγκυρα δεδομένα για εισαγωγή."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Επιτυχής εισαγωγή δεδομένων!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Σφάλμα ανάγνωσης του αρχείου."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "ΤΟ LIVE ΒΡΙΣΚΕΤΑΙ ΣΕ ΕΞΕΛΙΞΗ"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "Είστε σίγουροι ότι θέλετε να διαγράψετε τα πάντα;"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

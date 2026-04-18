@@ -18,7 +18,13 @@
     "message": "Beállítások"
   },
   "radioTitle": {
-    "message": "Rádió IN"
+    "message": "Rádió"
+  },
+  "radioTitleCustom": {
+    "message": "Rádió"
+  },
+  "importRadioTooltip": {
+    "message": "Egyéni rádióállomás importálása"
   },
   "radioArtist": {
     "message": "Az All In One bővítmény működteti"
@@ -162,13 +168,13 @@
     "message": "Biztosan törölni szeretné az összes jegyzetet?"
   },
   "trackerModalTitle": {
-    "message": "WEBIDŐ KÖVETŐ"
+    "message": "Időkövetés"
   },
   "exportTooltip": {
-    "message": "Adatok exportálása"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Adatok importálása"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Napi nézet"
@@ -177,16 +183,16 @@
     "message": "Havi nézet"
   },
   "trackerModeAll": {
-    "message": "Minden idő"
+    "message": "Összes idő"
   },
   "trackerTodayLabel": {
     "message": "Ma"
   },
   "trackerMonthLabel": {
-    "message": "Ebben a hónapban"
+    "message": "Ez a hónap"
   },
   "trackerAvgLabel": {
-    "message": "Átlagos"
+    "message": "Átlag"
   },
   "techModalTitle": {
     "message": "WEBHELY TECHNOLÓGIÁK"
@@ -270,7 +276,7 @@
     "message": "Ma"
   },
   "trackerThatDay": {
-    "message": "Azon a napon"
+    "message": "Aznap"
   },
   "trackerSelectedMonth": {
     "message": "Kiválasztott hónap"
@@ -279,22 +285,22 @@
     "message": "Összesen"
   },
   "trackerNoData": {
-    "message": "Nincs adat ehhez az időszakhoz"
+    "message": "Nincs adat erre az időszakra"
   },
   "trackerExportEmpty": {
-    "message": "Nincs exportálható követési adat."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "A stabilitás érdekében az exportálás 10 MB-ra lett csonkítva."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Nincs importálható érvényes adat."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Adatok sikeresen importálva!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Hiba a fájl olvasásakor."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "ÉLŐ KÖZVETÍTÉS FOLYAMATBAN"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Biztosan törölni szeretnél mindent?"
+  },
+  "trackerTotalShort": {
+    "message": "Összesen"
+  },
+  "trackerThisMonth": {
+    "message": "Ez a hónap"
+  },
+  "trackerThisMonthShort": {
+    "message": "Ez a hónap"
+  },
+  "trackerThatMonth": {
+    "message": "Az a hónap"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Átlag"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Átlag"
+  },
+  "trackerAvgTotal": {
+    "message": "Átlag"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Biztosan törli az adatokat ehhez"
+  },
+  "techCatBase": {
+    "message": "Alap"
+  },
+  "techCatSystem": {
+    "message": "Rendszer"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Technológiák"
+  },
+  "techCatStyles": {
+    "message": "Stílusok"
+  },
+  "techCatDb": {
+    "message": "Adatbázis"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Szerver"
+  },
+  "techCatNetwork": {
+    "message": "Hálózat"
+  },
+  "techCatSecurity": {
+    "message": "Biztonság"
+  },
+  "techCatCaching": {
+    "message": "Gyorsítótár"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Elemzés"
+  },
+  "techCatAds": {
+    "message": "Hirdetések"
+  },
+  "techCatPayment": {
+    "message": "Fizetés"
+  },
+  "techCatComm": {
+    "message": "Kommunikáció"
+  },
+  "techCatMedia": {
+    "message": "Média"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statisztika"
+  },
+  "techCatTools": {
+    "message": "Eszközök"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Képek"
+  },
+  "techStatScripts": {
+    "message": "Szkriptek"
+  },
+  "techStatLinks": {
+    "message": "Linkek"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Űrlapok"
+  },
+  "techStatTables": {
+    "message": "Táblázatok"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Videó"
+  },
+  "techStatAudio": {
+    "message": "Hang"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Adja meg a kedvenc rádióállomás közvetlen linkjét"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Mező törlése"
+  },
+  "saveRadioStationBtn": {
+    "message": "ÁLLOMÁS MENTÉSE"
   }
 }

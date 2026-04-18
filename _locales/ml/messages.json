@@ -18,7 +18,13 @@
     "message": "ക്രമീകരണങ്ങൾ"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "റേഡിയോ"
+  },
+  "radioTitleCustom": {
+    "message": "റേഡിയോ"
+  },
+  "importRadioTooltip": {
+    "message": "കസ്റ്റം റേഡിയോ സ്റ്റേഷൻ ഇമ്പോർട്ട് ചെയ്യുക"
   },
   "radioArtist": {
     "message": "All In One നൽകുന്നത്"
@@ -162,22 +168,22 @@
     "message": "കുറിപ്പുകൾ മായ്ക്കണോ?"
   },
   "trackerModalTitle": {
-    "message": "ടൈം ട്രാക്കർ"
+    "message": "സമയ ട്രാക്കർ"
   },
   "exportTooltip": {
-    "message": "എക്സ്പോർട്ട്"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "ഇമ്പോർട്ട്"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "ദിവസം"
+    "message": "ദൈനംദിന കാഴ്ച"
   },
   "trackerModeMonth": {
-    "message": "മാസം"
+    "message": "മാസത്തിന്റെ കാഴ്ച"
   },
   "trackerModeAll": {
-    "message": "എപ്പോഴും"
+    "message": "എല്ലാ സമയവും"
   },
   "trackerTodayLabel": {
     "message": "ഇന്ന്"
@@ -270,31 +276,31 @@
     "message": "ഇന്ന്"
   },
   "trackerThatDay": {
-    "message": "അന്നേ ദിവസം"
+    "message": "ആ ദിവസം"
   },
   "trackerSelectedMonth": {
-    "message": "തിരഞ്ഞെടുത്ത മാസം"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "ആകെ"
+    "message": "മൊത്തം"
   },
   "trackerNoData": {
-    "message": "വിവരങ്ങളില്ല"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "വിവരങ്ങളില്ല."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "പരിമിതപ്പെടുത്തിയിരിക്കുന്നു."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "വിവരങ്ങളില്ല."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "വിജയിച്ചു"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "പിശക്."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "ലൈവ്"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "നിങ്ങൾക്ക് ഉറപ്പാണോ എല്ലാം മായ്ക്കാൻ?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "ഈ മാസം"
+  },
+  "trackerThatMonth": {
+    "message": "ആ മാസം"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "ശരാശരി"
+  },
+  "trackerDeleteConfirm": {
+    "message": "ഡാറ്റ ഡിലീറ്റ് ചെയ്യാൻ നിങ്ങൾ ഉറപ്പാണോ"
+  },
+  "techCatBase": {
+    "message": "അടിസ്ഥാനം"
+  },
+  "techCatSystem": {
+    "message": "സിസ്റ്റം"
+  },
+  "techCatEcom": {
+    "message": "ഇ-കൊമേഴ്സ്"
+  },
+  "techCatTech": {
+    "message": "ടെക്നോളജികൾ"
+  },
+  "techCatStyles": {
+    "message": "സ്റ്റൈലുകൾ"
+  },
+  "techCatDb": {
+    "message": "ഡാറ്റാബേസ്"
+  },
+  "techCatBackend": {
+    "message": "ബാക്കെൻഡ്"
+  },
+  "techCatServer": {
+    "message": "സെർവർ"
+  },
+  "techCatNetwork": {
+    "message": "നെറ്റ്‌വർക്ക്"
+  },
+  "techCatSecurity": {
+    "message": "സുരക്ഷ"
+  },
+  "techCatCaching": {
+    "message": "കാഷിംഗ്"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "അനലിറ്റിക്സ്"
+  },
+  "techCatAds": {
+    "message": "വipartemenുകൾ"
+  },
+  "techCatPayment": {
+    "message": "പേയ്മെന്റ്"
+  },
+  "techCatComm": {
+    "message": "കമ്യൂണിക്കേഷൻ"
+  },
+  "techCatMedia": {
+    "message": "മീഡിയ"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "സ്റ്റാറ്റിസ്റ്റിക്സ്"
+  },
+  "techCatTools": {
+    "message": "ടൂളുകൾ"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "ചിത്രങ്ങൾ"
+  },
+  "techStatScripts": {
+    "message": "സ്ക്രിപ്റ്റുകൾ"
+  },
+  "techStatLinks": {
+    "message": "ലിങ്കുകൾ"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "ഫോമുകൾ"
+  },
+  "techStatTables": {
+    "message": "പട്ടികകൾ"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "വീഡിയോ"
+  },
+  "techStatAudio": {
+    "message": "ഓഡിയോ"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "നിങ്ങളുടെ പ്രിയപ്പെട്ട റേഡിയോ സ്റ്റേഷനിലേക്കുള്ള നേരിട്ടുള്ള ലിങ്ക് നൽകുക"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "ഫീൽഡ് മായ്ക്കുക"
+  },
+  "saveRadioStationBtn": {
+    "message": "സ്റ്റേഷൻ സേവ് ചെയ്യുക"
   }
 }

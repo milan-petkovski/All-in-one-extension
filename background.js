@@ -3,38 +3,75 @@ const GA_MEASUREMENT_ID = "G-F52S6J4TZV";
 const GA_API_SECRET = "j09W3gL-TImYVi2ZE7rHxA";
 const GA_ENDPOINT = `https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${GA_API_SECRET}`;
 
-function trackEvent(eventName, eventData = {}) {
-    // Local stats (for future UI)
-    chrome.storage.local.get(["eventStats"], (res) => {
-        const stats = res.eventStats || {};
-        stats[eventName] = (stats[eventName] || 0) + 1;
-        chrome.storage.local.set({ eventStats: stats });
-    });
 
-    // Google Analytics Measurement Protocol
-    try {
-        const clientId = (typeof localStorage !== 'undefined' && localStorage.getItem("aio_ga_cid")) || (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2));
-        if (typeof localStorage !== 'undefined') localStorage.setItem("aio_ga_cid", clientId);
-        const body = {
-            client_id: clientId,
-            events: [
-                {
-                    name: eventName,
-                    params: {
-                        ...eventData
-                    }
-                }
-            ]
-        };
-        fetch(GA_ENDPOINT, {
-            method: "POST",
-            body: JSON.stringify(body),
-            keepalive: true,
-            headers: { "Content-Type": "application/json" }
+// Debounce za eventStats upis + jedinstven GA client_id (SW nema localStorage)
+let eventStatsCache = null;
+let eventStatsLoadPromise = null;
+let eventStatsDebounce = null;
+let gaClientIdPromise = null;
+
+function ensureEventStatsCache() {
+    if (eventStatsCache !== null) return Promise.resolve(eventStatsCache);
+    if (!eventStatsLoadPromise) {
+        eventStatsLoadPromise = chrome.storage.local.get(["eventStats"]).then((res) => {
+            eventStatsCache = res.eventStats || {};
+            return eventStatsCache;
         });
-    } catch (err) {
-        // Ignore GA errors
     }
+    return eventStatsLoadPromise;
+}
+
+function ensureGaClientId() {
+    if (!gaClientIdPromise) {
+        gaClientIdPromise = chrome.storage.local.get(["aio_ga_cid"]).then(async (res) => {
+            const existing = res.aio_ga_cid;
+            if (existing && typeof existing === "string") return existing;
+            const id = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2);
+            await chrome.storage.local.set({ aio_ga_cid: id });
+            return id;
+        });
+    }
+    return gaClientIdPromise;
+}
+
+function trackEvent(eventName, eventData = {}) {
+    ensureEventStatsCache().then(() => {
+        eventStatsCache[eventName] = (eventStatsCache[eventName] || 0) + 1;
+        if (eventStatsDebounce) clearTimeout(eventStatsDebounce);
+        eventStatsDebounce = setTimeout(() => {
+            chrome.storage.local.set({ eventStats: eventStatsCache });
+            eventStatsDebounce = null;
+        }, 300);
+    }).catch(() => { });
+
+    ensureGaClientId()
+        .then((clientId) => {
+            const body = {
+                client_id: clientId,
+                events: [
+                    {
+                        name: eventName,
+                        params: {
+                            ...eventData
+                        }
+                    }
+                ]
+            };
+            return fetch(GA_ENDPOINT, {
+                method: "POST",
+                body: JSON.stringify(body),
+                keepalive: true,
+                headers: { "Content-Type": "application/json" }
+            });
+        })
+        .then((response) => {
+            if (response && !response.ok) {
+                console.warn("GA fetch failed:", response.status, response.statusText);
+            }
+        })
+        .catch((err) => {
+            console.warn("GA fetch error:", err);
+        });
 }
 let offscreenInitPromise = null;
 let bgI18nDict = null;
@@ -111,7 +148,10 @@ async function playSystemSound(type) {
 async function checkRealRadioStatus() {
     const hasDocument = await chrome.offscreen.hasDocument();
     if (!hasDocument) {
-        await chrome.storage.local.set({ playing: false });
+        const data = await chrome.storage.local.get('playing');
+        if (data.playing) {
+            await chrome.storage.local.set({ playing: false, volume: 12 }).catch(() => { });
+        }
         return false;
     }
     const data = await chrome.storage.local.get('playing');
@@ -169,14 +209,23 @@ async function clearSiteDataEverywhere(urlString) {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     const action = request?.action;
 
+    if (action === "sw_start_session") {
+        chrome.storage.local.set({ lastLapTime: 0 }).catch(() => { });
+        sendResponse({ ok: true });
+        return true;
+    }
+
     if (action === "aio_track_event") {
         // Event iz popup.js za GA
         try {
             const eventName = request.eventName;
             const eventData = request.eventData || {};
             trackEvent(eventName, eventData);
-        } catch (err) { }
-        return true;
+            sendResponse({ ok: true });
+        } catch (err) {
+            sendResponse({ ok: false, error: err?.message || "error" });
+        }
+        return false;
     }
 
     if (action === "toggleRadio") {
@@ -185,10 +234,27 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         return true;
     }
 
+    if (action === "playCustomUrl") {
+        const radioTitle = bgI18nDict?.radioTitle?.message || "Radio IN";
+        const radioArtist = bgI18nDict?.radioArtist?.message || "Pokreće All In One ekstenzija";
+        const currentVol = request.volume || 12; // Fallback to 12 if not provided
+
+        safeSendRuntimeMessage({
+            action: "play",
+            volume: currentVol,
+            title: radioTitle,
+            artist: radioArtist,
+            url: request.url
+        });
+        sendResponse({ ok: true });
+        return false;
+    }
+
     if (action === "setRadioVolume") {
         trackEvent("radio pojačan/utišan", { vrednost: request.value });
         safeSendRuntimeMessage({ action: "setVolume", value: request.value });
-        return true;
+        sendResponse({ ok: true });
+        return false;
     }
 
     if (action === "getRadioStatus") {
@@ -216,14 +282,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 // Dodaj prevode i ovde
                 const radioTitle = bgI18nDict?.radioTitle?.message || "Radio IN";
                 const radioArtist = bgI18nDict?.radioArtist?.message || "Pokreće All In One ekstenzija";
+                const storage = await chrome.storage.local.get(['customRadioUrl']);
+                const customUrl = storage.customRadioUrl;
 
                 safeSendRuntimeMessage({
                     action: "play",
                     volume: currentVol,
                     title: radioTitle,
-                    artist: radioArtist
+                    artist: radioArtist,
+                    url: customUrl
                 });
-                await chrome.storage.local.set({ playing: true });
+                await chrome.storage.local.set({ playing: true }).catch(() => { });
                 sendResponse({ ok: true });
             } catch (err) {
                 try { sendResponse({ ok: false, error: err?.message || "error" }); } catch { }
@@ -234,25 +303,47 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     if (action === "hardwarePause") {
         safeSendRuntimeMessage({ action: "pause" });
-        chrome.storage.local.set({ playing: false, volume: 12 });
+        chrome.storage.local.set({ playing: false, volume: 12 }).then(() => {
+            sendResponse({ ok: true });
+        });
         return true;
     }
 
     if (action === "manual_lap") {
         trackEvent("krug stoperice");
         handleLapLogic();
-        return true;
+        sendResponse({ ok: true });
+        return false;
     }
 
     if (action === "tracker_force_tick") {
         trackEvent("tracker osvežen", { domen: request?.domain || "" });
-        const forcedDomain = normalizeDomain(request?.domain || "") || "";
         const run = runTrackerMutation(async () => {
-            trackerState.domain = forcedDomain || trackerState.domain;
-            trackerState.lastUpdate = Date.now();
+            // Force flush the debounce if any
+            if (addTrackedSeconds.debounce) {
+                clearTimeout(addTrackedSeconds.debounce);
+                addTrackedSeconds.debounce = null;
+                const today = new Date();
+                const dateKey = `tracker_${today.getFullYear()}_${today.getMonth() + 1}_${today.getDate()}`;
+                if (addTrackedSeconds.cache && addTrackedSeconds.cache[dateKey]) {
+                    await chrome.storage.local.set({ [dateKey]: addTrackedSeconds.cache[dateKey] });
+                }
+            }
+            await trackerWriteQueue;
         });
         run.then(() => sendResponse({ ok: true })).catch(() => sendResponse({ ok: false }));
         return true;
+    }
+
+    if (action === "tracker_clear_cache") {
+        // Očisti keš nakon uvoza podataka da se spreči pregazivanje uvezenih podataka
+        if (addTrackedSeconds.debounce) {
+            clearTimeout(addTrackedSeconds.debounce);
+            addTrackedSeconds.debounce = null;
+        }
+        addTrackedSeconds.cache = {};
+        sendResponse({ ok: true });
+        return false;
     }
 
     if (action === "tracker_heartbeat") {
@@ -302,19 +393,22 @@ async function handleToggle(sendResponse) {
             // Izvlačenje prevoda iz tvog rečnika
             const radioTitle = bgI18nDict?.radioTitle?.message || "Radio IN";
             const radioArtist = bgI18nDict?.radioArtist?.message || "Pokreće All In One ekstenzija";
+            const storage = await chrome.storage.local.get(['customRadioUrl']);
+            const customUrl = storage.customRadioUrl;
 
             safeSendRuntimeMessage({
                 action: "play",
                 volume: currentVol,
                 title: radioTitle,
-                artist: radioArtist
+                artist: radioArtist,
+                url: customUrl
             });
         } else {
             safeSendRuntimeMessage({ action: "pause" });
             await chrome.storage.local.set({ volume: 12 });
         }
 
-        await chrome.storage.local.set({ playing: newState });
+        await chrome.storage.local.set({ playing: newState }).catch(() => { });
         if (sendResponse) sendResponse({ ok: true, playing: newState });
     } catch (err) {
         console.error("toggleRadio error:", err);
@@ -322,16 +416,8 @@ async function handleToggle(sendResponse) {
     }
 }
 
-// TRACKER LOGIKA (MV3-safe: event + alarm heartbeat)
-chrome.idle.setDetectionInterval(150);
-
-const trackerState = {
-    domain: null,
-    lastUpdate: Date.now(),
-};
+// TRACKER LOGIKA (Samo snimanje iz content.js)
 let trackerWriteQueue = Promise.resolve();
-let trackerTickDebounceId = null;
-let cachedIdleState = "active";
 let trackerMutationQueue = Promise.resolve();
 
 function getTrackableSeconds(diff) {
@@ -357,10 +443,7 @@ function normalizeDomain(domain) {
     return clean;
 }
 
-function isUserActive() {
-    // Count only while user is actively present at OS level.
-    return cachedIdleState === "active";
-}
+
 
 function runTrackerMutation(task) {
     trackerMutationQueue = trackerMutationQueue
@@ -376,58 +459,30 @@ async function addTrackedSeconds(domain, seconds) {
     const cleanDomain = normalizeDomain(domain);
     if (!cleanDomain || seconds <= 0) return;
 
-    trackerWriteQueue = trackerWriteQueue.then(async () => {
-        const today = new Date();
-        const dateKey = `tracker_${today.getFullYear()}_${today.getMonth() + 1}_${today.getDate()}`;
+
+    // Debounce/batch upis za tracker podatke
+    if (!addTrackedSeconds.cache) addTrackedSeconds.cache = {};
+    if (!addTrackedSeconds.debounce) addTrackedSeconds.debounce = null;
+    const today = new Date();
+    const dateKey = `tracker_${today.getFullYear()}_${today.getMonth() + 1}_${today.getDate()}`;
+    if (!addTrackedSeconds.cache[dateKey]) {
         const res = await chrome.storage.local.get([dateKey]);
         const rawDay = res[dateKey];
-        const data = rawDay && typeof rawDay === "object" && !Array.isArray(rawDay) ? rawDay : {};
-        const prev = Number(data[cleanDomain]) || 0;
-        data[cleanDomain] = prev + seconds;
-        await chrome.storage.local.set({ [dateKey]: data });
-    }).catch((err) => {
-        console.error("Tracker write queue error:", err);
-    });
+        addTrackedSeconds.cache[dateKey] = rawDay && typeof rawDay === "object" && !Array.isArray(rawDay) ? rawDay : {};
+    }
+    const data = addTrackedSeconds.cache[dateKey];
+    const prev = Number(data[cleanDomain]) || 0;
+    data[cleanDomain] = prev + seconds;
+    if (addTrackedSeconds.debounce) clearTimeout(addTrackedSeconds.debounce);
+    addTrackedSeconds.debounce = setTimeout(async () => {
+        await chrome.storage.local.set({ [dateKey]: addTrackedSeconds.cache[dateKey] });
+        addTrackedSeconds.debounce = null;
+    }, 400);
 
     await trackerWriteQueue;
 }
 
-async function trackerTick() {
-    return runTrackerMutation(async () => {
-        const now = Date.now();
-        const diff = Math.floor((now - trackerState.lastUpdate) / 1000);
-        trackerState.lastUpdate = now;
-        const trackedSeconds = getTrackableSeconds(diff);
 
-        let activeDomain = normalizeDomain(trackerState.domain);
-        if (!activeDomain) {
-            const activeTab = await getActiveTrackableTab();
-            activeDomain = activeTab ? extractDomain(activeTab.url) : null;
-            trackerState.domain = activeDomain;
-        }
-
-        if (!activeDomain || trackedSeconds <= 0 || !isUserActive()) return;
-
-        await addTrackedSeconds(activeDomain, trackedSeconds);
-    });
-}
-
-async function trackerTickForDomain(domain) {
-    const cleanDomain = normalizeDomain(domain);
-    if (!cleanDomain) return;
-
-    return runTrackerMutation(async () => {
-        const now = Date.now();
-        const diff = Math.floor((now - trackerState.lastUpdate) / 1000);
-        trackerState.lastUpdate = now;
-        trackerState.domain = cleanDomain;
-        const trackedSeconds = getTrackableSeconds(diff);
-
-        if (trackedSeconds <= 0 || !isUserActive()) return;
-
-        await addTrackedSeconds(cleanDomain, trackedSeconds);
-    });
-}
 
 async function trackerHeartbeat(domain, seconds) {
     const cleanDomain = normalizeDomain(domain);
@@ -437,103 +492,25 @@ async function trackerHeartbeat(domain, seconds) {
         ? Math.max(1, Math.min(Math.floor(Number(seconds)), 120))
         : 0;
 
+    if (safeSeconds <= 0) return;
+
     return runTrackerMutation(async () => {
-        trackerState.domain = cleanDomain;
-
-        if (!isUserActive()) {
-            trackerState.lastUpdate = Date.now();
-            return;
-        }
-
-        if (safeSeconds > 0) {
-            await addTrackedSeconds(cleanDomain, safeSeconds);
-            trackerState.lastUpdate = Date.now();
-            return;
-        }
-
-        const now = Date.now();
-        const diff = Math.floor((now - trackerState.lastUpdate) / 1000);
-        trackerState.lastUpdate = now;
-        const trackedSeconds = getTrackableSeconds(diff);
-
-        if (trackedSeconds <= 0) return;
-        await addTrackedSeconds(cleanDomain, trackedSeconds);
+        await addTrackedSeconds(cleanDomain, safeSeconds);
     });
 }
 
-async function getActiveTrackableTab() {
-    let tabs = await chrome.tabs.query({ active: true, lastFocusedWindow: true });
-    if (!tabs || tabs.length === 0) {
-        tabs = await chrome.tabs.query({ active: true });
-    }
-    if (!tabs || tabs.length === 0) return null;
 
-    const trackableTab = tabs.find((tab) => extractDomain(tab.url));
-    return trackableTab || null;
-}
-
-async function refreshTrackerDomainFromActiveTab() {
-    return runTrackerMutation(async () => {
-        const tab = await getActiveTrackableTab();
-        trackerState.domain = tab ? extractDomain(tab.url) : null;
-        trackerState.lastUpdate = Date.now();
-    });
-}
-
-chrome.tabs.onActivated.addListener((activeInfo) => {
-    if (!activeInfo?.tabId) return;
-
-    // Flush time on previous domain, then switch to the newly active tab.
-    clearTimeout(trackerTickDebounceId);
-    trackerTickDebounceId = setTimeout(() => refreshTrackerDomainFromActiveTab().catch(() => { }), 50);
-});
-
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (tab?.active && (changeInfo.url || changeInfo.status === "complete")) {
-        // Debounce to prevent racing with onActivated
-        clearTimeout(trackerTickDebounceId);
-        trackerTickDebounceId = setTimeout(() => refreshTrackerDomainFromActiveTab().catch(() => { }), 50);
-    }
-});
-
-chrome.windows.onFocusChanged.addListener((windowId) => {
-    if (windowId === chrome.windows.WINDOW_ID_NONE) {
-        trackerState.domain = null;
-        trackerState.lastUpdate = Date.now();
-        return;
-    }
-
-    // Debounce to prevent racing with tab events
-    clearTimeout(trackerTickDebounceId);
-    trackerTickDebounceId = setTimeout(() => refreshTrackerDomainFromActiveTab().catch(() => { }), 50);
-});
-
-chrome.idle.onStateChanged.addListener((state) => {
-    cachedIdleState = state;  // Cache for sync access in isUserActive()
-
-    if (state !== "active") {
-        trackerState.lastUpdate = Date.now();
-        return;
-    }
-
-    // Debounce to prevent racing
-    clearTimeout(trackerTickDebounceId);
-    trackerTickDebounceId = setTimeout(() => refreshTrackerDomainFromActiveTab().catch(() => { }), 50);
-});
-
-function initTracker() {
-    refreshTrackerDomainFromActiveTab().catch(() => { });
-}
-
-initTracker();
-chrome.runtime.onStartup.addListener(initTracker);
 
 // STOPERICA KOMANDA
 let swLapWriteQueue = Promise.resolve();
+let lastLapDedupeAt = 0;
 
 // Glavna logika za krug (Lap)
 async function handleLapLogic() {
     const now = Date.now();
+    // Spreči dupli lap istovremeno sa komande + popup (isti Alt+Shift+L tick)
+    if (now - lastLapDedupeAt < 350) return;
+    lastLapDedupeAt = now;
     const store = await chrome.storage.local.get(["isRunning", "startTime", "currentLaps", "lastLapTime"]);
 
     const lastLap = store.lastLapTime || 0;
@@ -558,7 +535,8 @@ async function handleLapLogic() {
         await chrome.storage.local.set({
             currentLaps: [...currentLaps, diff],
             lastLapTime: now
-        });
+        }).catch(() => { });
+
     }).catch((err) => {
         console.error("Lap write error:", err);
     });
@@ -576,36 +554,68 @@ chrome.commands.onCommand.addListener((command) => {
     }
 });
 
-// Reset cooldown na START komande
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request?.action === "sw_start_session") {
-        // Resetujemo cooldown u storage-u umesto u lokalnoj promenljivoj
-        chrome.storage.local.set({ lastLapTime: 0 });
-        sendResponse({ ok: true });
-        return true;
+// KeepAlive alarm - MORA biti na top-level nivou (van onInstalled)
+// jer se Service Worker restartuje svake ~30s neaktivnosti i tada
+// gubi sve listenere koji su bili registrovani unutar callback-ova.
+function ensureKeepAliveAlarm() {
+    chrome.alarms.get('keepAlive', (alarm) => {
+        if (!alarm) {
+            chrome.alarms.create('keepAlive', { periodInMinutes: 0.5 });
+        }
+    });
+}
+
+// Bezbednosni sistem: ako content.js nije uspeo da pošalje heartbeat
+// service worker-u (bio je mrtav/spavao), sekunde se čuvaju u "tracker_buffer".
+// Ova funkcija ih pokupi i upiše u pravi tracker pri svakom buđenju.
+async function flushTrackerBuffer() {
+    try {
+        const res = await chrome.storage.local.get(['tracker_buffer']);
+        const buffer = res.tracker_buffer;
+        if (!buffer || typeof buffer !== 'object' || Array.isArray(buffer)) return;
+
+        const domains = Object.keys(buffer);
+        if (domains.length === 0) return;
+
+        for (const domain of domains) {
+            const seconds = Math.floor(Number(buffer[domain]) || 0);
+            if (seconds > 0 && seconds <= 86400) { // Max 24h zaštita od korupcije
+                const cleanDomain = normalizeDomain(domain);
+                if (cleanDomain) {
+                    await runTrackerMutation(async () => {
+                        await addTrackedSeconds(cleanDomain, seconds);
+                    });
+                }
+            }
+        }
+
+        // Očisti bafer nakon uspešnog upisa
+        await chrome.storage.local.remove('tracker_buffer');
+    } catch (err) {
+        console.error("Flush tracker buffer error:", err);
+    }
+}
+
+// Top-level alarm listener - preživljava restartovanje service workera
+chrome.alarms.onAlarm.addListener((alarm) => {
+    if (alarm.name === 'keepAlive') {
+        checkRealRadioStatus().catch(() => { });
+        // Pokupi izgubljene sekunde iz emergency bafera
+        flushTrackerBuffer().catch(() => { });
+        // Dodatna zaštita: proveri da alarm i dalje postoji
+        ensureKeepAliveAlarm();
     }
 });
 
+// Pokreni alarm i pokupi bafer odmah pri svakom učitavanju service workera
+ensureKeepAliveAlarm();
+flushTrackerBuffer().catch(() => { });
+
 chrome.runtime.onInstalled.addListener((details) => {
     trackEvent("ekstenzija instalirana/azurirana", { razlog: details.reason });
-    function ensureKeepAliveAlarm() {
-        chrome.alarms.get('keepAlive', (alarm) => {
-            if (!alarm) {
-                chrome.alarms.create('keepAlive', { periodInMinutes: 0.5 });
-            }
-        });
-    }
 
-    chrome.alarms.onAlarm.addListener((alarm) => {
-        if (alarm.name === 'keepAlive') {
-            trackerTick(); // OVO DODAJ: Da bi upisao vreme svakih 30 sekundi
-            checkRealRadioStatus().catch(() => { });
-        }
-    });
-
-    // Pozovi odmah pri učitavanju skripte
+    // Osiguraj alarm i pri instalaciji/ažuriranju
     ensureKeepAliveAlarm();
-    initTracker();
 
     if (details.reason === "install") {
         chrome.tabs.create({ url: "https://allinone.milanwebportal.com/hvala" });

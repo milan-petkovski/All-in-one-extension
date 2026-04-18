@@ -162,22 +162,22 @@
     "message": "Je, una uhakika unataka kufuta vidokezo vyote?"
   },
   "trackerModalTitle": {
-    "message": "MUDA WA TOVUTI"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "Hamisha data"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Ingiza data"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "Mtazamo wa kila siku"
+    "message": "Mwonekano wa kila siku"
   },
   "trackerModeMonth": {
-    "message": "Mtazamo wa kila mwezi"
+    "message": "Mwonekano wa kila mwezi"
   },
   "trackerModeAll": {
-    "message": "Wakati wote"
+    "message": "Muda wote"
   },
   "trackerTodayLabel": {
     "message": "Leo"
@@ -267,34 +267,34 @@
     "message": "Kiungo"
   },
   "trackerToday": {
-    "message": "Leo"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "Siku hiyo"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "Mwezi uliochaguliwa"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "Jumla"
+    "message": "Total"
   },
   "trackerNoData": {
-    "message": "Hakuna data kwa kipindi hiki"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "Hakuna data ya kifuatiliaji ya kuhamisha."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Usafirishaji umekatwa hadi 10MB ili kudumisha uthabiti."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Hakuna data halali ya kuingiza."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Data imeingizwa kikamilifu!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Hitilafu kusoma faili."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "MOJA KWA MOJA INAENDELEA"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "Una uhakika unataka kufuta yote?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

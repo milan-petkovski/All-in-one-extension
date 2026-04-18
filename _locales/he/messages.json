@@ -162,13 +162,13 @@
     "message": "האם אתה בטוח שברצונך לנקות את כל הפתקים?"
   },
   "trackerModalTitle": {
-    "message": "מעקב זמן אינטרנט"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "ייצוא נתונים"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "ייבוא נתונים"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "תצוגה יומית"
@@ -183,7 +183,7 @@
     "message": "היום"
   },
   "trackerMonthLabel": {
-    "message": "החודש"
+    "message": "החודש הזה"
   },
   "trackerAvgLabel": {
     "message": "ממוצע"
@@ -267,34 +267,34 @@
     "message": "קישור"
   },
   "trackerToday": {
-    "message": "היום"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "באותו יום"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "חודש נבחר"
+    "message": "Selected month"
   },
   "trackerTotal": {
-    "message": "סה\"כ"
+    "message": "Total"
   },
   "trackerNoData": {
-    "message": "אין נתונים לתקופה זו"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "אין נתונים לייצוא."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "הייצוא נקטע ל-10MB לשמירה על יציבות."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "אין נתונים חוקיים לייבוא."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "נתונים יובאו בהצלחה!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "שגיאה בקריאת הקובץ."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "שידור חי מתקיים"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "האם אתה בטוח שברצונך לנקות הכל?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

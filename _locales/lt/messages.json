@@ -18,7 +18,13 @@
     "message": "Nustatymai"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radijas"
+  },
+  "radioTitleCustom": {
+    "message": "Radijas"
+  },
+  "importRadioTooltip": {
+    "message": "Importuoti pasirinktinę radijo stotį"
   },
   "radioArtist": {
     "message": "Palaiko All In One plėtinys"
@@ -162,19 +168,19 @@
     "message": "Ar tikrai norite ištrinti visus užrašus?"
   },
   "trackerModalTitle": {
-    "message": "WEBTIME TRACKER"
+    "message": "Laiko sekiklis"
   },
   "exportTooltip": {
-    "message": "Eksportuoti duomenis"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importuoti duomenis"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "Dienos vaizdas"
+    "message": "Dienos rodinys"
   },
   "trackerModeMonth": {
-    "message": "Mėnesio vaizdas"
+    "message": "Mėnesio rodinys"
   },
   "trackerModeAll": {
     "message": "Visas laikas"
@@ -282,19 +288,19 @@
     "message": "Nėra duomenų šiam laikotarpiui"
   },
   "trackerExportEmpty": {
-    "message": "Nėra eksportuotinų duomenų."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Eksportas sutrumpintas iki 10 MB stabilumui užtikrinti."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Nėra galiojančių duomenų importavimui."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Duomenys sėkmingai importuoti!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Klaida skaitant failą."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "TIESIOGIAI"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Ar tikrai norite ištrinti viską?"
+  },
+  "trackerTotalShort": {
+    "message": "Iš viso"
+  },
+  "trackerThisMonth": {
+    "message": "Šis mėnuo"
+  },
+  "trackerThisMonthShort": {
+    "message": "Šis mėnuo"
+  },
+  "trackerThatMonth": {
+    "message": "Tas mėnuo"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Vidurkis"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Vidurkis"
+  },
+  "trackerAvgTotal": {
+    "message": "Vidurkis"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Ar tikrai norite ištrinti duomenis"
+  },
+  "techCatBase": {
+    "message": "Bazė"
+  },
+  "techCatSystem": {
+    "message": "Sistema"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Technologijos"
+  },
+  "techCatStyles": {
+    "message": "Stiliai"
+  },
+  "techCatDb": {
+    "message": "Duomenų bazė"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Serveris"
+  },
+  "techCatNetwork": {
+    "message": "Tinklas"
+  },
+  "techCatSecurity": {
+    "message": "Saugumas"
+  },
+  "techCatCaching": {
+    "message": "Caching"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analitika"
+  },
+  "techCatAds": {
+    "message": "Reklamos"
+  },
+  "techCatPayment": {
+    "message": "Mokėjimas"
+  },
+  "techCatComm": {
+    "message": "Komunikacija"
+  },
+  "techCatMedia": {
+    "message": "Medija"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistika"
+  },
+  "techCatTools": {
+    "message": "Įrankiai"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Vaizdai"
+  },
+  "techStatScripts": {
+    "message": "Scenarijai"
+  },
+  "techStatLinks": {
+    "message": "Nuorodos"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formos"
+  },
+  "techStatTables": {
+    "message": "Lentelės"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Vaizdo įrašai"
+  },
+  "techStatAudio": {
+    "message": "Garsas"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Įveskite tiesioginę nuorodą į mėgstamą radijo stotį"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Išvalyti lauką"
+  },
+  "saveRadioStationBtn": {
+    "message": "IŠSAUGOTI STOTĮ"
   }
 }

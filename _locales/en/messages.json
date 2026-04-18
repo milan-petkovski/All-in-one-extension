@@ -18,7 +18,13 @@
     "message": "Settings"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "RadioRadioRadioRadioRadio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Import custom radio station"
   },
   "radioArtist": {
     "message": "Powered by All In One extension"
@@ -162,7 +168,7 @@
     "message": "Are you sure you want to clear all notes?"
   },
   "trackerModalTitle": {
-    "message": "WEBTIME TRACKER"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
     "message": "Export data"
@@ -278,6 +284,27 @@
   "trackerTotal": {
     "message": "Total"
   },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
   "trackerNoData": {
     "message": "No data for this period"
   },
@@ -377,7 +404,124 @@
   "clearCounterTooltip": {
     "message": "Clear all"
   },
+  "wordsLabelShort": {
+    "message": "words"
+  },
+  "offscreenJustification": {
+    "message": "Radio streaming and system sounds"
+  },
   "confirmClearCounter": {
     "message": "Are you sure you want to clear all?"
+  },
+  "techCatBase": {
+    "message": "Base"
+  },
+  "techCatSystem": {
+    "message": "System"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Technologies"
+  },
+  "techCatStyles": {
+    "message": "Styles"
+  },
+  "techCatDb": {
+    "message": "Database"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Server"
+  },
+  "techCatNetwork": {
+    "message": "Network"
+  },
+  "techCatSecurity": {
+    "message": "Security"
+  },
+  "techCatCaching": {
+    "message": "Caching"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analytics"
+  },
+  "techCatAds": {
+    "message": "Ads"
+  },
+  "techCatPayment": {
+    "message": "Payment"
+  },
+  "techCatComm": {
+    "message": "Communication"
+  },
+  "techCatMedia": {
+    "message": "Media"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistics"
+  },
+  "techCatTools": {
+    "message": "Tools"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Images"
+  },
+  "techStatScripts": {
+    "message": "Scripts"
+  },
+  "techStatLinks": {
+    "message": "Links"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Forms"
+  },
+  "techStatTables": {
+    "message": "Tables"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Audio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Enter the direct link to your favorite radio station"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Clear field"
+  },
+  "saveRadioStationBtn": {
+    "message": "SAVE STATION"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

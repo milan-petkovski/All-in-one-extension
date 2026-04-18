@@ -18,7 +18,13 @@
     "message": "सेटिंग्स"
   },
   "radioTitle": {
-    "message": "रेडियो IN"
+    "message": "रेडियो"
+  },
+  "radioTitleCustom": {
+    "message": "रेडियो"
+  },
+  "importRadioTooltip": {
+    "message": "कस्टम रेडियो स्टेशन आयात करें"
   },
   "radioArtist": {
     "message": "All In One एक्सटेंशन द्वारा संचालित"
@@ -162,13 +168,13 @@
     "message": "क्या आप वाकई सभी नोट्स साफ़ करना चाहते हैं?"
   },
   "trackerModalTitle": {
-    "message": "वेबटाइम ट्रैकर"
+    "message": "समय ट्रैकर"
   },
   "exportTooltip": {
-    "message": "डेटा निर्यात करें"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "डेटा आयात करें"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "दैनिक दृश्य"
@@ -177,7 +183,7 @@
     "message": "मासिक दृश्य"
   },
   "trackerModeAll": {
-    "message": "हर समय"
+    "message": "सभी समय"
   },
   "trackerTodayLabel": {
     "message": "आज"
@@ -282,19 +288,19 @@
     "message": "इस अवधि के लिए कोई डेटा नहीं"
   },
   "trackerExportEmpty": {
-    "message": "निर्यात करने के लिए कोई ट्रैकर डेटा नहीं।"
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "स्थिरता के लिए निर्यात को 10MB तक कम कर दिया गया।"
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "आयात करने के लिए कोई वैध डेटा नहीं।"
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "डेटा सफलतापूर्वक आयात किया गया!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "फ़ाइल पढ़ने में त्रुटि।"
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "लाइव प्रगति पर है"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "क्या आप वाकई सब साफ करना चाहते हैं?"
+  },
+  "trackerTotalShort": {
+    "message": "कुल"
+  },
+  "trackerThisMonth": {
+    "message": "इस महीने"
+  },
+  "trackerThisMonthShort": {
+    "message": "इस महीने"
+  },
+  "trackerThatMonth": {
+    "message": "उस महीने"
+  },
+  "trackerAvgThisMonth": {
+    "message": "औसत"
+  },
+  "trackerAvgThatMonth": {
+    "message": "औसत"
+  },
+  "trackerAvgTotal": {
+    "message": "औसत"
+  },
+  "trackerDeleteConfirm": {
+    "message": "क्या आप वाकई डेटा हटाना चाहते हैं"
+  },
+  "techCatBase": {
+    "message": "आधार"
+  },
+  "techCatSystem": {
+    "message": "सिस्टम"
+  },
+  "techCatEcom": {
+    "message": "ई-कॉमर्स"
+  },
+  "techCatTech": {
+    "message": "टेक्नोलॉजी"
+  },
+  "techCatStyles": {
+    "message": "स्टाइल"
+  },
+  "techCatDb": {
+    "message": "डेटाबेस"
+  },
+  "techCatBackend": {
+    "message": "बैकएंड"
+  },
+  "techCatServer": {
+    "message": "सर्वर"
+  },
+  "techCatNetwork": {
+    "message": "नेटवर्क"
+  },
+  "techCatSecurity": {
+    "message": "सुरक्षा"
+  },
+  "techCatCaching": {
+    "message": "कैशिंग"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "एनालिटिक्स"
+  },
+  "techCatAds": {
+    "message": "विज्ञापन"
+  },
+  "techCatPayment": {
+    "message": "भुगतान"
+  },
+  "techCatComm": {
+    "message": "संचार"
+  },
+  "techCatMedia": {
+    "message": "मीडिया"
+  },
+  "techCatBuild": {
+    "message": "बिल्ड"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "आंकड़े"
+  },
+  "techCatTools": {
+    "message": "टूल्स"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "छवियां"
+  },
+  "techStatScripts": {
+    "message": "स्क्रिप्ट्स"
+  },
+  "techStatLinks": {
+    "message": "लिंक"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "फॉर्म"
+  },
+  "techStatTables": {
+    "message": "टेबल"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "वीडियो"
+  },
+  "techStatAudio": {
+    "message": "ऑडियो"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "अपने पसंदीदा रेडियो स्टेशन का सीधा लिंक दर्ज करें"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "फील्ड साफ करें"
+  },
+  "saveRadioStationBtn": {
+    "message": "स्टेशन सेव करें"
   }
 }

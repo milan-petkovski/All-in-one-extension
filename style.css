@@ -16,6 +16,10 @@
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* =========================================
    2. OSNOVNI STILOVI (BASE)
    ========================================= */
@@ -29,6 +33,59 @@ body {
   user-select: none;
 }
 
+#settingsView .footer-email-wrapper,
+#settingsView .footer-email-text {
+  user-select: text !important;
+  cursor: text;
+}
+
+#settingsView .footer-email-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-btn-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 8px;
+}
+
+#copyEmailBtn.copy-btn.baseline-copy-btn {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  padding: 0;
+  margin-left: 2px;
+  font-size: inherit;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: baseline;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+  line-height: 1;
+  min-width: 0;
+  transition: color 0.13s;
+}
+
+#copyEmailBtn.copy-btn.baseline-copy-btn:focus {
+  outline: 1.5px solid var(--accent);
+}
+
+#copyEmailBtn.copy-btn.baseline-copy-btn:hover {
+  color: var(--accent);
+}
+
+.copy-icon-baseline {
+  display: inline;
+  pointer-events: none;
+  height: 1em;
+  width: 1em;
+  vertical-align: baseline;
+}
+
 header {
   text-align: center;
   margin-bottom: 20px;
@@ -40,6 +97,7 @@ h1 {
   letter-spacing: 2px;
   color: var(--accent);
   margin: 0;
+  text-transform: uppercase;
 }
 
 .spacer {
@@ -136,7 +194,7 @@ h1 {
 .clickable:hover {
   background: var(--bg-hover);
   cursor: pointer;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   border-color: var(--border-color);
 }
 
@@ -174,11 +232,13 @@ button.secondary:hover {
 #resetVolBtn {
   background: var(--bg-input) !important;
 }
+
 #resetVolBtn:hover {
   background: var(--bg-hover) !important;
   border-color: var(--bg-hover) !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
 .icon-btn {
   margin: 0;
   padding: 5px 10px;
@@ -188,14 +248,28 @@ button.secondary:hover {
   font-weight: bold;
   font-size: 14px;
 }
-#radioBtn, #resetVolBtn {
+
+#radioBtn,
+#resetVolBtn,
+#importRadioBtn {
   height: 24px;
-  padding: 0 10px;
+  padding: 0 5px;
   display: inline-flex;
   justify-content: center;
+  box-shadow: none !important;
   align-items: center;
   line-height: 1;
 }
+
+#importRadioBtn {
+  padding: 0;
+}
+
+button svg {
+  pointer-events: none;
+  display: block;
+}
+
 .modern-btn {
   width: 100%;
   padding: 12px;
@@ -264,11 +338,11 @@ button.secondary:hover {
   transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: var(--accent);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   transform: translateX(14px);
 }
 
@@ -441,6 +515,7 @@ input:checked + .slider:before {
     opacity: 0;
     transform: translateY(5px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -612,10 +687,10 @@ input:checked + .slider:before {
 
 .tracker-controls {
   display: flex;
-  gap: 8px;
-  margin-top: 12px;
-  height: 32px;
-  align-items: stretch;
+  gap: 6px;
+  margin-top: 10px;
+  height: 30px;
+  align-items: center;
 }
 
 .date-wrapper,
@@ -626,8 +701,9 @@ input:checked + .slider:before {
 }
 
 .date-wrapper {
-  flex: 0.9;
+  flex: 0.81;
   display: flex;
+  height: 100%;
 }
 
 #trackerMode {
@@ -636,7 +712,8 @@ input:checked + .slider:before {
 }
 
 .tracker-controls .icon-btn {
-  width: 32px;
+  width: 30px;
+  height: 30px !important;
   padding: 0;
   display: flex;
   align-items: center;
@@ -681,15 +758,13 @@ input:checked + .slider:before {
   left: 0;
   width: 100%;
   height: 80px;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(10, 10, 12, 0.05) 15%,
-    rgba(10, 10, 12, 0.3) 35%,
-    rgba(10, 10, 12, 0.6) 60%,
-    rgba(10, 10, 12, 0.9) 85%,
-    var(--bg-main) 100%
-  );
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      rgba(10, 10, 12, 0.05) 15%,
+      rgba(10, 10, 12, 0.3) 35%,
+      rgba(10, 10, 12, 0.6) 60%,
+      rgba(10, 10, 12, 0.9) 85%,
+      var(--bg-main) 100%);
   pointer-events: none;
   z-index: 5;
 }
@@ -724,17 +799,21 @@ input:checked + .slider:before {
   background: var(--accent);
   transition: width 0.3s ease;
 }
-#trackerDate, #trackerMode {
+
+#trackerDate,
+#trackerMode {
   color-scheme: dark;
 }
+
 #trackerMode option {
   background-color: #000000;
   color: #ffffff;
 }
+
 #trackerDatePrikaz,
 #trackerMode {
   width: 100% !important;
-  height: 28px !important;
+  height: 30px !important;
   display: flex !important;
   align-items: center;
   justify-content: center;
@@ -744,7 +823,7 @@ input:checked + .slider:before {
   border-radius: 8px !important;
   cursor: pointer;
   transition: all 0.2s ease;
-  padding: 0 10px !important;
+  padding: 0 8px !important;
   box-sizing: border-box;
   font-size: 11px !important;
   font-weight: 700 !important;
@@ -768,18 +847,19 @@ input:checked + .slider:before {
 #trackerMode {
   text-align-last: center;
 }
+
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin-top: 6px;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .stat-box {
   background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 10px 8px;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 8px 4px;
   text-align: center;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
@@ -1288,7 +1368,7 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px; 
+  width: 28px;
   height: 28px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border-color);
@@ -1322,10 +1402,10 @@ input:checked + .slider:before {
   -webkit-appearance: none;
 }
 
-.secondary.icon-btn, 
+.secondary.icon-btn,
 .lang-container {
-  width: 28px !important;
-  height: 28px !important;
+  width: 30px !important;
+  height: 30px !important;
   display: flex !important;
   align-items: center;
   justify-content: center;
@@ -1373,13 +1453,24 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: center;
   z-index: 10000;
+  animation: modalFadeIn 0.2s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
   background: var(--bg-card);
+  border: 1px solid rgba(0, 255, 136, 0.2) !important;
   padding: 18px;
   border-radius: 16px;
-  border: 1px solid var(--border-color);
   text-align: center;
   width: 286px;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.45);
@@ -1489,6 +1580,191 @@ input:checked + .slider:before {
 
 #closeCookieModal:hover {
   box-shadow: none !important;
+  background-color: transparent !important;
+}
+
+/* =========================================
+   10. RADIO MODAL
+   ========================================= */
+.radio-modal {
+  background: linear-gradient(165deg, #1a1a24 0%, #0d0d12 100%) !important;
+  border: 1px solid rgba(0, 255, 136, 0.2) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 136, 0.05) !important;
+  padding: 24px !important;
+  max-width: 280px !important;
+}
+
+.radio-modal-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.radio-icon-box {
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 255, 136, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+.radio-modal-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.radio-modal-desc {
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.radio-input-container {
+  position: relative;
+  margin: 20px 0;
+}
+
+.radio-input-container input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 10px 36px 10px 12px;
+  color: #fff;
+  font-size: 12px;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.radio-input-container input:focus {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.radio-input-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.radio-input-clear:hover {
+  color: #fff;
+  background: transparent !important;
+  box-shadow: none !important;
+  top: 7px !important;
+  transform: none !important;
+}
+
+.radio-input-clear svg {
+  width: 14px;
+  height: 14px;
+}
+
+.radio-save-btn {
+  width: 100%;
+  background: var(--accent) !important;
+  color: #000 !important;
+  padding: 12px !important;
+  border-radius: 10px !important;
+  font-size: 11px !important;
+  font-weight: 900 !important;
+  letter-spacing: 1px !important;
+  border: none !important;
+  cursor: pointer;
+  transition: all 0.2s ease !important;
+}
+
+.radio-save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3) !important;
+}
+
+.radio-cancel-btn {
+  width: 100%;
+  background: transparent !important;
+  color: var(--text-dim) !important;
+  border: none !important;
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  margin-top: 10px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.radio-cancel-btn:hover {
+  opacity: 1;
+  color: #fff !important;
+  box-shadow: none;
+}
+
+/* Delete confirmation modal styles */
+.delete-icon-box {
+  background: rgba(255, 59, 59, 0.1) !important;
+  border-color: #ff3b3b !important;
+  box-shadow: 0 0 15px rgba(255, 59, 59, 0.2) !important;
+  color: #ff3b3b !important;
+}
+
+.delete-modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.delete-modal-buttons button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 900;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.delete-cancel-btn {
+  background: transparent !important;
+  color: var(--text-dim) !important;
+  opacity: 0.7;
+}
+
+.delete-cancel-btn:hover {
+  opacity: 1;
+  color: #fff !important;
+}
+
+.delete-confirm-btn {
+  background: #ff3b3b !important;
+  color: #fff !important;
+}
+
+.delete-confirm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 59, 59, 0.3) !important;
 }
 
 /* Ograničen pristup (Restricted Session Overlay) */
@@ -1565,4 +1841,32 @@ input:checked + .slider:before {
   background: #0a0a0c;
   display: flex;
   flex-direction: column;
+}
+
+/* Radio URL Indicator */
+.radio-url-indicator {
+  margin-top: 6px;
+  font-size: 10px;
+  color: var(--text-dim);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: color 0.2s ease;
+}
+
+.radio-url-indicator:hover {
+  color: var(--accent);
+}
+
+
+.truncate-text {
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
 }

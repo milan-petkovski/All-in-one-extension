@@ -18,7 +18,13 @@
     "message": "Setări"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Rádio"
+  },
+  "radioTitleCustom": {
+    "message": "Rádio"
+  },
+  "importRadioTooltip": {
+    "message": "Importar estação de rádio personalizada"
   },
   "radioArtist": {
     "message": "Susținut de extensia All In One"
@@ -162,31 +168,31 @@
     "message": "Ești sigur că vrei să ștergi toate notițele?"
   },
   "trackerModalTitle": {
-    "message": "URMĂRITOR TIMP WEB"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "Exportă date"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importă date"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "Vizualizare zilnică"
+    "message": "Visualização diária"
   },
   "trackerModeMonth": {
-    "message": "Vizualizare lunară"
+    "message": "Visualização mensal"
   },
   "trackerModeAll": {
-    "message": "Tot timpul"
+    "message": "Todo o tempo"
   },
   "trackerTodayLabel": {
-    "message": "Azi"
+    "message": "Hoje"
   },
   "trackerMonthLabel": {
-    "message": "Luna aceasta"
+    "message": "Este mês"
   },
   "trackerAvgLabel": {
-    "message": "Medie"
+    "message": "Média"
   },
   "techModalTitle": {
     "message": "TEHNOLOGII SITE"
@@ -267,34 +273,34 @@
     "message": "Link"
   },
   "trackerToday": {
-    "message": "Azi"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "Acea zi"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "Luna selectată"
+    "message": "Selected month"
   },
   "trackerTotal": {
     "message": "Total"
   },
   "trackerNoData": {
-    "message": "Nu există date pentru această perioadă"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "Nu există date de urmăritor de exportat."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Export trunchiat la 10 MB pentru stabilitate."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Nu există date valide de importat."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Date importate cu succes!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Eroare la citirea fișierului."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "LIVE ÎN DESFĂȘURARE"
@@ -379,5 +385,137 @@
   },
   "markerCloseTooltip": {
     "message": "Închide"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Tem certeza de que deseja excluir os dados de"
+  },
+  "techCatBase": {
+    "message": "Base"
+  },
+  "techCatSystem": {
+    "message": "Sistema"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Tecnologias"
+  },
+  "techCatStyles": {
+    "message": "Estilos"
+  },
+  "techCatDb": {
+    "message": "Base de Dados"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Servidor"
+  },
+  "techCatNetwork": {
+    "message": "Rede"
+  },
+  "techCatSecurity": {
+    "message": "Segurança"
+  },
+  "techCatCaching": {
+    "message": "Cache"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Análise"
+  },
+  "techCatAds": {
+    "message": "Anúncios"
+  },
+  "techCatPayment": {
+    "message": "Pagamento"
+  },
+  "techCatComm": {
+    "message": "Comunicação"
+  },
+  "techCatMedia": {
+    "message": "Multimédia"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Estatísticas"
+  },
+  "techCatTools": {
+    "message": "Ferramentas"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Imagens"
+  },
+  "techStatScripts": {
+    "message": "Scripts"
+  },
+  "techStatLinks": {
+    "message": "Links"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formulários"
+  },
+  "techStatTables": {
+    "message": "Tabelas"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Vídeo"
+  },
+  "techStatAudio": {
+    "message": "Áudio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Introduza o link direto para a sua estação de rádio favorita"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Limpar campo"
+  },
+  "saveRadioStationBtn": {
+    "message": "GUARDAR ESTAÇÃO"
   }
 }

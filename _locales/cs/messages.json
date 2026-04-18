@@ -18,7 +18,13 @@
     "message": "Nastavení"
   },
   "radioTitle": {
-    "message": "Rádio IN"
+    "message": "Rádio"
+  },
+  "radioTitleCustom": {
+    "message": "Rádio"
+  },
+  "importRadioTooltip": {
+    "message": "Importovat vlastní rozhlasovou stanici"
   },
   "radioArtist": {
     "message": "Běží na rozšíření All In One"
@@ -162,22 +168,22 @@
     "message": "Opravdu chcete vymazat všechny poznámky?"
   },
   "trackerModalTitle": {
-    "message": "MĚŘENÍ ČASU NA WEBU"
+    "message": "Sledování času"
   },
   "exportTooltip": {
-    "message": "Exportovat data"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importovat data"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "Denní přehled"
+    "message": "Denní zobrazení"
   },
   "trackerModeMonth": {
-    "message": "Měsíční přehled"
+    "message": "Měsíční zobrazení"
   },
   "trackerModeAll": {
-    "message": "Za celou dobu"
+    "message": "Celkový čas"
   },
   "trackerTodayLabel": {
     "message": "Dnes"
@@ -279,22 +285,22 @@
     "message": "Celkem"
   },
   "trackerNoData": {
-    "message": "Pro toto období nejsou žádná data"
+    "message": "Žádná data pro toto období"
   },
   "trackerExportEmpty": {
-    "message": "Žádná data sledování k exportu."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Export byl zkrácen na 10 MB z důvodu stability okna."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Žádná platná data k importu."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Data úspěšně importována!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Chyba při čtení souboru."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "PROBÍHÁ ŽIVĚ"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Opravdu chcete vše vymazat?"
+  },
+  "trackerTotalShort": {
+    "message": "Celkem"
+  },
+  "trackerThisMonth": {
+    "message": "Tento měsíc"
+  },
+  "trackerThisMonthShort": {
+    "message": "Tento měsíc"
+  },
+  "trackerThatMonth": {
+    "message": "Ten měsíc"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Průměr"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Průměr"
+  },
+  "trackerAvgTotal": {
+    "message": "Průměr"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Opravdu chcete smazat data pro"
+  },
+  "techCatBase": {
+    "message": "Základ"
+  },
+  "techCatSystem": {
+    "message": "Systém"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Technologie"
+  },
+  "techCatStyles": {
+    "message": "Styly"
+  },
+  "techCatDb": {
+    "message": "Databáze"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Server"
+  },
+  "techCatNetwork": {
+    "message": "Síť"
+  },
+  "techCatSecurity": {
+    "message": "Bezpečnost"
+  },
+  "techCatCaching": {
+    "message": "Caching"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analytika"
+  },
+  "techCatAds": {
+    "message": "Reklamy"
+  },
+  "techCatPayment": {
+    "message": "Platba"
+  },
+  "techCatComm": {
+    "message": "Komunikace"
+  },
+  "techCatMedia": {
+    "message": "Média"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistiky"
+  },
+  "techCatTools": {
+    "message": "Nástroje"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Obrázky"
+  },
+  "techStatScripts": {
+    "message": "Skripty"
+  },
+  "techStatLinks": {
+    "message": "Odkazy"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formuláře"
+  },
+  "techStatTables": {
+    "message": "Tabulky"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Audio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Zadejte přímý odkaz na oblíbenou rozhlasovou stanici"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Vymazat pole"
+  },
+  "saveRadioStationBtn": {
+    "message": "ULOŽIT STANICI"
   }
 }

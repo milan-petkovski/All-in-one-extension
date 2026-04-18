@@ -18,7 +18,7 @@
     "message": "Configuració"
   },
   "radioTitle": {
-    "message": "Ràdio IN"
+    "message": "Ràdio"
   },
   "radioArtist": {
     "message": "Impulsat per All In One"
@@ -162,13 +162,13 @@
     "message": "Segur que vols esborrar totes les notes?"
   },
   "trackerModalTitle": {
-    "message": "TEMPS WEB"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
-    "message": "Exporta dades"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importa dades"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Vista diària"
@@ -267,34 +267,34 @@
     "message": "Enllaç"
   },
   "trackerToday": {
-    "message": "Avui"
+    "message": "Today"
   },
   "trackerThatDay": {
-    "message": "Aquell dia"
+    "message": "That day"
   },
   "trackerSelectedMonth": {
-    "message": "Mes seleccionat"
+    "message": "Selected month"
   },
   "trackerTotal": {
     "message": "Total"
   },
   "trackerNoData": {
-    "message": "No hi ha dades per a aquest període"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "No hi ha dades del rastrejador per exportar."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "L'exportació s'ha truncat a 10 MB per mantenir l'estabilitat."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "No hi ha dades vàlides per importar."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Dades importades correctament!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Error en llegir el fitxer."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "EN DIRECTE"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "Segur que vols esborrar-ho tot?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

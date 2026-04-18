@@ -18,7 +18,13 @@
     "message": "Asetukset"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Tuo mukautettu radioasema"
   },
   "radioArtist": {
     "message": "All In One tarjoaa"
@@ -162,13 +168,13 @@
     "message": "Haluatko varmasti tyhjentää kaikki muistiinpanot?"
   },
   "trackerModalTitle": {
-    "message": "VERKKOAJAN SEURANTA"
+    "message": "Ajan seuranta"
   },
   "exportTooltip": {
-    "message": "Vie tiedot"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Tuo tiedot"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Päivänäkymä"
@@ -183,7 +189,7 @@
     "message": "Tänään"
   },
   "trackerMonthLabel": {
-    "message": "Tässä kuussa"
+    "message": "Tämä kuukausi"
   },
   "trackerAvgLabel": {
     "message": "Keskiarvo"
@@ -270,7 +276,7 @@
     "message": "Tänään"
   },
   "trackerThatDay": {
-    "message": "Tuona päivänä"
+    "message": "Se päivä"
   },
   "trackerSelectedMonth": {
     "message": "Valittu kuukausi"
@@ -279,22 +285,22 @@
     "message": "Yhteensä"
   },
   "trackerNoData": {
-    "message": "Ei tietoja tältä ajanjaksolta"
+    "message": "Ei dataa tälle ajalle"
   },
   "trackerExportEmpty": {
-    "message": "Ei vietäviä seurantatietoja."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Vienti typistettiin 10 megatavuun vakauden säilyttämiseksi."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Ei tuotavia kelvollisia tietoja."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Tiedot tuotu onnistuneesti!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Virhe luettaessa tiedostoa."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "LIVE KÄYNNISSÄ"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Haluatko varmasti tyhjentää kaiken?"
+  },
+  "trackerTotalShort": {
+    "message": "Yhteensä"
+  },
+  "trackerThisMonth": {
+    "message": "Tämä kuukausi"
+  },
+  "trackerThisMonthShort": {
+    "message": "Tämä kuukausi"
+  },
+  "trackerThatMonth": {
+    "message": "Se kuukausi"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Keskiarvo"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Keskiarvo"
+  },
+  "trackerAvgTotal": {
+    "message": "Keskiarvo"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Haluatko varmasti poistaa tiedot kohteelle"
+  },
+  "techCatBase": {
+    "message": "Perusta"
+  },
+  "techCatSystem": {
+    "message": "Järjestelmä"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Teknologiat"
+  },
+  "techCatStyles": {
+    "message": "Tyylit"
+  },
+  "techCatDb": {
+    "message": "Tietokanta"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Palvelin"
+  },
+  "techCatNetwork": {
+    "message": "Verkko"
+  },
+  "techCatSecurity": {
+    "message": "Turvallisuus"
+  },
+  "techCatCaching": {
+    "message": "Välimuisti"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analytiikka"
+  },
+  "techCatAds": {
+    "message": "Mainokset"
+  },
+  "techCatPayment": {
+    "message": "Maksu"
+  },
+  "techCatComm": {
+    "message": "Viestintä"
+  },
+  "techCatMedia": {
+    "message": "Media"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Tilastot"
+  },
+  "techCatTools": {
+    "message": "Työkalut"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Kuvat"
+  },
+  "techStatScripts": {
+    "message": "Skriptit"
+  },
+  "techStatLinks": {
+    "message": "Linkit"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Lomakkeet"
+  },
+  "techStatTables": {
+    "message": "Taulukot"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Ääni"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Syötä suosikkiradioasemasi suora linkki"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Tyhjennä kenttä"
+  },
+  "saveRadioStationBtn": {
+    "message": "TALLASEMA"
   }
 }

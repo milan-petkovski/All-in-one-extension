@@ -20,6 +20,12 @@
   "radioTitle": {
     "message": "Radio IN"
   },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Uvezi prilagođenu radio stanicu"
+  },
   "radioArtist": {
     "message": "Pokreće All In One ekstenzija"
   },
@@ -98,6 +104,12 @@
   "linesLabel": {
     "message": "Redova"
   },
+  "wordsLabelShort": {
+    "message": "reči"
+  },
+  "offscreenJustification": {
+    "message": "Radio streaming i sistemski zvukovi"
+  },
   "clearCounterTooltip": {
     "message": "Obriši sve"
   },
@@ -171,7 +183,7 @@
     "message": "Da li sigurno želiš da obrišeš sve beleške?"
   },
   "trackerModalTitle": {
-    "message": "WEBTIME TRACKER"
+    "message": "Webtime Tracker"
   },
   "exportTooltip": {
     "message": "Izvezi podatke"
@@ -287,6 +299,27 @@
   "trackerTotal": {
     "message": "Ukupno"
   },
+  "trackerTotalShort": {
+    "message": "Ukupno"
+  },
+  "trackerThisMonth": {
+    "message": "Ovaj mesec"
+  },
+  "trackerThisMonthShort": {
+    "message": "Ovaj mesec"
+  },
+  "trackerThatMonth": {
+    "message": "Taj mesec"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Prosek (mesec)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Prosek (mesec)"
+  },
+  "trackerAvgTotal": {
+    "message": "Prosek"
+  },
   "trackerNoData": {
     "message": "Nema podataka za ovaj period"
   },
@@ -379,5 +412,116 @@
   },
   "markerCloseTooltip": {
     "message": "Zatvori"
+  },
+  "techCatBase": {
+    "message": "Osnova"
+  },
+  "techCatSystem": {
+    "message": "Sistem"
+  },
+  "techCatEcom": {
+    "message": "E Trgovina"
+  },
+  "techCatTech": {
+    "message": "Tehnologije"
+  },
+  "techCatStyles": {
+    "message": "Stilovi"
+  },
+  "techCatDb": {
+    "message": "Baza Podataka"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Server"
+  },
+  "techCatNetwork": {
+    "message": "Mreža"
+  },
+  "techCatSecurity": {
+    "message": "Sigurnost"
+  },
+  "techCatCaching": {
+    "message": "Keširanje"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analitika"
+  },
+  "techCatAds": {
+    "message": "Reklame"
+  },
+  "techCatPayment": {
+    "message": "Plaćanje"
+  },
+  "techCatComm": {
+    "message": "Komunikacija"
+  },
+  "techCatMedia": {
+    "message": "Mediji"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistika"
+  },
+  "techCatTools": {
+    "message": "Alati"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Slike"
+  },
+  "techStatScripts": {
+    "message": "Skripte"
+  },
+  "techStatLinks": {
+    "message": "Linkovi"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Forme"
+  },
+  "techStatTables": {
+    "message": "Tabele"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Audio"
+  },
+  "techStatIframes": {
+    "message": "Iframe"
+  },
+  "radioModalDesc": {
+    "message": "Unesite direktan link do vaše omiljene radio stanice"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Očisti polje"
+  },
+  "saveRadioStationBtn": {
+    "message": "SAČUVAJ STANICU"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Da li sigurno želiš da obrišeš podatke za"
   }
 }

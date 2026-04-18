@@ -18,7 +18,13 @@
     "message": "Instellingen"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Importeer aangepast radiostation"
   },
   "radioArtist": {
     "message": "Aangedreven door de All In One extensie"
@@ -162,13 +168,13 @@
     "message": "Weet je zeker dat je alle notities wilt wissen?"
   },
   "trackerModalTitle": {
-    "message": "WEBTIJD TRACKER"
+    "message": "Tijd Tracker"
   },
   "exportTooltip": {
-    "message": "Gegevens exporteren"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Gegevens importeren"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Dagelijkse weergave"
@@ -186,7 +192,7 @@
     "message": "Deze maand"
   },
   "trackerAvgLabel": {
-    "message": "Gemiddelde"
+    "message": "Gemiddeld"
   },
   "techModalTitle": {
     "message": "SITETECHNOLOGIEËN"
@@ -282,19 +288,19 @@
     "message": "Geen gegevens voor deze periode"
   },
   "trackerExportEmpty": {
-    "message": "Geen trackergegevens om te exporteren."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Export is afgekapt tot 10 MB om de pop-up stabiel te houden."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Geen geldige gegevens om te importeren."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Gegevens succesvol geïmporteerd!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Fout bij het lezen van het bestand."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "LIVE BEZIG"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Weet je zeker dat je alles wilt wissen?"
+  },
+  "trackerTotalShort": {
+    "message": "Totaal"
+  },
+  "trackerThisMonth": {
+    "message": "Deze maand"
+  },
+  "trackerThisMonthShort": {
+    "message": "Deze maand"
+  },
+  "trackerThatMonth": {
+    "message": "Die maand"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Gemiddelde"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Gemiddelde"
+  },
+  "trackerAvgTotal": {
+    "message": "Gemiddeld"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Weet je zeker dat je gegevens wilt verwijderen voor"
+  },
+  "techCatBase": {
+    "message": "Basis"
+  },
+  "techCatSystem": {
+    "message": "Systeem"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Technologieën"
+  },
+  "techCatStyles": {
+    "message": "Stijlen"
+  },
+  "techCatDb": {
+    "message": "Database"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Server"
+  },
+  "techCatNetwork": {
+    "message": "Netwerk"
+  },
+  "techCatSecurity": {
+    "message": "Beveiliging"
+  },
+  "techCatCaching": {
+    "message": "Caching"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analytics"
+  },
+  "techCatAds": {
+    "message": "Advertenties"
+  },
+  "techCatPayment": {
+    "message": "Betaling"
+  },
+  "techCatComm": {
+    "message": "Communicatie"
+  },
+  "techCatMedia": {
+    "message": "Media"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistieken"
+  },
+  "techCatTools": {
+    "message": "Tools"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Afbeeldingen"
+  },
+  "techStatScripts": {
+    "message": "Scripts"
+  },
+  "techStatLinks": {
+    "message": "Links"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formulieren"
+  },
+  "techStatTables": {
+    "message": "Tabellen"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Audio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Voer de directe link naar je favoriete radiostation in"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Veld wissen"
+  },
+  "saveRadioStationBtn": {
+    "message": "STATION OPSLAAN"
   }
 }

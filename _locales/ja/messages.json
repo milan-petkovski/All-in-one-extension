@@ -18,7 +18,13 @@
     "message": "設定"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "ラジオ"
+  },
+  "radioTitleCustom": {
+    "message": "ラジオ"
+  },
+  "importRadioTooltip": {
+    "message": "カスタムラジオ局をインポート"
   },
   "radioArtist": {
     "message": "All In One 拡張機能提供"
@@ -162,19 +168,19 @@
     "message": "すべてのノートを消去してもよろしいですか？"
   },
   "trackerModalTitle": {
-    "message": "ウェブタイムトラッカー"
+    "message": "時間追跡"
   },
   "exportTooltip": {
-    "message": "データをエクスポート"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "データをインポート"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "デイリー表示"
+    "message": "日別表示"
   },
   "trackerModeMonth": {
-    "message": "マンスリー表示"
+    "message": "月別表示"
   },
   "trackerModeAll": {
     "message": "全期間"
@@ -273,7 +279,7 @@
     "message": "その日"
   },
   "trackerSelectedMonth": {
-    "message": "選択した月"
+    "message": "選択された月"
   },
   "trackerTotal": {
     "message": "合計"
@@ -282,19 +288,19 @@
     "message": "この期間のデータはありません"
   },
   "trackerExportEmpty": {
-    "message": "エクスポートするトラッカーデータがありません。"
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "ポップアップの安定性を保つため、エクスポートを10MBに制限しました。"
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "インポートする有効なトラッカーデータがありません。"
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "データが正常にインポートされました！"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "ファイルの読み込み中にエラーが発生しました。"
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "ライブ配信中"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "本当にすべてクリアしますか？"
+  },
+  "trackerTotalShort": {
+    "message": "合計"
+  },
+  "trackerThisMonth": {
+    "message": "今月"
+  },
+  "trackerThisMonthShort": {
+    "message": "今月"
+  },
+  "trackerThatMonth": {
+    "message": "その月"
+  },
+  "trackerAvgThisMonth": {
+    "message": "平均"
+  },
+  "trackerAvgThatMonth": {
+    "message": "平均"
+  },
+  "trackerAvgTotal": {
+    "message": "平均"
+  },
+  "trackerDeleteConfirm": {
+    "message": "データを削除してもよろしいですか"
+  },
+  "techCatBase": {
+    "message": "ベース"
+  },
+  "techCatSystem": {
+    "message": "システム"
+  },
+  "techCatEcom": {
+    "message": "Eコマース"
+  },
+  "techCatTech": {
+    "message": "技術"
+  },
+  "techCatStyles": {
+    "message": "スタイル"
+  },
+  "techCatDb": {
+    "message": "データベース"
+  },
+  "techCatBackend": {
+    "message": "バックエンド"
+  },
+  "techCatServer": {
+    "message": "サーバー"
+  },
+  "techCatNetwork": {
+    "message": "ネットワーク"
+  },
+  "techCatSecurity": {
+    "message": "セキュリティ"
+  },
+  "techCatCaching": {
+    "message": "キャッシュ"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "分析"
+  },
+  "techCatAds": {
+    "message": "広告"
+  },
+  "techCatPayment": {
+    "message": "決済"
+  },
+  "techCatComm": {
+    "message": "通信"
+  },
+  "techCatMedia": {
+    "message": "メディア"
+  },
+  "techCatBuild": {
+    "message": "ビルド"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "統計"
+  },
+  "techCatTools": {
+    "message": "ツール"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "画像"
+  },
+  "techStatScripts": {
+    "message": "スクリプト"
+  },
+  "techStatLinks": {
+    "message": "リンク"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "フォーム"
+  },
+  "techStatTables": {
+    "message": "テーブル"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "動画"
+  },
+  "techStatAudio": {
+    "message": "音声"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "お気に入りのラジオ局への直接リンクを入力してください"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "フィールドをクリア"
+  },
+  "saveRadioStationBtn": {
+    "message": "局を保存"
   }
 }

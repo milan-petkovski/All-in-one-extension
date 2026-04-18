@@ -18,7 +18,13 @@
     "message": "Tetapan"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Import stesen radio tersuai"
   },
   "radioArtist": {
     "message": "Dikuasakan oleh sambungan All In One"
@@ -162,10 +168,10 @@
     "message": "Adakah anda pasti ingin mengosongkan semua nota?"
   },
   "trackerModalTitle": {
-    "message": "PENJEJAK MASA WEB"
+    "message": "Penjejak Masa"
   },
   "exportTooltip": {
-    "message": "Eksport data"
+    "message": "Export data"
   },
   "importTooltip": {
     "message": "Import data"
@@ -273,28 +279,28 @@
     "message": "Hari itu"
   },
   "trackerSelectedMonth": {
-    "message": "Bulan dipilih"
+    "message": "Selected month"
   },
   "trackerTotal": {
     "message": "Jumlah"
   },
   "trackerNoData": {
-    "message": "Tiada data untuk tempoh ini"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "Tiada data penjejak untuk dieksport."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Eksport dipotong kepada 10MB untuk kestabilan."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Tiada data yang sah untuk diimport."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Data berjaya diimport!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Ralat semasa membaca fail."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "SIARAN LANGSUNG BERLANGSUNG"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Adakah anda pasti mahu kosongkan semua?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "Bulan ini"
+  },
+  "trackerThatMonth": {
+    "message": "Bulan itu"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Purata"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Adakah anda pasti mahu memadamkan data untuk"
+  },
+  "techCatBase": {
+    "message": "Asas"
+  },
+  "techCatSystem": {
+    "message": "Sistem"
+  },
+  "techCatEcom": {
+    "message": "E-Dagang"
+  },
+  "techCatTech": {
+    "message": "Teknologi"
+  },
+  "techCatStyles": {
+    "message": "Gaya"
+  },
+  "techCatDb": {
+    "message": "Pangkalan Data"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Pelayan"
+  },
+  "techCatNetwork": {
+    "message": "Rangkaian"
+  },
+  "techCatSecurity": {
+    "message": "Keselamatan"
+  },
+  "techCatCaching": {
+    "message": "Caching"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analitik"
+  },
+  "techCatAds": {
+    "message": "Iklan"
+  },
+  "techCatPayment": {
+    "message": "Pembayaran"
+  },
+  "techCatComm": {
+    "message": "Komunikasi"
+  },
+  "techCatMedia": {
+    "message": "Media"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistik"
+  },
+  "techCatTools": {
+    "message": "Alat"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Imej"
+  },
+  "techStatScripts": {
+    "message": "Skrip"
+  },
+  "techStatLinks": {
+    "message": "Pautan"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Borang"
+  },
+  "techStatTables": {
+    "message": "Jadual"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Audio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Masukkan pautan terus ke stesen radio kegemaran anda"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Kosongkan medan"
+  },
+  "saveRadioStationBtn": {
+    "message": "SIMPAN STESEN"
   }
 }

@@ -18,7 +18,13 @@
     "message": "설정"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "라디오"
+  },
+  "radioTitleCustom": {
+    "message": "라디오"
+  },
+  "importRadioTooltip": {
+    "message": "사용자 정의 라디오 방송국 가져오기"
   },
   "radioArtist": {
     "message": "All In One 제공"
@@ -162,19 +168,19 @@
     "message": "모든 메모를 삭제하시겠습니까?"
   },
   "trackerModalTitle": {
-    "message": "WEBTIME TRACKER"
+    "message": "시간 추적기"
   },
   "exportTooltip": {
-    "message": "데이터 내보내기"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "데이터 가져오기"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "일별 보기"
+    "message": "일일 보기"
   },
   "trackerModeMonth": {
-    "message": "월별 보기"
+    "message": "월간 보기"
   },
   "trackerModeAll": {
     "message": "전체 기간"
@@ -270,7 +276,7 @@
     "message": "오늘"
   },
   "trackerThatDay": {
-    "message": "해당 날짜"
+    "message": "그날"
   },
   "trackerSelectedMonth": {
     "message": "선택된 월"
@@ -279,22 +285,22 @@
     "message": "합계"
   },
   "trackerNoData": {
-    "message": "이 기간에 대한 데이터가 없습니다"
+    "message": "이 기간에 데이터가 없습니다"
   },
   "trackerExportEmpty": {
-    "message": "내보낼 트래커 데이터가 없습니다."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "안정성을 위해 내보내기 용량을 10MB로 제한했습니다."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "가져올 유효한 트래커 데이터가 없습니다."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "데이터를 성공적으로 가져왔습니다!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "파일을 읽는 중 오류가 발생했습니다."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "라이브 중"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "정말 모두 지우시겠습니까?"
+  },
+  "trackerTotalShort": {
+    "message": "합계"
+  },
+  "trackerThisMonth": {
+    "message": "이번 달"
+  },
+  "trackerThisMonthShort": {
+    "message": "이번 달"
+  },
+  "trackerThatMonth": {
+    "message": "그 달"
+  },
+  "trackerAvgThisMonth": {
+    "message": "평균"
+  },
+  "trackerAvgThatMonth": {
+    "message": "평균"
+  },
+  "trackerAvgTotal": {
+    "message": "평균"
+  },
+  "trackerDeleteConfirm": {
+    "message": "데이터를 삭제하시겠습니까"
+  },
+  "techCatBase": {
+    "message": "기본"
+  },
+  "techCatSystem": {
+    "message": "시스템"
+  },
+  "techCatEcom": {
+    "message": "전자상거래"
+  },
+  "techCatTech": {
+    "message": "기술"
+  },
+  "techCatStyles": {
+    "message": "스타일"
+  },
+  "techCatDb": {
+    "message": "데이터베이스"
+  },
+  "techCatBackend": {
+    "message": "백엔드"
+  },
+  "techCatServer": {
+    "message": "서버"
+  },
+  "techCatNetwork": {
+    "message": "네트워크"
+  },
+  "techCatSecurity": {
+    "message": "보안"
+  },
+  "techCatCaching": {
+    "message": "캐싱"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "분석"
+  },
+  "techCatAds": {
+    "message": "광고"
+  },
+  "techCatPayment": {
+    "message": "결제"
+  },
+  "techCatComm": {
+    "message": "통신"
+  },
+  "techCatMedia": {
+    "message": "미디어"
+  },
+  "techCatBuild": {
+    "message": "빌드"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "통계"
+  },
+  "techCatTools": {
+    "message": "도구"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "이미지"
+  },
+  "techStatScripts": {
+    "message": "스크립트"
+  },
+  "techStatLinks": {
+    "message": "링크"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "양식"
+  },
+  "techStatTables": {
+    "message": "표"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "비디오"
+  },
+  "techStatAudio": {
+    "message": "오디오"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "즐겨찾는 라디오 방송국의 직접 링크를 입력하세요"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "필드 지우기"
+  },
+  "saveRadioStationBtn": {
+    "message": "방송국 저장"
   }
 }

@@ -18,7 +18,13 @@
     "message": "Настройки"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Радио"
+  },
+  "radioTitleCustom": {
+    "message": "Радио"
+  },
+  "importRadioTooltip": {
+    "message": "Импортировать пользовательскую радиостанцию"
   },
   "radioArtist": {
     "message": "При поддержке расширения All In One"
@@ -162,22 +168,22 @@
     "message": "Вы уверены что хотите очистить все заметки?"
   },
   "trackerModalTitle": {
-    "message": "WEBTIME TRACKER"
+    "message": "Время на сайтах"
   },
   "exportTooltip": {
-    "message": "Экспорт данных"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Импорт данных"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "Дневной вид"
+    "message": "Дневной просмотр"
   },
   "trackerModeMonth": {
-    "message": "Месячный вид"
+    "message": "Месячный просмотр"
   },
   "trackerModeAll": {
-    "message": "За все время"
+    "message": "За всё время"
   },
   "trackerTodayLabel": {
     "message": "Сегодня"
@@ -282,19 +288,19 @@
     "message": "Нет данных за этот период"
   },
   "trackerExportEmpty": {
-    "message": "Нет данных для экспорта."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Экспорт ограничен до 10МБ для стабильности окна."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Нет валидных данных для импорта."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Данные успешно импортированы!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Ошибка при чтении файла."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "ИДЕТ ЗАПИСЬ"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Вы уверены, что хотите очистить всё?"
+  },
+  "trackerTotalShort": {
+    "message": "Всего"
+  },
+  "trackerThisMonth": {
+    "message": "Этот месяц"
+  },
+  "trackerThisMonthShort": {
+    "message": "Этот месяц"
+  },
+  "trackerThatMonth": {
+    "message": "Тот месяц"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Среднее"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Среднее"
+  },
+  "trackerAvgTotal": {
+    "message": "Среднее"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Вы уверены, что хотите удалить данные для"
+  },
+  "techCatBase": {
+    "message": "База"
+  },
+  "techCatSystem": {
+    "message": "Система"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Технологии"
+  },
+  "techCatStyles": {
+    "message": "Стили"
+  },
+  "techCatDb": {
+    "message": "База данных"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Сервер"
+  },
+  "techCatNetwork": {
+    "message": "Сеть"
+  },
+  "techCatSecurity": {
+    "message": "Безопасность"
+  },
+  "techCatCaching": {
+    "message": "Кэширование"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Аналитика"
+  },
+  "techCatAds": {
+    "message": "Реклама"
+  },
+  "techCatPayment": {
+    "message": "Платежи"
+  },
+  "techCatComm": {
+    "message": "Коммуникация"
+  },
+  "techCatMedia": {
+    "message": "Медиа"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Статистика"
+  },
+  "techCatTools": {
+    "message": "Инструменты"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Изображения"
+  },
+  "techStatScripts": {
+    "message": "Скрипты"
+  },
+  "techStatLinks": {
+    "message": "Ссылки"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Формы"
+  },
+  "techStatTables": {
+    "message": "Таблицы"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Видео"
+  },
+  "techStatAudio": {
+    "message": "Аудио"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Введите прямую ссылку на любимую радиостанцию"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Очистить поле"
+  },
+  "saveRadioStationBtn": {
+    "message": "СОХРАНИТЬ СТАНЦИЮ"
   }
 }

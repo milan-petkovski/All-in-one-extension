@@ -18,7 +18,13 @@
     "message": "設定"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "廣播"
+  },
+  "radioTitleCustom": {
+    "message": "廣播"
+  },
+  "importRadioTooltip": {
+    "message": "匯入自訂廣播電台"
   },
   "radioArtist": {
     "message": "由 All In One 擴充功能提供支持"
@@ -162,22 +168,22 @@
     "message": "刪除所有？"
   },
   "trackerModalTitle": {
-    "message": "追踪器"
+    "message": "時間追蹤器"
   },
   "exportTooltip": {
-    "message": "匯出"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "匯入"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "日視圖"
+    "message": "日檢視"
   },
   "trackerModeMonth": {
-    "message": "月視圖"
+    "message": "月檢視"
   },
   "trackerModeAll": {
-    "message": "總覽"
+    "message": "全部時間"
   },
   "trackerTodayLabel": {
     "message": "今天"
@@ -270,31 +276,31 @@
     "message": "今天"
   },
   "trackerThatDay": {
-    "message": "當日"
+    "message": "那天"
   },
   "trackerSelectedMonth": {
-    "message": "選中月"
+    "message": "選定的月份"
   },
   "trackerTotal": {
-    "message": "共計"
+    "message": "總計"
   },
   "trackerNoData": {
-    "message": "暫無數據"
+    "message": "此期間無數據"
   },
   "trackerExportEmpty": {
-    "message": "無數據"
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "限額10MB"
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "無效數據"
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "匯入成功"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "讀取失敗"
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "運行中"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "您確定要全部清除嗎？"
+  },
+  "trackerTotalShort": {
+    "message": "總計"
+  },
+  "trackerThisMonth": {
+    "message": "本月"
+  },
+  "trackerThisMonthShort": {
+    "message": "本月"
+  },
+  "trackerThatMonth": {
+    "message": "該月"
+  },
+  "trackerAvgThisMonth": {
+    "message": "平均"
+  },
+  "trackerAvgThatMonth": {
+    "message": "平均"
+  },
+  "trackerAvgTotal": {
+    "message": "平均"
+  },
+  "trackerDeleteConfirm": {
+    "message": "確定要刪除資料嗎"
+  },
+  "techCatBase": {
+    "message": "基礎"
+  },
+  "techCatSystem": {
+    "message": "系統"
+  },
+  "techCatEcom": {
+    "message": "電子商務"
+  },
+  "techCatTech": {
+    "message": "技術"
+  },
+  "techCatStyles": {
+    "message": "樣式"
+  },
+  "techCatDb": {
+    "message": "資料庫"
+  },
+  "techCatBackend": {
+    "message": "後端"
+  },
+  "techCatServer": {
+    "message": "伺服器"
+  },
+  "techCatNetwork": {
+    "message": "網路"
+  },
+  "techCatSecurity": {
+    "message": "安全性"
+  },
+  "techCatCaching": {
+    "message": "快取"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "分析"
+  },
+  "techCatAds": {
+    "message": "廣告"
+  },
+  "techCatPayment": {
+    "message": "付款"
+  },
+  "techCatComm": {
+    "message": "通訊"
+  },
+  "techCatMedia": {
+    "message": "媒體"
+  },
+  "techCatBuild": {
+    "message": "建置"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "統計資料"
+  },
+  "techCatTools": {
+    "message": "工具"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "圖片"
+  },
+  "techStatScripts": {
+    "message": "指令碼"
+  },
+  "techStatLinks": {
+    "message": "連結"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "表單"
+  },
+  "techStatTables": {
+    "message": "表格"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "影片"
+  },
+  "techStatAudio": {
+    "message": "音訊"
+  },
+  "techStatIframes": {
+    "message": "框架"
+  },
+  "radioModalDesc": {
+    "message": "輸入您喜愛的廣播電台直鏈"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "清除欄位"
+  },
+  "saveRadioStationBtn": {
+    "message": "儲存電台"
   }
 }

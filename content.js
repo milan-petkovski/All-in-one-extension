@@ -1,19 +1,56 @@
-// Universal event tracking function (local + Google Analytics)
-const GA_MEASUREMENT_ID = "G-F52S6J4TZV";
-const GA_API_SECRET = "j09W3gL-TImYVi2ZE7rHxA";
-const GA_ENDPOINT = `https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${GA_API_SECRET}`;
+// Sistem stranica detekcija i blok overlay
+const isSystemPage = () => {
+  const url = window.location.href;
+  return (
+    url.startsWith("chrome://") ||
+    url.startsWith("edge://") ||
+    url.startsWith("about:") ||
+    url.startsWith("file://") ||
+    url.startsWith("devtools://") ||
+    url.startsWith("view-source:")
+  );
+};
 
+if (isSystemPage()) {
+  // Prikazi katanac SVG i tekstualni overlay kao u HTML/CSS
+  const style = document.createElement('style');
+  style.textContent = `
+    html, body {
+      background: #181818 !important;
+      color: #fff !important;
+      margin: 0; padding: 0; height: 100vh; width: 100vw;
+      overflow: hidden !important;
+    }
+    #aio-system-block {
+      position: fixed; z-index: 2147483647; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: #181818; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: 'Segoe UI', Arial, sans-serif; font-size: 2.2rem; letter-spacing: 1px;
+    }
+    #aio-system-block svg {
+      width: 80px; height: 80px; margin-bottom: 32px;
+      display: block;
+    }
+    #aio-system-block small { font-size: 1.1rem; color: #aaa; margin-top: 1.5rem; }
+  `;
+  document.head.appendChild(style);
+  const overlay = document.createElement('div');
+  overlay.id = 'aio-system-block';
+  overlay.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+      <rect x="3" y="11" width="18" height="10" rx="2" fill="#222" stroke="#fff"/>
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#fff"/>
+      <circle cx="12" cy="16" r="2" fill="#fff"/>
+    </svg>
+    <div>Sistemska stranica je blokirana</div>
+    <small>Ekstenzije ne mogu raditi na ovim stranicama zbog ograničenja browsera.</small>
+  `;
+  document.body.innerHTML = '';
+  document.body.appendChild(overlay);
+  // Stop further script execution
+  throw new Error('AIO: System page blocked');
+}
+// Analitika i lokalni eventStats obrađuje isključivo background.js (jedan izvor istine).
 function trackEvent(eventName, eventData = {}) {
-  // Local stats (for future UI)
-  try {
-    chrome.storage.local.get(["eventStats"], (res) => {
-      const stats = res.eventStats || {};
-      stats[eventName] = (stats[eventName] || 0) + 1;
-      chrome.storage.local.set({ eventStats: stats });
-    });
-  } catch { }
-
-  // Google Analytics event - šalji poruku background-u
   try {
     chrome.runtime.sendMessage({
       action: "aio_track_event",
@@ -38,10 +75,12 @@ function getI18nMsg(key, defaultText) {
 }
 
 const host = window.location.hostname;
-const copyEvents = ["contextmenu", "copy", "cut", "paste", "selectstart", "mousedown", "mouseup"];
+const copyEvents = ["contextmenu", "copy", "cut", "paste", "selectstart"];
 const stopBlockedEvent = (e) => e.stopImmediatePropagation();
 let cookieObserver = null;
 let cookieScanTimer = null;
+// PERFORMANCE FIX: WeakMap to cache processed media elements
+window.aioMediaCache = window.aioMediaCache || new WeakMap();
 
 const hideCookieElement = (el) => {
   if (!el || el.dataset?.aioCookieHidden === "1") return;
@@ -66,152 +105,109 @@ const applyMasterVolume = (rawValue) => {
   const safeRaw = Number.isFinite(Number(rawValue)) ? Number(rawValue) : 100;
   const clampedRaw = Math.max(0, Math.min(safeRaw, 1000));
   const multiplier = Math.max(0, clampedRaw / 100);
-  const gainValue = clampedRaw > 100 ? Math.max(1, Math.min(clampedRaw / 100, 10)) : 1;
+
+  // PERFORMANCE FIX: Disconnect observer when volume is at default (100)
+  // Only observe DOM changes when volume is actually being modified
+  if (clampedRaw === 100) {
+    // Still need to reset gain to 1.0 even when disconnecting observer
+    if (window.aioVolGain) {
+      try {
+        window.aioVolGain.gain.setTargetAtTime(1.0, window.aioVolCtx?.currentTime || 0, 0.01);
+      } catch (_) { }
+    }
+    if (window.aioVolObserver) {
+      window.aioVolObserver.disconnect();
+      window.aioVolObserver = null;
+    }
+    return;
+  }
 
   try {
-    if (!window.aioBaseMediaVolumes) {
-      window.aioBaseMediaVolumes = new WeakMap();
-    }
-
-    const ensureBaseline = (media) => {
-      if (!window.aioBaseMediaVolumes.has(media)) {
-        const initialVol = Number.isFinite(media.volume) ? media.volume : 1;
-        const safeInitial = Math.max(0, Math.min(initialVol, 1));
-        window.aioBaseMediaVolumes.set(media, safeInitial);
-      }
-
-      if (!media.aioVolBaselineListenerAttached) {
-        media.aioVolBaselineListenerAttached = true;
-        media.addEventListener("volumechange", () => {
-          if (window.aioVolInternalWrite) return;
-          if (window.aioCurrentRawVolume !== 100) return;
-          const liveVol = Number(media.volume);
-          if (!Number.isFinite(liveVol)) return;
-          window.aioBaseMediaVolumes.set(media, Math.max(0, Math.min(liveVol, 1)));
-        }, true);
-      }
-
-      return window.aioBaseMediaVolumes.get(media);
-    };
-
     window.aioCurrentRawVolume = clampedRaw;
-    window.aioVolInternalWrite = true;
-    document.querySelectorAll("audio, video").forEach((media) => {
-      try {
-        const baseVol = ensureBaseline(media);
-        const targetVol = clampedRaw > 100 ? baseVol : Math.max(0, Math.min(baseVol * multiplier, 1));
-        media.volume = targetVol;
-      } catch (e) {
-        // Ignore element-level failures.
-      }
-    });
-    window.aioVolInternalWrite = false;
-
-    // In regular range, do not initialize/resume WebAudio context.
-    if (clampedRaw <= 100) {
-      if (window.aioVolObserver) {
-        window.aioVolObserver.disconnect();
-        window.aioVolObserver = null;
-      }
-      if (window.aioVolGain) window.aioVolGain.gain.value = 1;
-      return;
-    }
 
     if (!window.aioVolCtx) {
       window.aioVolCtx = new (window.AudioContext || window.webkitAudioContext)();
       window.aioVolGain = window.aioVolCtx.createGain();
       window.aioVolGain.connect(window.aioVolCtx.destination);
-      window.aioConnectedMedias = new Set();
     }
-
-    const registerUnlock = () => {
-      if (window.aioVolUnlockRegistered) return;
-      window.aioVolUnlockRegistered = true;
-
-      const unlock = () => {
-        if (window.aioVolCtx && window.aioVolCtx.state === "suspended") {
-          window.aioVolCtx.resume().catch(() => { });
-        }
-        window.aioVolUnlockRegistered = false;
-      };
-
-      document.addEventListener("pointerdown", unlock, { once: true, capture: true });
-      document.addEventListener("keydown", unlock, { once: true, capture: true });
-      document.addEventListener("touchstart", unlock, { once: true, capture: true });
-    };
 
     if (window.aioVolCtx.state === "suspended") {
-      registerUnlock();
+      const resume = () => { if (window.aioVolCtx.state === "suspended") window.aioVolCtx.resume(); };
+      ["pointerdown", "keydown", "click", "touchstart"].forEach(ev => document.addEventListener(ev, resume, { once: true, capture: true }));
     }
 
-    window.aioVolGain.gain.value = gainValue;
+    // Apply multiplier as a pure independent gain stage
+    window.aioVolGain.gain.setTargetAtTime(multiplier, window.aioVolCtx.currentTime, 0.01);
 
-    const connectAllMedia = () => {
+    const connectMedia = () => {
       document.querySelectorAll("audio, video").forEach((media) => {
-        if (window.aioConnectedMedias.has(media)) return;
+        // PERFORMANCE FIX: Use WeakMap to check if already processed
+        if (window.aioMediaCache.has(media)) return;
+
         try {
+          // Attempt to fix CORS mute issue for cross-origin streams
+          if (media.src && media.src.startsWith('http')) {
+            const url = new URL(media.src);
+            if (url.origin !== window.location.origin && !media.crossOrigin) {
+              media.crossOrigin = "anonymous";
+            }
+          }
+
           const source = window.aioVolCtx.createMediaElementSource(media);
           source.connect(window.aioVolGain);
-          window.aioConnectedMedias.add(media);
+          // PERFORMANCE FIX: Mark as processed in WeakMap
+          window.aioMediaCache.set(media, true);
         } catch (e) {
-          // Element can fail if already wired by browser/page internals.
+          // If createMediaElementSource fails, mark as processed anyway to avoid retry
+          window.aioMediaCache.set(media, true);
         }
       });
     };
 
-    connectAllMedia();
-
-    if (!window.aioVolObserver && document.documentElement) {
-      window.aioVolObserver = new MutationObserver(connectAllMedia);
+    connectMedia();
+    // PERFORMANCE FIX: Only create observer if volume != 100
+    if (!window.aioVolObserver && document.documentElement && clampedRaw !== 100) {
+      window.aioVolObserver = new MutationObserver(connectMedia);
       window.aioVolObserver.observe(document.documentElement, { childList: true, subtree: true });
     }
   } catch (e) {
-    window.aioVolInternalWrite = false;
-    try {
-      document.querySelectorAll("audio, video").forEach((media) => {
-        media.volume = Math.max(0, Math.min(media.volume * multiplier, 1));
-      });
-    } catch (_) { }
+    // Global failure fallback
   }
 };
 
 const syncVolumeFromStorage = () => {
   chrome.storage.local.get(["ytToggle", "global_vol", host + "_vol"], (res) => {
-    trackEvent("sinhronizacija zvuka");
-    if (!res.ytToggle) {
-      applyMasterVolume(100);
-      return;
-    }
-
     applyMasterVolume(getEffectiveVolume(res));
   });
 };
 
 // Funkcija za Dark Mode preko CSS injekcije (najbrži i najčistiji način)
-const applyDark = (on) => {
+const applyDark = (on, isToggle = false) => {
   trackEvent(on ? "tamni režim uključen" : "tamni režim isključen");
   let style = document.getElementById("aio-dark-style");
   let transitionStyle = document.getElementById("aio-dark-transition");
   const isDarkAlreadyActive = !!style;
 
   if (on) {
-    // Ako je već active, ne radi ništa (duplo-zaštita)
     if (isDarkAlreadyActive) return;
 
-    // Provera da li je sajt već u dark modu
     let isSiteAlreadyDark = false;
     const html = document.documentElement;
+    const body = document.body;
 
-    // Eksplicitne dark mode klase/atributi
-    if (html.classList.contains('dark') ||
-      html.getAttribute('data-theme') === 'dark' ||
-      document.body.classList.contains('dark-mode') ||
-      html.getAttribute('data-color-mode') === 'dark') {
+    const themeAttr = [
+      html.getAttribute('data-theme'), html.getAttribute('data-color-mode'),
+      html.getAttribute('data-bs-theme'), html.getAttribute('theme'),
+      body?.getAttribute('data-theme'), body?.getAttribute('theme')
+    ].join(' ').toLowerCase();
+
+    const classStr = ((html.className || "") + " " + (body?.className || "")).toLowerCase();
+
+    if (themeAttr.includes('dark') || classStr.includes('dark') || classStr.includes('night') || themeAttr.includes('night')) {
       isSiteAlreadyDark = true;
     } else {
-      // Probaj da detektuješ background boju sa fallback opcijama
       let bgColor = null;
-      let elements = [document.body, html, document.documentElement, document.querySelector('main'), document.querySelector('[role="application"]')];
+      let elements = [body, html, document.querySelector('main'), document.querySelector('[role="application"]'), document.querySelector('#root'), document.querySelector('#__next')];
 
       for (let el of elements) {
         if (!el) continue;
@@ -222,28 +218,25 @@ const applyDark = (on) => {
         }
       }
 
-      // Ako nije pronašao nigdje, koristi bijelu kao fallback (za light sajtove)
-      if (!bgColor) {
-        bgColor = 'rgb(255, 255, 255)'; // Pretpostavi bijelu stranicu
-      }
+      if (!bgColor) bgColor = 'rgb(255, 255, 255)';
 
       const rgb = bgColor.match(/\d+/g);
       if (rgb && rgb.length >= 3) {
-        // Luminocity formula (ITU-R BT.601)
         const luma = 0.299 * parseInt(rgb[0]) + 0.587 * parseInt(rgb[1]) + 0.114 * parseInt(rgb[2]);
         if (luma < 128) isSiteAlreadyDark = true;
       }
     }
 
-    // Ako je site vec dark, ne primenjuj filter
     if (isSiteAlreadyDark) return;
 
-    // Dodaj transition za smooth prelaz
-    if (!transitionStyle) {
+    if (isToggle && !transitionStyle) {
       transitionStyle = document.createElement("style");
       transitionStyle.id = "aio-dark-transition";
+      // Performanse: Ne stavljamo transition na * jer to ubija FPS na velikim DOM stablima
       transitionStyle.innerHTML = `
-        * { transition: filter 0.4s ease, background-color 0.4s ease !important; }
+        html, body, img, video, iframe, canvas, svg, picture, [style*="background-image"] {
+          transition: filter 0.3s ease, background-color 0.3s ease !important;
+        }
       `;
       (document.head || document.documentElement).appendChild(transitionStyle);
     }
@@ -252,8 +245,19 @@ const applyDark = (on) => {
       style = document.createElement("style");
       style.id = "aio-dark-style";
       style.innerHTML = `
-        html { filter: invert(1) hue-rotate(180deg) !important; background: #fff; }
-        img, video, iframe, canvas { filter: invert(1) hue-rotate(180deg) !important; }
+        html { 
+          filter: invert(1) hue-rotate(180deg) !important; 
+          background: #fff !important; 
+          color-scheme: dark !important; 
+        }
+        /* Vraćanje slika i videa u normalu */
+        img, video, iframe, canvas, svg, picture, [style*="background-image"] { 
+          filter: invert(1) hue-rotate(180deg) !important; 
+        }
+        /* Sprečavanje duplog invertovanja za ugnježdene elemente */
+        img *, video *, iframe *, canvas *, svg *, picture *, [style*="background-image"] * {
+          filter: none !important;
+        }
       `;
       (document.head || document.documentElement).appendChild(style);
     }
@@ -294,10 +298,39 @@ const disableCopy = () => {
   if (style) style.remove();
 };
 
+// Privremeni "Blanket" stil koji sprečava beli bljesak (FOUC) dok se ucitava ekstenzija
+let foucStyle = document.createElement("style");
+foucStyle.id = "aio-fouc-style";
+foucStyle.innerHTML = `html { background-color: #121212 !important; } html * { visibility: hidden !important; }`;
+if (document.documentElement) {
+  document.documentElement.appendChild(foucStyle);
+}
+
+// PERFORMANCE FIX: Flag to prevent double initialization
+window.aioInitialized = window.aioInitialized || false;
+
 // Inicijalna provera pri učitavanju stranice
 const initializeFeatures = () => {
+  // PERFORMANCE FIX: Prevent double initialization
+  if (window.aioInitialized) return;
+  window.aioInitialized = true;
+
   chrome.storage.local.get([host, "nightToggle", "ytToggle", "global_vol", host + "_vol"], (res) => {
-    if (res.nightToggle) applyDark(true);
+    // Ako je dark mode ISKLJUČEN, odmah uklanjamo blanket da ne blokiramo svetli sajt
+    if (!res.nightToggle && foucStyle) {
+      foucStyle.remove();
+      foucStyle = null;
+    }
+
+    if (res.nightToggle) {
+      // KRITIČNO: Moramo ukloniti zavesu PRE nego što applyDark proveri boje!
+      // U suprotnom, applyDark će pročitati '#121212' od zavese i pomisliti da je sajt već taman.
+      if (foucStyle) {
+        foucStyle.remove();
+        foucStyle = null;
+      }
+      applyDark(true, false); // isToggle = false, bez animacije za instant ucitavanje
+    }
 
     if (res[host]) {
       enableCopy();
@@ -305,15 +338,17 @@ const initializeFeatures = () => {
       disableCopy();
     }
 
-    if (res.ytToggle) {
-      applyMasterVolume(getEffectiveVolume(res));
-    }
+    applyMasterVolume(getEffectiveVolume(res));
   });
 };
 
-// Pokreni kad je DOM spreman
+// Čekamo DOMContentLoaded kako bi logika za prepoznavanje "već tamnih sajtova"
+// mogla uspesno da procita document.body i background color!
+// Tokom ovog čekanja, foucStyle (crni ekran) štiti oči od belog bljeska.
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initializeFeatures);
+  // PERFORMANCE FIX: Reduced backup timeout from 1500ms to 800ms
+  setTimeout(() => { if (foucStyle && !window.aioInitialized) initializeFeatures(); }, 800);
 } else {
   initializeFeatures();
 }
@@ -321,7 +356,7 @@ if (document.readyState === "loading") {
 // Slušanje promena u realnom vremenu (da odmah reaguje na klik u popupu)
 chrome.storage.onChanged.addListener((changes) => {
   if (changes.nightToggle !== undefined) {
-    applyDark(changes.nightToggle.newValue);
+    applyDark(changes.nightToggle.newValue, true); // isToggle = true, sa animacijom
   }
 
   if (changes[host] !== undefined) {
@@ -339,6 +374,13 @@ chrome.storage.onChanged.addListener((changes) => {
   }
 });
 
+// PERFORMANCE FIX: Debounced cookie scan to prevent excessive DOM queries
+let cookieScanDebounceId = null;
+const debouncedCookieScan = () => {
+  if (cookieScanDebounceId) clearTimeout(cookieScanDebounceId);
+  cookieScanDebounceId = setTimeout(killCookies, 100);
+};
+
 const killCookies = () => {
   const selectors = [
     '[id*="cookie"]', '[class*="cookie"]',
@@ -351,47 +393,6 @@ const killCookies = () => {
     '[aria-label*="cookie" i]', '[aria-label*="consent" i]',
     '.fc-consent-root', '.qc-cmp2-container', '.qc-cmp2-ui'
   ];
-
-  selectors.forEach((s) => {
-    document.querySelectorAll(s).forEach((el) => hideCookieElement(el));
-  });
-
-  // Heuristic fallback for banners/modals that use generic class names (example: z-modal style wrappers).
-  const textRe = /(cookie|cookies|consent|gdpr|accept all|allow all|cookie settings|privacy settings)/i;
-  const actionRe = /(cookie|consent|privacy|settings|onetrust|cmp|gdpr)/i;
-  const candidates = document.querySelectorAll('div, section, aside, [role="dialog"], [aria-modal="true"]');
-
-  candidates.forEach((el) => {
-    const text = (el.innerText || "").trim();
-    if (text.length < 20 || text.length > 3000) return;
-    if (!textRe.test(text)) return;
-
-    const style = window.getComputedStyle(el);
-    const z = Number.parseInt(style.zIndex || "0", 10);
-    const isOverlayLike = style.position === "fixed" || style.position === "sticky" || Number.isFinite(z) && z >= 900;
-    if (!isOverlayLike) return;
-
-    const actions = el.querySelectorAll('button, [role="button"], input[type="button"], input[type="submit"], a');
-    if (!actions.length) return;
-
-    const hasCookieAction = Array.from(actions).some((node) => {
-      const txt = [
-        node.textContent || "",
-        node.getAttribute?.("aria-label") || "",
-        node.getAttribute?.("data-testid") || ""
-      ].join(" ");
-      return actionRe.test(txt);
-    });
-
-    if (hasCookieAction) {
-      hideCookieElement(el);
-    }
-  });
-};
-
-const enableCookieBlock = () => {
-  trackEvent("kolačići blokirani");
-  killCookies();
 
   if (!document.getElementById("aio-cookie-hide-style")) {
     const style = document.createElement("style");
@@ -412,19 +413,25 @@ const enableCookieBlock = () => {
 
   if (cookieObserver) return;
 
-  const scheduleCookieCleanup = () => {
-    if (cookieScanTimer) return;
-    cookieScanTimer = setTimeout(() => {
-      cookieScanTimer = null;
-      killCookies();
-    }, 120);
+  // Debounced callback for MutationObserver using requestAnimationFrame
+  let cookieCleanupDebounceId = null;
+  const debouncedCookieCleanup = () => {
+    if (cookieCleanupDebounceId) clearTimeout(cookieCleanupDebounceId);
+    cookieCleanupDebounceId = setTimeout(() => {
+      requestAnimationFrame(killCookies);
+    }, 150);
   };
 
-  cookieObserver = new MutationObserver(scheduleCookieCleanup);
+  cookieObserver = new MutationObserver(debouncedCookieCleanup);
   cookieObserver.observe(document.documentElement, {
     childList: true,
     subtree: true
   });
+};
+
+const enableCookieBlock = () => {
+  trackEvent("kolačići blokirani");
+  debouncedCookieScan();
 };
 
 const disableCookieBlock = () => {
@@ -471,28 +478,46 @@ if (window.top === window && location.protocol.startsWith("http")) {
     }
   };
 
-  const safeRuntimeSendMessage = (payload) => {
-    if (!chrome?.runtime?.id) return;
+  // Bezbednosni bafer: ako service worker ne odgovori, sekunde se čuvaju ovde
+  // i background.js ih pokupi na sledećem alarm tick-u (max 30s kašnjenja).
+  const saveToEmergencyBuffer = (domain, seconds) => {
     try {
-      const maybePromise = chrome.runtime.sendMessage(payload);
-      if (maybePromise && typeof maybePromise.catch === "function") {
-        maybePromise.catch(() => { });
-      }
-    } catch (_) {
-      // Extension context can be invalidated after reload/update.
-    }
+      chrome.storage.local.get(['tracker_buffer'], (res) => {
+        if (chrome.runtime.lastError) return;
+        const buffer = (res.tracker_buffer && typeof res.tracker_buffer === 'object' && !Array.isArray(res.tracker_buffer))
+          ? res.tracker_buffer : {};
+        buffer[domain] = (Number(buffer[domain]) || 0) + seconds;
+        chrome.storage.local.set({ tracker_buffer: buffer }).catch(() => { });
+      });
+    } catch (_) { }
   };
 
   const sendHeartbeatSeconds = (totalSeconds) => {
-    let remaining = Math.max(0, Math.floor(Number(totalSeconds) || 0));
-    while (remaining > 0) {
-      const chunk = Math.min(remaining, MAX_HEARTBEAT_CHUNK_SEC);
-      safeRuntimeSendMessage({
-        action: "tracker_heartbeat",
-        domain: location.hostname,
-        seconds: chunk
-      });
-      remaining -= chunk;
+    // PERFORMANCE FIX: Send one message with all seconds instead of chunking
+    const seconds = Math.max(0, Math.floor(Number(totalSeconds) || 0));
+    if (seconds <= 0) return;
+
+    const domain = location.hostname;
+
+    // Pokušaj slanje service workeru, sa fallback-om na emergency buffer
+    if (chrome?.runtime?.id) {
+      try {
+        const p = chrome.runtime.sendMessage({
+          action: "tracker_heartbeat",
+          domain: domain,
+          seconds: seconds
+        });
+        if (p && typeof p.catch === "function") {
+          // Ako service worker ne odgovori (spava/mrtav), sačuvaj u bafer
+          p.catch(() => saveToEmergencyBuffer(domain, seconds));
+        }
+      } catch (_) {
+        // Extension context invalidiran — spasi u bafer
+        saveToEmergencyBuffer(domain, seconds);
+      }
+    } else {
+      // chrome.runtime.id ne postoji — spasi u bafer
+      saveToEmergencyBuffer(domain, seconds);
     }
   };
 

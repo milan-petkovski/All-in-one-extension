@@ -18,7 +18,13 @@
     "message": "Cài đặt"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Nhập đài radio tùy chỉnh"
   },
   "radioArtist": {
     "message": "Cung cấp bởi tiện ích All In One"
@@ -162,13 +168,13 @@
     "message": "Bạn có chắc chắn muốn xóa tất cả ghi chú không?"
   },
   "trackerModalTitle": {
-    "message": "THEO DÕI THỜI GIAN WEB"
+    "message": "Theo dõi thời gian"
   },
   "exportTooltip": {
-    "message": "Xuất dữ liệu"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Nhập dữ liệu"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Xem theo ngày"
@@ -177,7 +183,7 @@
     "message": "Xem theo tháng"
   },
   "trackerModeAll": {
-    "message": "Toàn bộ thời gian"
+    "message": "Tất cả thời gian"
   },
   "trackerTodayLabel": {
     "message": "Hôm nay"
@@ -270,7 +276,7 @@
     "message": "Hôm nay"
   },
   "trackerThatDay": {
-    "message": "Ngày đó"
+    "message": "Hôm đó"
   },
   "trackerSelectedMonth": {
     "message": "Tháng đã chọn"
@@ -279,22 +285,22 @@
     "message": "Tổng cộng"
   },
   "trackerNoData": {
-    "message": "Không có dữ liệu cho khoảng thời gian này"
+    "message": "Không có dữ liệu cho giai đoạn này"
   },
   "trackerExportEmpty": {
-    "message": "Không có dữ liệu theo dõi để xuất."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Dữ liệu xuất được giới hạn ở mức 10MB để đảm bảo ổn định."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Không có dữ liệu theo dõi hợp lệ để nhập."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Đã nhập dữ liệu thành công!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Lỗi khi đọc tệp."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "ĐANG CHẠY TRỰC TIẾP"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Bạn có chắc chắn muốn xóa tất cả không?"
+  },
+  "trackerTotalShort": {
+    "message": "Tổng cộng"
+  },
+  "trackerThisMonth": {
+    "message": "Tháng này"
+  },
+  "trackerThisMonthShort": {
+    "message": "Tháng này"
+  },
+  "trackerThatMonth": {
+    "message": "Tháng đó"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Trung bình"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Trung bình"
+  },
+  "trackerAvgTotal": {
+    "message": "Trung bình"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Bạn có chắc chắn muốn xóa dữ liệu cho"
+  },
+  "techCatBase": {
+    "message": "Cơ bản"
+  },
+  "techCatSystem": {
+    "message": "Hệ thống"
+  },
+  "techCatEcom": {
+    "message": "Thương mại điện tử"
+  },
+  "techCatTech": {
+    "message": "Công nghệ"
+  },
+  "techCatStyles": {
+    "message": "Kiểu dáng"
+  },
+  "techCatDb": {
+    "message": "Cơ sở dữ liệu"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Máy chủ"
+  },
+  "techCatNetwork": {
+    "message": "Mạng"
+  },
+  "techCatSecurity": {
+    "message": "Bảo mật"
+  },
+  "techCatCaching": {
+    "message": "Bộ nhớ đệm"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Phân tích"
+  },
+  "techCatAds": {
+    "message": "Quảng cáo"
+  },
+  "techCatPayment": {
+    "message": "Thanh toán"
+  },
+  "techCatComm": {
+    "message": "Giao tiếp"
+  },
+  "techCatMedia": {
+    "message": "Truyền thông"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Thống kê"
+  },
+  "techCatTools": {
+    "message": "Công cụ"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Hình ảnh"
+  },
+  "techStatScripts": {
+    "message": "Kịch bản"
+  },
+  "techStatLinks": {
+    "message": "Liên kết"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Biểu mẫu"
+  },
+  "techStatTables": {
+    "message": "Bảng"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Âm thanh"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Nhập liên kết trực tiếp đến đài radio yêu thích của bạn"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Xóa trường"
+  },
+  "saveRadioStationBtn": {
+    "message": "LƯU ĐÀI"
   }
 }

@@ -18,7 +18,13 @@
     "message": "Nastavitve"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Uvozi prilagojeno radijsko postajo"
   },
   "radioArtist": {
     "message": "Poganja razširitev All In One"
@@ -162,19 +168,19 @@
     "message": "Ste prepričani, da želite izbrisati vse zapiske?"
   },
   "trackerModalTitle": {
-    "message": "SLEDILNIK ČASA"
+    "message": "Sledilnik časa"
   },
   "exportTooltip": {
-    "message": "Izvozi podatke"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Uvozi podatke"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "Dnevni pogled"
+    "message": "Dnevni prikaz"
   },
   "trackerModeMonth": {
-    "message": "Mesečni pogled"
+    "message": "Mesečni prikaz"
   },
   "trackerModeAll": {
     "message": "Ves čas"
@@ -273,28 +279,28 @@
     "message": "Tisti dan"
   },
   "trackerSelectedMonth": {
-    "message": "Izbran mesec"
+    "message": "Izbrani mesec"
   },
   "trackerTotal": {
     "message": "Skupaj"
   },
   "trackerNoData": {
-    "message": "Za to obdobje ni podatkov"
+    "message": "Ni podatkov za to obdobje"
   },
   "trackerExportEmpty": {
-    "message": "Ni podatkov za izvoz."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Izvoz je bil skrajšan na 10 MB zaradi stabilnosti."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Ni veljavnih podatkov za uvoz."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Podatki uspešno uvoženi!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Napaka pri branju datoteke."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "V ŽIVO POTEKA"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Ali ste prepričani, da želite počistiti vse?"
+  },
+  "trackerTotalShort": {
+    "message": "Skupaj"
+  },
+  "trackerThisMonth": {
+    "message": "Ta mesec"
+  },
+  "trackerThisMonthShort": {
+    "message": "Ta mesec"
+  },
+  "trackerThatMonth": {
+    "message": "Tisti mesec"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Povprečje"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Povprečje"
+  },
+  "trackerAvgTotal": {
+    "message": "Povprečje"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Ali ste prepričani, da želite izbrisati podatke za"
+  },
+  "techCatBase": {
+    "message": "Osnova"
+  },
+  "techCatSystem": {
+    "message": "Sistem"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Tehnologije"
+  },
+  "techCatStyles": {
+    "message": "Slogi"
+  },
+  "techCatDb": {
+    "message": "Baza podatkov"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Strežnik"
+  },
+  "techCatNetwork": {
+    "message": "Omrežje"
+  },
+  "techCatSecurity": {
+    "message": "Varnost"
+  },
+  "techCatCaching": {
+    "message": "Caching"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analitika"
+  },
+  "techCatAds": {
+    "message": "Oglasi"
+  },
+  "techCatPayment": {
+    "message": "Plačilo"
+  },
+  "techCatComm": {
+    "message": "Komunikacija"
+  },
+  "techCatMedia": {
+    "message": "Mediji"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistika"
+  },
+  "techCatTools": {
+    "message": "Orodja"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Slike"
+  },
+  "techStatScripts": {
+    "message": "Skripti"
+  },
+  "techStatLinks": {
+    "message": "Povezave"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Obrazci"
+  },
+  "techStatTables": {
+    "message": "Tabele"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Video"
+  },
+  "techStatAudio": {
+    "message": "Zvok"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Vnesite neposredno povezavo do priljubljene radijske postaje"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Počisti polje"
+  },
+  "saveRadioStationBtn": {
+    "message": "SHRANI POSTAJO"
   }
 }

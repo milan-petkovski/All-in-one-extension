@@ -18,7 +18,13 @@
     "message": "Paramètres"
   },
   "radioTitle": {
-    "message": "Radio IN"
+    "message": "Radio"
+  },
+  "radioTitleCustom": {
+    "message": "Radio"
+  },
+  "importRadioTooltip": {
+    "message": "Importer une station radio personnalisée"
   },
   "radioArtist": {
     "message": "Avec All In One"
@@ -162,28 +168,28 @@
     "message": "Effacer toutes les notes ?"
   },
   "trackerModalTitle": {
-    "message": "TRAQUEUR"
+    "message": "Suivi de Temps"
   },
   "exportTooltip": {
-    "message": "Exporter données"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Importer données"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "Quotidien"
+    "message": "Vue quotidienne"
   },
   "trackerModeMonth": {
-    "message": "Mensuel"
+    "message": "Vue mensuelle"
   },
   "trackerModeAll": {
-    "message": "Toujours"
+    "message": "Tout le temps"
   },
   "trackerTodayLabel": {
     "message": "Aujourd'hui"
   },
   "trackerMonthLabel": {
-    "message": "Ce mois"
+    "message": "Ce mois-ci"
   },
   "trackerAvgLabel": {
     "message": "Moyenne"
@@ -279,22 +285,22 @@
     "message": "Total"
   },
   "trackerNoData": {
-    "message": "Aucune donnée"
+    "message": "Aucune donnée pour cette période"
   },
   "trackerExportEmpty": {
-    "message": "Pas de données à exporter."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Export limité à 10Mo."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Pas de données valides."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Importé !"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Erreur de lecture."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "DIRECT"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "Voulez-vous vraiment tout effacer ?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "Ce mois"
+  },
+  "trackerThisMonthShort": {
+    "message": "Ce mois"
+  },
+  "trackerThatMonth": {
+    "message": "Ce mois"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Moyenne"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Moyenne"
+  },
+  "trackerAvgTotal": {
+    "message": "Moyenne"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Êtes-vous sûr de vouloir supprimer les données pour"
+  },
+  "techCatBase": {
+    "message": "Base"
+  },
+  "techCatSystem": {
+    "message": "Système"
+  },
+  "techCatEcom": {
+    "message": "E-Commerce"
+  },
+  "techCatTech": {
+    "message": "Technologies"
+  },
+  "techCatStyles": {
+    "message": "Styles"
+  },
+  "techCatDb": {
+    "message": "Base de données"
+  },
+  "techCatBackend": {
+    "message": "Backend"
+  },
+  "techCatServer": {
+    "message": "Serveur"
+  },
+  "techCatNetwork": {
+    "message": "Réseau"
+  },
+  "techCatSecurity": {
+    "message": "Sécurité"
+  },
+  "techCatCaching": {
+    "message": "Mise en cache"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "Analytique"
+  },
+  "techCatAds": {
+    "message": "Publicités"
+  },
+  "techCatPayment": {
+    "message": "Paiement"
+  },
+  "techCatComm": {
+    "message": "Communication"
+  },
+  "techCatMedia": {
+    "message": "Médias"
+  },
+  "techCatBuild": {
+    "message": "Build"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "Statistiques"
+  },
+  "techCatTools": {
+    "message": "Outils"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "Images"
+  },
+  "techStatScripts": {
+    "message": "Scripts"
+  },
+  "techStatLinks": {
+    "message": "Liens"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "Formulaires"
+  },
+  "techStatTables": {
+    "message": "Tableaux"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "Vidéo"
+  },
+  "techStatAudio": {
+    "message": "Audio"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "Entrez le lien direct vers votre station radio préférée"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "Effacer le champ"
+  },
+  "saveRadioStationBtn": {
+    "message": "ENREGISTRER LA STATION"
   }
 }

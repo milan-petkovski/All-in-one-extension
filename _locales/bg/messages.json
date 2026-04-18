@@ -18,7 +18,7 @@
     "message": "Настройки"
   },
   "radioTitle": {
-    "message": "Радио IN"
+    "message": "Радио"
   },
   "radioArtist": {
     "message": "С подкрепа All In One"
@@ -66,7 +66,7 @@
     "message": "Бележки"
   },
   "trackerTitle": {
-    "message": "Тракер време"
+    "message": "Проследяване"
   },
   "ytDislikeTitle": {
     "message": "YouTube Dislike"
@@ -162,13 +162,13 @@
     "message": "Изчисти всички бележки?"
   },
   "trackerModalTitle": {
-    "message": "УЕБ ТРАКЕР"
+    "message": "Проследяване на времето"
   },
   "exportTooltip": {
-    "message": "Експортирай данни"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "Импортирай данни"
+    "message": "Import data"
   },
   "trackerModeDay": {
     "message": "Дневен изглед"
@@ -177,7 +177,7 @@
     "message": "Месечен изглед"
   },
   "trackerModeAll": {
-    "message": "Всички дни"
+    "message": "Цялото време"
   },
   "trackerTodayLabel": {
     "message": "Днес"
@@ -273,28 +273,28 @@
     "message": "Този ден"
   },
   "trackerSelectedMonth": {
-    "message": "Избран месец"
+    "message": "Selected month"
   },
   "trackerTotal": {
     "message": "Общо"
   },
   "trackerNoData": {
-    "message": "Няма данни"
+    "message": "No data for this period"
   },
   "trackerExportEmpty": {
-    "message": "Няма данни за експортиране."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "Ограничено до 10MB за стабилност."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "Няма валидни данни."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "Импортирано!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "Грешка при четене."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "НА ЖИВО"
@@ -379,5 +379,29 @@
   },
   "confirmClearCounter": {
     "message": "Сигурни ли сте, че искате да изчистите всичко?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "Този месец"
+  },
+  "trackerThatMonth": {
+    "message": "Този месец"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Средно"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
   }
 }

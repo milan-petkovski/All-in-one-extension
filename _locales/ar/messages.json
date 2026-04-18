@@ -18,7 +18,13 @@
     "message": "الإعدادات"
   },
   "radioTitle": {
-    "message": "راديو IN"
+    "message": "راديو"
+  },
+  "radioTitleCustom": {
+    "message": "راديو"
+  },
+  "importRadioTooltip": {
+    "message": "استيراد محطة راديو مخصصة"
   },
   "radioArtist": {
     "message": "بدعم All In One"
@@ -162,22 +168,22 @@
     "message": "مسح كل الملاحظات؟"
   },
   "trackerModalTitle": {
-    "message": "وقت الويب"
+    "message": "متتبع الوقت"
   },
   "exportTooltip": {
-    "message": "تصدير البيانات"
+    "message": "Export data"
   },
   "importTooltip": {
-    "message": "استيراد البيانات"
+    "message": "Import data"
   },
   "trackerModeDay": {
-    "message": "عرض يومي"
+    "message": "العرض اليومي"
   },
   "trackerModeMonth": {
-    "message": "عرض شهري"
+    "message": "العرض الشهري"
   },
   "trackerModeAll": {
-    "message": "الكل"
+    "message": "كل الوقت"
   },
   "trackerTodayLabel": {
     "message": "اليوم"
@@ -282,19 +288,19 @@
     "message": "لا توجد بيانات لهذه الفترة"
   },
   "trackerExportEmpty": {
-    "message": "لا توجد بيانات متتبع لتصديرها."
+    "message": "No tracker data to export."
   },
   "trackerExportTruncated": {
-    "message": "تم تقليص التصدير إلى 10 ميغابايت للحفاظ على استقرار النافذة المنبثقة."
+    "message": "Export truncated to 10MB to keep the popup stable."
   },
   "trackerImportEmpty": {
-    "message": "لا توجد بيانات متتبع صالحة لاستيرادها."
+    "message": "No valid tracker data to import."
   },
   "trackerImportSuccess": {
-    "message": "تم استيراد البيانات بنجاح!"
+    "message": "Data successfully imported!"
   },
   "trackerImportError": {
-    "message": "خطأ في قراءة الملف."
+    "message": "Error reading the file."
   },
   "swStatusLive": {
     "message": "بث مباشر قيد التقدم"
@@ -379,5 +385,137 @@
   },
   "confirmClearCounter": {
     "message": "هل أنت متأكد أنك تريد مسح الكل؟"
+  },
+  "trackerTotalShort": {
+    "message": "المجموع"
+  },
+  "trackerThisMonth": {
+    "message": "هذا الشهر"
+  },
+  "trackerThisMonthShort": {
+    "message": "هذا الشهر"
+  },
+  "trackerThatMonth": {
+    "message": "ذلك الشهر"
+  },
+  "trackerAvgThisMonth": {
+    "message": "متوسط"
+  },
+  "trackerAvgThatMonth": {
+    "message": "متوسط"
+  },
+  "trackerAvgTotal": {
+    "message": "متوسط"
+  },
+  "trackerDeleteConfirm": {
+    "message": "هل أنت متأكد أنك تريد حذف البيانات لـ"
+  },
+  "techCatBase": {
+    "message": "الأساس"
+  },
+  "techCatSystem": {
+    "message": "النظام"
+  },
+  "techCatEcom": {
+    "message": "التجارة الإلكترونية"
+  },
+  "techCatTech": {
+    "message": "التقنيات"
+  },
+  "techCatStyles": {
+    "message": "الأنماط"
+  },
+  "techCatDb": {
+    "message": "قاعدة البيانات"
+  },
+  "techCatBackend": {
+    "message": "الخلفية"
+  },
+  "techCatServer": {
+    "message": "الخادم"
+  },
+  "techCatNetwork": {
+    "message": "الشبكة"
+  },
+  "techCatSecurity": {
+    "message": "الأمان"
+  },
+  "techCatCaching": {
+    "message": "التخزين المؤقت"
+  },
+  "techCatCdn": {
+    "message": "CDN"
+  },
+  "techCatAnalytics": {
+    "message": "التحليلات"
+  },
+  "techCatAds": {
+    "message": "الإعلانات"
+  },
+  "techCatPayment": {
+    "message": "الدفع"
+  },
+  "techCatComm": {
+    "message": "التواصل"
+  },
+  "techCatMedia": {
+    "message": "الوسائط"
+  },
+  "techCatBuild": {
+    "message": "البناء"
+  },
+  "techCatSeo": {
+    "message": "SEO"
+  },
+  "techCatStats": {
+    "message": "الإحصائيات"
+  },
+  "techCatTools": {
+    "message": "الأدوات"
+  },
+  "techStatDom": {
+    "message": "DOM"
+  },
+  "techStatImages": {
+    "message": "الصور"
+  },
+  "techStatScripts": {
+    "message": "البرامج النصية"
+  },
+  "techStatLinks": {
+    "message": "الروابط"
+  },
+  "techStatCss": {
+    "message": "CSS"
+  },
+  "techStatForms": {
+    "message": "النماذج"
+  },
+  "techStatTables": {
+    "message": "الجداول"
+  },
+  "techStatSvg": {
+    "message": "SVG"
+  },
+  "techStatVideo": {
+    "message": "الفيديو"
+  },
+  "techStatAudio": {
+    "message": "الصوت"
+  },
+  "techStatIframes": {
+    "message": "Iframes"
+  },
+  "radioModalDesc": {
+    "message": "أدخل الرابط المباشر لمحطة الراديو المفضلة لديك"
+  },
+  "radioUrlPlaceholder": {
+    "message": "https://stream.radio.com/play"
+  },
+  "clearRadioInputTooltip": {
+    "message": "مسح الحقل"
+  },
+  "saveRadioStationBtn": {
+    "message": "حفظ المحطة"
   }
 }
