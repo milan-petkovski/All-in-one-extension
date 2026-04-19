@@ -1,4 +1,4 @@
-const AIO_API_ENDPOINT = "https://allinone.milanwebportal.com/api/track.php";
+const AIO_API_ENDPOINT = "https://allinone.milanwebportal.com/api/track";
 const MAX_HEARTBEAT_SECONDS = 5;
 
 let eventStatsCache = null;
