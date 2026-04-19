@@ -14,13 +14,13 @@
   <p><b>🌍 Available Globally:</b> Supported in all 55 languages provided by the Chrome Web Store!</p>
 
   <p><b>Supported Browsers:</b></p>
-  <img src="https://i.ibb.co/Z1fKtkNR/chrome.png" width="35" alt="Chrome"> &nbsp;
-  <img src="https://i.ibb.co/MydYc4MG/edge.png" width="35" alt="Edge"> &nbsp;
-  <img src="https://i.ibb.co/20VngJHD/brave.png" width="35" alt="Brave"> &nbsp;
-  <img src="https://i.ibb.co/n85qHQ9H/opera.png" width="35" alt="Opera"> &nbsp;
-  <img src="https://i.ibb.co/JFRZ7mFK/operagx.png" width="35" alt="Opera GX"> &nbsp;
-  <img src="https://i.ibb.co/HT3X5SF3/vivaldi.png" width="35" alt="Vivaldi"> &nbsp;
-  <img src="https://i.ibb.co/23Y2kFgc/arc.png" width="35" alt="Arc">
+  <img src="https://allinone.milanwebportal.com/Browser/1.png" width="35" alt="Chrome"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/2.png" width="35" alt="Edge"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/3.png" width="35" alt="Brave"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/4.png" width="35" alt="Opera"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/5.png" width="35" alt="Opera GX"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/6.png" width="35" alt="Vivaldi"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/7.png" width="35" alt="Arc">
 
   <p>...and all other Chromium based browsers.</p>
 </div>
