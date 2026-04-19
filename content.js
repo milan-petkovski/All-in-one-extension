@@ -1,4 +1,3 @@
-// Sistem stranica detekcija i blok overlay
 const isSystemPage = () => {
   const url = window.location.href;
   return (
@@ -12,7 +11,6 @@ const isSystemPage = () => {
 };
 
 if (isSystemPage()) {
-  // Prikazi katanac SVG i tekstualni overlay kao u HTML/CSS
   const style = document.createElement('style');
   style.textContent = `
     html, body {
@@ -32,7 +30,13 @@ if (isSystemPage()) {
     }
     #aio-system-block small { font-size: 1.1rem; color: #aaa; margin-top: 1.5rem; }
   `;
-  document.head.appendChild(style);
+
+  try {
+    document.head.appendChild(style);
+  } catch (e) {
+    document.documentElement.appendChild(style);
+  }
+
   const overlay = document.createElement('div');
   overlay.id = 'aio-system-block';
   overlay.innerHTML = `
@@ -44,360 +48,367 @@ if (isSystemPage()) {
     <div>Sistemska stranica je blokirana</div>
     <small>Ekstenzije ne mogu raditi na ovim stranicama zbog ograničenja browsera.</small>
   `;
-  document.body.innerHTML = '';
-  document.body.appendChild(overlay);
-  // Stop further script execution
-  throw new Error('AIO: System page blocked');
-}
-// Analitika i lokalni eventStats obrađuje isključivo background.js (jedan izvor istine).
-function trackEvent(eventName, eventData = {}) {
-  try {
-    chrome.runtime.sendMessage({
-      action: "aio_track_event",
-      eventName,
-      eventData: {
-        ...eventData,
-        page_location: location.href,
-        page_title: document.title
-      }
+
+  if (document.body) {
+    document.body.innerHTML = '';
+    document.body.appendChild(overlay);
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.innerHTML = '';
+      document.body.appendChild(overlay);
     });
-  } catch (err) {
-    // Ignore errors
   }
-}
-// i18n prevod Helper funkcija
-function getI18nMsg(key, defaultText) {
-  if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
-    const msg = chrome.i18n.getMessage(key);
-    if (msg) return msg;
-  }
-  return defaultText;
+
+} else {
+  runMainContentScript();
 }
 
-const host = window.location.hostname;
-const copyEvents = ["contextmenu", "copy", "cut", "paste", "selectstart"];
-const stopBlockedEvent = (e) => e.stopImmediatePropagation();
-let cookieObserver = null;
-let cookieScanTimer = null;
-// PERFORMANCE FIX: WeakMap to cache processed media elements
-window.aioMediaCache = window.aioMediaCache || new WeakMap();
+function runMainContentScript() {
 
-const hideCookieElement = (el) => {
-  if (!el || el.dataset?.aioCookieHidden === "1") return;
-  el.dataset.aioCookieHidden = "1";
-  el.setAttribute("aria-hidden", "true");
-  el.style.setProperty("display", "none", "important");
-  el.style.setProperty("visibility", "hidden", "important");
-  el.style.setProperty("pointer-events", "none", "important");
-};
-
-const getEffectiveVolume = (res) => {
-  const siteRaw = Number(res[host + "_vol"]);
-  if (Number.isFinite(siteRaw)) return siteRaw;
-
-  const globalRaw = Number(res.global_vol);
-  if (Number.isFinite(globalRaw)) return globalRaw;
-
-  return 100;
-};
-
-const applyMasterVolume = (rawValue) => {
-  const safeRaw = Number.isFinite(Number(rawValue)) ? Number(rawValue) : 100;
-  const clampedRaw = Math.max(0, Math.min(safeRaw, 1000));
-  const multiplier = Math.max(0, clampedRaw / 100);
-
-  // PERFORMANCE FIX: Disconnect observer when volume is at default (100)
-  // Only observe DOM changes when volume is actually being modified
-  if (clampedRaw === 100) {
-    // Still need to reset gain to 1.0 even when disconnecting observer
-    if (window.aioVolGain) {
-      try {
-        window.aioVolGain.gain.setTargetAtTime(1.0, window.aioVolCtx?.currentTime || 0, 0.01);
-      } catch (_) { }
-    }
-    if (window.aioVolObserver) {
-      window.aioVolObserver.disconnect();
-      window.aioVolObserver = null;
-    }
-    return;
-  }
-
-  try {
-    window.aioCurrentRawVolume = clampedRaw;
-
-    if (!window.aioVolCtx) {
-      window.aioVolCtx = new (window.AudioContext || window.webkitAudioContext)();
-      window.aioVolGain = window.aioVolCtx.createGain();
-      window.aioVolGain.connect(window.aioVolCtx.destination);
-    }
-
-    if (window.aioVolCtx.state === "suspended") {
-      const resume = () => { if (window.aioVolCtx.state === "suspended") window.aioVolCtx.resume(); };
-      ["pointerdown", "keydown", "click", "touchstart"].forEach(ev => document.addEventListener(ev, resume, { once: true, capture: true }));
-    }
-
-    // Apply multiplier as a pure independent gain stage
-    window.aioVolGain.gain.setTargetAtTime(multiplier, window.aioVolCtx.currentTime, 0.01);
-
-    const connectMedia = () => {
-      document.querySelectorAll("audio, video").forEach((media) => {
-        // PERFORMANCE FIX: Use WeakMap to check if already processed
-        if (window.aioMediaCache.has(media)) return;
-
-        try {
-          // Attempt to fix CORS mute issue for cross-origin streams
-          if (media.src && media.src.startsWith('http')) {
-            const url = new URL(media.src);
-            if (url.origin !== window.location.origin && !media.crossOrigin) {
-              media.crossOrigin = "anonymous";
-            }
-          }
-
-          const source = window.aioVolCtx.createMediaElementSource(media);
-          source.connect(window.aioVolGain);
-          // PERFORMANCE FIX: Mark as processed in WeakMap
-          window.aioMediaCache.set(media, true);
-        } catch (e) {
-          // If createMediaElementSource fails, mark as processed anyway to avoid retry
-          window.aioMediaCache.set(media, true);
+  function trackEvent(eventName, eventData = {}) {
+    try {
+      chrome.runtime.sendMessage({
+        action: "aio_track_event",
+        eventName,
+        eventData: {
+          ...eventData,
+          page_location: location.href,
+          page_title: document.title
         }
       });
-    };
-
-    connectMedia();
-    // PERFORMANCE FIX: Only create observer if volume != 100
-    if (!window.aioVolObserver && document.documentElement && clampedRaw !== 100) {
-      window.aioVolObserver = new MutationObserver(connectMedia);
-      window.aioVolObserver.observe(document.documentElement, { childList: true, subtree: true });
+    } catch (err) {
+      // Ignore errors
     }
-  } catch (e) {
-    // Global failure fallback
   }
-};
 
-const syncVolumeFromStorage = () => {
-  chrome.storage.local.get(["ytToggle", "global_vol", host + "_vol"], (res) => {
-    applyMasterVolume(getEffectiveVolume(res));
-  });
-};
+  // i18n prevod Helper funkcija
+  function getI18nMsg(key, defaultText) {
+    if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
+      const msg = chrome.i18n.getMessage(key);
+      if (msg) return msg;
+    }
+    return defaultText;
+  }
 
-// Funkcija za Dark Mode preko CSS injekcije (najbrži i najčistiji način)
-const applyDark = (on, isToggle = false) => {
-  trackEvent(on ? "tamni režim uključen" : "tamni režim isključen");
-  let style = document.getElementById("aio-dark-style");
-  let transitionStyle = document.getElementById("aio-dark-transition");
-  const isDarkAlreadyActive = !!style;
+  const host = window.location.hostname;
+  const copyEvents = ["contextmenu", "copy", "cut", "paste", "selectstart"];
+  const stopBlockedEvent = (e) => e.stopImmediatePropagation();
+  let cookieObserver = null;
+  let cookieScanTimer = null;
 
-  if (on) {
-    if (isDarkAlreadyActive) return;
+  window.aioMediaCache = window.aioMediaCache || new WeakMap();
 
-    let isSiteAlreadyDark = false;
-    const html = document.documentElement;
-    const body = document.body;
+  const hideCookieElement = (el) => {
+    if (!el || el.dataset?.aioCookieHidden === "1") return;
+    el.dataset.aioCookieHidden = "1";
+    el.setAttribute("aria-hidden", "true");
+    el.style.setProperty("display", "none", "important");
+    el.style.setProperty("visibility", "hidden", "important");
+    el.style.setProperty("pointer-events", "none", "important");
+  };
 
-    const themeAttr = [
-      html.getAttribute('data-theme'), html.getAttribute('data-color-mode'),
-      html.getAttribute('data-bs-theme'), html.getAttribute('theme'),
-      body?.getAttribute('data-theme'), body?.getAttribute('theme')
-    ].join(' ').toLowerCase();
+  const getEffectiveVolume = (res) => {
+    const siteRaw = Number(res[host + "_vol"]);
+    if (Number.isFinite(siteRaw)) return siteRaw;
 
-    const classStr = ((html.className || "") + " " + (body?.className || "")).toLowerCase();
+    const globalRaw = Number(res.global_vol);
+    if (Number.isFinite(globalRaw)) return globalRaw;
 
-    if (themeAttr.includes('dark') || classStr.includes('dark') || classStr.includes('night') || themeAttr.includes('night')) {
-      isSiteAlreadyDark = true;
-    } else {
-      let bgColor = null;
-      let elements = [body, html, document.querySelector('main'), document.querySelector('[role="application"]'), document.querySelector('#root'), document.querySelector('#__next')];
+    return 100;
+  };
 
-      for (let el of elements) {
-        if (!el) continue;
-        let bg = window.getComputedStyle(el).backgroundColor;
-        if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent' && bg !== '') {
-          bgColor = bg;
-          break;
+  const applyMasterVolume = (rawValue) => {
+    const safeRaw = Number.isFinite(Number(rawValue)) ? Number(rawValue) : 100;
+    const clampedRaw = Math.max(0, Math.min(safeRaw, 1000));
+    const multiplier = Math.max(0, clampedRaw / 100);
+
+    if (clampedRaw === 100) {
+      if (window.aioVolGain) {
+        try {
+          window.aioVolGain.gain.setTargetAtTime(1.0, window.aioVolCtx?.currentTime || 0, 0.01);
+        } catch (_) { }
+      }
+      if (window.aioVolObserver) {
+        window.aioVolObserver.disconnect();
+        window.aioVolObserver = null;
+      }
+      return;
+    }
+
+    try {
+      window.aioCurrentRawVolume = clampedRaw;
+
+      if (!window.aioVolCtx) {
+        window.aioVolCtx = new (window.AudioContext || window.webkitAudioContext)();
+        window.aioVolGain = window.aioVolCtx.createGain();
+        window.aioVolGain.connect(window.aioVolCtx.destination);
+      }
+
+      if (window.aioVolCtx.state === "suspended") {
+        const resume = () => { if (window.aioVolCtx.state === "suspended") window.aioVolCtx.resume(); };
+        ["pointerdown", "keydown", "click", "touchstart"].forEach(ev => document.addEventListener(ev, resume, { once: true, capture: true }));
+      }
+
+      window.aioVolGain.gain.setTargetAtTime(multiplier, window.aioVolCtx.currentTime, 0.01);
+
+      const connectMedia = () => {
+        document.querySelectorAll("audio, video").forEach((media) => {
+          if (window.aioMediaCache.has(media)) return;
+
+          try {
+            if (media.src && media.src.startsWith('http') && media.readyState === 0) {
+              try {
+                const url = new URL(media.src);
+                if (url.origin !== window.location.origin && !media.crossOrigin) {
+                  media.crossOrigin = "anonymous";
+                }
+              } catch (_) { }
+            }
+
+            const source = window.aioVolCtx.createMediaElementSource(media);
+            source.connect(window.aioVolGain);
+            window.aioMediaCache.set(media, true);
+          } catch (e) {
+            window.aioMediaCache.set(media, true);
+          }
+        });
+      };
+
+      connectMedia();
+      if (!window.aioVolObserver && document.documentElement && clampedRaw !== 100) {
+        window.aioVolObserver = new MutationObserver(connectMedia);
+        window.aioVolObserver.observe(document.documentElement, { childList: true, subtree: true });
+      }
+    } catch (e) {
+      // Global failure fallback
+    }
+  };
+
+  const syncVolumeFromStorage = () => {
+    chrome.storage.local.get(["ytToggle", "global_vol", host + "_vol"], (res) => {
+      applyMasterVolume(getEffectiveVolume(res));
+    });
+  };
+
+  // Funkcija za Dark Mode
+  const applyDark = (on, isToggle = false) => {
+    let style = document.getElementById("aio-dark-style");
+    let transitionStyle = document.getElementById("aio-dark-transition");
+    const isDarkAlreadyActive = !!style;
+
+    if (on) {
+      if (isDarkAlreadyActive) return;
+
+      let isSiteAlreadyDark = false;
+      const html = document.documentElement;
+      const body = document.body;
+
+      const themeAttr = [
+        html.getAttribute('data-theme'), html.getAttribute('data-color-mode'),
+        html.getAttribute('data-bs-theme'), html.getAttribute('theme'),
+        body?.getAttribute('data-theme'), body?.getAttribute('theme')
+      ].join(' ').toLowerCase();
+
+      const classStr = ((html.className || "") + " " + (body?.className || "")).toLowerCase();
+
+      if (themeAttr.includes('dark') || classStr.includes('dark') || classStr.includes('night') || themeAttr.includes('night')) {
+        isSiteAlreadyDark = true;
+      } else {
+        let bgColor = null;
+        let elements = [body, html, document.querySelector('main'), document.querySelector('[role="application"]'), document.querySelector('#root'), document.querySelector('#__next')];
+
+        for (let el of elements) {
+          if (!el) continue;
+          let bg = window.getComputedStyle(el).backgroundColor;
+          if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent' && bg !== '') {
+            bgColor = bg;
+            break;
+          }
+        }
+
+        if (!bgColor) bgColor = 'rgb(255, 255, 255)';
+
+        const rgb = bgColor.match(/\d+/g);
+        if (rgb && rgb.length >= 3) {
+          const luma = 0.299 * parseInt(rgb[0]) + 0.587 * parseInt(rgb[1]) + 0.114 * parseInt(rgb[2]);
+          if (luma < 128) isSiteAlreadyDark = true;
         }
       }
 
-      if (!bgColor) bgColor = 'rgb(255, 255, 255)';
+      if (isSiteAlreadyDark) return;
 
-      const rgb = bgColor.match(/\d+/g);
-      if (rgb && rgb.length >= 3) {
-        const luma = 0.299 * parseInt(rgb[0]) + 0.587 * parseInt(rgb[1]) + 0.114 * parseInt(rgb[2]);
-        if (luma < 128) isSiteAlreadyDark = true;
-      }
-    }
+      trackEvent("tamni režim uključen");
 
-    if (isSiteAlreadyDark) return;
-
-    if (isToggle && !transitionStyle) {
-      transitionStyle = document.createElement("style");
-      transitionStyle.id = "aio-dark-transition";
-      // Performanse: Ne stavljamo transition na * jer to ubija FPS na velikim DOM stablima
-      transitionStyle.innerHTML = `
+      if (isToggle && !transitionStyle) {
+        transitionStyle = document.createElement("style");
+        transitionStyle.id = "aio-dark-transition";
+        transitionStyle.innerHTML = `
         html, body, img, video, iframe, canvas, svg, picture, [style*="background-image"] {
           transition: filter 0.3s ease, background-color 0.3s ease !important;
         }
       `;
-      (document.head || document.documentElement).appendChild(transitionStyle);
-    }
+        (document.head || document.documentElement).appendChild(transitionStyle);
+      }
 
-    if (!style) {
-      style = document.createElement("style");
-      style.id = "aio-dark-style";
-      style.innerHTML = `
+      if (!style) {
+        style = document.createElement("style");
+        style.id = "aio-dark-style";
+        style.innerHTML = `
         html { 
           filter: invert(1) hue-rotate(180deg) !important; 
           background: #fff !important; 
           color-scheme: dark !important; 
         }
-        /* Vraćanje slika i videa u normalu */
+        /* Vracanje slika i videa u normalu */
         img, video, iframe, canvas, svg, picture, [style*="background-image"] { 
           filter: invert(1) hue-rotate(180deg) !important; 
         }
-        /* Sprečavanje duplog invertovanja za ugnježdene elemente */
+        /* Sprecavanje duplog invertovanja za ugnjezdene elemente */
         img *, video *, iframe *, canvas *, svg *, picture *, [style*="background-image"] * {
           filter: none !important;
         }
       `;
-      (document.head || document.documentElement).appendChild(style);
+        (document.head || document.documentElement).appendChild(style);
+      }
+    } else {
+      if (isDarkAlreadyActive) {
+        trackEvent("tamni režim isključen");
+      }
+      if (style) style.remove();
+      if (transitionStyle) transitionStyle.remove();
     }
-  } else {
+  };
+
+  // Funkcija za Enable Copy
+  const enableCopy = () => {
+    if (window.aioCopyEnabled) return;
+    trackEvent("kopiranje omogućeno");
+    window.aioCopyEnabled = true;
+
+    copyEvents.forEach(type => {
+      document.addEventListener(type, stopBlockedEvent, true);
+    });
+
+    if (!document.getElementById("force-copy-fix")) {
+      const s = document.createElement("style");
+      s.id = "force-copy-fix";
+      s.innerHTML = "*{user-select:text!important;-webkit-user-select:text!important;}";
+      document.documentElement.appendChild(s);
+    }
+  };
+
+  const disableCopy = () => {
+    if (!window.aioCopyEnabled) return;
+    trackEvent("kopiranje onemogućeno");
+    window.aioCopyEnabled = false;
+
+    copyEvents.forEach(type => {
+      document.removeEventListener(type, stopBlockedEvent, true);
+    });
+
+    const style = document.getElementById("force-copy-fix");
     if (style) style.remove();
-    if (transitionStyle) transitionStyle.remove();
+  };
+
+  let foucStyle = document.createElement("style");
+  foucStyle.id = "aio-fouc-style";
+  foucStyle.innerHTML = `html { background-color: #121212 !important; } html * { visibility: hidden !important; }`;
+  if (document.documentElement) {
+    document.documentElement.appendChild(foucStyle);
   }
-};
 
-// Funkcija za Enable Copy
-const enableCopy = () => {
-  if (window.aioCopyEnabled) return;
-  trackEvent("kopiranje omogućeno");
-  window.aioCopyEnabled = true;
-
-  copyEvents.forEach(type => {
-    document.addEventListener(type, stopBlockedEvent, true);
-  });
-
-  if (!document.getElementById("force-copy-fix")) {
-    const s = document.createElement("style");
-    s.id = "force-copy-fix";
-    s.innerHTML = "*{user-select:text!important;-webkit-user-select:text!important;}";
-    document.documentElement.appendChild(s);
-  }
-};
-
-const disableCopy = () => {
-  if (!window.aioCopyEnabled) return;
-  trackEvent("kopiranje onemogućeno");
-  window.aioCopyEnabled = false;
-
-  copyEvents.forEach(type => {
-    document.removeEventListener(type, stopBlockedEvent, true);
-  });
-
-  const style = document.getElementById("force-copy-fix");
-  if (style) style.remove();
-};
-
-// Privremeni "Blanket" stil koji sprečava beli bljesak (FOUC) dok se ucitava ekstenzija
-let foucStyle = document.createElement("style");
-foucStyle.id = "aio-fouc-style";
-foucStyle.innerHTML = `html { background-color: #121212 !important; } html * { visibility: hidden !important; }`;
-if (document.documentElement) {
-  document.documentElement.appendChild(foucStyle);
-}
-
-// PERFORMANCE FIX: Flag to prevent double initialization
-window.aioInitialized = window.aioInitialized || false;
-
-// Inicijalna provera pri učitavanju stranice
-const initializeFeatures = () => {
-  // PERFORMANCE FIX: Prevent double initialization
-  if (window.aioInitialized) return;
-  window.aioInitialized = true;
-
-  chrome.storage.local.get([host, "nightToggle", "ytToggle", "global_vol", host + "_vol"], (res) => {
-    // Ako je dark mode ISKLJUČEN, odmah uklanjamo blanket da ne blokiramo svetli sajt
-    if (!res.nightToggle && foucStyle) {
+  const foucHardDeadlineTimer = setTimeout(() => {
+    if (foucStyle && foucStyle.parentNode) {
       foucStyle.remove();
       foucStyle = null;
     }
+  }, 2500);
 
-    if (res.nightToggle) {
-      // KRITIČNO: Moramo ukloniti zavesu PRE nego što applyDark proveri boje!
-      // U suprotnom, applyDark će pročitati '#121212' od zavese i pomisliti da je sajt već taman.
-      if (foucStyle) {
+  window.aioInitialized = window.aioInitialized || false;
+
+  const initializeFeatures = () => {
+    if (window.aioInitialized) return;
+    window.aioInitialized = true;
+
+    clearTimeout(foucHardDeadlineTimer);
+
+    chrome.storage.local.get([host, "nightToggle", "ytToggle", "global_vol", host + "_vol"], (res) => {
+      if (!res.nightToggle && foucStyle) {
         foucStyle.remove();
         foucStyle = null;
       }
-      applyDark(true, false); // isToggle = false, bez animacije za instant ucitavanje
+
+      if (res.nightToggle) {
+        if (foucStyle) {
+          foucStyle.remove();
+          foucStyle = null;
+        }
+        applyDark(true, false); // isToggle = false, bez animacije za instant ucitavanje
+      }
+
+      if (res[host]) {
+        enableCopy();
+      } else {
+        disableCopy();
+      }
+
+      applyMasterVolume(getEffectiveVolume(res));
+    });
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeFeatures);
+    
+    setTimeout(() => { if (foucStyle && !window.aioInitialized) initializeFeatures(); }, 800);
+  } else {
+    initializeFeatures();
+  }
+
+  chrome.storage.onChanged.addListener((changes) => {
+    if (changes.nightToggle !== undefined) {
+      applyDark(changes.nightToggle.newValue, true); // isToggle = true, sa animacijom
     }
 
-    if (res[host]) {
-      enableCopy();
-    } else {
-      disableCopy();
+    if (changes[host] !== undefined) {
+      if (changes[host].newValue) enableCopy();
+      else disableCopy();
     }
 
-    applyMasterVolume(getEffectiveVolume(res));
+    if (changes.cookieBlock !== undefined) {
+      if (changes.cookieBlock.newValue) enableCookieBlock();
+      else disableCookieBlock();
+    }
+
+    if (changes.ytToggle !== undefined || changes.global_vol !== undefined || changes[host + "_vol"] !== undefined) {
+      syncVolumeFromStorage();
+    }
   });
-};
 
-// Čekamo DOMContentLoaded kako bi logika za prepoznavanje "već tamnih sajtova"
-// mogla uspesno da procita document.body i background color!
-// Tokom ovog čekanja, foucStyle (crni ekran) štiti oči od belog bljeska.
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initializeFeatures);
-  // PERFORMANCE FIX: Reduced backup timeout from 1500ms to 800ms
-  setTimeout(() => { if (foucStyle && !window.aioInitialized) initializeFeatures(); }, 800);
-} else {
-  initializeFeatures();
-}
+  let cookieScanDebounceId = null;
+  const debouncedCookieScan = () => {
+    if (cookieScanDebounceId) clearTimeout(cookieScanDebounceId);
+    cookieScanDebounceId = setTimeout(killCookies, 100);
+  };
 
-// Slušanje promena u realnom vremenu (da odmah reaguje na klik u popupu)
-chrome.storage.onChanged.addListener((changes) => {
-  if (changes.nightToggle !== undefined) {
-    applyDark(changes.nightToggle.newValue, true); // isToggle = true, sa animacijom
-  }
+  const killCookies = () => {
+    const selectors = [
+      '[id*="cookie"]', '[class*="cookie"]',
+      '[id*="consent"]', '[class*="consent"]',
+      '[id*="onetrust"]', '[class*="onetrust"]',
+      '[id*="trustarc"]', '[class*="trustarc"]',
+      '[id*="gdpr"]', '[class*="gdpr"]',
+      '[id*="cmp"]', '[class*="cmp"]',
+      '[data-testid*="cookie"]', '[data-testid*="consent"]',
+      '[aria-label*="cookie" i]', '[aria-label*="consent" i]',
+      '.fc-consent-root', '.qc-cmp2-container', '.qc-cmp2-ui'
+    ];
 
-  if (changes[host] !== undefined) {
-    if (changes[host].newValue) enableCopy();
-    else disableCopy();
-  }
+    document.querySelectorAll(selectors.join(",")).forEach(hideCookieElement);
 
-  if (changes.cookieBlock !== undefined) {
-    if (changes.cookieBlock.newValue) enableCookieBlock();
-    else disableCookieBlock();
-  }
-
-  if (changes.ytToggle !== undefined || changes.global_vol !== undefined || changes[host + "_vol"] !== undefined) {
-    syncVolumeFromStorage();
-  }
-});
-
-// PERFORMANCE FIX: Debounced cookie scan to prevent excessive DOM queries
-let cookieScanDebounceId = null;
-const debouncedCookieScan = () => {
-  if (cookieScanDebounceId) clearTimeout(cookieScanDebounceId);
-  cookieScanDebounceId = setTimeout(killCookies, 100);
-};
-
-const killCookies = () => {
-  const selectors = [
-    '[id*="cookie"]', '[class*="cookie"]',
-    '[id*="consent"]', '[class*="consent"]',
-    '[id*="onetrust"]', '[class*="onetrust"]',
-    '[id*="trustarc"]', '[class*="trustarc"]',
-    '[id*="gdpr"]', '[class*="gdpr"]',
-    '[id*="cmp"]', '[class*="cmp"]',
-    '[data-testid*="cookie"]', '[data-testid*="consent"]',
-    '[aria-label*="cookie" i]', '[aria-label*="consent" i]',
-    '.fc-consent-root', '.qc-cmp2-container', '.qc-cmp2-ui'
-  ];
-
-  if (!document.getElementById("aio-cookie-hide-style")) {
-    const style = document.createElement("style");
-    style.id = "aio-cookie-hide-style";
-    style.textContent = `
+    if (!document.getElementById("aio-cookie-hide-style")) {
+      const style = document.createElement("style");
+      style.id = "aio-cookie-hide-style";
+      style.textContent = `
       [id*="cookie"], [class*="cookie"],
       [id*="consent"], [class*="consent"],
       [id*="onetrust"], [class*="onetrust"],
@@ -408,226 +419,243 @@ const killCookies = () => {
         visibility: hidden !important;
       }
     `;
-    document.documentElement.appendChild(style);
-  }
-
-  if (cookieObserver) return;
-
-  // Debounced callback for MutationObserver using requestAnimationFrame
-  let cookieCleanupDebounceId = null;
-  const debouncedCookieCleanup = () => {
-    if (cookieCleanupDebounceId) clearTimeout(cookieCleanupDebounceId);
-    cookieCleanupDebounceId = setTimeout(() => {
-      requestAnimationFrame(killCookies);
-    }, 150);
-  };
-
-  cookieObserver = new MutationObserver(debouncedCookieCleanup);
-  cookieObserver.observe(document.documentElement, {
-    childList: true,
-    subtree: true
-  });
-};
-
-const enableCookieBlock = () => {
-  trackEvent("kolačići blokirani");
-  debouncedCookieScan();
-};
-
-const disableCookieBlock = () => {
-  trackEvent("kolačići dozvoljeni");
-  if (cookieScanTimer) {
-    clearTimeout(cookieScanTimer);
-    cookieScanTimer = null;
-  }
-
-  if (!cookieObserver) return;
-  cookieObserver.disconnect();
-  cookieObserver = null;
-
-  const style = document.getElementById("aio-cookie-hide-style");
-  if (style) style.remove();
-};
-
-chrome.storage.local.get("cookieBlock", (res) => {
-  const shouldEnable = res.cookieBlock === true;
-  if (shouldEnable) enableCookieBlock();
-  else disableCookieBlock();
-});
-
-// Tracker heartbeat: keeps counting time on long single-tab sessions.
-if (window.top === window && location.protocol.startsWith("http")) {
-  const TAB_IDLE_LIMIT_MS = 150000;
-  const HEARTBEAT_INTERVAL_MS = 5000;
-  const MAX_HEARTBEAT_CHUNK_SEC = 5;
-  let lastHeartbeatAt = Date.now();
-  let lastTabInteractionAt = Date.now();
-  let trackerIntervalId = null;
-  let leftoverMs = 0;
-  let pendingSeconds = 0;
-
-  const isContextInvalidatedError = (err) => {
-    const msg = String(err?.message || err || "").toLowerCase();
-    return msg.includes("extension context invalidated");
-  };
-
-  const stopTrackerHeartbeat = () => {
-    if (trackerIntervalId) {
-      clearInterval(trackerIntervalId);
-      trackerIntervalId = null;
+      document.documentElement.appendChild(style);
     }
+
+    if (cookieObserver) return;
+
+    let cookieCleanupDebounceId = null;
+    const debouncedCookieCleanup = () => {
+      if (cookieCleanupDebounceId) clearTimeout(cookieCleanupDebounceId);
+      cookieCleanupDebounceId = setTimeout(() => {
+        requestAnimationFrame(killCookies);
+      }, 150);
+    };
+
+    cookieObserver = new MutationObserver(debouncedCookieCleanup);
+    cookieObserver.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
   };
 
-  // Bezbednosni bafer: ako service worker ne odgovori, sekunde se čuvaju ovde
-  // i background.js ih pokupi na sledećem alarm tick-u (max 30s kašnjenja).
-  const saveToEmergencyBuffer = (domain, seconds) => {
-    try {
-      chrome.storage.local.get(['tracker_buffer'], (res) => {
-        if (chrome.runtime.lastError) return;
-        const buffer = (res.tracker_buffer && typeof res.tracker_buffer === 'object' && !Array.isArray(res.tracker_buffer))
-          ? res.tracker_buffer : {};
-        buffer[domain] = (Number(buffer[domain]) || 0) + seconds;
-        chrome.storage.local.set({ tracker_buffer: buffer }).catch(() => { });
-      });
-    } catch (_) { }
+  const enableCookieBlock = () => {
+    trackEvent("kolačići blokirani");
+    debouncedCookieScan();
   };
 
-  const sendHeartbeatSeconds = (totalSeconds) => {
-    // PERFORMANCE FIX: Send one message with all seconds instead of chunking
-    const seconds = Math.max(0, Math.floor(Number(totalSeconds) || 0));
-    if (seconds <= 0) return;
+  const disableCookieBlock = () => {
+    trackEvent("kolačići dozvoljeni");
+    if (cookieScanTimer) {
+      clearTimeout(cookieScanTimer);
+      cookieScanTimer = null;
+    }
 
-    const domain = location.hostname;
+    if (!cookieObserver) return;
+    cookieObserver.disconnect();
+    cookieObserver = null;
 
-    // Pokušaj slanje service workeru, sa fallback-om na emergency buffer
-    if (chrome?.runtime?.id) {
+    const style = document.getElementById("aio-cookie-hide-style");
+    if (style) style.remove();
+  };
+
+  chrome.storage.local.get("cookieBlock", (res) => {
+    const shouldEnable = res.cookieBlock === true;
+    if (shouldEnable) enableCookieBlock();
+    else disableCookieBlock();
+  });
+
+  let systemIsIdle = false;
+
+  chrome.runtime.onMessage.addListener((request) => {
+    if (request?.action === "system_idle") {
+      systemIsIdle = true;
+    } else if (request?.action === "system_active") {
+      systemIsIdle = false;
+      if (window.top === window && location.protocol.startsWith("http")) {
+      }
+    }
+  });
+
+  if (window.top === window && location.protocol.startsWith("http")) {
+    chrome.runtime.sendMessage({ action: "get_system_idle_state" }, (res) => {
+      if (chrome.runtime.lastError) return;
+      if (res?.state === 'idle' || res?.state === 'locked') {
+        systemIsIdle = true;
+      }
+    });
+  }
+
+  if (window.top === window && location.protocol.startsWith("http")) {
+    const TAB_IDLE_LIMIT_MS = 150000;
+    const HEARTBEAT_INTERVAL_MS = 5000;
+    const MAX_HEARTBEAT_CHUNK_SEC = 5;
+    let lastHeartbeatAt = Date.now();
+    let lastTabInteractionAt = Date.now();
+    let trackerIntervalId = null;
+    let leftoverMs = 0;
+    let pendingSeconds = 0;
+
+    const isContextInvalidatedError = (err) => {
+      const msg = String(err?.message || err || "").toLowerCase();
+      return msg.includes("extension context invalidated");
+    };
+
+    const stopTrackerHeartbeat = () => {
+      if (trackerIntervalId) {
+        clearInterval(trackerIntervalId);
+        trackerIntervalId = null;
+      }
+    };
+
+    const saveToEmergencyBuffer = (domain, seconds) => {
       try {
-        const p = chrome.runtime.sendMessage({
-          action: "tracker_heartbeat",
-          domain: domain,
-          seconds: seconds
+        chrome.storage.local.get(['tracker_buffer'], (res) => {
+          if (chrome.runtime.lastError) return;
+          const buffer = (res.tracker_buffer && typeof res.tracker_buffer === 'object' && !Array.isArray(res.tracker_buffer))
+            ? res.tracker_buffer : {};
+          buffer[domain] = (Number(buffer[domain]) || 0) + seconds;
+          chrome.storage.local.set({ tracker_buffer: buffer }).catch(() => { });
         });
-        if (p && typeof p.catch === "function") {
-          // Ako service worker ne odgovori (spava/mrtav), sačuvaj u bafer
-          p.catch(() => saveToEmergencyBuffer(domain, seconds));
+      } catch (_) { }
+    };
+
+    const sendHeartbeatSeconds = (totalSeconds) => {
+      const seconds = Math.max(0, Math.floor(Number(totalSeconds) || 0));
+      if (seconds <= 0) return;
+
+      const domain = location.hostname;
+
+      if (chrome?.runtime?.id) {
+        try {
+          const p = chrome.runtime.sendMessage({
+            action: "tracker_heartbeat",
+            domain: domain,
+            seconds: seconds
+          });
+          if (p && typeof p.catch === "function") {
+            p.catch(() => saveToEmergencyBuffer(domain, seconds));
+          }
+        } catch (_) {
+          saveToEmergencyBuffer(domain, seconds);
         }
-      } catch (_) {
-        // Extension context invalidiran — spasi u bafer
+      } else {
         saveToEmergencyBuffer(domain, seconds);
       }
-    } else {
-      // chrome.runtime.id ne postoji — spasi u bafer
-      saveToEmergencyBuffer(domain, seconds);
-    }
-  };
+    };
 
-  const consumeElapsedSeconds = (elapsedMs) => {
-    const safeElapsed = Math.max(0, Math.floor(Number(elapsedMs) || 0));
-    const combinedMs = leftoverMs + safeElapsed;
-    const wholeSeconds = Math.floor(combinedMs / 1000);
-    leftoverMs = combinedMs % 1000;
-    return wholeSeconds;
-  };
+    const consumeElapsedSeconds = (elapsedMs) => {
+      const safeElapsed = Math.max(0, Math.floor(Number(elapsedMs) || 0));
+      const combinedMs = leftoverMs + safeElapsed;
+      const wholeSeconds = Math.floor(combinedMs / 1000);
+      leftoverMs = combinedMs % 1000;
+      return wholeSeconds;
+    };
 
-  const flushTrackedTime = (now, maxSeconds = Number.POSITIVE_INFINITY) => {
-    const elapsedMs = now - lastHeartbeatAt;
-    lastHeartbeatAt = now;
-    const wholeSeconds = consumeElapsedSeconds(elapsedMs);
-    pendingSeconds += wholeSeconds;
-    const boundedSeconds = Math.max(0, Math.min(pendingSeconds, maxSeconds));
-    if (boundedSeconds > 0) {
-      sendHeartbeatSeconds(boundedSeconds);
-      pendingSeconds -= boundedSeconds;
-    }
-  };
-
-  const markTabInteraction = () => {
-    const now = Date.now();
-    const wasIdle = now - lastTabInteractionAt > TAB_IDLE_LIMIT_MS;
-    lastTabInteractionAt = now;
-
-    if (wasIdle) {
-      // Resume cleanly from fresh interaction without creating idle backlog.
+    const flushTrackedTime = (now, maxSeconds = Number.POSITIVE_INFINITY) => {
+      const elapsedMs = now - lastHeartbeatAt;
       lastHeartbeatAt = now;
-    }
-  };
+      const wholeSeconds = consumeElapsedSeconds(elapsedMs);
+      pendingSeconds += wholeSeconds;
+      const boundedSeconds = Math.max(0, Math.min(pendingSeconds, maxSeconds));
+      if (boundedSeconds > 0) {
+        sendHeartbeatSeconds(boundedSeconds);
+        pendingSeconds -= boundedSeconds;
+      }
+    };
 
-  ["pointerdown", "keydown", "wheel", "scroll", "touchstart", "mousemove"].forEach((eventName) => {
-    document.addEventListener(eventName, markTabInteraction, { passive: true });
-  });
-
-  document.addEventListener("visibilitychange", () => {
-    try {
+    const markTabInteraction = () => {
       const now = Date.now();
-      if (document.visibilityState === "hidden") {
-        flushTrackedTime(now);
-      }
-      lastHeartbeatAt = now;
-      leftoverMs = 0;
-      pendingSeconds = 0;
-      if (document.visibilityState === "visible") {
-        lastTabInteractionAt = now;
-      }
-    } catch (err) {
-      if (isContextInvalidatedError(err)) {
-        stopTrackerHeartbeat();
-      }
-    }
-  });
+      const wasIdle = now - lastTabInteractionAt > TAB_IDLE_LIMIT_MS;
+      lastTabInteractionAt = now;
 
-  const sendTrackerHeartbeat = () => {
-    try {
-      if (document.visibilityState !== "visible") {
-        lastHeartbeatAt = Date.now();
-        leftoverMs = 0;
-        pendingSeconds = 0;
-        return;
+      if (wasIdle) {
+        lastHeartbeatAt = now;
       }
+    };
 
-      const now = Date.now();
-      if (now - lastTabInteractionAt > TAB_IDLE_LIMIT_MS) {
-        // Count only usage up to the idle threshold, not past it.
-        const idleCutoff = lastTabInteractionAt + TAB_IDLE_LIMIT_MS;
-        const boundedNow = Math.max(lastHeartbeatAt, Math.min(now, idleCutoff));
-        if (boundedNow > lastHeartbeatAt) {
-          const boundedElapsedMs = boundedNow - lastHeartbeatAt;
-          lastHeartbeatAt = boundedNow;
-          const wholeSeconds = consumeElapsedSeconds(boundedElapsedMs);
-          if (wholeSeconds > 0) {
-            sendHeartbeatSeconds(wholeSeconds);
-          }
+    ["pointerdown", "keydown", "wheel", "scroll", "touchstart", "mousemove"].forEach((eventName) => {
+      document.addEventListener(eventName, markTabInteraction, { passive: true });
+    });
+
+    document.addEventListener("visibilitychange", () => {
+      try {
+        const now = Date.now();
+        if (document.visibilityState === "hidden") {
+          flushTrackedTime(now);
         }
-
         lastHeartbeatAt = now;
         leftoverMs = 0;
         pendingSeconds = 0;
-        return;
+        if (document.visibilityState === "visible") {
+          lastTabInteractionAt = now;
+        }
+      } catch (err) {
+        if (isContextInvalidatedError(err)) {
+          stopTrackerHeartbeat();
+        }
       }
+    });
 
-      flushTrackedTime(now, MAX_HEARTBEAT_CHUNK_SEC);
-    } catch (err) {
-      if (isContextInvalidatedError(err)) {
-        stopTrackerHeartbeat();
+    const sendTrackerHeartbeat = () => {
+      try {
+        if (document.visibilityState !== "visible") {
+          lastHeartbeatAt = Date.now();
+          leftoverMs = 0;
+          pendingSeconds = 0;
+          return;
+        }
+
+        if (systemIsIdle) {
+          lastHeartbeatAt = Date.now();
+          leftoverMs = 0;
+          pendingSeconds = 0;
+          return;
+        }
+
+        const now = Date.now();
+        if (now - lastTabInteractionAt > TAB_IDLE_LIMIT_MS) {
+          const idleCutoff = lastTabInteractionAt + TAB_IDLE_LIMIT_MS;
+          const boundedNow = Math.max(lastHeartbeatAt, Math.min(now, idleCutoff));
+          if (boundedNow > lastHeartbeatAt) {
+            const boundedElapsedMs = boundedNow - lastHeartbeatAt;
+            lastHeartbeatAt = boundedNow;
+            const wholeSeconds = consumeElapsedSeconds(boundedElapsedMs);
+            if (wholeSeconds > 0) {
+              sendHeartbeatSeconds(wholeSeconds);
+            }
+          }
+
+          lastHeartbeatAt = now;
+          leftoverMs = 0;
+          pendingSeconds = 0;
+          return;
+        }
+
+        flushTrackedTime(now, MAX_HEARTBEAT_CHUNK_SEC);
+      } catch (err) {
+        if (isContextInvalidatedError(err)) {
+          stopTrackerHeartbeat();
+        }
       }
-    }
-  };
+    };
 
-  // Initial ping + periodic heartbeat while user stays on same tab.
-  sendTrackerHeartbeat();
-  trackerIntervalId = setInterval(sendTrackerHeartbeat, HEARTBEAT_INTERVAL_MS);
+    sendTrackerHeartbeat();
+    trackerIntervalId = setInterval(sendTrackerHeartbeat, HEARTBEAT_INTERVAL_MS);
 
-  // Cleanup on page navigation to prevent memory leak
-  window.addEventListener("pagehide", () => {
-    try {
-      flushTrackedTime(Date.now());
-    } catch (_) { }
-    stopTrackerHeartbeat();
-  }, false);
+    window.addEventListener("pagehide", () => {
+      try {
+        flushTrackedTime(Date.now());
+      } catch (_) { }
+      stopTrackerHeartbeat();
+    }, false);
 
-  window.addEventListener("beforeunload", () => {
-    try {
-      flushTrackedTime(Date.now());
-    } catch (_) { }
-    stopTrackerHeartbeat();
-  }, false);
-}
+    window.addEventListener("beforeunload", () => {
+      try {
+        flushTrackedTime(Date.now());
+      } catch (_) { }
+      stopTrackerHeartbeat();
+    }, false);
+  }
+
+} // kraj runMainContentScript()

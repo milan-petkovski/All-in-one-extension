@@ -4,7 +4,7 @@ let audioCtx = null;
 let sfxCompressor = null;
 let sfxOutput = null;
 
-function safeRuntimeSendMessage(payload) {
+function safeSendRuntimeMessage(payload) {
   if (!chrome?.runtime?.id) return;
 
   try {
@@ -107,11 +107,11 @@ function playErrorSound(ctx, now) {
 
 if ('mediaSession' in navigator) {
   navigator.mediaSession.setActionHandler('play', () => {
-    safeRuntimeSendMessage({ action: "hardwarePlay" });
+    safeSendRuntimeMessage({ action: "hardwarePlay" });
   });
 
   navigator.mediaSession.setActionHandler('pause', () => {
-    safeRuntimeSendMessage({ action: "hardwarePause" });
+    safeSendRuntimeMessage({ action: "hardwarePause" });
   });
 }
 

@@ -25,7 +25,8 @@
   ],
   "host_permissions": [
     "*://*/*",
-    "https://www.google-analytics.com/"
+    "https://www.google-analytics.com/",
+    "https://allinone.milanwebportal.com/"
   ],
   "web_accessible_resources": [
     {

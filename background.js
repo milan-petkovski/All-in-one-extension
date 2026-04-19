@@ -1,10 +1,6 @@
-// Universal event tracking function (local + Google Analytics)
-const GA_MEASUREMENT_ID = "G-F52S6J4TZV";
-const GA_API_SECRET = "j09W3gL-TImYVi2ZE7rHxA";
-const GA_ENDPOINT = `https://www.google-analytics.com/mp/collect?measurement_id=${GA_MEASUREMENT_ID}&api_secret=${GA_API_SECRET}`;
+const AIO_API_ENDPOINT = "https://allinone.milanwebportal.com/api/track.php";
+const MAX_HEARTBEAT_SECONDS = 5;
 
-
-// Debounce za eventStats upis + jedinstven GA client_id (SW nema localStorage)
 let eventStatsCache = null;
 let eventStatsLoadPromise = null;
 let eventStatsDebounce = null;
@@ -57,7 +53,7 @@ function trackEvent(eventName, eventData = {}) {
                     }
                 ]
             };
-            return fetch(GA_ENDPOINT, {
+            return fetch(AIO_API_ENDPOINT, {
                 method: "POST",
                 body: JSON.stringify(body),
                 keepalive: true,
@@ -73,7 +69,10 @@ function trackEvent(eventName, eventData = {}) {
             console.warn("GA fetch error:", err);
         });
 }
-let offscreenInitPromise = null;
+
+// --- OFFSCREEN ---
+let offscreenCreating = false;
+let offscreenCreatePromise = null;
 let bgI18nDict = null;
 
 chrome.storage.onChanged.addListener((changes) => {
@@ -91,6 +90,7 @@ async function loadBgTranslations(lang) {
 chrome.storage.local.get(['appLang'], (data) => {
     loadBgTranslations(data.appLang || 'sr');
 });
+
 function getI18nMsg(key, defaultText) {
     if (typeof chrome !== 'undefined' && chrome.i18n && chrome.i18n.getMessage) {
         const msg = chrome.i18n.getMessage(key);
@@ -114,9 +114,11 @@ function safeSendRuntimeMessage(payload) {
 
 async function setupOffscreen() {
     if (await chrome.offscreen.hasDocument()) return;
-    if (offscreenInitPromise) return offscreenInitPromise;
 
-    offscreenInitPromise = (async () => {
+    if (offscreenCreating) return offscreenCreatePromise;
+
+    offscreenCreating = true;
+    offscreenCreatePromise = (async () => {
         try {
             await chrome.offscreen.createDocument({
                 url: 'offscreen.html',
@@ -128,14 +130,14 @@ async function setupOffscreen() {
             const alreadyExists = msg.includes("only a single offscreen") || msg.includes("already exists");
             if (!alreadyExists) throw err;
         } finally {
-            offscreenInitPromise = null;
+            offscreenCreating = false;
+            offscreenCreatePromise = null;
         }
     })();
 
-    return offscreenInitPromise;
+    return offscreenCreatePromise;
 }
 
-// Funkcija za puštanje sistemskih zvukova preko Offscreen-a
 async function playSystemSound(type) {
     try {
         await setupOffscreen();
@@ -150,7 +152,7 @@ async function checkRealRadioStatus() {
     if (!hasDocument) {
         const data = await chrome.storage.local.get('playing');
         if (data.playing) {
-            await chrome.storage.local.set({ playing: false, volume: 12 }).catch(() => { });
+            await chrome.storage.local.set({ playing: false }).catch(() => { });
         }
         return false;
     }
@@ -216,7 +218,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 
     if (action === "aio_track_event") {
-        // Event iz popup.js za GA
         try {
             const eventName = request.eventName;
             const eventData = request.eventData || {};
@@ -237,7 +238,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (action === "playCustomUrl") {
         const radioTitle = bgI18nDict?.radioTitle?.message || "Radio IN";
         const radioArtist = bgI18nDict?.radioArtist?.message || "Pokreće All In One ekstenzija";
-        const currentVol = request.volume || 12; // Fallback to 12 if not provided
+        const currentVol = request.volume ?? 12;
 
         safeSendRuntimeMessage({
             action: "play",
@@ -277,9 +278,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         (async () => {
             try {
                 const data = await chrome.storage.local.get(['volume']);
-                const currentVol = data.volume !== undefined ? data.volume : 12;
+                const currentVol = data.volume ?? 12;
 
-                // Dodaj prevode i ovde
                 const radioTitle = bgI18nDict?.radioTitle?.message || "Radio IN";
                 const radioArtist = bgI18nDict?.radioArtist?.message || "Pokreće All In One ekstenzija";
                 const storage = await chrome.storage.local.get(['customRadioUrl']);
@@ -303,7 +303,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
     if (action === "hardwarePause") {
         safeSendRuntimeMessage({ action: "pause" });
-        chrome.storage.local.set({ playing: false, volume: 12 }).then(() => {
+        chrome.storage.local.set({ playing: false }).then(() => {
             sendResponse({ ok: true });
         });
         return true;
@@ -319,14 +319,13 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (action === "tracker_force_tick") {
         trackEvent("tracker osvežen", { domen: request?.domain || "" });
         const run = runTrackerMutation(async () => {
-            // Force flush the debounce if any
-            if (addTrackedSeconds.debounce) {
-                clearTimeout(addTrackedSeconds.debounce);
-                addTrackedSeconds.debounce = null;
+            if (trackerDebounce) {
+                clearTimeout(trackerDebounce);
+                trackerDebounce = null;
                 const today = new Date();
                 const dateKey = `tracker_${today.getFullYear()}_${today.getMonth() + 1}_${today.getDate()}`;
-                if (addTrackedSeconds.cache && addTrackedSeconds.cache[dateKey]) {
-                    await chrome.storage.local.set({ [dateKey]: addTrackedSeconds.cache[dateKey] });
+                if (trackerCache && trackerCache[dateKey]) {
+                    await chrome.storage.local.set({ [dateKey]: trackerCache[dateKey] });
                 }
             }
             await trackerWriteQueue;
@@ -336,12 +335,11 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 
     if (action === "tracker_clear_cache") {
-        // Očisti keš nakon uvoza podataka da se spreči pregazivanje uvezenih podataka
-        if (addTrackedSeconds.debounce) {
-            clearTimeout(addTrackedSeconds.debounce);
-            addTrackedSeconds.debounce = null;
+        if (trackerDebounce) {
+            clearTimeout(trackerDebounce);
+            trackerDebounce = null;
         }
-        addTrackedSeconds.cache = {};
+        trackerCache = {};
         sendResponse({ ok: true });
         return false;
     }
@@ -358,7 +356,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
                 const rawSeconds = Number(request.seconds);
                 const seconds = Number.isFinite(rawSeconds)
-                    ? Math.max(1, Math.min(Math.floor(rawSeconds), 5))
+                    ? Math.max(1, Math.min(Math.floor(rawSeconds), MAX_HEARTBEAT_SECONDS))
                     : 0;
 
                 await trackerHeartbeat(domain, seconds);
@@ -387,10 +385,9 @@ async function handleToggle(sendResponse) {
         await setupOffscreen();
         const data = await chrome.storage.local.get(['playing', 'volume']);
         const newState = !data.playing;
-        const currentVol = data.volume !== undefined ? data.volume : 12;
+        const currentVol = data.volume ?? 12;
 
         if (newState) {
-            // Izvlačenje prevoda iz tvog rečnika
             const radioTitle = bgI18nDict?.radioTitle?.message || "Radio IN";
             const radioArtist = bgI18nDict?.radioArtist?.message || "Pokreće All In One ekstenzija";
             const storage = await chrome.storage.local.get(['customRadioUrl']);
@@ -416,13 +413,15 @@ async function handleToggle(sendResponse) {
     }
 }
 
-// TRACKER LOGIKA (Samo snimanje iz content.js)
 let trackerWriteQueue = Promise.resolve();
 let trackerMutationQueue = Promise.resolve();
+let trackerCache = null;
+let trackerCacheLoadPromise = null;
+let trackerDebounce = null;
 
 function getTrackableSeconds(diff) {
     if (!Number.isFinite(diff) || diff <= 0) return 0;
-    return Math.min(diff, 120);
+    return Math.min(diff, MAX_HEARTBEAT_SECONDS);
 }
 
 function extractDomain(url) {
@@ -443,8 +442,6 @@ function normalizeDomain(domain) {
     return clean;
 }
 
-
-
 function runTrackerMutation(task) {
     trackerMutationQueue = trackerMutationQueue
         .then(task)
@@ -459,37 +456,41 @@ async function addTrackedSeconds(domain, seconds) {
     const cleanDomain = normalizeDomain(domain);
     if (!cleanDomain || seconds <= 0) return;
 
-
-    // Debounce/batch upis za tracker podatke
-    if (!addTrackedSeconds.cache) addTrackedSeconds.cache = {};
-    if (!addTrackedSeconds.debounce) addTrackedSeconds.debounce = null;
     const today = new Date();
     const dateKey = `tracker_${today.getFullYear()}_${today.getMonth() + 1}_${today.getDate()}`;
-    if (!addTrackedSeconds.cache[dateKey]) {
-        const res = await chrome.storage.local.get([dateKey]);
-        const rawDay = res[dateKey];
-        addTrackedSeconds.cache[dateKey] = rawDay && typeof rawDay === "object" && !Array.isArray(rawDay) ? rawDay : {};
+
+    if (!trackerCache) trackerCache = {};
+    if (!trackerCache[dateKey]) {
+        if (!trackerCacheLoadPromise) {
+            trackerCacheLoadPromise = chrome.storage.local.get([dateKey]).then((res) => {
+                const rawDay = res[dateKey];
+                if (!trackerCache) trackerCache = {};
+                trackerCache[dateKey] = rawDay && typeof rawDay === "object" && !Array.isArray(rawDay) ? rawDay : {};
+                trackerCacheLoadPromise = null;
+            });
+        }
+        await trackerCacheLoadPromise;
     }
-    const data = addTrackedSeconds.cache[dateKey];
+
+    const data = trackerCache[dateKey];
     const prev = Number(data[cleanDomain]) || 0;
     data[cleanDomain] = prev + seconds;
-    if (addTrackedSeconds.debounce) clearTimeout(addTrackedSeconds.debounce);
-    addTrackedSeconds.debounce = setTimeout(async () => {
-        await chrome.storage.local.set({ [dateKey]: addTrackedSeconds.cache[dateKey] });
-        addTrackedSeconds.debounce = null;
+
+    if (trackerDebounce) clearTimeout(trackerDebounce);
+    trackerDebounce = setTimeout(async () => {
+        await chrome.storage.local.set({ [dateKey]: trackerCache[dateKey] });
+        trackerDebounce = null;
     }, 400);
 
     await trackerWriteQueue;
 }
-
-
 
 async function trackerHeartbeat(domain, seconds) {
     const cleanDomain = normalizeDomain(domain);
     if (!cleanDomain) return;
 
     const safeSeconds = Number.isFinite(Number(seconds))
-        ? Math.max(1, Math.min(Math.floor(Number(seconds)), 120))
+        ? Math.max(1, Math.min(Math.floor(Number(seconds)), MAX_HEARTBEAT_SECONDS))
         : 0;
 
     if (safeSeconds <= 0) return;
@@ -499,16 +500,12 @@ async function trackerHeartbeat(domain, seconds) {
     });
 }
 
-
-
 // STOPERICA KOMANDA
 let swLapWriteQueue = Promise.resolve();
 let lastLapDedupeAt = 0;
 
-// Glavna logika za krug (Lap)
 async function handleLapLogic() {
     const now = Date.now();
-    // Spreči dupli lap istovremeno sa komande + popup (isti Alt+Shift+L tick)
     if (now - lastLapDedupeAt < 350) return;
     lastLapDedupeAt = now;
     const store = await chrome.storage.local.get(["isRunning", "startTime", "currentLaps", "lastLapTime"]);
@@ -547,16 +544,13 @@ async function handleLapLogic() {
     safeSendRuntimeMessage({ action: "update_ui" });
 }
 
-// Slušač za Alt+Shift+L
+// Slusac za Alt+Shift+L
 chrome.commands.onCommand.addListener((command) => {
     if (command === "mark-lap") {
         handleLapLogic();
     }
 });
 
-// KeepAlive alarm - MORA biti na top-level nivou (van onInstalled)
-// jer se Service Worker restartuje svake ~30s neaktivnosti i tada
-// gubi sve listenere koji su bili registrovani unutar callback-ova.
 function ensureKeepAliveAlarm() {
     chrome.alarms.get('keepAlive', (alarm) => {
         if (!alarm) {
@@ -565,9 +559,6 @@ function ensureKeepAliveAlarm() {
     });
 }
 
-// Bezbednosni sistem: ako content.js nije uspeo da pošalje heartbeat
-// service worker-u (bio je mrtav/spavao), sekunde se čuvaju u "tracker_buffer".
-// Ova funkcija ih pokupi i upiše u pravi tracker pri svakom buđenju.
 async function flushTrackerBuffer() {
     try {
         const res = await chrome.storage.local.get(['tracker_buffer']);
@@ -579,7 +570,7 @@ async function flushTrackerBuffer() {
 
         for (const domain of domains) {
             const seconds = Math.floor(Number(buffer[domain]) || 0);
-            if (seconds > 0 && seconds <= 86400) { // Max 24h zaštita od korupcije
+            if (seconds > 0 && seconds <= 86400) { // Max 24h zastita od korupcije
                 const cleanDomain = normalizeDomain(domain);
                 if (cleanDomain) {
                     await runTrackerMutation(async () => {
@@ -589,32 +580,60 @@ async function flushTrackerBuffer() {
             }
         }
 
-        // Očisti bafer nakon uspešnog upisa
         await chrome.storage.local.remove('tracker_buffer');
     } catch (err) {
         console.error("Flush tracker buffer error:", err);
     }
 }
 
-// Top-level alarm listener - preživljava restartovanje service workera
 chrome.alarms.onAlarm.addListener((alarm) => {
     if (alarm.name === 'keepAlive') {
         checkRealRadioStatus().catch(() => { });
-        // Pokupi izgubljene sekunde iz emergency bafera
         flushTrackerBuffer().catch(() => { });
-        // Dodatna zaštita: proveri da alarm i dalje postoji
         ensureKeepAliveAlarm();
     }
 });
 
-// Pokreni alarm i pokupi bafer odmah pri svakom učitavanju service workera
+const IDLE_DETECTION_INTERVAL_SEC = 60;
+
+chrome.idle.setDetectionInterval(IDLE_DETECTION_INTERVAL_SEC);
+
+let systemIdleState = 'active'; // 'active' | 'idle' | 'locked'
+
+chrome.idle.onStateChanged.addListener((newState) => {
+    systemIdleState = newState;
+
+    if (newState === 'idle' || newState === 'locked') {
+        chrome.tabs.query({}, (tabs) => {
+            tabs.forEach((tab) => {
+                if (!tab.id || !tab.url || !tab.url.startsWith('http')) return;
+                chrome.tabs.sendMessage(tab.id, { action: "system_idle" }).catch(() => { });
+            });
+        });
+    } else if (newState === 'active') {
+        chrome.tabs.query({}, (tabs) => {
+            tabs.forEach((tab) => {
+                if (!tab.id || !tab.url || !tab.url.startsWith('http')) return;
+                chrome.tabs.sendMessage(tab.id, { action: "system_active" }).catch(() => { });
+            });
+        });
+    }
+});
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if (request?.action === "get_system_idle_state") {
+        sendResponse({ state: systemIdleState });
+        return false;
+    }
+});
+
 ensureKeepAliveAlarm();
 flushTrackerBuffer().catch(() => { });
 
 chrome.runtime.onInstalled.addListener((details) => {
     trackEvent("ekstenzija instalirana/azurirana", { razlog: details.reason });
 
-    // Osiguraj alarm i pri instalaciji/ažuriranju
+
     ensureKeepAliveAlarm();
 
     if (details.reason === "install") {

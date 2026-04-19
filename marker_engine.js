@@ -252,6 +252,8 @@ async function pokreniMarker() {
 
         window.addEventListener("mouseup", handleGlobalMouseUp);
 
+        window.addEventListener('pagehide', removeMarker, { once: true });
+
         function setupElement(el) {
             el.style.pointerEvents = "auto";
             const mouseEnterHandler = () => { if (mode === "eraser") el.remove(); };

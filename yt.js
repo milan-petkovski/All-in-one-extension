@@ -165,7 +165,6 @@ function retryApplyTick() {
 }
 
 function startRetryWindow() {
-  // PERFORMANCE FIX: Reduced from 4500ms/350ms (~13 attempts) to 2000ms/400ms (~5 attempts)
   ytRetryEndAt = Date.now() + 2000;
   if (ytRetryTimer) return;
   ytRetryTimer = setInterval(retryApplyTick, 400);
@@ -186,6 +185,8 @@ async function fetchAndApplyDislikes() {
 
   const videoId = getVideoId();
   if (!videoId) return;
+
+  if (videoId === ytLastVideoId) return;
 
   const reqId = ++ytReqId;
 
@@ -229,17 +230,14 @@ function initYtRyd() {
 function startYtWatchers() {
   if (ytObserver) return;
 
-  // Use requestAnimationFrame for debounced DOM updates
   let ytMutationDebounceId = null;
   let lastMutationTime = 0;
   ytObserver = new MutationObserver((mutationsList) => {
     if (!ytEnabled) return;
-    // PERFORMANCE FIX: Increased throttle from 300ms to 500ms to reduce CPU usage
     const now = Date.now();
-    if (now - lastMutationTime < 500) return; // throttle na 500ms
+    if (now - lastMutationTime < 500) return;
     lastMutationTime = now;
     let relevant = false;
-    // PERFORMANCE FIX: Limit mutations processed to first 50
     const maxMutations = Math.min(mutationsList.length, 50);
     for (let i = 0; i < maxMutations; i++) {
       const t = mutationsList[i].target;
@@ -258,8 +256,6 @@ function startYtWatchers() {
     }
   });
   ytObserver.observe(document.documentElement, { childList: true, subtree: true });
-
-  // PERFORMANCE FIX: Removed setInterval URL watcher - yt-navigate-finish event is sufficient
 }
 
 function stopYtWatchers() {
