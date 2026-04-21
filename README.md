@@ -44,7 +44,7 @@ Every donation means a lot and helps me maintain and improve the extension. Than
 
 *The fastest way to always have the latest version.*
 
-1. Visit the Chrome Web Store page
+1. Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem) page
 2. Click the Add to Chrome button
 3. Confirm the installation in the popup window
 4. The extension is immediately ready to use
@@ -55,7 +55,7 @@ Every donation means a lot and helps me maintain and improve the extension. Than
 
 *For users who want to install the extension directly via source code.*
 
-1. Go to the Releases section of this repository
+1. Go to the [Releases](https://github.com/milan-petkovski/All-in-one-extension/releases) section of this repository
 2. Download the latest published All.In.One.zip file
 3. Extract the archive into a separate folder on your computer
 4. Open your browser and navigate to chrome://extensions/
