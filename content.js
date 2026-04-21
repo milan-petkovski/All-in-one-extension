@@ -10,56 +10,7 @@ const isSystemPage = () => {
   );
 };
 
-if (isSystemPage()) {
-  const style = document.createElement('style');
-  style.textContent = `
-    html, body {
-      background: #181818 !important;
-      color: #fff !important;
-      margin: 0; padding: 0; height: 100vh; width: 100vw;
-      overflow: hidden !important;
-    }
-    #aio-system-block {
-      position: fixed; z-index: 2147483647; top: 0; left: 0; width: 100vw; height: 100vh;
-      background: #181818; color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center;
-      font-family: 'Segoe UI', Arial, sans-serif; font-size: 2.2rem; letter-spacing: 1px;
-    }
-    #aio-system-block svg {
-      width: 80px; height: 80px; margin-bottom: 32px;
-      display: block;
-    }
-    #aio-system-block small { font-size: 1.1rem; color: #aaa; margin-top: 1.5rem; }
-  `;
-
-  try {
-    document.head.appendChild(style);
-  } catch (e) {
-    document.documentElement.appendChild(style);
-  }
-
-  const overlay = document.createElement('div');
-  overlay.id = 'aio-system-block';
-  overlay.innerHTML = `
-    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-      <rect x="3" y="11" width="18" height="10" rx="2" fill="#222" stroke="#fff"/>
-      <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#fff"/>
-      <circle cx="12" cy="16" r="2" fill="#fff"/>
-    </svg>
-    <div>Sistemska stranica je blokirana</div>
-    <small>Ekstenzije ne mogu raditi na ovim stranicama zbog ograničenja browsera.</small>
-  `;
-
-  if (document.body) {
-    document.body.innerHTML = '';
-    document.body.appendChild(overlay);
-  } else {
-    document.addEventListener('DOMContentLoaded', () => {
-      document.body.innerHTML = '';
-      document.body.appendChild(overlay);
-    });
-  }
-
-} else {
+if (!isSystemPage()) {
   runMainContentScript();
 }
 
@@ -358,7 +309,7 @@ function runMainContentScript() {
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initializeFeatures);
-    
+
     setTimeout(() => { if (foucStyle && !window.aioInitialized) initializeFeatures(); }, 800);
   } else {
     initializeFeatures();
