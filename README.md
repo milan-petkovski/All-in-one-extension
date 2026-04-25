@@ -23,6 +23,8 @@
   <img src="https://allinone.milanwebportal.com/Browser/7.png" width="35" alt="Arc">
 
   <p>...and all other Chromium based browsers.</p>
+
+  <a href="https://www.producthunt.com/products/all-in-one-extension?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-all-in-one-extension" target="_blank" rel="noopener noreferrer">        <img alt="All In One Extension - Ultimate productivity and design toolkit for your browser. | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1124470&amp;theme=light&amp;t=1777113476173"></a>
 </div>
 
 <br>
