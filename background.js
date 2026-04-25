@@ -229,8 +229,35 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         return false;
     }
 
+    if (action === "shortcut_triggered") {
+        const toolAction = request.toolAction;
+        if (toolAction === "dark_mode_toggle") {
+            chrome.storage.local.get(['darkMode'], (res) => {
+                chrome.storage.local.set({ darkMode: !res.darkMode });
+            });
+        } else if (toolAction === "enable_copy_toggle") {
+            chrome.storage.local.get(['copyEnabled'], (res) => {
+                chrome.storage.local.set({ copyEnabled: !res.copyEnabled });
+            });
+        } else if (toolAction === "page_marker_open") {
+            chrome.scripting.executeScript({
+                target: { tabId: sender.tab.id },
+                files: ['marker_engine.js']
+            }).then(() => {
+                chrome.tabs.sendMessage(sender.tab.id, { action: "initMarker" });
+            }).catch(() => { });
+        } else if (toolAction === "page_ruler_open") {
+            chrome.tabs.sendMessage(sender.tab.id, { action: "toggleRuler" });
+        } else if (toolAction === "font_finder_open") {
+            chrome.tabs.sendMessage(sender.tab.id, { action: "toggleFontFinder" });
+        } else if (toolAction === "color_picker_open") {
+            chrome.tabs.sendMessage(sender.tab.id, { action: "toggleColorPicker" });
+        }
+        return false;
+    }
+
     if (action === "toggleRadio") {
-        trackEvent("radio otvoren/zatvoren");
+        trackEvent("radio_toggle");
         handleToggle(sendResponse);
         return true;
     }
@@ -252,7 +279,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 
     if (action === "setRadioVolume") {
-        trackEvent("radio pojačan/utišan", { vrednost: request.value });
+        trackEvent("radio_volume_change", { value: request.value });
         safeSendRuntimeMessage({ action: "setVolume", value: request.value });
         sendResponse({ ok: true });
         return false;
@@ -310,14 +337,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 
     if (action === "manual_lap") {
-        trackEvent("krug stoperice");
+        trackEvent("stopwatch_lap");
         handleLapLogic();
         sendResponse({ ok: true });
         return false;
     }
 
     if (action === "tracker_force_tick") {
-        trackEvent("tracker osvežen", { domen: request?.domain || "" });
+        trackEvent("tracker_refresh", { domain: request?.domain || "" });
         const run = runTrackerMutation(async () => {
             if (trackerDebounce) {
                 clearTimeout(trackerDebounce);
@@ -376,6 +403,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                 console.error("clearSiteData error:", err);
                 sendResponse({ ok: false });
             });
+        return true;
+    }
+
+    if (action === "captureTab") {
+        chrome.tabs.captureVisibleTab(null, { format: "png" }, (dataUrl) => {
+            if (chrome.runtime.lastError) {
+                sendResponse({ ok: false, error: chrome.runtime.lastError.message });
+            } else {
+                sendResponse({ ok: true, dataUrl: dataUrl });
+            }
+        });
         return true;
     }
 });
@@ -631,7 +669,7 @@ ensureKeepAliveAlarm();
 flushTrackerBuffer().catch(() => { });
 
 chrome.runtime.onInstalled.addListener((details) => {
-    trackEvent("ekstenzija instalirana/azurirana", { razlog: details.reason });
+    trackEvent("extension_install_uninstall", { reason: details.reason });
 
 
     ensureKeepAliveAlarm();

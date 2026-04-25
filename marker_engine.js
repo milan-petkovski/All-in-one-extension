@@ -20,6 +20,19 @@ if (!window.aioMarkerMessageListenerAttached) {
     window.aioMarkerMessageListenerAttached = true;
 }
 
+function trackMarkerEvent(eventName, eventData = {}) {
+    try {
+        chrome.runtime.sendMessage({
+            action: "aio_track_event",
+            eventName: "marker_" + eventName,
+            eventData: {
+                ...eventData,
+                page_location: location.href
+            }
+        });
+    } catch (e) {}
+}
+
 async function pokreniMarker() {
     if (!document.head || !document.body) {
         window.markerInitAttempts++;
@@ -59,7 +72,6 @@ async function pokreniMarker() {
         const style = document.createElement('style');
         style.id = 'marker-styles';
         style.innerHTML = `
-            .marker-menu { position: fixed; right: 25px; top: 50%; transform: translateY(-50%); background: rgba(15, 15, 15, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 18px; border-radius: 24px; display: flex; flex-direction: column; align-items: center; gap: 15px; z-index: 2147483647; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); transition: all 0.3s ease; }
             .marker-btns { display: flex; flex-direction: column; gap: 12px; }
             .marker-menu button, .marker-color-picker-wrapper { width: 48px; height: 48px; border: none; border-radius: 14px; background: rgba(255, 255, 255, 0.1); cursor: pointer; color: white; transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); display: flex; align-items: center; justify-content: center; position: relative; box-sizing: border-box; }
             .marker-menu button:hover { background: #00ff88; color: #000; box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3); }
@@ -73,11 +85,16 @@ async function pokreniMarker() {
             .marker-menu input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none !important; appearance: none !important; width: 14px !important; height: 14px !important; border-radius: 50% !important; background: #00ff88 !important; }
             .marker-menu input[type="range"]::-moz-range-thumb { width: 14px !important; height: 14px !important; border-radius: 50% !important; background: #00ff88 !important; border: none !important; }
             .marker-menu input[type="range"]:hover { opacity: 1 !important; }
-            
+
             .close-btn { background: rgba(255, 68, 68, 0.2) !important; color: #ff4444 !important; border: 1px solid rgba(255, 68, 68, 0.3) !important; }
             .close-btn:hover { background: #ff4444 !important; color: white !important; box-shadow: 0 4px 15px rgba(255, 68, 68, 0.4) !important; }
-            .marker-text-input { position: fixed; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); border: 2px dashed #00ff88; color: #00ff88; outline: none; padding: 8px 12px; z-index: 2147483647; font-family: 'Segoe UI', sans-serif; font-weight: bold; border-radius: 8px; white-space: nowrap; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+            .marker-text-input { position: fixed; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); border: 2px dashed #00ff88; color: #00ff88; outline: none; padding: 8px 12px; z-index: 2147483647; font-family: system-ui, -apple-system, sans-serif; font-weight: bold; border-radius: 8px; white-space: nowrap; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
             #markerCanvas { background: transparent !important; user-select: none !important; -webkit-user-select: none !important; }
+            
+            /* Smart Docking Styles */
+            .marker-menu.minimized { transform: translateY(-50%) translateX(calc(100% - 10px)) !important; opacity: 0.5; }
+            .marker-menu.minimized:hover { opacity: 1; transform: translateY(-50%) translateX(0) !important; }
+            .marker-menu { position: fixed; right: 25px; top: 50%; transform: translateY(-50%); background: rgba(15, 15, 15, 0.9); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); padding: 18px; border-radius: 24px; display: flex; flex-direction: column; align-items: center; gap: 15px; z-index: 2147483647; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease !important; }
         `;
         document.head.appendChild(style);
 
@@ -123,6 +140,32 @@ async function pokreniMarker() {
         `;
         document.body.appendChild(menu);
 
+        // --- SMART DOCKING LOGIC ---
+        let hideTimeout = null;
+        const startAutoHide = (delay = 3000) => {
+            stopAutoHide();
+            hideTimeout = setTimeout(() => {
+                menu.classList.add("minimized");
+            }, delay);
+        };
+        const stopAutoHide = () => {
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                hideTimeout = null;
+            }
+        };
+
+        menu.onmouseenter = () => {
+            stopAutoHide();
+            menu.classList.remove("minimized");
+        };
+        menu.onmouseleave = () => {
+            startAutoHide(1000);
+        };
+        
+        startAutoHide(3000); // Inicijalno sakrivanje nakon 3s
+        // ---------------------------
+
         let mode = "brush";
         let drawing = false;
         let currentElement = null;
@@ -136,6 +179,7 @@ async function pokreniMarker() {
         const handleGlobalMouseUp = () => { drawing = false; currentElement = null; };
 
         const removeMarker = () => {
+            stopAutoHide();
             if (rAF) cancelAnimationFrame(rAF);
             document.querySelectorAll('.marker-text-input').forEach((el) => el.remove());
             svg.querySelectorAll('*').forEach((el) => {
@@ -152,34 +196,70 @@ async function pokreniMarker() {
         const picker = document.getElementById('markerColorPicker');
         const wrapper = document.getElementById('colorWrapper');
 
-        let colorDebounce;
         picker.oninput = (e) => {
             window.markerCurrentColor = e.target.value;
             wrapper.style.backgroundColor = window.markerCurrentColor;
             wrapper.style.borderColor = window.markerCurrentColor;
-            if (colorDebounce) clearTimeout(colorDebounce);
-            colorDebounce = setTimeout(() => {
-                chrome.storage.local.set({ selectedColor: window.markerCurrentColor }).catch(() => { });
-            }, 200);
+        };
+        picker.onchange = (e) => {
+            trackMarkerEvent("color_change", { color: e.target.value });
+            chrome.storage.local.set({ selectedColor: e.target.value }).catch(() => { });
+            startAutoHide(1000); // Sakrij nakon biranja boje
         };
 
         menu.onclick = (e) => {
             const btn = e.target.closest("button");
             if (!btn) return;
-            if (btn.id === "m_close") { removeMarker(); return; }
-            if (btn.id === "m_clear") { svg.innerHTML = ''; return; }
+            if (btn.id === "m_close") { 
+                trackMarkerEvent("close");
+                removeMarker(); 
+                return; 
+            }
+            if (btn.id === "m_clear") { 
+                trackMarkerEvent("clear_all_click");
+                svg.innerHTML = ''; 
+                startAutoHide(1000);
+                return; 
+            }
             document.querySelectorAll(".marker-menu button:not(.close-btn):not(#m_clear)").forEach(b => b.classList.remove("active"));
             btn.classList.add("active");
-            mode = btn.id.replace("m_", "");
+            
+            const tool = btn.id.replace("m_", "");
+            const eventNames = {
+                "brush": "draw_select",
+                "line": "line_select",
+                "text": "text_select",
+                "move": "move_select",
+                "eraser": "erase_select"
+            };
+            trackMarkerEvent(eventNames[tool] || tool);
+            
+            mode = tool;
             svg.style.cursor = (mode === "text") ? "text" : (mode === "move" ? "move" : "crosshair");
+            
+            startAutoHide(1000); // Sakrij nakon biranja alata
         };
 
-        document.getElementById("m_size").oninput = (e) => thickness = parseInt(e.target.value, 10) || 5;
+        document.getElementById("m_size").oninput = (e) => {
+            thickness = parseInt(e.target.value, 10) || 5;
+        };
+        document.getElementById("m_size").onchange = (e) => {
+            trackMarkerEvent("thickness_change", { thickness: parseInt(e.target.value, 10) });
+        };
 
-        svg.onmousedown = (e) => {
-            if (mode === "eraser" || mode === "move" || e.target.tagName === "input") return;
+        const getPos = (e) => {
+            if (e.touches && e.touches.length > 0) {
+                return { x: e.touches[0].clientX, y: e.touches[0].clientY };
+            }
+            return { x: e.clientX, y: e.clientY };
+        };
+
+        const onStart = (e) => {
+            if (mode === "eraser" || mode === "move" || e.target.tagName === "INPUT") return;
+            if (e.type === "touchstart") e.preventDefault();
             drawing = true;
-            const x = e.clientX, y = e.clientY;
+            const pos = getPos(e);
+            const x = pos.x, y = pos.y;
 
             if (mode === "text") {
                 drawing = false;
@@ -223,9 +303,11 @@ async function pokreniMarker() {
             setupElement(currentElement); svg.appendChild(currentElement);
         };
 
-        svg.onmousemove = (e) => {
+        const onMove = (e) => {
             if (!drawing || !currentElement) return;
-            pendingPoint = { x: e.clientX, y: e.clientY };
+            if (e.type === "touchmove") e.preventDefault();
+            const pos = getPos(e);
+            pendingPoint = { x: pos.x, y: pos.y };
             if (!rAF) {
                 rAF = requestAnimationFrame(() => {
                     if (drawing && currentElement) {
@@ -250,7 +332,13 @@ async function pokreniMarker() {
             }
         };
 
+        svg.addEventListener("mousedown", onStart);
+        svg.addEventListener("touchstart", onStart, { passive: false });
+        svg.addEventListener("mousemove", onMove);
+        svg.addEventListener("touchmove", onMove, { passive: false });
+
         window.addEventListener("mouseup", handleGlobalMouseUp);
+        window.addEventListener("touchend", handleGlobalMouseUp);
 
         window.addEventListener('pagehide', removeMarker, { once: true });
 
@@ -261,10 +349,13 @@ async function pokreniMarker() {
             const mouseDownHandler = (e) => {
                 if (mode !== "move") return;
                 e.stopPropagation(); e.preventDefault();
-                let lastX = e.clientX, lastY = e.clientY;
+                const startPos = getPos(e);
+                let lastX = startPos.x, lastY = startPos.y;
                 const move = (me) => {
-                    const dx = me.clientX - lastX, dy = me.clientY - lastY;
-                    lastX = me.clientX; lastY = me.clientY;
+                    if (me.type === "touchmove") me.preventDefault();
+                    const mPos = getPos(me);
+                    const dx = mPos.x - lastX, dy = mPos.y - lastY;
+                    lastX = mPos.x; lastY = mPos.y;
                     if (el.tagName === "polyline") {
                         for (let i = 0; i < el.points.numberOfItems; i++) { el.points.getItem(i).x += dx; el.points.getItem(i).y += dy; }
                     } else if (el.tagName === "line") {
@@ -275,9 +366,18 @@ async function pokreniMarker() {
                     }
                 };
                 window.addEventListener("mousemove", move);
-                window.addEventListener("mouseup", () => window.removeEventListener("mousemove", move), { once: true });
+                window.addEventListener("touchmove", move, { passive: false });
+                window.addEventListener("mouseup", () => {
+                    window.removeEventListener("mousemove", move);
+                    window.removeEventListener("touchmove", move);
+                }, { once: true });
+                window.addEventListener("touchend", () => {
+                    window.removeEventListener("mousemove", move);
+                    window.removeEventListener("touchmove", move);
+                }, { once: true });
             };
             el.addEventListener("mousedown", mouseDownHandler);
+            el.addEventListener("touchstart", mouseDownHandler, { passive: false });
             el._markerCleanup = () => {
                 el.removeEventListener("mouseenter", mouseEnterHandler);
                 el.removeEventListener("mousedown", mouseDownHandler);

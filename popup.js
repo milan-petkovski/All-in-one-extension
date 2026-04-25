@@ -181,14 +181,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     elements.copyToggle?.addEventListener("change", () => {
-        trackEvent(elements.copyToggle.checked ? "kopiranje omogućeno" : "kopiranje onemogućeno");
+        trackEvent(elements.copyToggle.checked ? "enable_copy_on" : "enable_copy_off");
         if (host) {
             chrome.storage.local.set({ [host]: elements.copyToggle.checked }).catch(() => { });
         }
     });
     elements.ytToggle?.addEventListener("change", (e) => {
         const isYtEnabled = e.target.checked;
-        trackEvent(isYtEnabled ? "youtube omogućeno" : "youtube onemogućeno");
+        trackEvent(isYtEnabled ? "yt_dislike_on" : "yt_dislike_off");
         chrome.storage.local.set({ ytToggle: isYtEnabled }).catch(() => { });
         // Auto-apply only for boost mode to avoid overriding site/player volume at 100%.
         if (isYtEnabled && host && elements.masterVol) {
@@ -221,20 +221,19 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     elements.radioVol?.addEventListener("input", () => {
         const val = parseInt(elements.radioVol.value);
-        trackEvent("radio pojačan", { vrednost: val });
-        // We check if it is playing by checking the innerHTML for pauseSvg
+        // Ne šaljemo GA ovde jer se stalno pomera
         if (elements.radioBtn.innerHTML.includes('M6 19')) {
             chrome.runtime.sendMessage({ action: "setRadioVolume", value: val });
         }
     });
     elements.radioVol?.addEventListener("change", () => {
         const val = parseInt(elements.radioVol.value);
-        trackEvent("radio utišan", { vrednost: val });
+        trackEvent("radio_volume_change", { value: val });
         chrome.storage.local.set({ volume: val }).catch(() => { });
     });
     elements.radioBtn?.addEventListener("click", () => {
         const isPlaying = elements.radioBtn.innerHTML.includes('M6 19');
-        trackEvent(isPlaying ? "radio zatvoren" : "radio otvoren");
+        trackEvent(isPlaying ? "radio_pause" : "radio_play");
         chrome.runtime.sendMessage({ action: "toggleRadio" }, (res) => {
             if (chrome.runtime.lastError) return;
             if (res) {
@@ -246,6 +245,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Radio Import Logic
     elements.importRadioBtn?.addEventListener("click", () => {
+        trackEvent("radio_import_click");
         chrome.storage.local.get(['customRadioUrl'], (res) => {
             if (elements.radioUrlInput) {
                 elements.radioUrlInput.value = res.customRadioUrl || "";
@@ -362,17 +362,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
     elements.masterVol?.addEventListener("input", (e) => {
         const val = e.target.value;
-        trackEvent("zvuk pojačan", { vrednost: val });
         if (elements.volText) elements.volText.textContent = val + "%";
         applyVolume(val);
     });
     elements.masterVol?.addEventListener("change", (e) => {
-        const val = e.target.value;
-        trackEvent("zvuk utišan", { vrednost: val });
+        const val = parseInt(e.target.value);
+        trackEvent("master_volume_change", { value: val });
         applyVolume(val);
     });
     elements.resetVolBtn?.addEventListener("click", () => {
-        trackEvent("zvuk resetovan");
+        trackEvent("master_volume_reset");
         const vol = 100;
         if (elements.masterVol) {
             elements.masterVol.value = vol;
@@ -382,36 +381,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     //#endregion
     //#region COLOR PICKER, NIGHT MODE, RULLER, MARKER
-    elements.colorBtn?.addEventListener("click", async () => {
-        trackEvent("boja izabrana");
-        const textSpan = elements.colorBtn.querySelector("span");
-        const iconSpan = elements.colorBtn.querySelector(".icon");
-        const originalText = getI18nMsg("colorPickerBtn", "Color Picker");
-        try {
-            textSpan.textContent = getI18nMsg("colorPickerPicking", "Biranje...");
-            const ed = new EyeDropper();
-            const res = await ed.open();
-            const hexColor = res.sRGBHex;
-            await navigator.clipboard.writeText(hexColor);
-            textSpan.textContent = getI18nMsg("colorPickerCopied", "Kopirano: ") + hexColor;
-            const originalIconColor = iconSpan.style.color;
-            const originalBorder = elements.colorBtn.style.borderColor;
-            iconSpan.style.color = hexColor;
-            elements.colorBtn.style.borderColor = hexColor;
-            elements.colorBtn.style.boxShadow = `0 0 10px ${hexColor}44`;
-            setTimeout(() => {
-                textSpan.textContent = originalText;
-                iconSpan.style.color = originalIconColor;
-                elements.colorBtn.style.borderColor = originalBorder;
-                elements.colorBtn.style.boxShadow = "";
-            }, 2000);
-        } catch (err) {
-            textSpan.textContent = originalText;
-        }
+    elements.colorBtn?.addEventListener("click", () => {
+        trackEvent("color_picker_open");
+        chrome.tabs.sendMessage(tab.id, { action: "toggleColorPicker" });
+        window.close();
     });
     elements.nightToggle?.addEventListener("change", (e) => {
         const isNight = e.target.checked;
-        trackEvent(isNight ? "tamni režim uključen" : "tamni režim isključen");
+        trackEvent(isNight ? "dark_mode_on" : "dark_mode_off");
         chrome.storage.local.set({ nightToggle: isNight });
         chrome.scripting.executeScript({
             target: { tabId: tab.id },
@@ -485,82 +462,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     });
     elements.rulerBtn?.addEventListener("click", () => {
-        trackEvent("lenjir otvoren");
-        chrome.scripting.executeScript({
-            target: { tabId: tab.id },
-            func: () => {
-                if (document.getElementById("aioRulOv")) return;
-                const ov = document.createElement("div");
-                const r = document.createElement("div");
-                ov.id = "aioRulOv";
-                r.id = "aioRul";
-                ov.style = "position:fixed;top:0;left:0;width:100%;height:100%;z-index:999998;cursor:crosshair;background:transparent;";
-                r.style = "position:fixed;border:1px solid #00ff88;background:rgba(0,255,136,0.1);z-index:999999;pointer-events:none;display:flex;align-items:center;justify-content:center;font-family: 'Inter', sans-serif;box-shadow:0 0 15px rgba(0,255,136,0.2); transition: none;";
-                document.body.append(ov, r);
-                let sx, sy, drag = false;
-                let isPointerDown = false;
-                let removed = false;
-                const esc = (e) => { if (e.key === "Escape") cleanup(); };
-                const onGlobalMouseUp = () => {
-                    if (!isPointerDown) return;
-                    isPointerDown = false;
-                    if (!drag) cleanup();
-                };
-                const cleanup = () => {
-                    if (removed) return;
-                    removed = true;
-                    ov.remove();
-                    r.remove();
-                    document.removeEventListener("keydown", esc);
-                    window.removeEventListener("mouseup", onGlobalMouseUp, true);
-                };
-                ov.onmousedown = (e) => {
-                    isPointerDown = true;
-                    sx = e.clientX;
-                    sy = e.clientY;
-                    drag = false;
-                    r.style.width = "0px";
-                    r.style.height = "0px";
-                    r.innerHTML = "";
-                };
-                ov.onmousemove = (e) => {
-                    if (isPointerDown && e.buttons === 1) {
-                        drag = true;
-                        const w = Math.abs(e.clientX - sx), h = Math.abs(e.clientY - sy);
-                        r.style.left = Math.min(e.clientX, sx) + "px";
-                        r.style.top = Math.min(e.clientY, sy) + "px";
-                        r.style.width = w + "px";
-                        r.style.height = h + "px";
-                        r.innerHTML = `
-                            <div style="background:rgba(0,0,0,0.75); padding:6px 12px; border-radius:8px; color:#00ff88; font-size:14px; font-weight:600; backdrop-filter:blur(4px); border:1px solid rgba(0,255,136,0.3); display:flex; gap:10px; box-shadow:0 4px 15px rgba(0,0,0,0.5);">
-                                <span><span style="color:#fff; opacity:0.7;">W:</span> ${w}px</span>
-                                <span style="color:rgba(255,255,255,0.2);">|</span>
-                                <span><span style="color:#fff; opacity:0.7;">H:</span> ${h}px</span>
-                            </div>
-                        `;
-                    }
-                };
-                ov.onmouseup = onGlobalMouseUp;
-                window.addEventListener("mouseup", onGlobalMouseUp, true);
-                document.addEventListener("keydown", esc);
-            }
-        }, () => {
-            if (chrome.runtime.lastError) return;
-            window.close();
-        });
+        trackEvent("page_ruler_open");
+        chrome.tabs.sendMessage(tab.id, { action: "toggleRuler" });
+        window.close();
     });
     elements.markerBtn?.addEventListener("click", () => {
-        trackEvent("marker otvoren");
-        chrome.storage.local.get(['selectedColor'], (data) => {
-            const color = data.selectedColor || "#00ff88";
-            chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ["marker_engine.js"] }, () => {
-                if (chrome.runtime.lastError) return;
-                chrome.tabs.sendMessage(tab.id, { action: "initMarker" });
-                setTimeout(() => {
-                    chrome.tabs.sendMessage(tab.id, { action: "initMarkerColor", color });
-                }, 50);
-                window.close();
-            });
+        trackEvent("page_marker_open");
+        chrome.scripting.executeScript({ target: { tabId: tab.id }, files: ["marker_engine.js"] }, () => {
+            if (chrome.runtime.lastError) return;
+            chrome.tabs.sendMessage(tab.id, { action: "initMarker" });
+            window.close();
         });
     });
     //#endregion
@@ -570,16 +481,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     const closeCookieModal = document.getElementById("closeCookieModal");
     const cookieToggle = document.getElementById("cookieToggle");
     elements.clearCacheBtn?.addEventListener("click", (e) => {
-        trackEvent("brisanje keša otvoreno");
+        trackEvent("cookies_cache_open");
         e.preventDefault();
         cookieModal.style.display = "flex";
     });
     closeCookieModal?.addEventListener("click", () => {
-        trackEvent("brisanje keša zatvoreno");
         cookieModal.style.display = "none";
     });
     realClearBtn?.addEventListener("click", async () => {
-        trackEvent("keš obrisan");
+        trackEvent("clear_site_data");
         let tab = null;
         try {
             const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -652,10 +562,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (cookieToggle) cookieToggle.checked = res.cookieBlock || false;
     });
     cookieToggle?.addEventListener("change", async (e) => {
-        trackEvent(e.target.checked ? "kolačići blokirani" : "kolačići dozvoljeni");
+        const isBlocking = e.target.checked;
+        trackEvent(isBlocking ? "cookie_blocker_on" : "cookie_blocker_off");
         try {
-            const isChecked = e.target.checked;
-            await chrome.storage.local.set({ cookieBlock: isChecked });
+            await chrome.storage.local.set({ cookieBlock: isBlocking });
             const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
             const tab = tabs?.[0];
             if (tab && tab.url && tab.url.startsWith("http")) {
@@ -669,138 +579,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     //#region FONT PICKER
     if (elements.fontBtn) {
         elements.fontBtn.addEventListener("click", async () => {
-            trackEvent("font izabran");
-            try {
-                const tabs = await chrome.tabs.query({ active: true, currentWindow: true });
-                const tab = tabs?.[0];
-                if (!tab?.id || !tab.url || !tab.url.startsWith("http")) {
-                    window.close();
-                    return;
-                }
-                await chrome.scripting.executeScript({
-                    target: { tabId: tab.id },
-                    func: (copiedText, notCopiedText) => {
-                        if (window.aioFontFinderActive) {
-                            return;
-                        }
-                        window.aioFontFinderActive = true;
-                        const styleTag = document.createElement("style");
-                        styleTag.id = "aio-font-styles";
-                        styleTag.innerHTML = `
-                        * { cursor: default !important; }
-                        .aio-font-tooltip { position: fixed; pointer-events: none; background: #16161e; color: #00ff88; padding: 8px 12px; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.4); border: 1px solid #00ff88; z-index: 2147483647; display: none; }
-                        .aio-font-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(20px); background: #16161e; color: #00ff88; padding: 15px 25px; border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: bold; box-shadow: 0 8px 20px rgba(0,0,0,0.6); border: 1px solid #00ff88; z-index: 2147483647; opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease; text-align: center; }
-                    `;
-                        (document.head || document.documentElement).appendChild(styleTag);
-                        const tooltip = document.createElement("div");
-                        tooltip.className = "aio-font-tooltip";
-                        document.body.appendChild(tooltip);
-                        let currentTarget = null;
-                        let cleaned = false;
-                        const getPrimaryFont = (el) => {
-                            if (!el || !(el instanceof Element)) return "";
-                            const rawFont = window.getComputedStyle(el).fontFamily || "";
-                            return rawFont.split(',')[0].replace(/[\'"]/g, '').trim();
-                        };
-                        const resolveFontTarget = (startEl) => {
-                            let node = startEl;
-                            while (node && node !== document.documentElement) {
-                                const font = getPrimaryFont(node);
-                                if (font) return { node, font };
-                                node = node.parentElement;
-                            }
-                            return { node: startEl, font: "Unknown Font" };
-                        };
-                        const cleanup = ({ removeStyle = true } = {}) => {
-                            if (cleaned) return;
-                            cleaned = true;
-                            document.removeEventListener("mouseover", mouseOverHandler, true);
-                            document.removeEventListener("mousemove", mouseMoveHandler, true);
-                            document.removeEventListener("click", clickHandler, true);
-                            document.removeEventListener("keydown", escHandler, true);
-                            window.removeEventListener("beforeunload", unloadHandler, true);
-                            tooltip.remove();
-                            if (removeStyle) styleTag.remove();
-                            window.aioFontFinderActive = false;
-                        };
-                        const copyText = async (text) => {
-                            try {
-                                await navigator.clipboard.writeText(text);
-                                return true;
-                            } catch (err) {
-                                try {
-                                    const ta = document.createElement("textarea");
-                                    ta.value = text;
-                                    ta.style.position = "fixed";
-                                    ta.style.opacity = "0";
-                                    ta.style.pointerEvents = "none";
-                                    document.body.appendChild(ta);
-                                    ta.focus();
-                                    ta.select();
-                                    const ok = document.execCommand("copy");
-                                    ta.remove();
-                                    return !!ok;
-                                } catch {
-                                    return false;
-                                }
-                            }
-                        };
-                        const mouseOverHandler = (e) => {
-                            const result = resolveFontTarget(e.target);
-                            currentTarget = result.node;
-                            const cistFont = result.font || "Unknown Font";
-                            tooltip.style.display = 'block';
-                            tooltip.innerHTML = "<span style='color: #a0a0a8; font-size: 10px; display: block; margin-bottom: 2px;'>Font:</span>" + cistFont;
-                        };
-                        const mouseMoveHandler = (e) => {
-                            if (tooltip.style.display === 'block') {
-                                const offset = 15;
-                                const maxLeft = window.innerWidth - tooltip.offsetWidth - 8;
-                                const maxTop = window.innerHeight - tooltip.offsetHeight - 8;
-                                const left = Math.min(e.clientX + offset, Math.max(8, maxLeft));
-                                const top = Math.min(e.clientY + offset, Math.max(8, maxTop));
-                                tooltip.style.left = left + "px";
-                                tooltip.style.top = top + "px";
-                            }
-                        };
-                        const clickHandler = async (e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            if (!currentTarget) return;
-                            const cistFont = getPrimaryFont(currentTarget) || "Unknown Font";
-                            const copied = await copyText(cistFont);
-                            cleanup({ removeStyle: false });
-                            const toast = document.createElement("div");
-                            toast.className = "aio-font-toast";
-                            toast.innerHTML = `<span style='color: #a0a0a8; font-size: 12px; display: block; margin-bottom: 4px;'>${copied ? copiedText : notCopiedText}</span>${cistFont}`;
-                            document.body.appendChild(toast);
-                            requestAnimationFrame(() => {
-                                toast.style.opacity = "1";
-                                toast.style.transform = "translateX(-50%) translateY(0)";
-                            });
-                            setTimeout(() => {
-                                toast.style.opacity = "0";
-                                toast.style.transform = "translateX(-50%) translateY(20px)";
-                                setTimeout(() => { toast.remove(); styleTag.remove(); }, 300);
-                            }, 2500);
-                        };
-                        const escHandler = (e) => {
-                            if (e.key === "Escape") cleanup();
-                        };
-                        const unloadHandler = () => cleanup();
-                        document.addEventListener("mouseover", mouseOverHandler, true);
-                        document.addEventListener("mousemove", mouseMoveHandler, true);
-                        document.addEventListener("click", clickHandler, true);
-                        document.addEventListener("keydown", escHandler, true);
-                        window.addEventListener("beforeunload", unloadHandler, true);
-                    },
-                    args: [getI18nMsg("fontCopied", "Kopirano!"), getI18nMsg("fontNotCopied", "Nije kopirano")]
-                });
-                // Match previous behavior: close popup while selecting font on page.
-                window.close();
-            } catch (err) {
-                // Silent fail
-            }
+            trackEvent("font_finder_click");
+            chrome.tabs.sendMessage(tab.id, { action: "toggleFontFinder" });
+            window.close();
         });
     }
     //#endregion
@@ -941,14 +722,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     // Navigacija
     document.getElementById("notesBtn")?.addEventListener("click", () => {
-        trackEvent("beleške otvorene");
+        trackEvent("smart_notes_click");
         document.getElementById("mainView").style.display = "none";
         document.getElementById("notesView").style.display = "flex";
         updateNotesCount();
         noteArea.focus();
     });
     document.getElementById("backBtn")?.addEventListener("click", () => {
-        trackEvent("beleške nazad");
+        trackEvent("notes_back");
         saveNotes(true);
         document.getElementById("notesView").style.display = "none";
         document.getElementById("mainView").style.display = "block";
@@ -1333,7 +1114,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     trackerMode?.addEventListener("change", (e) => {
         const mode = e.target.value;
-        trackEvent("tracker_mode_change", { value: mode });
+        trackEvent("tracker_mode_change", { mode: mode });
         if (mode === "all") {
             debouncedRenderStats();
             return;
@@ -1535,7 +1316,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Dugme na glavnom meniju koje otvara brojač
     // Napomena: Proveri da li se dugme zove counterBtn ili openCounter u tvom HTML-u
     document.getElementById("counterBtn")?.addEventListener("click", () => {
-        trackEvent("counter_open");
+        trackEvent("character_counter_open");
         if (!counterView) return;
         document.getElementById("mainView").style.display = "none";
         counterView.style.display = "flex";
@@ -1549,20 +1330,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
     // Nazad na glavno
     counterBackBtn?.addEventListener("click", () => {
-        trackEvent("counter_back");
+        trackEvent("counter_view_back");
         counterView.style.display = "none";
         document.getElementById("mainView").style.display = "block";
     });
     // Kucanje teksta
+    let counterInputDebounce;
     counterArea?.addEventListener("input", (e) => {
-        trackEvent("counter_input");
+        if (counterInputDebounce) clearTimeout(counterInputDebounce);
+        counterInputDebounce = setTimeout(() => {
+            trackEvent("counter_input");
+        }, 2000);
         const val = e.target.value;
         updateCounts(val);
         setSavedCounterText(val);
     });
     // Modal Logika (Brisanje)
     document.getElementById("counterClearBtn")?.addEventListener("click", () => {
-        trackEvent("counter_clear_modal_open");
+        trackEvent("counter_clear_open");
         if (clearCounterModal) clearCounterModal.style.display = "flex";
     });
     document.getElementById("cancelClearCounter")?.addEventListener("click", () => {
@@ -1887,11 +1672,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         chrome.tabs.create({ url: "https://paypal.me/milanpetkovski1" });
     });
     document.getElementById("webBtn")?.addEventListener("click", () => {
-        trackEvent("web_click");
+        trackEvent("website_click");
         chrome.tabs.create({ url: "https://allinone.milanwebportal.com" });
     });
     document.getElementById("portalBtn")?.addEventListener("click", () => {
-        trackEvent("portal_click");
+        trackEvent("milanwebportal_click");
         chrome.tabs.create({ url: "https://milanwebportal.com" });
     });
     document.getElementById("rateBtn")?.addEventListener("click", () => {
