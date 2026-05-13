@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="sr_RS">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="err_page_title">All In One | 404</title>
+    <meta name="description" content="Stranica nije pronađena. Vratite se na početnu stranu All In One ekstenzije.">
+    <meta name="keywords" content="404, not found, all in one">
+
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="input.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F52S6J4TZV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-F52S6J4TZV');
+    </script>
+</head>
+
+<body
+    class="bg-bglight min-h-screen flex items-center justify-center p-6 antialiased font-['Inter'] overflow-hidden relative">
+
+    <div class="max-w-2xl w-full text-center relative z-10">
+
+        <div id="logo-mark" class="flex justify-center mb-12 opacity-0">
+            <div class="flex items-center gap-4 group cursor-pointer">
+                <div class="grid grid-cols-2 gap-1 w-8 h-8 transition-transform duration-500 group-hover:rotate-12">
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative inline-block mb-4">
+            <h1 id="error-text"
+                class="text-[140px] md:text-[200px] font-black text-darkpanel leading-none tracking-tighter italic opacity-0">
+                404
+            </h1>
+            <div id="accent-line" class="absolute -bottom-2 left-0 w-0 h-3 bg-brand rounded-full"></div>
+        </div>
+
+        <div id="text-content" class="opacity-0 translate-y-8">
+            <h2 class="text-3xl font-black text-darkpanel uppercase tracking-tight mb-4" data-i18n="err_title">
+                Stranica nije pronađena
+            </h2>
+            <p class="text-gray-500 font-medium text-lg max-w-sm mx-auto mb-12" data-i18n="err_desc">
+                All In One sistem ne može da locira traženi fajl. Vrati se na glavni dashboard.
+            </p>
+
+            <a href="index.html"
+                class="inline-flex items-center gap-4 bg-darkpanel text-white px-10 py-5 rounded-2xl font-bold hover:bg-brand hover:text-darkpanel transition-all duration-500 hover:scale-105 active:scale-95 shadow-xl group">
+                <i data-lucide="arrow-left" class="w-5 h-5 transition-transform group-hover:-translate-x-1"></i>
+                <span data-i18n="err_back_btn">NAZAD NA POČETNU</span>
+            </a>
+        </div>
+    </div>
+
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand/5 blur-[120px] -z-10">
+    </div>
+
+    <script type="module" src="/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Proveri da li je GSAP učitan
+            if (typeof gsap === 'undefined') {
+                console.error('GSAP nije učitan');
+                // Fallback - prikaži sve ako GSAP ne radi
+                document.querySelectorAll('.opacity-0').forEach(el => el.classList.remove('opacity-0'));
+                return;
+            }
+
+            // 1. Ulazna sekvenca
+            const tl = gsap.timeline();
+
+            tl.to("#logo-mark", { opacity: 1, duration: 1.2 })
+                .to("#error-text", { opacity: 1, duration: 1.5 }, "-=0.8")
+                .to("#accent-line", { opacity: 1, width: "100%", duration: 1, ease: "power4.inOut" }, "-=1")
+                .to("#text-content", { opacity: 1, y: 0, duration: 1 }, "-=0.5");
+
+            // 2. Samostalno suptilno lebdenje (bez miša)
+            gsap.to("#error-text", {
+                y: -10,
+                duration: 3,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+                delay: 2 // počinje posle ulazne animacije
+            });
+
+            gsap.to("#logo-mark", {
+                rotation: 20,
+                duration: 4,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+                delay: 2
+            });
+        });
+    </script>
+</body>
+
+</html>

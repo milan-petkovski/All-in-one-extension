@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="ins_page_title">All In One | Hvala na instalaciji</title>
+
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description"
+        content="Hvala što koristiš All In One ekstenziju. Tvoj novi, pametniji workflow počinje ovde.">
+    <meta name="author" content="Milan Web Portal">
+    <meta name="theme-color" content="#f5f6f7">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.ico">
+    <link rel="stylesheet" href="input.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F52S6J4TZV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-F52S6J4TZV');
+    </script>
+</head>
+
+<body class="antialiased font-sans bg-[#f5f6f7]">
+
+    <!-- Mobile Blocker -->
+    <div id="mobile-blocker"
+        class="fixed inset-0 z-[9999] bg-bglight hidden flex-col items-center justify-center px-6 text-center">
+
+        <div class="max-w-xs flex flex-col items-center">
+            <div
+                class="w-32 h-32 flex items-center justify-center bg-white rounded-full shadow-sm border border-gray-100 mb-10 relative overflow-hidden group hover:scale-105 transition-transform duration-500 hover:shadow-brand/20">
+                <div class="absolute inset-0 bg-brand/5 rounded-full animate-ping opacity-60"></div>
+
+                <i data-lucide="monitor"
+                    class="w-16 h-16 text-brand relative z-10 drop-shadow-[0_0_10px_rgba(0,255,136,0.3)]"></i>
+            </div>
+
+            <h2 class="text-5xl font-black uppercase italic tracking-tighter text-darkpanel leading-[0.8] mb-6"
+                data-i18n="mobile_title">
+                SAMO ZA <br><span class="text-brand">DESKTOP.</span>
+            </h2>
+
+            <p class="text-gray-500 font-bold text-sm mb-10 leading-tight" data-i18n="mobile_desc">
+                Desktop browser ekstenzije ne rade na telefonu. Pošalji sebi link i instaliraj na kompu.
+            </p>
+
+            <a href="#" data-i18n-href="mobile_mailto"
+                class="flex items-center justify-center gap-3 w-full bg-brand text-darkpanel font-black py-5 rounded-2xl shadow-xl shadow-brand/20 uppercase italic text-sm transition-all hover:bg-brand/90 active:scale-95">
+                <i data-lucide="send" class="w-5 h-5 stroke-[2.5]"></i>
+                <span data-i18n="mobile_btn">POŠALJI NA MAIL</span>
+            </a>
+        </div>
+
+        <div class="absolute bottom-10 opacity-20 font-black uppercase tracking-[0.3em] text-[10px]">
+            Milan Web Portal
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-3 left-0 right-0 z-50 px-6 pointer-events-none">
+        <nav
+            class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center bg-white/70 backdrop-blur-2xl rounded-full border border-white/40 shadow-[0_20px_40px_rgba(0,0,0,0.08)] pointer-events-auto transition-all duration-500 hover:shadow-brand/5 hover:border-brand/20 flex-wrap gap-4">
+            <div class="flex items-center gap-4 group cursor-pointer">
+                <div class="grid grid-cols-2 gap-1 w-8 h-8 transition-transform duration-500 group-hover:rotate-12">
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                </div>
+                <a href="index.html">
+                    <span class="font-black text-3xl text-brand uppercase">All In One</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="https://chromewebstore.google.com/detail/all-in-one/hmkcbieabcldlndhjeemggokhlebjoem/reviews"
+                    class="inline-flex items-center justify-center gap-2 bg-brand text-darkpanel font-black py-3 px-8 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_25px_rgba(0,255,136,0.4)] whitespace-nowrap uppercase text-sm"
+                    target="_blank"
+                    onclick="gtag('event', 'DodajEkstenziju', {event_category: 'CTA', event_label: 'Navbar'});">
+                    <i data-lucide="star" class="w-5 h-5 stroke-[3]"></i>
+                    <span class="max-[425px]:hidden" data-i18n="upd_nav_rate">Oceni na prodavnici</span>
+                </a>
+
+                <button onclick="toggleLanguage()"
+                    class="inline-flex items-center justify-center gap-2 bg-brand text-darkpanel font-black py-3 px-5 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_25px_rgba(0,255,136,0.4)] whitespace-nowrap uppercase text-sm pointer-events-auto">
+                    <i data-lucide="languages" class="w-5 h-5 stroke-[3]"></i>
+                    <span id="lang-text">EN</span>
+                </button>
+
+                <a href="https://paypal.me/milanpetkovski1"
+                    class="inline-flex items-center justify-center gap-2 bg-brand text-darkpanel font-black py-3 px-5 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_25px_rgba(0,255,136,0.4)] whitespace-nowrap uppercase text-sm"
+                    target="_blank"
+                    onclick="gtag('event', 'DodajKafu', {event_category: 'CTA', event_label: 'Navbar'});">
+                    <i data-lucide="coffee" class="w-5 h-5 stroke-[3]"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-40 max-w-7xl mx-auto px-6 pb-20">
+        <div class="text-center mb-20 mt-10">
+            <div class="relative w-24 h-24 mx-auto mb-8 flex items-center justify-center success-checkmark">
+                <div class="success-ripple" style="animation-delay: 0s;"></div>
+                <div class="success-ripple" style="animation-delay: 1s;"></div>
+                <div
+                    class="relative w-full h-full bg-[#1e1e24] rounded-full flex items-center justify-center z-10 border border-brand shadow-[0_0_20px_rgba(0,255,136,0.3)]">
+                    <i data-lucide="check-circle" class="w-12 h-12 text-brand"></i>
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black leading-none text-darkpanel tracking-tighter italic uppercase mb-6"
+                data-i18n="ins_hero_title">
+                Hvala na <br><span class="text-brand">Instalaciji!</span>
+            </h1>
+            <p class="text-xl text-gray-500 font-medium max-w-2xl mx-auto" data-i18n="ins_hero_subtitle">
+                Uspešno si dodao All In One u svoj browser. Otkrij sve funkcije koje su ti sada dostupne.
+            </p>
+        </div>
+
+        <section class="pt-0">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <div class="pulse-ring"></div>
+                        <i data-lucide="radio"
+                            class="w-12 h-12 text-brand relative z-10 drop-shadow-[0_0_15px_rgba(0,255,136,0.5)]"></i>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_1_t">Radio IN</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_1_d">Slušaj
+                        omiljeni radio direktno iz ekstenzije. Pusti i pauziraj bez otvaranja novih tabova.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <div class="w-full px-8 flex flex-col gap-5">
+                            <div class="h-3 w-full bg-gray-800 rounded-full overflow-hidden shadow-inner">
+                                <div class="w-2/3 h-full bg-brand shadow-[0_0_15px_#00ff88]"></div>
+                            </div>
+                            <div class="flex justify-between text-xs font-black text-gray-400 italic tracking-wider">
+                                <span>0%</span><span class="text-brand">1000%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_2_t">Zvuk 1000%</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_2_d">
+                        Pojačaj zvuk na bilo kom tabu do neverovatnih 1000%. Daleko iznad standardnog ograničenja.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <div class="flex flex-col items-center gap-1">
+                            <div
+                                class="w-16 h-16 rounded-full bg-brand shadow-[0_0_25px_rgba(0,255,136,0.5)] border-4 border-white/10 group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <span
+                                class="font-mono text-white bg-black/60 px-4 py-1.5 rounded-xl text-xs font-black tracking-widest backdrop-blur-sm">#00FF88</span>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_3_t">Color Picker</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_3_d">Klikni
+                        bilo gde na stranici da pomoću pipete izvučeš i automatski kopiraš tačan HEX kod boje.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <div class="w-20 h-10 bg-brand rounded-full relative shadow-inner cursor-pointer">
+                            <div
+                                class="absolute right-1.5 top-1.5 w-7 h-7 bg-white rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_4_t">Dark Mode</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_4_d">
+                        Forsiraj tamni režim na svakom sajtu. Pametna inverzija boja štiti tvoje oči tokom noćnog rada.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <div class="flex items-center justify-center h-24">
+                            <div
+                                class="w-20 h-8 border-[1.5px] border-brand/80 rounded-lg -rotate-45 flex items-start justify-between px-2 pt-[3px] shadow-[0_0_20px_rgba(0,255,136,0.2)] bg-gradient-to-br from-brand/10 to-transparent backdrop-blur-[2px]">
+                                <div class="flex flex-col items-center">
+                                    <div class="h-3 w-0.5 bg-brand rounded-full shadow-[0_0_8px_#00ff88]"></div>
+                                </div>
+                                <div class="h-1.5 w-[1px] bg-brand/30 rounded-full mt-0.5"></div>
+                                <div class="h-2 w-[1px] bg-brand/50 rounded-full"></div>
+                                <div class="h-1.5 w-[1px] bg-brand/30 rounded-full mt-0.5"></div>
+                                <div class="flex flex-col items-center">
+                                    <div class="h-3 w-0.5 bg-brand rounded-full shadow-[0_0_8px_#00ff88]"></div>
+                                </div>
+                                <div class="h-1.5 w-[1px] bg-brand/30 rounded-full mt-0.5"></div>
+                                <div class="h-2 w-[1px] bg-brand/50 rounded-full"></div>
+                                <div class="h-1.5 w-[1px] bg-brand/30 rounded-full mt-0.5"></div>
+                                <div class="flex flex-col items-center">
+                                    <div class="h-3 w-0.5 bg-brand rounded-full shadow-[0_0_8px_#00ff88]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_5_t">Page Ruler</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_5_d">
+                        Aktiviraj interaktivni lenjir i precizno izmeri dimenzije svakog elementa na sajtu u pikselima.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <i data-lucide="copy"
+                            class="w-12 h-12 text-brand drop-shadow-[0_0_15px_rgba(0,255,136,0.4)] group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_6_t">Enable Copy</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_6_d">
+                        Uključi opciju i zaobiđi blokadu desnog klika ili selekcije teksta na zaštićenim sajtovima.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <i data-lucide="edit-3"
+                            class="w-12 h-12 text-brand drop-shadow-[0_0_15px_rgba(0,255,136,0.4)] group-hover:-translate-y-1 transition-transform duration-500"></i>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_7_t">Page Marker</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_7_d">Crtaj,
+                        podvlači, piši, pomeraj i briši oznake direktno po ekranu. Odličan alat za video prezentacije.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="bg-[#25252b] text-gray-400 text-xs font-black px-4 py-2.5 rounded-xl border border-gray-700 shadow-inner">Webflow</span>
+                            <span
+                                class="bg-brand/10 text-brand text-sm font-black px-5 py-2.5 rounded-xl border border-brand/50 shadow-[0_0_20px_rgba(0,255,136,0.2)]">&lt;/&gt;</span>
+                            <span
+                                class="bg-[#25252b] text-gray-400 text-xs font-black px-4 py-2.5 rounded-xl border border-gray-700 shadow-inner">Angular</span>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_8_t">Tehnologije sajta</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_8_d">Saznaj
+                        jednim klikom u čemu je sajt napravljen i analiziraj pozadinske strukture tog sajta.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <i data-lucide="cookie"
+                            class="w-12 h-12 text-brand drop-shadow-[0_0_15px_rgba(0,255,136,0.4)] group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_9_t">Kolačići i keš</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_9_d">Obriši
+                        keš i kolačiće za trenutni sajt u jednom kliku i automatski sakrij dosadne prozore za pristanak
+                        na kolačiće.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <span
+                            class="text-6xl font-serif text-brand italic drop-shadow-[0_0_20px_rgba(0,255,136,0.5)]">Ff</span>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_10_t">Font Finder</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_10_d">Pređi
+                        mišem preko bilo kog teksta na sajtu da bi odmah saznao tačno koji font je u upotrebi.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <div
+                            class="bg-black/30 px-8 py-4 rounded-2xl border border-white/10 shadow-inner backdrop-blur-md">
+                            <span
+                                class="text-brand font-mono text-3xl font-black tracking-widest drop-shadow-[0_0_10px_rgba(0,255,136,0.4)]">1,240</span>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_11_t">Brojač karaktera</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_11_d">Lako
+                        i brzo prebroj selektovane karaktere i reči. Idealno za pisanje SEO naslova i opisa.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <div
+                            class="text-brand font-mono text-4xl font-black tracking-tighter drop-shadow-[0_0_15px_rgba(0,255,136,0.5)]">
+                            00:15:30</div>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_12_t">Štoperica</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_12_d">
+                        Zabeleži bitne trenutke tokom lajva jednom prečicom. Automatska štoperica štedi sate u montaži i
+                        menja ručno pisanje tajmstempova.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <i data-lucide="file-text" class="w-12 h-12 text-brand"></i>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_13_t">Pametne Beleške</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_13_d">
+                        Zapiši bitne ideje! Podržava pametno rešavanje matematike u tekstu i lako dodavanje trenutnog
+                        vremena.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <div class="flex items-end gap-1.5">
+                            <div class="w-2 h-6 bg-gray-600 rounded-full"></div>
+                            <div class="w-2 h-14 bg-brand rounded-full shadow-[0_0_15px_#00ff88]"></div>
+                            <div class="w-2 h-10 bg-gray-600 rounded-full"></div>
+                            <div class="w-2 h-12 bg-brand rounded-full"></div>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_14_t">Webtime Tracker</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_14_d">
+                        Automatski prati tačno vreme koje provodiš na različitim domenima. Analiziraj svoju statistiku
+                        upotrebe.</p>
+                </div>
+
+                <div
+                    class="bg-white p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    </div>
+                    <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                        <div class="bg-brand/5 px-6 py-3 rounded-2xl border border-white/10 flex items-center gap-3">
+                            <i data-lucide="thumbs-down" class="w-5 h-5 text-brand"></i>
+                            <span class="text-brand font-bold">12.5k</span>
+                        </div>
+                    </div>
+                    <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                        data-i18n="gf_15_t">Return YT Dislike</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_15_d">Vraća
+                        vidljivost brojača "nesviđanja" (dislikes) ispod klipova, radi direktno i automatski na
+                        YouTube-u.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <div
+            class="mt-20 bg-darkpanel p-12 rounded-[3.5rem] flex flex-col md:flex-row items-center justify-between gap-8 border border-white/5 relative overflow-hidden group shadow-2xl">
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-brand/5 blur-[100px]"></div>
+            <div class="text-left relative z-10">
+                <h3 class="text-3xl font-black text-white uppercase italic tracking-tighter mb-2"
+                    data-i18n="ins_cta_title">Imaš ideju za novi alat?</h3>
+                <p class="text-gray-400 font-medium italic" data-i18n="ins_cta_desc">All In One raste zahvaljujući
+                    tvojim predlozima.</p>
+            </div>
+            <a href="mailto:contact@milanwebportal.com"
+                class="inline-flex items-center justify-center gap-3 bg-brand text-darkpanel font-black py-4 px-10 rounded-2xl hover:scale-105 transition-all shadow-xl uppercase italic text-lg relative z-10">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                <span data-i18n="ins_cta_btn">Piši nam</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative bg-white/60 backdrop-blur-2xl border-t border-gray-100 py-16 overflow-hidden">
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-brand to-transparent opacity-30">
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+
+            <div class="flex items-center gap-4 group cursor-pointer">
+                <div class="grid grid-cols-2 gap-1 w-10 h-10 transition-transform duration-500 group-hover:rotate-12">
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                </div>
+
+                <a href="index.html">
+                    <span class="font-black text-4xl text-brand uppercase">All In One</span>
+                </a>
+            </div>
+
+            <div
+                class="text-gray-500 text-sm font-medium text-center md:text-left bg-gray-50/80 px-6 py-2.5 rounded-full border border-gray-100 shadow-sm">
+                &copy; 2026
+                <a href="https://milanwebportal.com" target="_blank"
+                    class="text-brand transition-all font-bold relative inline-block group/link">
+                    Milan Web Portal
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all duration-300 group-hover/link:w-full"></span>
+                </a>. <span data-i18n="ft_rights">Sva prava zadržana.</span>
+            </div>
+
+            <div class="flex gap-8">
+                <a href="privacy.html"
+                    class="relative text-gray-400 hover:text-gray-900 transition-colors font-bold text-sm uppercase tracking-widest group">
+                    <span data-i18n="ft_privacy">Politika privatnosti</span>
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[2px] bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div id="backToTop"
+        class="fixed bottom-8 right-8 z-50 w-12 h-12 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1">
+        <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="48" fill="none" stroke="#e5e7eb" stroke-width="2" />
+            <circle id="progressRing" cx="50" cy="50" r="48" fill="none" stroke="#00ff88" stroke-width="2"
+                stroke-linecap="round" />
+        </svg>
+        <i data-lucide="arrow-up" class="w-5 h-5 text-darkpanel relative z-10"></i>
+    </div>
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

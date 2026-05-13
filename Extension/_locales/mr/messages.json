@@ -1,0 +1,407 @@
+{
+  "extName": {
+    "message": "All In One - सर्वोत्तम उत्पादकता साधन"
+  },
+  "extDesc": {
+    "message": "एक अंतिम साधन जे सर्व आवश्यक कार्ये एका जलद, आधुनिक आणि विनामूल्य इंटरफेसमध्ये एकत्र करते."
+  },
+  "markLapDesc": {
+    "message": "स्टॉपवॉचवर एक क्षण नोंदवा"
+  },
+  "appTitle": {
+    "message": "ALL IN ONE"
+  },
+  "websiteTooltip": {
+    "message": "अधिकृत विस्तार वेबसाइट"
+  },
+  "settingsTooltip": {
+    "message": "सेटिंग्ज"
+  },
+  "radioTitle": {
+    "message": "रेडिओ IN"
+  },
+  "radioArtist": {
+    "message": "All In One विस्ताराद्वारे समर्थित"
+  },
+  "playBtn": {
+    "message": "प्ले करा"
+  },
+  "soundTitle": {
+    "message": "आवाज"
+  },
+  "resetBtn": {
+    "message": "रीसेट करा"
+  },
+  "colorPickerTitle": {
+    "message": "कलर पिकर"
+  },
+  "darkModeTitle": {
+    "message": "डार्क मोड"
+  },
+  "rulerTitle": {
+    "message": "पेज रूलर"
+  },
+  "copyEnableTitle": {
+    "message": "कॉपी सक्षम करा"
+  },
+  "markerTitle": {
+    "message": "पेज मार्कर"
+  },
+  "techTitle": {
+    "message": "साइट तंत्रज्ञान"
+  },
+  "cacheTitle": {
+    "message": "कुकीज आणि कॅशे"
+  },
+  "fontTitle": {
+    "message": "फॉन्ट फाइंडर"
+  },
+  "counterTitle": {
+    "message": "कॅरेक्टर काउंटर"
+  },
+  "stopwatchTitle": {
+    "message": "स्टॉपवॉच"
+  },
+  "notesTitle": {
+    "message": "स्मार्ट नोट्स"
+  },
+  "trackerTitle": {
+    "message": "वेबटाइम ट्रॅकर"
+  },
+  "ytDislikeTitle": {
+    "message": "YouTube डिसलाइक परत आणा"
+  },
+  "cacheModalTitle": {
+    "message": "कुकीज आणि कॅशे"
+  },
+  "blockCookiesLabel": {
+    "message": "स्वयंचलितपणे कुकीज ब्लॉक करा"
+  },
+  "clearSiteDataBtn": {
+    "message": "या साइटवरील सर्व डेटा साफ करा"
+  },
+  "cancelBtn": {
+    "message": "रद्द करा"
+  },
+  "counterModalTitle": {
+    "message": "कॅरेक्टर काउंटर"
+  },
+  "counterPlaceholder": {
+    "message": "येथे मजकूर पेस्ट करा..."
+  },
+  "charsLabel": {
+    "message": "अक्षरे"
+  },
+  "wordsLabel": {
+    "message": "शब्द"
+  },
+  "stopwatchReady": {
+    "message": "तयार"
+  },
+  "startBtn": {
+    "message": "सुरू करा"
+  },
+  "lapBtn": {
+    "message": "लॅप"
+  },
+  "stopBtn": {
+    "message": "थांबवा"
+  },
+  "currentRecordedLabel": {
+    "message": "सध्या रेकॉर्ड केलेले"
+  },
+  "liveHistoryLabel": {
+    "message": "लाइव्ह इतिहास"
+  },
+  "clearAllBtn": {
+    "message": "सर्व साफ करा"
+  },
+  "confirmClearHistory": {
+    "message": "तुम्हाला खात्री आहे की तुम्ही सर्व इतिहास साफ करू इच्छिता?"
+  },
+  "deleteBtn": {
+    "message": "हटवा"
+  },
+  "notesModalTitle": {
+    "message": "स्मार्ट नोट्स"
+  },
+  "clearNotesTooltip": {
+    "message": "सर्व नोट्स साफ करा"
+  },
+  "notesPlaceholder": {
+    "message": "येथे नोट्स लिहा..."
+  },
+  "grabTextTooltip": {
+    "message": "पृष्ठावरून मजकूर काढा"
+  },
+  "textLabel": {
+    "message": "मजकूर"
+  },
+  "addUrlTooltip": {
+    "message": "सध्याची URL जोडा"
+  },
+  "linkLabel": {
+    "message": "लिंक"
+  },
+  "addDateTooltip": {
+    "message": "आजची तारीख जोडा"
+  },
+  "dateLabel": {
+    "message": "तारीख"
+  },
+  "exportNotesTooltip": {
+    "message": "नोट्स एक्सपोर्ट करा"
+  },
+  "importNotesTooltip": {
+    "message": "नोट्स इम्पोर्ट करा"
+  },
+  "savedIndicator": {
+    "message": "जतन केले"
+  },
+  "confirmClearNotes": {
+    "message": "तुम्हाला खात्री आहे की तुम्ही सर्व नोट्स साफ करू इच्छिता?"
+  },
+  "trackerModalTitle": {
+    "message": "Webtime Tracker"
+  },
+  "exportTooltip": {
+    "message": "Export data"
+  },
+  "importTooltip": {
+    "message": "Import data"
+  },
+  "trackerModeDay": {
+    "message": "दैनंदिन दृश्य"
+  },
+  "trackerModeMonth": {
+    "message": "मासिक दृश्य"
+  },
+  "trackerModeAll": {
+    "message": "सर्व काळ"
+  },
+  "trackerTodayLabel": {
+    "message": "आज"
+  },
+  "trackerMonthLabel": {
+    "message": "हा महिना"
+  },
+  "trackerAvgLabel": {
+    "message": "सरासरी"
+  },
+  "techModalTitle": {
+    "message": "साइट तंत्रज्ञान"
+  },
+  "techLoadingMsg": {
+    "message": "स्कॅनर साइटचे विश्लेषण करत आहे..."
+  },
+  "uiSettings": {
+    "message": "सेटिंग्ज"
+  },
+  "supportTitle": {
+    "message": "विस्ताराला समर्थन द्या"
+  },
+  "supportDesc": {
+    "message": "All In One हे पूर्णपणे विनामूल्य साधन आहे. तुमचे समर्थन नवीन वैशिष्ट्यांचा विकास करण्यास मदत करते."
+  },
+  "donateBtn": {
+    "message": "देणगी द्या आणि समर्थन करा"
+  },
+  "websiteBtn": {
+    "message": "अधिकृत वेबसाइट"
+  },
+  "rateBtn": {
+    "message": "विस्ताराला रेट करा"
+  },
+  "versionLabel": {
+    "message": "आवृत्ती:"
+  },
+  "privacyLabel": {
+    "message": "गोपनीयता धोरण"
+  },
+  "systemPageTitle": {
+    "message": "सिस्टम पृष्ठ"
+  },
+  "systemPageDesc": {
+    "message": "बदल साधने अक्षम केली आहेत"
+  },
+  "radioPlay": {
+    "message": "प्ले करा"
+  },
+  "radioPause": {
+    "message": "थामवा"
+  },
+  "colorPickerPicking": {
+    "message": "निवडत आहे..."
+  },
+  "colorPickerCopied": {
+    "message": "कॉपी केले: "
+  },
+  "cacheNotSupported": {
+    "message": "समर्थित नाही"
+  },
+  "cacheClearConfirm": {
+    "message": "या साइटवरील सर्व डेटा साफ करा"
+  },
+  "cacheError": {
+    "message": "त्रुटी"
+  },
+  "cacheClearing": {
+    "message": "साफ करत आहे..."
+  },
+  "cacheCleared": {
+    "message": "साफ केले!"
+  },
+  "fontCopied": {
+    "message": "कॉपी केले!"
+  },
+  "fontNotCopied": {
+    "message": "कॉपी केले नाही"
+  },
+  "notesSaved": {
+    "message": "जतन केले"
+  },
+  "notesTooLarge": {
+    "message": "नोट खूप मोठी आहे"
+  },
+  "notesLinkText": {
+    "message": "लिंक"
+  },
+  "trackerToday": {
+    "message": "Today"
+  },
+  "trackerThatDay": {
+    "message": "That day"
+  },
+  "trackerSelectedMonth": {
+    "message": "Selected month"
+  },
+  "trackerTotal": {
+    "message": "Total"
+  },
+  "trackerNoData": {
+    "message": "No data for this period"
+  },
+  "trackerExportEmpty": {
+    "message": "No tracker data to export."
+  },
+  "trackerExportTruncated": {
+    "message": "Export truncated to 10MB to keep the popup stable."
+  },
+  "trackerImportEmpty": {
+    "message": "No valid tracker data to import."
+  },
+  "trackerImportSuccess": {
+    "message": "Data successfully imported!"
+  },
+  "trackerImportError": {
+    "message": "Error reading the file."
+  },
+  "swStatusLive": {
+    "message": "लाइव्ह सुरू आहे"
+  },
+  "swStatusReady": {
+    "message": "तयार"
+  },
+  "swUndoTitle": {
+    "message": "हा क्षण हटवा"
+  },
+  "swNoLaps": {
+    "message": "कोणतेही रेकॉर्ड केलेले क्षण नाहीत"
+  },
+  "swLiveTitlePrefix": {
+    "message": "लाइव्ह #"
+  },
+  "swDurationLabel": {
+    "message": "कालावधी: "
+  },
+  "swMomentLabel": {
+    "message": "क्षण "
+  },
+  "swExportTxtBtn": {
+    "message": ".TXT म्हणून एक्सपोर्ट करा"
+  },
+  "swTotalDurationPrefix": {
+    "message": "एकूण कालावधी: "
+  },
+  "swCopyBtn": {
+    "message": "क्लिपबोर्डवर कॉपी करा"
+  },
+  "swCopiedBtn": {
+    "message": "✓ कॉपी केले"
+  },
+  "swNoHistory": {
+    "message": "कोणताही लाइव्ह इतिहास नाही"
+  },
+  "techScannerUnavailable": {
+    "message": "या पृष्ठावर स्कॅनर उपलब्ध नाही."
+  },
+  "techFoundPrefix": {
+    "message": "सापडले: "
+  },
+  "techItemsSuffix": {
+    "message": "आयटम"
+  },
+  "techNotFound": {
+    "message": "सापडले नाही."
+  },
+  "techScannerFailed": {
+    "message": "या पृष्ठावर स्कॅनिंग अयशस्वी झाले."
+  },
+  "markerDrawTooltip": {
+    "message": "काढा"
+  },
+  "markerLineTooltip": {
+    "message": "लाइन"
+  },
+  "markerTextTooltip": {
+    "message": "मजकूर"
+  },
+  "markerMoveTooltip": {
+    "message": "हलवा"
+  },
+  "markerEraseTooltip": {
+    "message": "खोडा"
+  },
+  "markerClearAllTooltip": {
+    "message": "सर्व साफ करा"
+  },
+  "markerThicknessTooltip": {
+    "message": "जाडी"
+  },
+  "markerCloseTooltip": {
+    "message": "बंद करा"
+  },
+  "linesLabel": {
+    "message": "ओळी"
+  },
+  "clearCounterTooltip": {
+    "message": "सर्व साफ करा"
+  },
+  "confirmClearCounter": {
+    "message": "तुम्हाला खात्री आहे का सर्व साफ करायचे आहे?"
+  },
+  "trackerTotalShort": {
+    "message": "Total"
+  },
+  "trackerThisMonth": {
+    "message": "This month"
+  },
+  "trackerThisMonthShort": {
+    "message": "This month"
+  },
+  "trackerThatMonth": {
+    "message": "That month"
+  },
+  "trackerAvgThisMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgThatMonth": {
+    "message": "Average (month)"
+  },
+  "trackerAvgTotal": {
+    "message": "Average"
+  },
+  "trackerDeleteConfirm": {
+    "message": "Are you sure you want to delete data for"
+  }
+}

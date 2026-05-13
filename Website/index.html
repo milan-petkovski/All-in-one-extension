@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primarni SEO Meta Tagovi -->
+    <title data-i18n="meta_title">All In One | Najbolja Browser Ekstenzija za Produktivnost</title>
+    <meta name="description" data-i18n="meta_desc"
+        content="Besplatna browser ekstenzija koja nudi 15+ moćnih alata za developere i kreatore. Optimizujte svoj radni dan uz All In One sistem bez ometanja.">
+    <meta name="keywords"
+        content="browser ekstenzija, produktivnost, web development alati, workflow optimizacija, milan web portal, chrome alati, besplatna ekstenzija">
+    <meta name="author" content="All In One">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#f5f6f7">
+
+    <!-- Kanonski URL -->
+    <link rel="canonical" href="https://allinone.milanwebportal.com">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.ico">
+    <link rel="stylesheet" href="input.css">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:locale" content="sr_RS">
+    <meta property="og:site_name" content="All In One">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://allinone.milanwebportal.com">
+    <meta property="og:title" content="All In One | Najbolji alat za produktivnost">
+    <meta property="og:description"
+        content="Ekstenzija za developere koja drastično ubrzava rad i optimizuje svakodnevni workflow.">
+    <meta property="og:image" content="https://allinone.milanwebportal.com/Branding/EN/1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="800">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="All In One Ekstenzija">
+    <meta name="twitter:description" content="Unapredite radni tok uz najbolji alat za developere i kreatore.">
+    <meta name="twitter:image" content="https://allinone.milanwebportal.com/Branding/EN/1.png">
+
+    <!-- Fontovi -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Skripte (Non-blocking) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <!-- Structured Data JSON-LD -->
+    <script type="application/ld+json">
+    [
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "All In One",
+        "url": "https://allinone.milanwebportal.com/"
+    },
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "All In One",
+        "url": "https://allinone.milanwebportal.com/",
+        "image": "https://allinone.milanwebportal.com/Branding/EN/1.png",
+        "description": "Besplatna browser ekstenzija sa preko 15 alata za maksimalnu produktivnost.",
+        "operatingSystem": "Windows, macOS, Linux, ChromeOS",
+        "applicationCategory": "DeveloperApplication",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "RSD"
+        },
+        "creator": {
+            "@type": "Organization",
+            "name": "Milan Web Portal",
+            "url": "https://milanwebportal.com"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "ratingCount": "10"
+        }
+    }
+    ]
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F52S6J4TZV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-F52S6J4TZV');
+    </script>
+    <style>
+        .floating-item {
+            transition: transform 0.3s ease-out;
+            will-change: transform;
+        }
+    </style>
+</head>
+
+<body class="antialiased font-sans relative">
+
+    <div id="mobile-blocker"
+        class="fixed inset-0 z-[9999] bg-[#f5f6f7] hidden flex-col items-center justify-center px-6 text-center">
+
+        <div class="max-w-xs flex flex-col items-center">
+            <div
+                class="w-32 h-32 flex items-center justify-center bg-white rounded-full shadow-sm border border-gray-100 mb-10 relative overflow-hidden group hover:scale-105 transition-transform duration-500 hover:shadow-brand/20">
+                <div class="absolute inset-0 bg-brand/5 rounded-full animate-ping-slow opacity-60"></div>
+
+                <i data-lucide="monitor"
+                    class="w-16 h-16 text-brand relative z-10 drop-shadow-[0_0_10px_rgba(0,255,136,0.3)]"></i>
+            </div>
+
+            <h2 class="text-5xl font-[1000] uppercase italic tracking-tighter text-gray-900 leading-[0.8] mb-6"
+                data-i18n="mobile_title">
+                SAMO ZA <br><span class="text-brand">DESKTOP.</span>
+            </h2>
+
+            <p class="text-gray-500 font-bold text-sm mb-10 leading-tight" data-i18n="mobile_desc">
+                Desktop browser ekstenzije ne rade na telefonu. Pošalji sebi link i instaliraj na kompu.
+            </p>
+
+            <a href="mailto:?subject=🚀 Tvoj link za All In One ekstenziju&body=Hej!%0A%0AInspiracija te je našla na telefonu, ali se All In One instalira na kompjuteru.%0A%0AKlikni na link ispod kada budeš za kompjuterom i pokreni svoj workflow na max:%0A%0Ahttps://allinone.milanwebportal.com%0A%0A- All In One tim"
+                class="flex items-center justify-center gap-3 w-full bg-brand text-black font-black py-5 rounded-2xl shadow-xl shadow-brand/20 uppercase italic text-sm transition-all hover:bg-brand/90 active:scale-95">
+                <i data-lucide="send" class="w-5 h-5 stroke-[2.5]"></i>
+                <span data-i18n="mobile_btn">POŠALJI NA MAIL</span>
+            </a>
+        </div>
+
+        <div class="absolute bottom-10 opacity-20 font-black uppercase tracking-[0.3em] text-[10px]">
+            Milan Web Portal
+        </div>
+    </div>
+
+    <header class="fixed top-3 left-0 right-0 z-50 px-6 pointer-events-none">
+        <nav
+            class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center bg-white/70 backdrop-blur-2xl rounded-full border border-white/40 shadow-[0_20px_40px_rgba(0,0,0,0.08)] pointer-events-auto transition-all duration-500 hover:shadow-brand/5 hover:border-brand/20">
+
+            <div class="flex items-center gap-4 group cursor-pointer">
+                <div class="grid grid-cols-2 gap-1 w-8 h-8 transition-transform duration-500 group-hover:rotate-12">
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                </div>
+
+                <a href="index.html">
+                    <span class="font-black text-3xl text-brand uppercase">All In One</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem"
+                    class="inline-flex items-center justify-center gap-2 bg-brand text-black font-[1000] py-3 px-8 rounded-full hover:bg-[#00ff88] hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_25px_rgba(0,255,136,0.4)] whitespace-nowrap uppercase text-sm"
+                    target="_blank"
+                    onclick="gtag('event', 'DodajEkstenziju', {event_category: 'CTA', event_label: 'Navbar'});">
+                    <i data-lucide="download" class="w-5 h-5 stroke-[3]"></i>
+                    <span class="max-[425px]:hidden" data-i18n="nav_add">Dodaj ekstenziju</span>
+                </a>
+
+                <button id="lang-switch" onclick="toggleLanguage()"
+                    class="inline-flex items-center justify-center gap-2 bg-brand text-black font-[1000] py-3 px-5 rounded-full hover:bg-[#00ff88] hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_25px_rgba(0,255,136,0.4)] whitespace-nowrap uppercase text-sm pointer-events-auto">
+                    <i data-lucide="languages" class="w-5 h-5 stroke-[3]"></i>
+                    <span id="lang-text">EN</span>
+                </button>
+
+                <a href="https://paypal.me/milanpetkovski1"
+                    aria-label="Doniraj kafu"
+                    class="inline-flex items-center justify-center gap-2 bg-brand text-black font-[1000] py-3 px-5 rounded-full hover:bg-[#00ff88] hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_25px_rgba(0,255,136,0.4)] whitespace-nowrap uppercase text-sm"
+                    target="_blank"
+                    onclick="gtag('event', 'DodajKafu', {event_category: 'CTA', event_label: 'Navbar'});">
+                    <i data-lucide="coffee" class="w-5 h-5 stroke-[3]"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="max-w-7xl pt-12 mx-auto px-6 min-h-screen flex items-center justify-center">
+        <div class="grid md:grid-cols-2 gap-12 items-center w-full py-20">
+            <div>
+                <div class="inline-flex items-center gap-4 mb-8 group">
+                    <div class="relative flex items-center justify-center">
+                        <i data-lucide="globe"
+                            class="relative w-5 h-5 text-brand group-hover:text-brand transition-colors"></i>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <span class="text-[10px] font-[1000] uppercase tracking-[0.3em] text-gray-400 leading-none mb-1"
+                            data-i18n="hero_global_top">
+                            Globalno dostupno
+                        </span>
+                        <span class="text-[12px] font-black uppercase tracking-widest text-gray-900 leading-none">
+                            <span data-i18n="hero_global_main">55 jezika</span>
+                            <span class="text-brand" data-i18n="hero_global_brand">podržano!</span>
+                        </span>
+                        </span>
+                    </div>
+                </div>
+
+                <h1 class="text-4xl lg:text-7xl font-[1000] leading-[0.9] mb-8 text-gray-900 tracking-tighter italic uppercase"
+                    data-i18n="hero_title">
+                    Sve alatke na <br><span class="text-brand">jednom mestu.</span>
+                </h1>
+
+                <p class="text-xl text-gray-500 mb-10 leading-relaxed font-medium max-w-lg border-l-4 border-brand pl-6"
+                    data-i18n="hero_desc">
+                    Ekstenzija za developere koja drastično ubrzava rad i optimizuje svakodnevni workflow. Dizajnirana za developere i kreatore koji žele
+                    maksimalnu produktivnost bez suvišnih dodataka.
+                </p>
+
+                <div class="flex items-center gap-6">
+                    <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem"
+                        class="bg-brand text-black font-[900] py-5 px-10 rounded-2xl text-xl hover:bg-green-400 hover:scale-105 transition-all shadow-2xl shadow-brand/30 flex items-center gap-3 uppercase italic tracking-tighter"
+                        target="_blank">
+                        <i data-lucide="download" class="w-6 h-6"></i> <span data-i18n="hero_btn">Dodaj
+                            ekstenziju</span>
+                    </a>
+                </div>
+
+                <div class="mt-8 flex flex-wrap items-center gap-4">
+                    <span class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400"
+                        data-i18n="hero_works">Radi na:</span>
+
+                    <ul class="flex flex-wrap items-center gap-5 list-none p-0">
+                        <li>
+                            <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem"
+                                class="hover:opacity-80 transition-opacity" target="_blank">
+                                <img src="Browser/1.png"
+                                    alt="Instaliraj All In One ekstenziju za Chrome" class="h-8 w-8">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem"
+                                class="hover:opacity-80 transition-opacity" target="_blank">
+                                <img src="Browser/2.png"
+                                    alt="Instaliraj All In One ekstenziju za Edge" class="h-8 w-8">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem"
+                                class="hover:opacity-80 transition-opacity" target="_blank">
+                                <img src="Browser/3.png"
+                                    alt="Instaliraj All In One ekstenziju za Brave" class="h-8 w-8">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem"
+                                class="hover:opacity-80 transition-opacity" target="_blank">
+                                <img src="Browser/4.png"
+                                    alt="Instaliraj All In One ekstenziju za Opera" class="h-8 w-8">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem"
+                                class="hover:opacity-80 transition-opacity" target="_blank">
+                                <img src="Browser/5.png"
+                                    alt="Instaliraj All In One ekstenziju za Opera GX" class="h-8 w-8">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem"
+                                class="hover:opacity-80 transition-opacity" target="_blank">
+                                <img src="Browser/6.png"
+                                    alt="Instaliraj All In One ekstenziju za Vivaldi" class="h-8 w-8">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem"
+                                class="hover:opacity-80 transition-opacity" target="_blank">
+                                <img src="Browser/7.png"
+                                    alt="Instaliraj All In One ekstenziju za Arc" class="h-8 w-8">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="mt-6 flex items-center gap-3">
+                    <span class="text-xs font-black uppercase tracking-[0.2em] text-gray-400">Powered by</span>
+                    <a href="https://milanwebportal.com"
+                        class="text-gray-900 hover:text-brand transition-colors font-black text-sm uppercase tracking-widest underline decoration-brand decoration-2 underline-offset-4"
+                        target="_blank">milanwebportal.com</a>
+                    <span class="text-gray-300">•</span>
+                    <a href="azurirano.html" data-latest-version
+                        class="text-[11px] font-black uppercase tracking-[0.14em] text-gray-400 hover:text-gray-700 transition-colors"></a>
+                </div>
+            </div>
+
+            <div
+                class="bg-[#0b0b0e] rounded-[2rem] p-4 shadow-2xl relative border border-gray-900 mx-auto w-full max-w-sm font-sans group hover:shadow-brand/10 transition-shadow duration-500">
+                <div class="flex justify-between items-center mb-6 px-1">
+                    <div class="grid grid-cols-2 gap-1 w-6 h-6">
+                        <div class="bg-[#00ff88] w-full h-full rounded-sm"></div>
+                        <div class="bg-[#00ff88] w-full h-full rounded-tr-xl rounded-sm"></div>
+                        <div class="bg-[#00ff88] w-full h-full rounded-tr-xl rounded-sm"></div>
+                        <div class="bg-[#00ff88] w-full h-full rounded-sm"></div>
+                    </div>
+                    <h3 class="text-[#00ff88] font-black uppercase tracking-widest text-base">All In One</h3>
+                    <i data-lucide="settings"
+                        class="w-6 h-6 text-gray-400 opacity-80 group-hover:rotate-180 transition-transform duration-700"></i>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="bg-[#16161d] rounded-2xl p-4 border border-gray-800/50 flex flex-col gap-4 hover:bg-gray-800/50 transition-colors">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="radio" class="w-5 h-5 text-[#00ff88]"></i>
+                                <span class="text-white text-xs font-bold" data-i18n="ui_radio">Radio IN</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="text-gray-300 text-sm leading-none select-none">+</span>
+                                <button class="w-7 h-7 bg-[#00ff88] rounded-full flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-[#00ff88]/20">
+                                    <i data-lucide="play" class="w-3 h-3 ml-0.5" style="color: black; fill: black;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="w-full h-1 bg-gray-800 rounded-full relative">
+                            <div class="absolute left-[20%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#00ff88] rounded-full shadow-md"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#16161d] rounded-2xl p-4 border border-gray-800/50 flex flex-col gap-4 hover:bg-gray-800/50 transition-colors">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-2">
+                                <i data-lucide="volume-2" class="w-5 h-5 text-[#00ff88]"></i>
+                                <span class="text-white text-xs font-bold" data-i18n="ui_sound">Zvuk</span>
+                            </div>
+                            <button class="p-0 bg-transparent border-none cursor-pointer hover:opacity-70 transition-opacity">
+                                <i data-lucide="rotate-ccw" class="w-4 h-4 text-white"></i>
+                            </button>
+                        </div>
+                        <div class="w-full h-1 bg-gray-800 rounded-full relative">
+                            <div class="absolute left-[25%] top-1/2 -translate-y-1/2 w-3.5 h-3.5 bg-[#00ff88] rounded-full shadow-md"></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <span class="text-white text-xs font-bold" data-i18n="ui_color">Color Picker</span>
+                        <i data-lucide="pipette" class="w-5 h-5 text-[#00ff88]"></i>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="moon" class="w-5 h-5 text-[#00ff88]"></i>
+                            <span class="text-white text-xs font-bold" data-i18n="ui_dark">Dark Mode</span>
+                        </div>
+                        <div class="w-10 h-5 bg-[#00ff88] rounded-full relative">
+                            <div class="w-4 h-4 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <span class="text-white text-xs font-bold" data-i18n="ui_ruler">Page Ruler</span>
+                        <i data-lucide="ruler" class="w-5 h-5 text-[#00ff88]"></i>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="copy" class="w-5 h-5 text-[#00ff88]"></i>
+                            <span class="text-white text-xs font-bold" data-i18n="ui_copy">En. Copy</span>
+                        </div>
+                        <div class="w-10 h-5 bg-[#00ff88] rounded-full relative">
+                            <div class="w-4 h-4 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm"></div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <span class="text-white text-xs font-bold" data-i18n="ui_marker">Page Marker</span>
+                        <i data-lucide="edit-3" class="w-5 h-5 text-[#00ff88]"></i>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <span class="text-white text-xs font-bold" data-i18n="ui_tech">Tehnologije sajta</span>
+                        <i data-lucide="code" class="w-5 h-5 text-[#00ff88]"></i>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <span class="text-white text-xs font-bold" data-i18n="ui_cookies">Kolačići i Keš</span>
+                        <i data-lucide="cookie" class="w-5 h-5 text-[#00ff88]"></i>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <span class="text-white text-xs font-bold" data-i18n="ui_font">Font Finder</span>
+                        <i data-lucide="type" class="w-5 h-5 text-[#00ff88]"></i>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <span class="text-white text-xs font-bold" data-i18n="ui_chars">Brojač karaktera</span>
+                        <i data-lucide="hash" class="w-5 h-5 text-[#00ff88]"></i>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <span class="text-white text-xs font-bold" data-i18n="ui_stopwatch">Štoperica</span>
+                        <i data-lucide="timer" class="w-5 h-5 text-[#00ff88]"></i>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <span class="text-white text-xs font-bold" data-i18n="ui_notes">Pametne Beleške</span>
+                        <i data-lucide="file-text" class="w-5 h-5 text-[#00ff88]"></i>
+                    </div>
+
+                    <div
+                        class="bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-gray-800/50 hover:bg-gray-800/50 transition-colors cursor-pointer">
+                        <span class="text-white text-xs font-bold" data-i18n="ui_tracker">Webtime Tracker</span>
+                        <i data-lucide="bar-chart-2" class="w-5 h-5 text-[#00ff88]"></i>
+                    </div>
+
+                    <div
+                        class="col-span-2 bg-[#16161d] rounded-2xl p-4 flex justify-between items-center border border-[#00ff88]/30 hover:border-[#00ff88]/60 transition-colors cursor-pointer group/yt">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="thumbs-down" class="w-5 h-5 text-[#00ff88]"></i>
+                            <span class="text-white text-xs font-bold" data-i18n="ui_yt">Return YouTube Dislike</span>
+                        </div>
+                        <div class="w-10 h-5 bg-[#00ff88] rounded-full relative">
+                            <div
+                                class="w-4 h-4 bg-white rounded-full absolute right-0.5 top-0.5 shadow-sm transition-all">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="komandni-centar" class="relative bg-white pt-40 overflow-hidden"
+        style="background: linear-gradient(to bottom, #f5f6f7 0%, #ffffff 300px);">
+        <div class="max-w-7xl mx-auto px-6 h-screen relative flex flex-col">
+            <div class="fixed right-8 top-1/2 -translate-y-1/2 z-[100] hidden xl:flex flex-col items-end gap-2">
+
+                <div class="flex items-center gap-4">
+                    <div class="flex flex-col items-end">
+                        <span class="text-brand text-xs font-[1000] uppercase tracking-[0.2em] italic leading-none"
+                            data-i18n="feat_scroll">Skroluj</span>
+                    </div>
+
+                    <div
+                        class="w-[6px] h-32 bg-white/5 rounded-full border border-white/5 relative p-[1px] overflow-hidden backdrop-blur-md">
+                        <div
+                            class="absolute top-0 left-0 w-full h-1/3 bg-gradient-to-b from-brand to-brand/20 rounded-full animate-scroll-mega shadow-[0_0_20px_rgba(0,255,136,0.4)]">
+                        </div>
+
+                        <div
+                            class="absolute inset-y-0 left-0 w-full flex flex-col justify-between py-4 opacity-20 pointer-events-none">
+                            <div class="w-full h-[1px] bg-white"></div>
+                            <div class="w-full h-[1px] bg-white"></div>
+                            <div class="w-full h-[1px] bg-white"></div>
+                            <div class="w-full h-[1px] bg-white"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="naslov-kontejner z-50">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="w-12 h-0.5 bg-brand"></span>
+                    <span class="text-brand text-[10px] font-[1000] uppercase tracking-[0.4em]"
+                        data-i18n="feat_subtitle">SVE NA JEDNOM
+                        MESTU</span>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-[1000] uppercase italic tracking-tighter leading-[0.75] text-gray-900"
+                    data-i18n="feat_title">
+                    Upoznaj <br><span class="text-brand">Ključne funkcije</span>
+                </h2>
+            </div>
+            <div class="h-[1px] w-full"></div>
+
+            <div class="relative w-full flex-1">
+
+                <div
+                    class="card absolute inset-x-0 top-0 z-10 w-full rounded-[4rem] p-12 bg-[#0f1115] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] shadow-[inset_0_0_100px_rgba(0,0,0,0.8)] border border-white/5 h-[450px] flex items-center">
+                    <div class="grid md:grid-cols-2 gap-12 items-center w-full text-left">
+                        <div class="space-y-6">
+                            <div
+                                class="inline-flex items-center gap-2 px-3 py-1 bg-brand/10 border border-brand/20 rounded-full">
+                                <div class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse"></div>
+                                <span class="text-[9px] font-black uppercase tracking-widest text-brand"
+                                    data-i18n="sn_tag">Važno je
+                                    zapisati ideje</span>
+                            </div>
+                            <h3 class="text-5xl font-[1000] uppercase italic tracking-tighter leading-none text-white"
+                                data-i18n="sn_title">
+                                PAMETNE <br><span class="text-brand">BELEŠKE</span></h3>
+                            <p class="text-gray-400 text-lg font-medium italic" data-i18n="sn_desc">Sve što ti treba, na
+                                jedan klik. <br>
+                                Automatizacija koja misli umesto tebe.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <div
+                                    class="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] font-black uppercase text-brand hover:bg-brand/20 transition-colors cursor-default">
+                                    <i data-lucide="mouse-pointer-2" class="w-3 h-3"></i> <span
+                                        data-i18n="sn_sel">Selekcija</span>
+                                </div>
+                                <div
+                                    class="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] font-black uppercase text-brand hover:bg-brand/20 transition-colors cursor-default">
+                                    <i data-lucide="link" class="w-3 h-3"></i> URL
+                                </div>
+                                <div
+                                    class="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] font-black uppercase text-brand hover:bg-brand/20 transition-colors cursor-default">
+                                    <i data-lucide="calculator" class="w-3 h-3"></i> <span
+                                        data-i18n="sn_math">Matematika</span>
+                                </div>
+                                <div
+                                    class="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] font-black uppercase text-brand hover:bg-brand/20 transition-colors cursor-default">
+                                    <i data-lucide="calendar" class="w-3 h-3"></i> <span
+                                        data-i18n="sn_date">Datum</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#16181d]/80 backdrop-blur-xl rounded-3xl p-6 border border-brand/20 shadow-inner h-[320px] flex flex-col relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-brand/5 blur-3xl rounded-full"></div>
+                            <div class="flex-1 font-mono text-sm text-gray-300 space-y-4 relative z-10">
+                                <div
+                                    class="flex items-center gap-2 text-brand/60 text-[10px] uppercase font-black italic">
+                                    <i data-lucide="globe" class="w-3 h-3"></i> allinone.milanwebportal.com
+                                </div>
+                                <p class="text-white bg-white/5 p-3 rounded-lg border border-white/5"
+                                    data-i18n="sn_placeholder">Izaberi tekst i
+                                    klikni na dugme tekst da dodaš...</p>
+                                <div
+                                    class="p-3 bg-brand/10 border-l-2 border-brand text-brand font-black flex justify-between">
+                                    <span>1500 / 3 = 500</span>
+                                </div>
+                                <div class="p-3 bg-white/5 border-l-2 border-white/20 text-white text-xs">
+                                    <span class="trenutni-datum"></span>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 pt-4 border-t border-white/5">
+                                <button
+                                    class="flex-1 py-2 bg-brand/10 border border-brand/20 rounded-lg text-[9px] font-black uppercase text-brand hover:bg-brand hover:text-black transition-all"
+                                    data-i18n="sn_save">Sačuvaj</button>
+                                <button
+                                    class="flex-1 py-2 bg-white/5 rounded-lg text-[9px] font-black uppercase text-gray-400"
+                                    data-i18n="sn_import">Uvezi</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="card absolute inset-x-0 top-[20px] z-20 w-full rounded-[4rem] p-12 bg-[#0a0a0c] bg-[radial-gradient(circle_at_50%_-20%,#00ff8815,transparent_50%)] border border-white/10 shadow-2xl h-[450px] flex items-center translate-y-[110vh]">
+                    <div class="grid md:grid-cols-2 gap-16 items-center w-full text-left">
+                        <div class="space-y-6">
+                            <h3 class="text-5xl font-[1000] uppercase italic tracking-tighter leading-none text-white"
+                                data-i18n="wt_title">
+                                WEBTIME <br><span class="text-brand">TRACKER</span></h3>
+                            <p class="text-gray-400 text-lg font-medium italic" data-i18n="wt_desc">Analiziraj gde
+                                trošiš vreme. <br>
+                                Pametno praćenje svake sekunde na webu.</p>
+                            <div class="grid grid-cols-3 gap-3">
+                                <div
+                                    class="p-4 bg-white/5 rounded-2xl border border-white/5 text-center group hover:border-brand/30 transition-all">
+                                    <p class="text-[9px] uppercase font-black text-gray-500 mb-1" data-i18n="wt_today">
+                                        Danas</p>
+                                    <p class="text-xl font-black text-brand italic">9h 13m</p>
+                                </div>
+                                <div
+                                    class="p-4 bg-brand/10 rounded-2xl border border-brand/20 text-center shadow-[0_0_20px_rgba(0,255,136,0.1)]">
+                                    <p class="text-[9px] uppercase font-black text-brand mb-1" data-i18n="wt_month">Ovaj
+                                        Mesec</p>
+                                    <p class="text-xl font-black text-white italic">36h 26m</p>
+                                </div>
+                                <div class="p-4 bg-white/5 rounded-2xl border border-white/5 text-center opacity-50">
+                                    <p class="text-[9px] uppercase font-black text-gray-500 mb-1" data-i18n="wt_avg">
+                                        Prosek</p>
+                                    <p class="text-xl font-black text-white italic">6h 04m</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#0a0a0a]/80 backdrop-blur-md p-6 rounded-[2.5rem] border border-white/5 shadow-2xl space-y-4">
+                            <div
+                                class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border-l-2 border-brand group hover:bg-white/10 transition-all">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-2 h-2 rounded-full bg-brand animate-pulse"></div>
+                                    <span class="text-xs font-bold italic text-white">milanwebportal.com</span>
+                                </div>
+                                <span class="text-brand font-black text-xs italic">3h 31m</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border-l-2 border-white/10">
+                                <span class="text-xs font-bold italic text-gray-400">allinone.milanwebportal.com</span>
+                                <span class="text-white/40 font-black text-xs italic">2h 49m</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-between p-4 bg-white/5 rounded-2xl border-l-2 border-white/10">
+                                <span class="text-xs font-bold italic text-gray-400">google.com</span>
+                                <span class="text-white/40 font-black text-xs italic">1h 13m</span>
+                            </div>
+                            <div class="pt-6">
+                                <div
+                                    class="flex justify-between text-[10px] font-black uppercase text-gray-500 mb-2 italic">
+                                    <span data-i18n="wt_goal">Dnevni cilj</span>
+                                    <span class="text-brand">75%</span>
+                                </div>
+                                <div class="w-full h-1.5 bg-white/5 rounded-full overflow-hidden">
+                                    <div class="h-full bg-brand w-3/4 shadow-[0_0_15px_#00ff88]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="card absolute inset-x-0 top-[40px] z-30 w-full rounded-[4rem] p-12 bg-[#111216] bg-[radial-gradient(#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] border border-white/5 shadow-2xl h-[450px] flex items-center translate-y-[110vh]">
+                    <div class="grid md:grid-cols-2 gap-16 items-center w-full text-left">
+                        <div class="space-y-6">
+                            <h3 class="text-5xl font-[1000] uppercase italic tracking-tighter leading-none text-white"
+                                data-i18n="pm_title">
+                                PAGE <br><span class="text-brand">MARKER</span></h3>
+                            <p class="text-gray-400 text-lg font-medium italic leading-relaxed text-left"
+                                data-i18n="pm_desc">Pretvori web u
+                                svoje igralište. <br> Crtaj, piši i pomeraj elemente bez ikakvih limita.</p>
+                            <div
+                                class="flex gap-4 items-center bg-black/20 p-4 rounded-2xl border border-white/5 w-fit">
+                                <div class="flex -space-x-2">
+                                    <div class="w-8 h-8 rounded-full bg-brand border-2 border-gray-900 shadow-lg"></div>
+                                    <div class="w-8 h-8 rounded-full bg-red-500 border-2 border-gray-900 shadow-lg">
+                                    </div>
+                                    <div class="w-8 h-8 rounded-full bg-blue-500 border-2 border-gray-900 shadow-lg">
+                                    </div>
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-500 to-pink-500 border-2 border-gray-900 shadow-lg">
+                                    </div>
+                                </div>
+                                <span class="text-[10px] font-black uppercase text-gray-400 italic"
+                                    data-i18n="pm_colors">Beskonačan izbor
+                                    boja</span>
+                            </div>
+                        </div>
+                        <div
+                            class="relative bg-black/60 backdrop-blur-xl rounded-[2.5rem] p-8 border border-white/10 h-[320px] flex items-center justify-center overflow-hidden">
+                            <div
+                                class="absolute left-6 top-1/2 -translate-y-1/2 bg-[#1c1e22] p-3 rounded-2xl border border-white/10 flex flex-col gap-4 shadow-2xl z-20">
+                                <div class="p-2 bg-brand/20 rounded-xl text-brand"><i data-lucide="pencil"
+                                        class="w-5 h-5"></i></div>
+                                <div class="p-2 text-white transition-colors"><i data-lucide="type" class="w-5 h-5"></i>
+                                </div>
+                                <div class="p-2 text-white transition-colors"><i data-lucide="move" class="w-5 h-5"></i>
+                                </div>
+                                <div class="h-[1px] bg-white w-full"></div>
+                                <div class="p-2 text-red-500 hover:text-red-500 transition-colors"><i
+                                        data-lucide="eraser" class="w-5 h-5"></i></div>
+                            </div>
+                            <svg class="w-full h-full pointer-events-none" viewBox="0 0 200 120">
+                                <path d="M30,80 C70,20 130,100 170,40" stroke="#00ff88" stroke-width="2" fill="none"
+                                    stroke-linecap="round" />
+                                <circle cx="170" cy="40" r="4" fill="#00ff88" />
+                                <text x="40" y="30" fill="white" font-size="7" font-weight="bold" font-style="italic"
+                                    opacity="0.8" data-i18n="pm_svg_text">Piši svuda bez ograničenja...</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="card absolute inset-x-0 top-[60px] z-40 w-full bg-black shadow-[inset_0_0_100px_rgba(0,255,136,0.05)] border-2 border-brand/20 rounded-[4rem] p-12 h-[450px] flex items-center translate-y-[110vh]">
+                    <div class="grid md:grid-cols-2 gap-16 items-center w-full text-black text-left">
+                        <div class="space-y-6">
+                            <h3 class="text-5xl font-[1000] uppercase italic tracking-tighter leading-none text-white"
+                                data-i18n="fc_title">
+                                BRZO <br><span class="text-brand">KLIPOVANJE</span></h3>
+                            <p class="text-gray-400 text-lg font-medium italic" data-i18n="fc_desc">Vreme je novac. <br>
+                                Uštedi 80% vremena
+                                u montaži jednim klikom.</p>
+                            <div class="p-4 bg-brand/5 border border-brand/20 rounded-2xl flex items-center gap-4">
+                                <div
+                                    class="px-3 py-1 bg-black text-brand rounded-lg font-black text-xs shadow-[0_0_15px_rgba(0,255,136,0.2)] uppercase">
+                                    Alt + Shift + L</div>
+                                <span class="text-[10px] font-black uppercase text-gray-400 italic"
+                                    data-i18n="fc_shortcut">Prečica za
+                                    klip</span>
+                            </div>
+                        </div>
+                        <div
+                            class="bg-[#0f1115] rounded-[3rem] p-10 border border-white/5 shadow-2xl w-full h-[320px] flex flex-col relative overflow-hidden group">
+                            <div
+                                class="absolute -top-10 -right-10 w-40 h-40 bg-brand/5 blur-[80px] group-hover:bg-brand/10 transition-all">
+                            </div>
+                            <div class="text-center mb-6 relative z-10">
+                                <p
+                                    class="text-brand font-black text-6xl italic tracking-tighter tabular-nums drop-shadow-[0_0_20px_rgba(0,255,136,0.3)]">
+                                    01:24:55</p>
+                                <div class="flex items-center justify-center gap-2 mt-2">
+                                    <div class="w-1.5 h-1.5 rounded-full bg-red-600 animate-ping"></div>
+                                    <p class="text-[10px] uppercase text-gray-500 font-black tracking-[0.3em]"
+                                        data-i18n="fc_live">Lajv u
+                                        toku</p>
+                                </div>
+                            </div>
+                            <div class="flex-1 space-y-2 overflow-hidden italic font-mono text-[10px] text-gray-400">
+                                <div class="flex justify-between border-b border-white/5 pb-1"><span
+                                        data-i18n="fc_clip1">Klip
+                                        #1</span><span>00:04:12</span></div>
+                                <div class="flex justify-between border-b border-white/5 pb-1"><span
+                                        data-i18n="fc_clip2">Klip
+                                        #2</span><span>00:12:45</span></div>
+                            </div>
+                            <div
+                                class="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-[#0f1115] via-[#0f1115] to-transparent">
+                                <button
+                                    class="w-full bg-brand text-black py-4 rounded-2xl font-[1000] uppercase text-[11px] tracking-[0.2em] flex items-center justify-center gap-3 hover:scale-[1.03] active:scale-95 transition-all shadow-[0_15px_40px_rgba(0,255,136,0.3)] group">
+                                    <i data-lucide="file-down" class="w-4 h-4 group-hover:bounce"></i>
+                                    <span data-i18n="fc_export">Eksportuj kao .txt</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="target-audience" class="pt-0 py-16 bg-white relative overflow-hidden">
+        <div class="absolute top-20 left-0 text-[9vw] font-[1000] text-gray opacity-[0.01] select-none uppercase italic leading-none whitespace-nowrap"
+            data-i18n="ta_bg">
+            Kome je namenjen?
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="max-w-3xl mb-32">
+                <h2 class="text-5xl md:text-7xl font-[1000] text-gray-900 tracking-tighter italic uppercase leading-[0.8]"
+                    data-i18n="ta_title">
+                    ELITNI ALAT ZA <br><span class="text-brand">ELITNE RADNIKE.</span>
+                </h2>
+            </div>
+
+            <div class="relative min-h-[600px]">
+
+                <div class="floating-item absolute top-0 left-0 md:left-[10%] group cursor-default">
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-24 h-24 bg-brand text-black rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                            <i data-lucide="palette" class="w-10 h-10 stroke-[2.5]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-4xl font-[1000] uppercase italic text-gray-900 leading-none"
+                                data-i18n="ta_c1_t">KREATIVCI</h3>
+                            <div class="h-1 w-0 bg-brand group-hover:w-full transition-all duration-500 mt-2"></div>
+                            <p class="text-gray-400 font-bold text-sm mt-2 max-w-[200px]" data-i18n="ta_c1_d">Precizni
+                                alati za dizajn i
+                                brza inspekcija elemenata.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="floating-item absolute top-[20%] right-0 md:right-[5%] group cursor-default">
+                    <div class="flex flex-row-reverse items-center gap-6 text-right">
+                        <div
+                            class="w-24 h-24 bg-black text-brand rounded-[2rem] flex items-center justify-center shadow-2xl group-hover:rotate-12 transition-transform duration-500">
+                            <i data-lucide="code" class="w-10 h-10 stroke-[2.5]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-4xl font-[1000] uppercase italic text-gray-900 leading-none"
+                                data-i18n="ta_c2_t">DEVELOPERI</h3>
+                            <div class="h-1 w-0 bg-black group-hover:w-full transition-all duration-500 mt-2 ml-auto">
+                            </div>
+                            <p class="text-gray-400 font-bold text-sm mt-2 max-w-[200px]" data-i18n="ta_c2_d">Duboki
+                                uvid u tehnologije i
+                                ekspresno čišćenje keša.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="floating-item absolute bottom-[30%] left-0 md:left-[20%] group cursor-default">
+                    <div class="flex items-center gap-6">
+                        <div
+                            class="w-24 h-24 border-4 border-brand text-brand rounded-3xl flex items-center justify-center group-hover:-rotate-6 transition-transform duration-500">
+                            <i data-lucide="clock" class="w-10 h-10 stroke-[2.5]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-4xl font-[1000] uppercase italic text-gray-900 leading-none"
+                                data-i18n="ta_c3_t">PRODUKTIVCI
+                            </h3>
+                            <p class="text-gray-400 font-bold text-sm mt-2 max-w-[200px]" data-i18n="ta_c3_d">Maksimalan
+                                fokus uz muziku i
+                                precizno merenje vremena.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="floating-item absolute bottom-0 right-0 md:right-[15%] group cursor-default">
+                    <div class="flex flex-row-reverse items-center gap-6 text-right">
+                        <div
+                            class="w-24 h-24 bg-gray-100 text-gray-900 rounded-full flex items-center justify-center group-hover:bg-brand transition-colors duration-500">
+                            <i data-lucide="zap" class="w-10 h-10 stroke-[2.5]"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-4xl font-[1000] uppercase italic text-gray-900 leading-none"
+                                data-i18n="ta_c4_t">POWER USERS
+                            </h3>
+                            <p class="text-gray-400 font-bold text-sm mt-2 max-w-[200px]" data-i18n="ta_c4_d">Internet
+                                bez barijera, oglasa
+                                i vizuelnog haosa.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="nucleus"
+                    class="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 items-center justify-center">
+                    <div class="w-full h-full bg-brand/5 rounded-full animate-pulse blur-3xl"></div>
+                    <div class="absolute text-brand opacity-20 animate-spin-slow">
+                        <i data-lucide="settings" class="w-32 h-32"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6 mb-10">
+            <h2 class="text-5xl md:text-7xl font-[1000] text-gray-900 tracking-tighter leading-none italic uppercase"
+                data-i18n="gf_title">
+                Šta sve sadrži <br><span class="text-brand">All In One</span>
+            </h2>
+            <p class="mt-8 text-gray-500 text-xl font-medium max-w-2xl border-l-4 border-brand pl-6"
+                data-i18n="gf_desc">Sve alatke su
+                dizajnirane za maksimalnu brzinu i lakoću, pružajući vam punu snagu bez usporavanja vašeg pretraživača.
+            </p>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <div class="pulse-ring"></div>
+                    <i data-lucide="radio"
+                        class="w-12 h-12 text-brand relative z-10 drop-shadow-[0_0_15px_rgba(0,255,136,0.5)]"></i>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_1_t">Radio IN</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_1_d">Slušaj
+                    omiljeni radio
+                    direktno iz ekstenzije. Pusti i pauziraj bez otvaranja novih tabova.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <div class="w-full px-8 flex flex-col gap-5">
+                        <div class="h-3 w-full bg-gray-800 rounded-full overflow-hidden shadow-inner">
+                            <div class="w-2/3 h-full bg-brand shadow-[0_0_15px_#00ff88]"></div>
+                        </div>
+                        <div class="flex justify-between text-xs font-black text-gray-400 italic tracking-wider">
+                            <span>0%</span><span class="text-brand">1000%</span>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_2_t">Zvuk 1000%</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_2_d">Pojačaj
+                    zvuk na bilo kom tabu
+                    do neverovatnih 1000%. Daleko iznad standardnog ograničenja.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <div class="flex flex-col items-center gap-1">
+                        <div
+                            class="w-16 h-16 rounded-full bg-brand shadow-[0_0_25px_rgba(0,255,136,0.5)] border-4 border-white/10 group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <span
+                            class="font-mono text-white bg-black/60 px-4 py-1.5 rounded-xl text-xs font-black tracking-widest backdrop-blur-sm">#00FF88</span>
+                    </div>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_3_t">Color Picker
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_3_d">Klikni
+                    bilo gde na stranici
+                    da pomoću pipete izvučeš i automatski kopiraš tačan HEX kod boje.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <div class="w-20 h-10 bg-brand rounded-full relative shadow-inner cursor-pointer">
+                        <div
+                            class="absolute right-1.5 top-1.5 w-7 h-7 bg-white rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.2)]">
+                        </div>
+                    </div>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_4_t">Dark Mode</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_4_d">Forsiraj
+                    tamni režim na
+                    svakom sajtu. Pametna inverzija boja štiti tvoje oči tokom noćnog rada.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <div class="flex items-center justify-center h-24">
+                        <div
+                            class="w-20 h-8 border-[1.5px] border-brand/80 rounded-lg -rotate-45 flex items-start justify-between px-2 pt-[3px] shadow-[0_0_20px_rgba(0,255,136,0.2)] bg-gradient-to-br from-brand/10 to-transparent backdrop-blur-[2px]">
+
+                            <div class="flex flex-col items-center">
+                                <div class="h-3 w-0.5 bg-brand rounded-full shadow-[0_0_8px_#00ff88]"></div>
+                            </div>
+                            <div class="h-1.5 w-[1px] bg-brand/30 rounded-full mt-0.5"></div>
+                            <div class="h-2 w-[1px] bg-brand/50 rounded-full"></div>
+                            <div class="h-1.5 w-[1px] bg-brand/30 rounded-full mt-0.5"></div>
+
+                            <div class="flex flex-col items-center">
+                                <div class="h-3 w-0.5 bg-brand rounded-full shadow-[0_0_8px_#00ff88]"></div>
+                            </div>
+
+                            <div class="h-1.5 w-[1px] bg-brand/30 rounded-full mt-0.5"></div>
+                            <div class="h-2 w-[1px] bg-brand/50 rounded-full"></div>
+                            <div class="h-1.5 w-[1px] bg-brand/30 rounded-full mt-0.5"></div>
+
+                            <div class="flex flex-col items-center">
+                                <div class="h-3 w-0.5 bg-brand rounded-full shadow-[0_0_8px_#00ff88]"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_5_t">Page Ruler</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_5_d">Aktiviraj
+                    interaktivni lenjir
+                    i precizno izmeri dimenzije svakog elementa na sajtu u pikselima.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <i data-lucide="copy"
+                        class="w-12 h-12 text-brand drop-shadow-[0_0_15px_rgba(0,255,136,0.4)] group-hover:scale-110 transition-transform duration-500"></i>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_6_t">Enable Copy
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_6_d">Uključi
+                    opciju i zaobiđi
+                    blokadu desnog klika ili selekcije teksta na zaštićenim sajtovima.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <i data-lucide="edit-3"
+                        class="w-12 h-12 text-brand drop-shadow-[0_0_15px_rgba(0,255,136,0.4)] group-hover:-translate-y-1 transition-transform duration-500"></i>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_7_t">Page Marker
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_7_d">Crtaj,
+                    podvlači, piši,
+                    pomeraj i briši oznake direktno po ekranu. Odličan alat za video prezentacije.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="bg-[#25252b] text-gray-400 text-xs font-black px-4 py-2.5 rounded-xl border border-gray-700 shadow-inner">Webflow</span>
+                        <span
+                            class="bg-brand/10 text-brand text-sm font-black px-5 py-2.5 rounded-xl border border-brand/50 shadow-[0_0_20px_rgba(0,255,136,0.2)]">&lt;/&gt;</span>
+                        <span
+                            class="bg-[#25252b] text-gray-400 text-xs font-black px-4 py-2.5 rounded-xl border border-gray-700 shadow-inner">Angular</span>
+                    </div>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_8_t">Tehnologije
+                    sajta</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_8_d">Saznaj
+                    jednim klikom u čemu
+                    je sajt napravljen i analiziraj pozadinske strukture tog sajta.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <i data-lucide="cookie"
+                        class="w-12 h-12 text-brand drop-shadow-[0_0_15px_rgba(0,255,136,0.4)] group-hover:scale-110 transition-transform duration-500"></i>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_9_t">Kolačići i keš
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_9_d">Obriši keš
+                    i kolačiće za
+                    trenutni sajt u jednom kliku i automatski sakrij dosadne prozore za pristanak na kolačiće.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <span
+                        class="text-6xl font-serif text-brand italic drop-shadow-[0_0_20px_rgba(0,255,136,0.5)]">Ff</span>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_10_t">Font Finder
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_10_d">Pređi
+                    mišem preko bilo kog
+                    teksta na sajtu da bi odmah saznao tačno koji font je u upotrebi.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <div class="bg-black/30 px-8 py-4 rounded-2xl border border-white/10 shadow-inner backdrop-blur-md">
+                        <span
+                            class="text-brand font-mono text-3xl font-black tracking-widest drop-shadow-[0_0_10px_rgba(0,255,136,0.4)]">1,240</span>
+                    </div>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_11_t">Brojač
+                    karaktera</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_11_d">Lako i
+                    brzo prebroj
+                    selektovane karaktere i reči. Idealno za pisanje SEO naslova i opisa.</p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <div
+                        class="text-brand font-mono text-4xl font-black tracking-tighter drop-shadow-[0_0_15px_rgba(0,255,136,0.5)]">
+                        00:15:30</div>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_12_t">Štoperica</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_12_d">Zabeleži
+                    bitne trenutke tokom
+                    lajva jednom prečicom. Automatska štoperica štedi sate u montaži i menja ručno pisanje tajmstempova.
+                </p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <i data-lucide="file-text" class="w-12 h-12 text-brand"></i>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_13_t">Pametne Beleške
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_13_d">
+                    Zapiši bitne ideje! Podržava pametno rešavanje matematike u tekstu i lako dodavanje trenutnog
+                    vremena.
+                </p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <div class="flex items-end gap-1.5">
+                        <div class="w-2 h-6 bg-gray-600 rounded-full"></div>
+                        <div class="w-2 h-14 bg-brand rounded-full shadow-[0_0_15px_#00ff88]"></div>
+                        <div class="w-2 h-10 bg-gray-600 rounded-full"></div>
+                        <div class="w-2 h-12 bg-brand rounded-full"></div>
+                    </div>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_14_t">Webtime Tracker
+                </h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_14_d">
+                    Automatski prati tačno vreme koje provodiš na različitim domenima. Analiziraj svoju statistiku
+                    upotrebe.
+                </p>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card text-center flex flex-col relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="mini-ui relative z-10 group-hover:border-brand/30 transition-colors duration-500">
+                    <div class="bg-brand/5 px-6 py-3 rounded-2xl border border-white/10 flex items-center gap-3">
+                        <i data-lucide="thumbs-down" class="w-5 h-5 text-brand"></i>
+                        <span class="text-brand font-bold">12.5k</span>
+                    </div>
+                </div>
+                <h4 class="font-black text-lg uppercase tracking-wider mb-3 text-gray-900 relative z-10"
+                    data-i18n="gf_15_t">Return YT
+                    Dislike</h4>
+                <p class="text-gray-500 text-sm leading-relaxed font-medium relative z-10" data-i18n="gf_15_d">
+                    Vraća vidljivost brojača "nesviđanja" (dislikes) ispod klipova, radi direktno i automatski na
+                    YouTube-u.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="workflow-timeline" class="py-16 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="text-center mb-32">
+                <h2 class="text-6xl md:text-8xl font-[1000] text-gray-900 tracking-tighter italic uppercase leading-none"
+                    data-i18n="tl_title">
+                    TRI KORAKA DO<br><span class="text-brand">PRODUKTIVNOSTI</span>
+                </h2>
+            </div>
+
+            <div class="relative">
+                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-100 -translate-x-1/2">
+                    <div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-brand to-transparent"></div>
+                </div>
+
+                <div class="timeline-item relative mb-40 group">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="w-full md:w-1/2 md:pr-24 text-center md:text-right">
+                            <div
+                                class="inline-flex items-center justify-center w-20 h-20 bg-brand text-black rounded-3xl mb-6 shadow-xl group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="download" class="w-10 h-10 stroke-[2.5]"></i>
+                            </div>
+                            <h3 class="text-4xl font-[1000] uppercase italic tracking-tighter text-gray-900 mb-4"
+                                data-i18n="tl_1_t">
+                                INSTALIRAJ EKSTENZIJU</h3>
+                            <p class="text-gray-500 font-medium text-lg leading-relaxed max-w-sm ml-auto"
+                                data-i18n="tl_1_d">
+                                Instaliraj direktno sa Chrome Web Store-a i koristi u Chrome, Edge, Brave i Opera
+                                browserima. Potpuno je besplatno i bez reklama.
+                            </p>
+                        </div>
+                        <div
+                            class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full z-10 ring-8 ring-white shadow-sm">
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-24 mt-8 md:mt-0">
+                            <span
+                                class="step-number text-9xl font-[1000] text-gray-100 italic tracking-tighter transition-all duration-700 block">01</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item relative mb-40 group">
+                    <div class="flex flex-col md:flex-row-reverse items-center">
+                        <div class="w-full md:w-1/2 md:pl-24 text-center md:text-left">
+                            <div
+                                class="inline-flex items-center justify-center w-20 h-20 bg-black text-brand rounded-3xl mb-6 shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="pin" class="w-10 h-10 stroke-[2.5]"></i>
+                            </div>
+                            <h3 class="text-4xl font-[1000] uppercase italic tracking-tighter text-gray-900 mb-4"
+                                data-i18n="tl_2_t">PIN-UJ
+                                ZA BRZ PRISTUP</h3>
+                            <p class="text-gray-500 font-medium text-lg leading-relaxed max-w-sm mr-auto md:mr-0"
+                                data-i18n="tl_2_d">
+                                Klikni na ikonicu slagalice u gornjem desnom uglu i klikni dugme pin All In One kako bi
+                                ti brže bio dostupan.
+                            </p>
+                        </div>
+                        <div
+                            class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-black rounded-full z-10 ring-8 ring-white shadow-sm">
+                        </div>
+                        <div class="w-full md:w-1/2 md:pr-24 mt-8 md:mt-0 text-right">
+                            <span
+                                class="step-number text-9xl font-[1000] text-gray-100 italic tracking-tighter transition-all duration-700 block">02</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item relative group">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <div class="w-full md:w-1/2 md:pr-24 text-center md:text-right">
+                            <div
+                                class="inline-flex items-center justify-center w-20 h-20 bg-brand text-black rounded-3xl mb-6 shadow-xl group-hover:scale-110 transition-transform duration-500">
+                                <i data-lucide="mouse-pointer-click" class="w-10 h-10 stroke-[2.5]"></i>
+                            </div>
+                            <h3 class="text-4xl font-[1000] uppercase italic tracking-tighter text-gray-900 mb-4"
+                                data-i18n="tl_3_t">KLIKNI
+                                I KORISTI</h3>
+                            <p class="text-gray-500 font-medium text-lg leading-relaxed max-w-sm ml-auto"
+                                data-i18n="tl_3_d">
+                                Klikni na našu ikonicu bilo kada i izaberi alat koji ti treba. Sve na jedan klik. Bez
+                                reklama. Bez iskačućih obaveštenja.
+                            </p>
+                        </div>
+                        <div
+                            class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-4 h-4 bg-brand rounded-full z-10 ring-8 ring-white shadow-sm">
+                        </div>
+                        <div class="w-full md:w-1/2 md:pl-24 mt-8 md:mt-0">
+                            <span
+                                class="step-number text-9xl font-[1000] text-gray-100 italic tracking-tighter transition-all duration-700 block">03</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-10">
+            <h2 class="text-5xl md:text-7xl font-[1000] text-gray-900 tracking-tighter leading-none italic uppercase"
+                data-i18n="tm_title">
+                Utisci <br><span class="text-brand">Korisnika</span>
+            </h2>
+            <p class="mt-8 text-gray-500 text-xl font-medium max-w-2xl border-l-4 border-brand pl-6"
+                data-i18n="tm_desc">
+                Pridruži se korisnicima koji su već optimizovali svoj rad i uštedeli vreme uz All In One. Pogledaj
+                njihova iskustva i uveri se u rezultate.
+            </p>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card flex flex-col justify-between relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="relative z-10">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold italic mb-8" data-i18n="tm_1">"Sjajna ekstenzija. Pomogla
+                        mi je da povecam
+                        produktivnost"</p>
+                </div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjWAZ1JZT-C5XOFjpea7BQYnjC9soAro_sjMOAv8yF4Nt2SByl3E=s48-w48-h48"
+                        class="w-12 h-12 rounded-xl object-cover border-2 border-brand/20 group-hover:border-brand transition-colors duration-500"
+                        alt="Milan Petrovic">
+                    <div>
+                        <h4 class="font-black text-gray-900 text-sm uppercase tracking-wider">Milan Petrovic</h4>
+                        <p class="text-[10px] text-gray-400 font-black tracking-widest" data-i18n="tm_d1">2 APR 2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card flex flex-col justify-between relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="relative z-10">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold italic mb-8" data-i18n="tm_2">"Sjajna ekstenzija. Jako mi
+                        je pomogla."</p>
+                </div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocKPbvjXYGfB19ZfMilLn2zXtHa40ZxE9l3Vvga-1ceClU0Vnw=s48-w48-h48"
+                        class="w-12 h-12 rounded-xl object-cover border-2 border-brand/20 group-hover:border-brand transition-colors duration-500"
+                        alt="Benjamin Nenyahu">
+                    <div>
+                        <h4 class="font-black text-gray-900 text-sm uppercase tracking-wider">Benjamin Nenyahu</h4>
+                        <p class="text-[10px] text-gray-400 font-black tracking-widest" data-i18n="tm_d2">24 MART 2026
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card flex flex-col justify-between relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="relative z-10">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold italic mb-8" data-i18n="tm_3">"Bas korisno!!!"</p>
+                </div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjXWJ7HY5UM9SDS55cyQd7hhGeST6WVxvGy_k-dXptC3m34m4SrK=s48-w48-h48"
+                        class="w-12 h-12 rounded-xl object-cover border-2 border-brand/20 group-hover:border-brand transition-colors duration-500"
+                        alt="Simeon Kljakic">
+                    <div>
+                        <h4 class="font-black text-gray-900 text-sm uppercase tracking-wider">Simeon Kljakic</h4>
+                        <p class="text-[10px] text-gray-400 font-black tracking-widest" data-i18n="tm_d3">9 MART 2026
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card flex flex-col justify-between relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="relative z-10">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold italic mb-8" data-i18n="tm_4">"It helped me be more
+                        productive."</p>
+                </div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjXfoXQvmloep4BukcYCsj8Pr4mFYcyEXEuQljMKu4mDgHaC0D4E=s48-w48-h48"
+                        class="w-12 h-12 rounded-xl object-cover border-2 border-brand/20 group-hover:border-brand transition-colors duration-500"
+                        alt="Luka Cvetkovic">
+                    <div>
+                        <h4 class="font-black text-gray-900 text-sm uppercase tracking-wider">Luka Cvetkovic</h4>
+                        <p class="text-[10px] text-gray-400 font-black tracking-widest" data-i18n="tm_d4">7 MART 2026
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card flex flex-col justify-between relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="relative z-10">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold italic mb-8" data-i18n="tm_5">"extra"</p>
+                </div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocKnYlBuICwycaCqVZS1Q_ZBxgJWxuBKkUq3qVoJ8zb-E6Wp=s48-w48-h48"
+                        class="w-12 h-12 rounded-xl object-cover border-2 border-brand/20 group-hover:border-brand transition-colors duration-500"
+                        alt="sanel hurem">
+                    <div>
+                        <h4 class="font-black text-gray-900 text-sm uppercase tracking-wider">sanel hurem</h4>
+                        <p class="text-[10px] text-gray-400 font-black tracking-widest" data-i18n="tm_d5">7 MART 2026
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="bg-bglight p-10 rounded-[2.5rem] border border-gray-100 feature-card flex flex-col justify-between relative overflow-hidden group">
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-brand/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                </div>
+                <div class="relative z-10">
+                    <div class="flex gap-1 mb-6">
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-brand text-brand drop-shadow-[0_0_8px_#00ff88]"></i>
+                    </div>
+                    <p class="text-gray-800 text-lg font-bold italic mb-8" data-i18n="tm_6">"super"</p>
+                </div>
+                <div class="flex items-center gap-4 relative z-10">
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocItgRE9CSyiNtWAoTTFU86RWEbLkEsXCPXqox8sLfQzbQKGtA=s48-w48-h48"
+                        class="w-12 h-12 rounded-xl object-cover border-2 border-brand/20 group-hover:border-brand transition-colors duration-500"
+                        alt="Editox Editi">
+                    <div>
+                        <h4 class="font-black text-gray-900 text-sm uppercase tracking-wider">Editox Editi</h4>
+                        <p class="text-[10px] text-gray-400 font-black tracking-widest" data-i18n="tm_d6">7 MART 2026
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-16 flex justify-center">
+            <a href="https://chromewebstore.google.com/detail/all-in-one/hmkcbieabcldlndhjeemggokhlebjoem/reviews"
+                class="group relative px-10 py-5 bg-brand rounded-2xl transition-all duration-300 hover:shadow-[0_0_30px_#00ff88] hover:scale-[1.02] active:scale-95 flex items-center justify-center">
+                <div class="flex items-center gap-3 relative z-10">
+                    <i data-lucide="pen-tool" class="w-6 h-6 text-gray-900 fill-gray-900/10"></i>
+
+                    <span class="text-gray-900 text-xl font-[1000] italic uppercase tracking-tighter"
+                        data-i18n="tm_btn">
+                        Ostavi svoju ocenu
+                    </span>
+                </div>
+
+                <div
+                    class="absolute inset-0 rounded-2xl border-2 border-white/20 group-hover:border-white/40 transition-colors">
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div
+                class="bg-gray-900 rounded-[4rem] p-12 md:p-20 relative overflow-hidden border border-brand/20 shadow-2xl text-center">
+                <div class="absolute -top-20 -left-20 w-64 h-64 bg-brand/10 blur-[100px] rounded-full"></div>
+                <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-brand/10 blur-[100px] rounded-full"></div>
+
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <h2 class="text-5xl md:text-7xl font-[1000] text-white tracking-tighter italic uppercase leading-[0.9] mb-8"
+                        data-i18n="cta_title">
+                        Vreme je da radiš <br><span class="text-brand">Pametnije.</span>
+                    </h2>
+                    <p class="text-xl text-gray-400 mb-12 font-medium" data-i18n="cta_desc">
+                        Pridruži se korisnicima koji već štede sate svakog meseca. <br> All In One je potpuno besplatan
+                        alat koji se stalno unapređuje.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem"
+                            class="w-full sm:w-auto bg-brand text-black font-[1000] py-6 px-12 rounded-2xl text-2xl hover:bg-green-400 hover:scale-105 active:scale-95 transition-all shadow-[0_20px_50px_rgba(0,255,136,0.3)] flex items-center justify-center gap-3 uppercase italic tracking-tighter"
+                            target="_blank">
+                            <i data-lucide="download" class="w-8 h-8 stroke-[3]"></i> <span data-i18n="cta_btn">Dodaj
+                                Besplatno</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-10 flex items-center justify-center gap-6 text-gray-500">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-brand"></i>
+                            <span class="text-[10px] font-black uppercase tracking-widest" data-i18n="cta_tag1">Bez
+                                registracije</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-brand"></i>
+                            <span class="text-[10px] font-black uppercase tracking-widest" data-i18n="cta_tag2">100%
+                                Privatno</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12 md:gap-16">
+
+                <div class="flex flex-col items-center group cursor-default">
+                    <div
+                        class="relative w-28 h-28 mb-8 flex items-center justify-center bg-bglight rounded-[2.5rem] border border-gray-100 group-hover:border-brand/40 group-hover:bg-brand/5 transition-all duration-500 group-hover:-translate-y-2 shadow-sm group-hover:shadow-xl overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <i data-lucide="shield-check"
+                            class="w-12 h-12 text-brand relative z-10 drop-shadow-[0_0_10px_rgba(0,255,136,0.2)] group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <h4 class="font-[1000] text-2xl text-gray-900 tracking-tighter italic uppercase mb-2 group-hover:text-brand transition-colors duration-500"
+                        data-i18n="fb_1_t">
+                        Sigurnost</h4>
+                    <div class="h-0.5 w-8 bg-brand/30 mb-3 group-hover:w-16 transition-all duration-500"></div>
+                    <p class="text-gray-400 text-[10px] font-black uppercase tracking-[0.4em]" data-i18n="fb_1_d">
+                        Enkriptovan kod</p>
+                </div>
+
+                <div class="flex flex-col items-center group cursor-default">
+                    <div
+                        class="relative w-28 h-28 mb-8 flex items-center justify-center bg-bglight rounded-[2.5rem] border border-gray-100 group-hover:border-brand/40 group-hover:bg-brand/5 transition-all duration-500 group-hover:-translate-y-2 shadow-sm group-hover:shadow-xl overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <i data-lucide="zap"
+                            class="w-12 h-12 text-brand relative z-10 drop-shadow-[0_0_10px_rgba(0,255,136,0.2)] group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <h4 class="font-[1000] text-2xl text-gray-900 tracking-tighter italic uppercase mb-2 group-hover:text-brand transition-colors duration-500"
+                        data-i18n="fb_2_t">
+                        Brzina</h4>
+                    <div class="h-0.5 w-8 bg-brand/30 mb-3 group-hover:w-16 transition-all duration-500"></div>
+                    <p class="text-gray-400 text-[10px] font-black uppercase tracking-[0.4em]" data-i18n="fb_2_d">
+                        Instant odziv</p>
+                </div>
+
+                <div class="flex flex-col items-center group cursor-default">
+                    <div
+                        class="relative w-28 h-28 mb-8 flex items-center justify-center bg-bglight rounded-[2.5rem] border border-gray-100 group-hover:border-brand/40 group-hover:bg-brand/5 transition-all duration-500 group-hover:-translate-y-2 shadow-sm group-hover:shadow-xl overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <i data-lucide="award"
+                            class="w-12 h-12 text-brand relative z-10 drop-shadow-[0_0_10px_rgba(0,255,136,0.2)] group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <h4 class="font-[1000] text-2xl text-gray-900 tracking-tighter italic uppercase mb-2 group-hover:text-brand transition-colors duration-500"
+                        data-i18n="fb_3_t">
+                        Kvalitet</h4>
+                    <div class="h-0.5 w-8 bg-brand/30 mb-3 group-hover:w-16 transition-all duration-500"></div>
+                    <p class="text-gray-400 text-[10px] font-black uppercase tracking-[0.4em]" data-i18n="fb_3_d">
+                        Vrhunska izrada</p>
+                </div>
+
+                <div class="flex flex-col items-center group cursor-default">
+                    <div
+                        class="relative w-28 h-28 mb-8 flex items-center justify-center bg-bglight rounded-[2.5rem] border border-gray-100 group-hover:border-brand/40 group-hover:bg-brand/5 transition-all duration-500 group-hover:-translate-y-2 shadow-sm group-hover:shadow-xl overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-brand/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                        </div>
+                        <i data-lucide="users"
+                            class="w-12 h-12 text-brand relative z-10 drop-shadow-[0_0_10px_rgba(0,255,136,0.2)] group-hover:scale-110 transition-transform duration-500"></i>
+                    </div>
+                    <h4 class="font-[1000] text-2xl text-gray-900 tracking-tighter italic uppercase mb-2 group-hover:text-brand transition-colors duration-500"
+                        data-i18n="fb_4_t">
+                        Zajednica</h4>
+                    <div class="h-0.5 w-8 bg-brand/30 mb-3 group-hover:w-16 transition-all duration-500"></div>
+                    <p class="text-gray-400 text-[10px] font-black uppercase tracking-[0.4em]" data-i18n="fb_4_d">Izbor
+                        stručnjaka</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="relative bg-white/60 backdrop-blur-2xl border-t border-gray-100 py-16 overflow-hidden">
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-brand to-transparent opacity-30">
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+
+            <div class="flex items-center gap-4 group cursor-pointer">
+                <div class="grid grid-cols-2 gap-1 w-10 h-10 transition-transform duration-500 group-hover:rotate-12">
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                </div>
+
+                <a href="index.html">
+                    <span class="font-black text-4xl text-brand uppercase">All In One</span>
+                </a>
+            </div>
+
+            <div
+                class="text-gray-500 text-sm font-medium text-center md:text-left bg-gray-50/80 px-6 py-2.5 rounded-full border border-gray-100 shadow-sm">
+                &copy; 2026
+                <a href="https://milanwebportal.com" target="_blank"
+                    class="text-brand transition-all font-bold relative inline-block group/link">
+                    Milan Web Portal
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all duration-300 group-hover/link:w-full"></span>
+                </a>. <span data-i18n="ft_rights">Sva prava zadržana.</span>
+            </div>
+
+            <div class="flex gap-8">
+                <a href="privacy.html"
+                    class="relative text-gray-400 hover:text-gray-900 transition-colors font-bold text-sm uppercase tracking-widest group">
+                    <span data-i18n="ft_privacy">Politika privatnosti</span>
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[2px] bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <div id="backToTop"
+        class="fixed bottom-8 right-8 z-50 w-12 h-12 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1">
+        <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="48" fill="none" stroke="#e5e7eb" stroke-width="2" />
+            <circle id="progressRing" cx="50" cy="50" r="48" fill="none" stroke="#00ff88" stroke-width="2"
+                stroke-linecap="round" />
+        </svg>
+        <i data-lucide="arrow-up" class="w-5 h-5 text-gray-800 relative z-10"></i>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="upd_page_title">All In One | Uspešno ažurirano</title>
+
+    <meta name="description"
+        content="Saznaj šta je novo u najnovijoj verziji All In One ekstenzije. Pregled novih funkcija i poboljšanja.">
+    <meta name="author" content="Milan Web Portal">
+    <meta name="theme-color" content="#f5f6f7">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.ico">
+    <link rel="stylesheet" href="input.css">
+
+    <meta property="og:title" content="All In One | Uspešno ažurirano">
+    <meta property="og:description" content="Tvoja omiljena ekstenzija je upravo postala još bolja.">
+    <meta property="og:image" content="https://allinone.milanwebportal.com/Branding/EN/1.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap">
+    </noscript>
+
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F52S6J4TZV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-F52S6J4TZV');
+    </script>
+</head>
+
+<body class="antialiased font-sans bg-bglight">
+
+    <!-- Mobile Blocker -->
+    <div id="mobile-blocker"
+        class="fixed inset-0 z-[9999] bg-bglight hidden flex-col items-center justify-center px-6 text-center">
+
+        <div class="max-w-xs flex flex-col items-center">
+            <div
+                class="w-32 h-32 flex items-center justify-center bg-white rounded-full shadow-sm border border-gray-100 mb-10 relative overflow-hidden group hover:scale-105 transition-transform duration-500 hover:shadow-brand/20">
+                <div class="absolute inset-0 bg-brand/5 rounded-full animate-ping opacity-60"></div>
+
+                <i data-lucide="monitor"
+                    class="w-16 h-16 text-brand relative z-10 drop-shadow-[0_0_10px_rgba(0,255,136,0.3)]"></i>
+            </div>
+
+            <h2 class="text-5xl font-black uppercase italic tracking-tighter text-darkpanel leading-[0.8] mb-6"
+                data-i18n="mobile_title">
+                SAMO ZA <br><span class="text-brand">DESKTOP.</span>
+            </h2>
+
+            <p class="text-gray-500 font-bold text-sm mb-10 leading-tight" data-i18n="mobile_desc">
+                Desktop browser ekstenzije ne rade na telefonu. Pošalji sebi link i instaliraj na kompu.
+            </p>
+
+            <a href="#" data-i18n-href="mobile_mailto"
+                class="flex items-center justify-center gap-3 w-full bg-brand text-darkpanel font-black py-5 rounded-2xl shadow-xl shadow-brand/20 uppercase italic text-sm transition-all hover:bg-brand/90 active:scale-95">
+                <i data-lucide="send" class="w-5 h-5 stroke-[2.5]"></i>
+                <span data-i18n="mobile_btn">POŠALJI NA MAIL</span>
+            </a>
+        </div>
+
+        <div class="absolute bottom-10 opacity-20 font-black uppercase tracking-[0.3em] text-[10px]">
+            Milan Web Portal
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-3 left-0 right-0 z-50 px-6 pointer-events-none">
+        <nav
+            class="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center bg-white/70 backdrop-blur-2xl rounded-full border border-white/40 shadow-[0_20px_40px_rgba(0,0,0,0.08)] pointer-events-auto transition-all duration-500 hover:shadow-brand/5 hover:border-brand/20 flex-wrap gap-4">
+            <div class="flex items-center gap-4 group cursor-pointer">
+                <div class="grid grid-cols-2 gap-1 w-8 h-8 transition-transform duration-500 group-hover:rotate-12">
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                </div>
+                <a href="index.html">
+                    <span class="font-black text-3xl text-brand uppercase">All In One</span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="https://chromewebstore.google.com/detail/all-in-one/hmkcbieabcldlndhjeemggokhlebjoem/reviews"
+                    class="inline-flex items-center justify-center gap-2 bg-brand text-darkpanel font-black py-3 px-8 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_25px_rgba(0,255,136,0.4)] whitespace-nowrap uppercase text-sm"
+                    target="_blank"
+                    onclick="gtag('event', 'DodajEkstenziju', {event_category: 'CTA', event_label: 'Navbar'});">
+                    <i data-lucide="star" class="w-5 h-5 stroke-[3]"></i>
+                    <span class="max-[425px]:hidden" data-i18n="upd_nav_rate">Oceni na prodavnici</span>
+                </a>
+
+                <button onclick="toggleLanguage()"
+                    class="inline-flex items-center justify-center gap-2 bg-brand text-darkpanel font-black py-3 px-5 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_25px_rgba(0,255,136,0.4)] whitespace-nowrap uppercase text-sm pointer-events-auto">
+                    <i data-lucide="languages" class="w-5 h-5 stroke-[3]"></i>
+                    <span id="lang-text">EN</span>
+                </button>
+
+                <a href="https://paypal.me/milanpetkovski1"
+                    class="inline-flex items-center justify-center gap-2 bg-brand text-darkpanel font-black py-3 px-5 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-[0_10px_25px_rgba(0,255,136,0.4)] whitespace-nowrap uppercase text-sm"
+                    target="_blank"
+                    onclick="gtag('event', 'DodajKafu', {event_category: 'CTA', event_label: 'Navbar'});">
+                    <i data-lucide="coffee" class="w-5 h-5 stroke-[3]"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-40 max-w-4xl mx-auto px-6 pb-20">
+        <!-- Hero Section -->
+        <div class="text-center mb-24 relative update-badge">
+            <div class="absolute inset-0 bg-brand/5 blur-[100px] rounded-full -z-10"></div>
+            <div
+                class="inline-flex items-center justify-center w-20 h-20 bg-darkpanel rounded-3xl mb-8 border border-brand/30 shadow-[0_0_30px_rgba(0,255,136,0.2)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    data-lucide="zap" aria-hidden="true"
+                    class="lucide lucide-zap w-10 h-10 text-brand animate-neon-zap">
+                    <path
+                        d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
+                    </path>
+                </svg>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-black leading-none text-darkpanel tracking-tighter italic uppercase mb-6"
+                data-i18n="upd_hero_title">
+                Uspešno <br><span class="text-brand">Ažurirano</span>
+            </h1>
+            <p class="text-xl text-gray-500 font-medium italic text-center mx-auto" data-i18n="upd_hero_subtitle">
+                Pogledaj šta smo novo spremili u ovoj verziji:
+            </p>
+        </div>
+
+        <!-- Updates Timeline -->
+        <div class="relative">
+            <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gray-200 -translate-x-1/2 hidden md:block">
+            </div>
+            <div id="update-container" class="space-y-12 relative">
+                <!-- Dinamički se puni preko main.js -->
+            </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="mt-32 text-center">
+            <button onclick="window.close()" class="px-12 py-5 font-black rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-2xl outline-none focus:outline-none border-none ring-0 focus:ring-0
+                    bg-darkpanel text-white 
+                    hover:bg-brand hover:text-darkpanel">
+
+                <span class="uppercase tracking-[0.2em] text-xs" data-i18n="upd_btn_close">
+                    Razumem i zatvori
+                </span>
+
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative bg-white/60 backdrop-blur-2xl border-t border-gray-100 py-16 overflow-hidden">
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-brand to-transparent opacity-30">
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10">
+
+            <div class="flex items-center gap-4 group cursor-pointer">
+                <div class="grid grid-cols-2 gap-1 w-10 h-10 transition-transform duration-500 group-hover:rotate-12">
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-tr-xl rounded-sm"></div>
+                    <div class="bg-brand w-full h-full rounded-sm"></div>
+                </div>
+
+                <a href="index.html">
+                    <span class="font-black text-4xl text-brand uppercase">All In One</span>
+                </a>
+            </div>
+
+            <div
+                class="text-gray-500 text-sm font-medium text-center md:text-left bg-gray-50/80 px-6 py-2.5 rounded-full border border-gray-100 shadow-sm">
+                &copy; 2026
+                <a href="https://milanwebportal.com" target="_blank"
+                    class="text-brand transition-all font-bold relative inline-block group/link">
+                    Milan Web Portal
+                    <span
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand transition-all duration-300 group-hover/link:w-full"></span>
+                </a>. <span data-i18n="ft_rights">Sva prava zadržana.</span>
+            </div>
+
+            <div class="flex gap-8">
+                <a href="privacy.html"
+                    class="relative text-gray-400 hover:text-gray-900 transition-colors font-bold text-sm uppercase tracking-widest group">
+                    <span data-i18n="ft_privacy">Politika privatnosti</span>
+                    <span
+                        class="absolute -bottom-2 left-0 w-0 h-[2px] bg-gray-900 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div id="backToTop"
+        class="fixed bottom-8 right-8 z-50 w-12 h-12 flex items-center justify-center cursor-pointer opacity-0 pointer-events-none transition-all duration-300 hover:-translate-y-1">
+        <svg class="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="48" fill="none" stroke="#e5e7eb" stroke-width="2" />
+            <circle id="progressRing" cx="50" cy="50" r="48" fill="none" stroke="#00ff88" stroke-width="2"
+                stroke-linecap="round" />
+        </svg>
+        <i data-lucide="arrow-up" class="w-5 h-5 text-darkpanel relative z-10"></i>
+    </div>
+
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-[#f5f6f7] text-[#1a1a24] antialiased overflow-x-hidden;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #f5f6f7;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: #00ff88;
+        border-radius: 10px;
+        border: 2px solid #f5f6f7;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: #00e67a;
+    }
+}
+
+@layer components {
+    .feature-card {
+        @apply transition-all duration-500 bg-[#f5f6f7];
+        transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .feature-card:hover {
+        @apply -translate-y-2.5 shadow-[0_30px_40px_-10px_rgba(0,255,136,0.15),0_15px_15px_-10px_rgba(0,255,136,0.05)] border-[rgba(0,255,136,0.4)];
+    }
+
+    .mini-ui {
+        @apply bg-[#18181c] rounded-[20px] p-4 h-[120px] flex items-center justify-center mb-6 relative overflow-hidden shadow-[inset_0_2px_15px_rgba(0,0,0,0.3)] border border-white/5;
+    }
+
+    .pulse-ring {
+        @apply absolute w-[50px] h-[50px] bg-[rgba(0,255,136,0.15)] rounded-full;
+        animation: pulse 2s infinite;
+    }
+
+    .glass-nav {
+        @apply bg-white/75 backdrop-blur-[16px] border border-white/30;
+    }
+
+    /* Ovde je bila greška, dodat p-10 za razmak */
+    .form-card, .content-card {
+        @apply bg-white rounded-[2rem] border border-[#e5e7eb] p-10 transition-all duration-300;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .form-card:hover, .content-card:hover {
+        @apply -translate-y-1 shadow-[0_15px_30px_-10px_rgba(0,0,0,0.05)] border-[rgba(0,255,136,0.4)];
+    }
+    .success-checkmark {
+        animation: successPop 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .success-ripple {
+        @apply absolute inset-0 bg-brand rounded-full;
+        animation: ripple 3s infinite ease-out;
+    }
+}
+
+@layer utilities {
+    @keyframes pulse {
+        0% { transform: scale(0.8); opacity: 0.8; }
+        100% { transform: scale(2.5); opacity: 0; }
+    }
+    @keyframes scroll-mega {
+        0% { transform: translateY(-110%); }
+        100% { transform: translateY(220%); }
+    }
+    @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    @keyframes slideIn {
+        0% { transform: translateY(30px); opacity: 0; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    @keyframes ping-slow {
+        0%, 100% { transform: scale(0.8); opacity: 0.6; }
+        50% { transform: scale(1.1); opacity: 0.3; }
+    }
+
+    .animate-scroll-mega { animation: scroll-mega 2.5s cubic-bezier(0.7, 0, 0.3, 1) infinite; }
+    .animate-spin-slow { animation: spin-slow 12s linear infinite; }
+    .update-badge { animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .sad-face-animation { animation: float 3s ease-in-out infinite; }
+    .animate-ping-slow { animation: ping-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+    /* Stilovi za mobile blocker */
+    @media (max-width: 1023px) {
+        #mobile-blocker {
+            display: flex !important;
+        }
+        body {
+            overflow: hidden !important;
+            touch-action: none;
+        }
+    }
+    @keyframes ripple {
+        0% {
+            transform: scale(0.8);
+            opacity: 0.5;
+        }
+        100% {
+            transform: scale(2.2);
+            opacity: 0;
+        }
+    }
+
+    @keyframes successPop {
+        0% {
+            transform: scale(0);
+            opacity: 0;
+        }
+        60% {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    @keyframes zap-neon {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.5));
+    }
+    50% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 20px rgba(0, 255, 136, 0.8));
+    }
+    }
+
+    .animate-neon-zap {
+        animation: zap-neon 2s ease-in-out infinite;
+    }
+    .brand-glow {
+        filter: drop-shadow(0 0 15px rgba(0, 255, 136, 0.3));
+    }
+}

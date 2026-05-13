@@ -1,0 +1,55 @@
+# Netlify Configuration for AIO Analytics API
+[build]
+  publish = "."
+  # Ignore HTML files from secrets scanning (they contain legitimate GA tracking)
+  environment = { SECRETS_SCAN_OMIT_PATHS = "*.html" }
+
+[functions]
+  # Netlify Functions directory
+  directory = "netlify/functions"
+
+# Redirect /api/* to /.netlify/functions/*
+[[redirects]]
+  from = "/api/track"
+  to = "/.netlify/functions/track"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/track.php"
+  to = "/.netlify/functions/track"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/health"
+  to = "/.netlify/functions/health"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/health.php"
+  to = "/.netlify/functions/health"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/index"
+  status = 200
+  force = true
+
+# Security headers for API responses
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache control for health endpoint
+[[headers]]
+  for = "/.netlify/functions/health"
+  [headers.values]
+    Cache-Control = "max-age=60"
