@@ -1,4 +1,13 @@
 import { updateData } from './updates.js';
+import { trackEvent, trackWebVitals } from './js/analytics.js';
+
+// Initialize Analytics & Performance Monitoring
+trackWebVitals();
+trackEvent('session_start', { 
+    platform: 'web',
+    version: '2026.1.5',
+    resolution: `${window.innerWidth}x${window.innerHeight}`
+});
 
 // Expose functions to window for HTML event handlers (onclick)
 window.toggleLanguage = toggleLanguage;
@@ -87,6 +96,7 @@ async function applyLanguage(lang) {
 function toggleLanguage() {
     const currentLang = localStorage.getItem("lang") || "en";
     const newLang = currentLang === "sr" ? "en" : "sr";
+    trackEvent('language_change', { from: currentLang, to: newLang });
     applyLanguage(newLang);
 }
 
@@ -378,6 +388,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             })
             .then(response => {
                 if (response.ok) {
+                    trackEvent('feedback_submitted', { status: 'success' });
                     document.getElementById('formSection')?.classList.add('hidden');
                     document.getElementById('hvalaPoruka')?.classList.remove('hidden');
                 } else throw new Error();
