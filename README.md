@@ -1,58 +1,133 @@
 <div align="center">
-  <a href="https://allinone.milanwebportal.com">
-    <img src="https://milanwebportal.com/images/Projects/website24.jpg" alt="All In One Hero" width="600" />
+  <a href="https://allinone.milanwebportal.com/">
+    <img src="https://allinone.milanwebportal.com/Branding/EN/6.png" alt="All In One Logo" width="300" />
   </a>
-  <h1>All In One - The Ultimate Browser Power-Up</h1>
-  <p>A multi-functional browser extension and modern web platform designed to supercharge your productivity.</p>
+  <h1>All In One Extension</h1>
+  <p>The ultimate tool that combines all essential features into one fast, modern, and free interface.</p>
 
   <h2>
-    <a href="https://allinone.milanwebportal.com">🌐 Explore All In One</a>
+    <a href="https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem">📥 Download Extension</a>
+    &nbsp; | &nbsp;
+    <a href="https://allinone.milanwebportal.com">🌐 Visit Official Website</a>
   </h2>
 
-  <p><b>🧩 Extension:</b> v1.5.2 (Manifest V3) | <b>🚀 Website:</b> Vite & Tailwind CSS</p>
+  <p><b>🌍 Available Globally:</b> Supported in all 55 languages provided by the Chrome Web Store!</p>
 
-  <p><b>Tech Stack:</b></p>
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind">
-  <img src="https://img.shields.io/badge/Google_Chrome-4285F4?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Extension">
+  <p><b>Supported Browsers:</b></p>
+  <img src="https://allinone.milanwebportal.com/Browser/1.png" width="35" alt="Chrome"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/2.png" width="35" alt="Edge"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/3.png" width="35" alt="Brave"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/4.png" width="35" alt="Opera"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/5.png" width="35" alt="Opera GX"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/6.png" width="35" alt="Vivaldi"> &nbsp;
+  <img src="https://allinone.milanwebportal.com/Browser/7.png" width="35" alt="Arc">
 
-  <p>Everything you need, all in one place. Productivity, YouTube tools, and more.</p>
+  <p>...and all other Chromium based browsers.</p>
+
+  <a href="https://www.producthunt.com/products/all-in-one-extension?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-all-in-one-extension" target="_blank" rel="noopener noreferrer">        <img alt="All In One Extension - Ultimate productivity and design toolkit for your browser. | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1124470&amp;theme=light&amp;t=1777113476173"></a>
 </div>
 
 <br>
 
 # ☕ The Story & Support
-Hi! I am Milan, a 19 year old student and web developer from Serbia. All In One was built as a solution to browser clutter. Instead of having 10 different extensions for small tasks, I wanted to build a single, high-performance toolkit that handles everything from YouTube enhancements to browsing data management.
+Hi! I am Milan, a 19 year old student and web developer from Serbia. I built the All In One extension to help people boost their productivity with a clean, fast, and completely free tool.
 
-I am committed to keeping my projects 100% free and open-source. If All In One makes your digital life easier and you want to support my late night coding sessions, you can buy me a coffee!
+I am committed to keeping this extension 100% free forever, with zero ads and zero popups. If this tool saves you time and you want to support my late night coding sessions, you can buy me a coffee!
 
 💖 <a href="https://paypal.me/milanpetkovski1">Support my work via PayPal</a>
 
-<br>
-
-# 🚀 Key Components
-
-### 🧩 Browser Extension (Manifest V3)
-A powerful utility suite integrated directly into your browser:
-* 📺 **YouTube Pro**: Custom content scripts for enhanced video interaction.
-* 🧹 **Data Management**: Quickly clear browsing data and manage storage.
-* ⌨️ **Smart Commands**: Hotkeys like `Alt+Shift+L` for instant actions.
-* 🔐 **Privacy First**: Secure handling of permissions and idle states.
-* 📊 **Analytics Ready**: Built-in integration for usage tracking.
-
-### 🌐 Web Platform
-A modern landing page and dashboard for the ecosystem:
-* ⚡ **Vite-Powered**: Instant loading and smooth navigation.
-* 🎨 **Tailwind UI**: Clean, responsive, and professional design.
-* 📱 **Full Responsive**: Optimized for every device and screen size.
+Every donation means a lot and helps me maintain and improve the extension. Thank you!
 
 <br>
 
-# 🛠️ Installation & Development
+# 🚀 Extension Installation
 
-### Web Project
-1. Navigate to the Website directory:
+**Option 1: Official Store (Recommended)**
+
+*The fastest way to always have the latest version.*
+
+1. Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem) page
+2. Click the Add to Chrome button
+3. Confirm the installation in the popup window
+4. The extension is immediately ready to use
+
+<br>
+
+**Option 2: Manual Installation (Developer mode)**
+
+*For users who want to install the extension directly via source code.*
+
+1. Go to the [Releases](https://github.com/milan-petkovski/All-in-one-extension/releases) section of this repository
+2. Download the latest published All.In.One.zip file
+3. Extract the archive into a separate folder on your computer
+4. Open your browser and navigate to chrome://extensions/
+5. Enable Developer mode in the top right corner
+6. Click the Load unpacked button
+7. Select the folder you previously extracted
+8. The extension is immediately ready to use
+
+<br>
+
+# 🛠️ Features and Tools
+
+* 📻 **Radio IN**: Listen to the radio directly from the extension
+* 🔊 **Volume 1000%**: Boost the volume up to maximum on any tab
+* 🎨 **Color Picker**: Eyedropper tool to quickly grab HEX color codes
+* 🌙 **Dark Mode**: Force dark theme on all websites
+* 📏 **Page Ruler**: Precisely measure elements in pixels
+* 🔓 **Enable Copy**: Unlock blocked right clicks and text selection
+* 🖍️ **Page Marker**: Draw and write directly on the screen
+* ⚙️ **Site Technologies**: Detailed insight into the structure of the current site
+* 🍪 **Cookies and Cache**: Quickly clear data for the current site
+* 🔠 **Font Finder**: Identify fonts used on the page
+* 🔢 **Character Counter**: Check text length and SEO statistics
+* ⏱️ **Stopwatch**: Record timestamps for easier video editing
+* 📝 **Smart Notes**: Advanced note taking with math support
+* ⏳ **Webtime Tracker**: Analyze time spent on websites
+* 👎 **Return YT Dislike**: Bring back the dislike counter on YouTube
+
+<br>
+
+# 🌐 Web Platform
+
+<div align="center">
+  <img src="https://milanwebportal.com/images/Projects/website2.jpg" width="600px" alt="All In One Web Platform" />
+</div>
+
+<br>
+
+The All In One ecosystem includes a high-performance web platform that serves as the central hub for onboarding and documentation.
+
+* ⚡ **Vite-Powered**: Ultra-fast loading and smooth SPA-like navigation.
+* 🎨 **Tailwind CSS**: Clean, modern, and professional UI built with utility-first styling.
+* 📱 **Mobile Optimized**: Fully responsive design with specific onboarding flows for mobile vs. desktop users.
+* 🔍 **SEO Ready**: Proper semantic structure and meta tags for maximum visibility.
+
+### 🎯 Case Study: The Website
+*   **The Problem**: Users often struggle to understand the value of multi-tool extensions. A simple store listing isn't enough to showcase 15+ features.
+*   **The Rešenje**: A dedicated platform that segments features by user profile (Creators, Developers, Power Users) and provides clear, 3-step installation guides.
+*   **The Result**: Higher conversion rates and better user retention through clear value proposition and feature demonstrations.
+
+<br>
+
+# 🚀 Installation & Development
+
+### 🧩 Extension: Official Store (Recommended)
+1. Visit the [Chrome Web Store](https://chromewebstore.google.com/detail/hmkcbieabcldlndhjeemggokhlebjoem) page
+2. Click the **Add to Chrome** button
+3. Confirm the installation in the popup window
+4. The extension is immediately ready to use
+
+### 🛠️ Extension: Manual (Developer Mode)
+1. Go to the [Releases](https://github.com/milan-petkovski/All-in-one-extension/releases) section of this repository
+2. Download the latest `All.In.One.zip` file
+3. Extract the archive into a separate folder
+4. Open your browser and navigate to `chrome://extensions/`
+5. Enable **Developer mode** in the top right corner
+6. Click **Load unpacked** and select the folder you extracted
+
+### 💻 Web Project: Local Setup
+1. Navigate to the `Website` directory:
    ```bash
    cd Website
    ```
@@ -60,16 +135,19 @@ A modern landing page and dashboard for the ecosystem:
    ```bash
    npm install
    ```
-3. Run dev server:
+3. Start the development server:
    ```bash
    npm run dev
    ```
 
-### Extension Project
-1. Open Chrome and go to `chrome://extensions/`
-2. Enable "Developer mode" (top right)
-3. Click "Load unpacked"
-4. Select the `Extension` folder from this repository
+<br>
+
+# 🤝 Contributing & Translations
+We welcome contributions from the community to make this extension even better!
+
+**Translations**: Since the extension supports 55 languages, you can help by improving existing translations or adding better context in the `_locales` folder.
+
+**Bug Fixes & Features**: Feel free to fork the repository, make your changes, and submit a Pull Request.
 
 <br>
 
@@ -78,9 +156,33 @@ A modern landing page and dashboard for the ecosystem:
 <table align="center" width="100%">
     <tr>
       <td align="center" colspan="2" width="100%">
-        <img src="https://milanwebportal.com/images/Projects/website24.jpg" alt="All In One UI" />
+        <img src="https://allinone.milanwebportal.com/Branding/EN/1.png" alt="Main Menu" />
         <br />
-        <b>Clean Dashboard & Powerful Extension Hub</b>
+        <b>Main Extension Menu</b>
+      </td>
+    </tr>
+    <tr>      
+      <td align="center" width="50%">
+        <img src="https://allinone.milanwebportal.com/Branding/EN/2.png" alt="Stopwatch for Clipping" />
+        <br />
+        <b>Stopwatch (Clipping Tool)</b>
+      </td>      
+      <td align="center" width="50%">
+        <img src="https://allinone.milanwebportal.com/Branding/EN/3.png" alt="Webtime Tracker" />
+        <br />
+        <b>Webtime Tracker</b>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="50%">
+        <img src="https://allinone.milanwebportal.com/Branding/EN/4.png" alt="Character Counter" />
+        <br />
+        <b>Character Counter</b>
+      </td>
+      <td align="center" width="50%">
+        <img src="https://allinone.milanwebportal.com/Branding/EN/5.png" alt="Smart Notes" />
+        <br />
+        <b>Smart Notes</b>
       </td>
     </tr>
 </table>
@@ -88,11 +190,11 @@ A modern landing page and dashboard for the ecosystem:
 <br>
 
 # 📬 Contact
-Official Project Website: <a href="https://allinone.milanwebportal.com">allinone.milanwebportal.com</a>
+Official Extension Website: <a href="https://allinone.milanwebportal.com/">allinone.milanwebportal.com</a>
 
 Project Author: Milan Petkovski (Milan Web Portal)
 
-Author's Website: <a href="https://milanwebportal.com">milanwebportal.com</a>
+Author's Website: <a href="https://milanwebportal.com/">milanwebportal.com</a>
 
 Contact Email: contact@milanwebportal.com
 
